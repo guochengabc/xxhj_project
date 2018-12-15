@@ -43,6 +43,7 @@ android {
         }
 
     }
+    dexOptions { javaMaxHeapSize "3g" }
     lintOptions {//忽略一些错误
         abortOnError false
         checkReleaseBuilds false

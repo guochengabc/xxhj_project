@@ -122,7 +122,7 @@ public class MainActivity extends BaseActivity<MainPresenter, MainView> implemen
 
     @Override
     protected void initData() {
-ToastUtils.showToast(this,"提交git成功了么");
+
     }
 
     @Override

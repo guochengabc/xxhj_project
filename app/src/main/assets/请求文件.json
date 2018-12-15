@@ -1,0 +1,35 @@
+{
+  "para": {
+    "method": "PostEntryData",
+    "reqobj": {
+      "sensorId": "bf656ea898764157845b564d4133f1e0",
+      "image": "二进制文件",
+      "electricity": [
+        {
+          "code": "ConsTotal",
+          "name": "123"
+        },
+        {
+          "code": "ThisMonth",
+          "name": "123"
+        },
+        {
+          "code": "LastMonth",
+          "name": "123"
+        },
+        {
+          "code": "Percentage",
+          "name": "123"
+        },
+        {
+          "code": "Status",
+          "name": "0"
+        },
+        {
+          "code": "image",
+          "name": "binary"
+        }
+      ]
+    }
+  }
+}

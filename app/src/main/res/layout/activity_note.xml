@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.activites.NoteActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        style="@style/title_style">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/title_content"
+            android:text="便签" />
+
+        <TextView
+            android:id="@+id/txt_send"
+            style="@style/title_right"
+            android:text="@string/worksend" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/whitesmoke">
+
+        <EditText
+            android:id="@+id/edt_describe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_et_bg"
+            android:hint="点击输入文字"
+            android:padding="15dp"
+            android:textColorHint="@color/work_describecolor"
+            android:textSize="@dimen/work_describe_info" />
+
+        <ImageView
+            android:id="@+id/img_small"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:layout_below="@+id/edt_describe"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:id="@+id/img_small_right"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/edt_describe"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:src="@mipmap/add"
+            android:background="@drawable/select_imageloader"
+            android:layout_margin="10dp"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="@color/work_note"></View>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/txt_describe_people"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/a666666"
+            android:layout_marginTop="5dp"
+            android:text="接收人"/>
+        <ImageView
+            android:id="@+id/img_add_peole"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:padding="10dp"
+            android:src="@mipmap/add"
+            android:background="@drawable/select_imageloader"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/a01"
+            android:background="@color/a999999"
+            android:layout_marginTop="6dp"
+            android:layout_below="@id/img_add_peole"></View>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_addpeople"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="10dp"></ListView>
+</LinearLayout>

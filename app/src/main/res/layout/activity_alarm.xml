@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.activites.AlarmActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        style="@style/title_style"
+        android:layout_width="match_parent">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/title_center"
+            android:text="报警" />
+
+        <ImageView
+            android:id="@+id/iv_setting"
+            style="@style/title_right"
+            android:src="@mipmap/friend_details_more"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.kongtiaoapp.xxhj.ui.refreshui.SpringView
+            android:id="@+id/springView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/ffffff"></ListView>
+        </com.kongtiaoapp.xxhj.ui.refreshui.SpringView>
+
+        <TextView
+            android:id="@+id/txt_nodata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/no_data"
+            android:textColor="@color/theme_color"
+            android:visibility="gone" />
+
+    </FrameLayout>
+</LinearLayout>

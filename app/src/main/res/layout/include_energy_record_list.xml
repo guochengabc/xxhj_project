@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <com.kongtiaoapp.xxhj.utils.MyTablayout
+        android:id="@+id/mtl_recordForm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/me_item_height"></com.kongtiaoapp.xxhj.utils.MyTablayout>
+
+    <com.kongtiaoapp.xxhj.ui.view.DefinationViewpager
+        android:id="@+id/dvp_recordForm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.kongtiaoapp.xxhj.ui.view.DefinationViewpager>
+</LinearLayout>

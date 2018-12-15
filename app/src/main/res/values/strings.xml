@@ -1,0 +1,458 @@
+<resources>
+    <string name="app_name">慧运维</string>
+    <!--title名称-->
+    <string name="please_net_work">哎呦断网了,请重新连接!!!</string>
+    <string name="title_about">关于我们</string>
+    <string name="developing">开发中,敬请期待。。。</string>
+    <string name="title_system">系统</string>
+    <string name="title_save">保存</string>
+    <string name="title_sure">确定</string>
+    <string name="title_duty_detail">值班详情</string>
+    <string name="title_dinfo">设备信息</string>
+
+    <string name="title_weibo">维保记录</string>
+    <string name="title_modify_company">修改单位名称</string>
+    <string name="title_modify_school">修改毕业院校</string>
+    <string name="title_modify_name">修改昵称</string>
+    <string name="title_param_enter">参数录入</string>
+    <string name="title_device_list">设备信息列表</string>
+    <string name="title_my_show">我的展会</string>
+    <string name="title_energy_show">节能展会</string>
+    <string name="title_my_publish">我的发布</string>
+    <string name="title_my_train">我的培训</string>
+    <string name="title_feedback">意见反馈</string>
+    <string name="title_commit">提交</string>
+    <string name="title_forgetpwd">忘记密码</string>
+    <string name="title_finish">完成</string>
+    <string name="title_friendmsg">好友消息</string>
+    <string name="title_project_detail">暖通详情</string>
+    <string name="title_bpd">变配电</string>
+    <string name="title_project_introduce">集团项目概况</string>
+    <string name="title_history_record">历史记录</string>
+    <string name="title_hotmen">热门</string>
+    <string name="title_invite">邀请码</string>
+    <string name="title_modifypwd">修改密码</string>
+    <string name="title_detail">详情</string>
+    <string name="title_message_detail">留言详情</string>
+    <string name="title_friend_detail">好友详情</string>
+    <string name="title_my_friend">我的好友</string>
+    <string name="title_my_favorite">我的收藏</string>
+    <string name="title_design_diag">设计诊断</string>
+    <string name="title_person_info">个人资料</string>
+    <string name="title_project_info">项目信息</string>
+    <string name="title_send">发送</string>
+    <string name="title_send_state">发布动态</string>
+    <string name="title_send_card">发帖</string>
+    <string name="title_record">记录</string>
+    <string name="title_device_lista">设备列表</string>
+    <string name="title_running_evaluate">运行评价</string>
+    <string name="title_running_record">运行记录</string>
+    <string name="title_record_info">记录信息</string>
+    <string name="title_setting">设置</string>
+    <string name="title_appdown">二维码扫描</string>
+    <string name="title_choose">选择</string>
+    <string name="title_choose_user_list">选择用户列表</string>
+    <string name="title_weibao_record">维保记录</string>
+    <string name="app_introduct">app说明</string>
+    <!--运行评价-->
+    <string name="overallEvaluate">运行评价</string>
+    <!--注册模块-->
+    <string name="register">注册</string>
+    <string name="company_instruction">*每个企业只需注册一次,注册人即是管理员</string>
+    <string name="group_instruction">*每个集团只需注册一次,注册人即是管理员</string>
+    <string name="personal_instruction">*员工可凭公司的邀请码注册，邀请码默认是管理员手机号</string>
+    <string name="company_number">企业账户</string>
+    <string name="personal_number">个人账户</string>
+    <string name="group_name">集团名称</string>
+    <string name="company_name">企业名称</string>
+    <string name="invate_number">邀请码</string>
+    <string name="user_name">用户名</string>
+    <string name="pass_word">密码</string>
+    <string name="sure_password">确认密码</string>
+    <string name="identifying_code">验证码</string>
+    <string name="get_identifying_code">获取验证码</string>
+    <string name="phone">手机号</string>n
+    <string name="phone_error">手机格式不正确</string>
+    <string name="pl_phone">请输入手机号</string>
+    <string name="pl_group_number">请输入集团名称</string>
+    <string name="pl_company_number">请输入企业名称</string>
+    <string name="pl_real_name">请输入真实姓名</string>
+    <string name="pl_password">请输入密码</string>
+    <string name="pl_invate_code">请输入邀请码</string>
+    <string name="pl_invate_code_group">请输入集团邀请码(选填)</string>
+    <string name="pl_sure_password">请输入确认密码</string>
+    <string name="pl_identifying_code">请输入验证码</string>
+    <string name="found_group_number">创建集团账户</string>
+    <string name="found_company_number">创建企业账户</string>
+    <string name="found_pesonal_number">创建个人账户</string>
+    <string name="read_agree">我已阅读并同意</string>
+    <string name="register_protocol">注册协议</string>
+    <string name="register_start_english">第一位必须是英文字母</string>
+    <string name="modify_pwd_success">密码修改成功</string>
+    <string name="pwd_atlast_six">密码长度至少6位</string>
+    <string name="register_succeed">注册成功</string>
+    <string name="register_identify_succeed">验证码已发送</string>
+
+    <string name="login">登录</string>
+    <string name="login_again">登录失效,请重新登录</string>
+    <!--vooley框架封装-->
+    <string name="param_fail">参数错误</string>
+    <string name="centeridentify_error">证书错误</string>
+    <string name="execute_error">执行失败</string>
+    <string name="getToken_error">获取token失败</string>
+    <string name="user_noExist">用户不存在</string>
+    <string name="user_exist">已经存在</string>
+    <string name="param_null">参数为空</string>
+    <!--邀请码-->
+    <string name="invite_password">请输入密码</string>
+    <!--提示信息-->
+    <string name="no_net">无可用网络</string>
+    <string name="json_exception">解析数据异常</string>
+    <string name="error_net">网络异常加载失败</string>
+    <string name="server_throw">服务器异常</string>
+    <string name="no_data">暂无数据</string>
+    <string name="pie_no_data">饼图暂无数据</string>
+    <string name="paint_error">表格异常，请稍后尝试！</string>
+    <string name="all_load">已加载全部数据</string>
+    <string name="action_settings">Settings</string>
+    <string name="all_images">全部图片</string>
+    <string name="folder_image_count">共%1$d张</string>
+    <string name="preview_image_count">%1$s/%2$s</string>
+    <string name="select_limit">最多选择%1$s张图片</string>
+    <string name="complete">完成</string>
+    <string name="select_complete">完成(%1$s/%2$s)</string>
+    <string name="preview_count">预览(%1$s)</string>
+    <string name="photo_crop">图片裁剪</string>
+    <string name="origin">原图</string>
+    <string name="origin_size">原图(%1$s)</string>
+    <string name="sure">确定</string>
+    <string name="canel">取消</string>
+    <string name="net_wifi">请在wifi下获取最新版本</string>
+    <string name="save_success">保存成功</string>
+    <string name="save_error">保存失败，请重试</string>
+    <string name="no_empty">不能为空</string>
+    <string name="delete_succeed">删除成功</string>
+    <string name="loading_fail">加载失败</string>
+    <string name="quit_again">再按一次退出程序</string>
+    <!--版本下载-->
+    <string name="download_failure">下载新版本失败</string>
+    <string name="no_sdcard">sd卡不可用,无法自动更新</string>
+    <!--已经是最新版本-->
+    <string name="newest_version">newest</string>
+    <string name="network_anomaly">网络异常</string>
+    <string name="network_timeout">网络超时</string>
+    <string name="json_anomaly">JSON解析异常</string>
+    <string name="please_checkout_network">请检查网络设置</string>
+    <string name="summer"> 夏季</string>
+    <string name="winter"> 冬季</string>
+
+    <!--时间选择器-->
+    <string name="pickerview_cancel">取消</string>
+    <string name="pickerview_submit">确定</string>
+    <string name="pickerview_year">年</string>
+    <string name="pickerview_month">月</string>
+    <string name="pickerview_day">日</string>
+    <string name="pickerview_hours">时</string>
+    <string name="pickerview_minutes">分</string>
+    <string name="pickerview_seconds">秒</string>
+    <!--绘图是当天还是当月-->
+    <string name="ismonth">日(d)</string>
+    <string name="isday">小时(h)</string>
+    <!--节能圈顶部tabs-->
+    <string name="loading_running_lengji"> 冷机运行负载率%</string>
+    <string name="loading_design_lengji"> 冷机设计负载率%</string>
+    <string name="rela_danwei_fuhe"> 实际单位负荷(w/㎡)</string>
+    <string name="loading_power">功率负荷率</string>
+    <string name="loading_rate">频率</string>
+    <string name="loading_factor">负载率</string>
+    <string name="wet_bulb_temp">湿球温度</string>
+    <!--管理权限-->
+    <string name="alert_dialog_ok">确定</string>
+    <string name="alert_dialog_cancel">取消</string>
+    <string name="hint_description_title">允许读取相关权限?</string>
+    <string name="hint_description_why_we_need_the_permission">为了更好的运行程序请您允许同意相关权限?</string>
+    <!--设备能耗运行图-->
+    <string name="enegry_coolsite_total">冷站总能耗</string>
+    <string name="enegry_optimization">优化后能耗</string>
+    <string name="enegry_cooltower_total">冷却塔能耗</string>
+    <string name="enegry_coolpump_total">冷却泵能耗</string>
+    <string name="enegry_refrigerator_total">冷机总能耗</string>
+    <string name="enegry_freezing_total">冷冻泵能耗</string>
+    <string-array name="tab_energy">
+        <item>动态</item>
+        <item>社区</item>
+    </string-array>
+    <!--资讯栏目-->
+    <string name="enegry_comment_no_null">评论内容不能为空</string>
+    <string name="enegry_cancel_favorite">取消收藏</string>
+    <string name="enegry_favorite_succeed">收藏成功</string>
+    <string name="enegry_favorite_fail">收藏失败</string>
+    <string name="enegry_data_succeed">数据获取正常</string>
+    <string name="enegry_no_comment">暂无评论</string>
+    <string name="enegry_get_comments_error">获取评论列表失败</string>
+    <string name="enegry_comments_succeed">评论成功</string>
+    <string name="enegry_comments_error">评论失败</string>
+    <string name="enegry_delete_succeed">删除成功</string>
+    <string name="enegry_delete_fail">删除失败</string>
+    <string name="enegry_publish_succeesd">发布成功</string>
+    <string name="enegry_publish_fail">发布失败</string>
+    <!--节能吧详情tabs-->
+    <string-array name="tab_energy8">
+        <item>精选</item>
+        <item>专栏</item>
+        <item>讨论</item>
+    </string-array>
+    <!--我的收藏顶部tabs-->
+    <string-array name="tab_my_favorite">
+        <item>动态</item>
+        <item>资讯</item>
+    </string-array>
+    <!--我的发布顶部tabs-->
+    <string-array name="tab_my_publish">
+        <item>动态</item>
+        <item>帖子</item>
+    </string-array>
+    <!--运行设备监控运行图-->
+    <string name="report_enviroment">环境参数</string>
+    <string name="report_winter">冬季</string>
+    <string name="report_summer">夏季</string>
+
+    <!--每日报告-->
+    <string name="report_enegry">能耗</string>
+    <string name="runnig_rate">运行效率</string>
+    <string name="oppo_yesterday">对比昨日</string>
+    <string name="enegry_ranking">能耗排名</string>
+    <string name="enegry_function_unopen">该功能暂未开放</string>
+
+    <!--运行记录-->
+    <string name="running_recorder">记录人</string>
+    <string name="running_recorder_null">您还没有给表格录入数据哟!</string>
+    <string name="running_please">- -请选择- -</string>
+    <string name="running_time">开始时间</string>
+    <string name="running_endtime">结束时间</string>
+    <string name="running_two">至</string>
+    <string name="project_name">项目名称:</string>
+    <string name="project_module">导出模板:</string>
+    <string name="project_select">- -请选择时间- -</string>
+    <string name="project_select_project">- -请选择项目- -</string>
+    <string name="project_no_project">- -暂无项目名称- -</string>
+    <string name="project_no_module">- -暂无项目模板- -</string>
+    <string name="project_select_project_module">- -请选择项目模板- -</string>
+    <string name="project_moduleName">暂无列表模板</string>
+    <string name="report_original_data">导出数据</string>
+    <string name="find_document">查看文件</string>
+    <string name="download_notige">使用须知</string>
+    <string name="download_notige_1">1.下载表格过程中请勿退出当前界面</string>
+    <string name="download_notige_2">2.当选择开始时间、结束时间、项目名称时,才可点导出历史输出数据</string>
+    <string name="download_notige_3">3.当历史输出数据提示下载成功后,进入文件管理,找到"00a_XiaoXiDownloads"文件夹即可</string>
+    <!--运行信息-->
+    <string name="no_prejext">当前无选中项目</string>
+    <!--运行建议-->
+    <string name="running_suggestion">运行建议</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--app更新-->
+    <string name="insert_card">插入卡</string>
+    <string name="down_fail">下载失败</string>
+    <string name="is_downing">正在下载</string>
+    <string name="down_sucess">下载成功</string>
+    <!--修改密码-->
+    <string name="original_pwd">当前密码</string>
+    <string name="new_pwd">新密码</string>
+    <string name="second_new_pwd">再次输入新密码</string>
+    <!--手工录入参数-->
+    <string name="save_auto_manaul">保存</string>
+    <string name="no_params">暂时没有相关参数可录入</string>
+    <string name="enter_params">录入参数</string>
+    <string name="txt_last_step">上一步</string>
+    <string name="txt_next_step">下一步</string>
+    <string name="txt_commit_step">提交</string>
+    <!--手动拖拽listview设置相关参数-->
+    <string name="txt_setting_font_normal">小</string>
+    <string name="txt_setting_font_mod">中</string>
+    <string name="txt_setting_font_big">大</string>
+
+    <string name="txt_setting_draw">修改排序</string>
+    <string name="save_draw">保存排序</string>
+    <string name="drag_success">排序成功</string>
+    <string name="quit_reset_interface"> 退出界面重新进入,排序效果生效</string>
+    <!--维保-->
+    <string name="weibao_add_succeed">添加成功</string>
+    <string name="weibao_choose_device">请选择设备</string>
+    <string name="weibao_require_person">请输入维修人员</string>
+    <string name="weibao_require_time">请输入维修时间</string>
+    <string name="weibao_require_result">请输入维修结果</string>
+    <string name="weibao_duty_person">请输入值班人员</string>
+    <!--查询记录-->
+    <string name="select_result">查询结果</string>
+    <string name="running_record">运行记录</string>
+    <!--集团用户首页-->
+
+    <string name="group_running_main">首页</string>
+    <string name="project_detail_name">项目名称</string>
+    <string name="project_type">项目类型</string>
+    <string name="project_architecture_type">建筑类型</string>
+    <string name="project_city">城市  </string>
+    <string name="project_heatingArea">供暖面积</string>
+    <string name="project_coolingArea">制冷面积</string>
+    <string name="project_duty_person">值班人员</string>
+    <string name="project_connect_tel">联系电话</string>
+    <!--项目详情页-->
+    <string name="comments_content_no_null">评论内容不能为空</string>
+    <string name="comments_succeed">评论成功</string>
+    <string name="comments_error">评论失败</string>
+    <!--系统或者设备运行记录-->
+    <string name="running_device_record">设备记录</string>
+    <string name="running_sys_record">系统记录</string>
+    <!--值班信息-->
+    <string name="jiaoban_name_first">交班负责人:</string>
+    <string name="jiaoban_succedd">交班成功</string>
+    <string name="jieban_succedd">接班成功</string>
+    <string name="jiaoban_name">交班成员:</string>
+    <string name="jiaoban_status">交班状态:</string>
+    <string name="jieban_status">接班状态:</string>
+    <string name="jieban_name_first">接班负责人:</string>
+    <string name="jieban_name">接班成员:</string>
+    <string name="please_jiaoban_name">请输入交班成员</string>
+    <string name="please_jieban_name">请输入接班成员</string>
+    <string name="commit_record">交接班记录</string>
+    <string name="commit_finish">已经完成</string>
+    <string name="cancel_takeWork">取消接班成功</string>
+    <string name="takeWork_succedd">接班成功</string>
+    <string name="duty_jieban_first">请选择接班负责人</string>
+    <string name="duty_jiaoban_time">请选择交班时间</string>
+    <string name="duty_work_content">请输入工作内容</string>
+    <string name="duty_work_important_content">请输入值班重点工作内容</string>
+    <string name="duty_leader_content">请输入领导交办内容</string>
+    <!---->
+    <!--单位信息-->
+    <string name="company_notnull">单位不能为空</string>
+    <!--单位信息-->
+    <string name="person_over_limit">您输入的字数已经超过了限制！</string>
+    <!--昵称信息-->
+    <string name="name_notnull">昵称不能为空</string>
+    <!--学校信息-->
+    <string name="school_notnull">学校不能为空</string>
+    <!--反馈-->
+    <string name="please_contact">请填写联系方式</string>
+    <string name="please_feedback_shoulder">请填写反馈意见</string>
+    <!--忘记密码-->
+    <string name="please_phone">请输入手机号码</string>
+    <string name="phone_error_reset">手机号码格式不正确，请确认后输入</string>
+    <string name="please_identify_code">请输入验证码</string>
+    <string name="phone_password">请输入密码</string>
+    <!--好友消息-->
+    <string name="content_no_null">回复内容不能空</string>
+    <!--个人中心 项目信息详情页-->
+    <string name="please_project_type">请选择项目类型</string>
+    <string name="project_name_no_null"> 项目名称不能为空</string>
+    <string name="project_type_no_null">项目类型不能为空</string>
+    <string name="project_city_no_null">城市不能为空</string>
+    <string name="project_buildtype_no_null">建筑物类型不能为空</string>
+    <string name="please_start_time">请选择开始时间</string>
+    <string name="please_end_time">请选择结束时间</string>
+    <string name="project_refrigenation_no_null">面积不能为空</string>
+    <string name="project_hot_no_null">供暖区域面积不能为空</string>
+    <string name="project_duty_no_null">值班人员不能为空</string>
+    <string name="project_nopermission_delete">亲,暂无权限删除,请联系项目负责人进行删除!</string>
+    <!--运行设备信息列表-->
+    <string name="commit_succeed">提交成功</string>
+    <string name="add_succeed">添加成功</string>
+    <string name="not_open"> 研发中。。。</string>
+
+    <!--工单管理模块-->
+    <string name="main_workorder">新建</string>
+    <string name="main_workorder_weibo">维保</string>
+    <string name="no_sheet">未派单</string>
+    <string name="sheet">已派单</string>
+    <string name="no_standingstatement">未接单</string>
+    <string name="standingstatement">已接单</string>
+    <string name="engineer">工程师工单</string>
+    <string name="export_work">导出</string>
+
+    <!--工单导出模块-->
+    <string name="work_noptice1">2.当选择开始时间、结束时间才可点导出历史输出数据</string>
+    <string name="work_noptice2">3.当历史输出数据提示下载成功后,进入文件管理,找到"00a_工单记录XiaoXiDownloads"文件夹即可</string>
+
+
+    <string name="workorder_all">全部</string>
+    <string name="workorder_note">便签</string>
+    <string name="new_create">新建</string>
+    <string name="statistic">统计</string>
+    <string name="workorder">工单</string>
+    <string name="workorder_task">任务</string>
+    <string name="workorder_zan">argent</string>
+    <string name="order_succeed">抢单成功</string>
+    <string name="workorder_recept">报修单</string>
+    <string name="workorder_no_recept">未完成</string>
+    <string name="workorder_give">派工单</string>
+    <string name="workorder_back">返工单</string>
+    <string name="workorder_my_work">我的</string>
+    <string name="workorder_recycle">回收站</string>
+    <string name="worksend">发送</string>
+    <string name="work_satisfaction">工作满意度:</string>
+    <string name="work_duece">进行打分</string>
+    <string name="land_waiter_evaluate">检查人员评价区</string>
+    <string name="work_evaluate">你的评价对工程师很重要的哦!</string>
+    <string name="prospect_scene">工程师现场勘查区</string>
+    <string name="engineer_finish">工程师完成区</string>
+
+    <!--派工单里面-->
+
+    <string name="work_name_content">名称</string>
+    <string name="guige_content">规格</string>
+    <string name="work_count_content">数量</string>
+    <string name="workorder_unit_price_content">单价</string>
+    <string name="please_name"></string>
+    <string name="work_name"></string>
+    <string name="guige"></string>
+    <string name="work_count"></string>
+    <string name="workorder_unit_price"></string>
+    <string name="custom_company">请填写客户单位</string>
+    <string name="repair_content">请简述报修内容</string>
+    <string name="floor_room">请填写楼房位置</string>
+    <string name="repair_people">请填写报修人</string>
+    <string name="connect_phone">请填写联系电话</string>
+    <string name="finish_byself">请选择自己能否完成</string>
+    <string name="work_mode">请选择工单模式</string>
+    <string name="receiver_people">请选择接单人</string>
+    <string name="receiver_evaluate">请选择质检员</string>
+    <string name="finish_time">请选择维修时间</string>
+    <string name="commit_workorder">报修单已发出</string>
+    <string name="modify_workorder">报修单已修改</string>
+    <string name="order_date">请选择接单时间</string>
+    <string name="finish_date">请选择完成时间</string>
+    <string name="professional">请选择专业</string>
+    <string name="prospect">请填写勘查情况</string>
+    <string name="pro_finish_time">请选择预计完成时间</string>
+    <string name="prospect_report">请先上报勘查</string>
+    <string name="prospect_photo">请传勘查照片</string>
+
+    <!--工单统计-->
+    <string name="workorder_satisfic">工单统计</string>
+    <!--报修单内容-->
+    <string name="repair_died_line_time">报修时间:</string>
+    <string name="repair_place">报修地点:</string>
+
+    <!--设备列表详情-->
+    <string name="null_save">您还没有录入参数哦</string>
+
+    <!--用户管理-->
+    <string name="userinfo_manager">通讯录</string>
+    <string name="modify_manager">权限修改成功</string>
+    <string name="modify_succeed">修改成功</string>
+
+    <!--记录表单-->
+    <string name="record_form">记录表单</string>
+    <string name="alarm_manage">报警管理</string>
+    <!--电子签名-->
+    <string name="e_signtrue">交接班</string>
+    <string name="e_nosigntrue">您还没有签名</string>
+    <string name="no_cstype">暂时没有交接班类别哦!</string>
+    <string name="p_e_sign">请到下方签名区签名</string>
+    <string name="p_cst">请选择交接班类别</string>
+    <string name="p_cstime">请选择交接班时间</string>
+    <!--安防监控-->
+    <string name="afjk">安防监控</string>
+    <!--热源计量模块-->
+    <string name="heatmeter">能源管理</string>
+</resources>

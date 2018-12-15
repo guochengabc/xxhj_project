@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout style="@style/title_style">
+
+       <include layout="@layout/include_back"></include>
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="值班"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="12dp"
+            android:src="@mipmap/ic_search_white" />
+    </RelativeLayout>
+    <com.kongtiaoapp.xxhj.utils.MyTablayout
+        android:id="@+id/tl_duty"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"></com.kongtiaoapp.xxhj.utils.MyTablayout>
+
+    <com.kongtiaoapp.xxhj.ui.view.DefinationViewpager
+        android:id="@+id/vp_duty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.kongtiaoapp.xxhj.ui.view.DefinationViewpager>
+
+</LinearLayout>

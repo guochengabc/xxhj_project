@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ffffff"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.bpd.activity.BWeekReportDetailActivity">
+
+    <RelativeLayout
+        style="@style/title_style"
+        android:layout_width="match_parent">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/title_center"
+            android:text="周报" />
+    </RelativeLayout>
+
+    <com.kongtiaoapp.xxhj.ui.refreshui.SpringView
+        android:id="@+id/springView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ffffff">
+    <ListView
+        android:id="@+id/myListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ffffff"
+        android:divider="@null">
+    </ListView>
+    </com.kongtiaoapp.xxhj.ui.refreshui.SpringView>
+
+
+</LinearLayout>

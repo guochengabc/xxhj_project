@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        style="@style/title_style"
+        android:layout_width="match_parent">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/title_center"
+            android:text="@string/title_bpd" />
+
+        <ImageView
+            android:id="@+id/txt_record"
+            style="@style/title_right"
+            android:src="@mipmap/e_code" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView
+                android:id="@+id/lv_bpd_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="18dp"></com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView>
+
+            <include layout="@layout/include_project_dtbackground"></include>
+
+
+            <com.kongtiaoapp.xxhj.ui.view.ClickTextView
+                android:id="@+id/txt_moduleTwo"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="2dp"
+                android:paddingTop="15dp"
+                android:text="功耗统计"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/theme_color" />
+
+
+            <FrameLayout
+                android:id="@+id/frame__paint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp" />
+
+            <include layout="@layout/include_project_dtbackground"></include>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tablayoutheight">
+
+                <com.kongtiaoapp.xxhj.utils.MyTablayout
+                    android:id="@+id/tab_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tablayoutheight"></com.kongtiaoapp.xxhj.utils.MyTablayout>
+
+                <ImageView
+                    android:id="@+id/img_isspread"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="right"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="9dp"
+                    android:paddingRight="9dp"
+                    android:paddingTop="5dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/enegryup"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <com.kongtiaoapp.xxhj.ui.view.CustomViewPager
+                android:id="@+id/vpg_one"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></com.kongtiaoapp.xxhj.ui.view.CustomViewPager>
+
+            <include layout="@layout/include_project_dtbackground"></include>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tablayoutheight">
+
+                <com.kongtiaoapp.xxhj.utils.MyTablayout
+                    android:id="@+id/tab_two"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/tablayoutheight"></com.kongtiaoapp.xxhj.utils.MyTablayout>
+            </FrameLayout>
+
+            <com.kongtiaoapp.xxhj.ui.view.CustomViewPager
+                android:id="@+id/vpg_two"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></com.kongtiaoapp.xxhj.ui.view.CustomViewPager>
+
+            <include layout="@layout/include_project_dtbackground"></include>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.kongtiaoapp.xxhj.activites.AlarmDetailActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:id="@+id/tv_title"
+            android:text="报警详情"
+            style="@style/title_center" />
+        <ImageView
+            android:id="@+id/iv_setting"
+            android:visibility="gone"
+            android:src="@mipmap/friend_details_more"
+            style="@style/title_right"/>
+    </RelativeLayout>
+
+    <LinearLayout style="@style/alarm_detail">
+
+        <TextView
+            style="@style/alram_list"
+            android:text="项目名称：" />
+
+        <TextView
+            android:id="@+id/txt_projectName"
+            style="@style/alram_list"/>
+    </LinearLayout>
+
+    <include layout="@layout/include_view_line"></include>
+
+    <LinearLayout style="@style/alarm_detail">
+
+        <TextView
+            style="@style/alram_list"
+            android:text="设备类型：" />
+
+        <TextView
+            android:id="@+id/txt_deviceType"
+            style="@style/alram_list"/>
+    </LinearLayout>
+
+    <include layout="@layout/include_view_line"></include>
+
+    <LinearLayout style="@style/alarm_detail">
+
+        <TextView
+            style="@style/alram_list"
+            android:text="报警程度：" />
+
+        <TextView
+            android:id="@+id/txt_alarmStatus"
+            style="@style/alram_list" />
+    </LinearLayout>
+
+    <include layout="@layout/include_view_line"></include>
+
+    <LinearLayout style="@style/alarm_detail">
+
+        <TextView
+            style="@style/alram_list"
+            android:text="故障描述：" />
+
+        <TextView
+            android:id="@+id/txt_breakDs"
+            style="@style/alram_list" />
+    </LinearLayout>
+
+    <include layout="@layout/include_view_line"></include>
+
+    <LinearLayout style="@style/alarm_detail">
+
+        <TextView
+            style="@style/alram_list"
+            android:text="故障时间：" />
+
+        <TextView
+            android:id="@+id/txt_breakTime"
+            style="@style/alram_list"/>
+    </LinearLayout>
+
+    <include layout="@layout/include_view_line"></include>
+</LinearLayout>

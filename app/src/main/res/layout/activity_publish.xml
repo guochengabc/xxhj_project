@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:text="@string/title_send_state"
+            style="@style/title_center" />
+        <TextView
+            android:id="@+id/tv_publish"
+            android:text="@string/title_send"
+            style="@style/title_right"/>
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="8dp"
+        android:gravity="left|top"
+        android:textColor="@color/font_six"
+        android:hint="这一刻的想法..."
+        android:background="@null" >
+    </EditText>
+    <com.kongtiaoapp.xxhj.ui.view.NoScrollGridView
+        android:id="@+id/gridview"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:horizontalSpacing="3dp"
+        android:numColumns="4"
+        android:scrollbars="none"
+        android:verticalSpacing="5dp"
+        android:visibility="visible" >
+    </com.kongtiaoapp.xxhj.ui.view.NoScrollGridView>
+</LinearLayout>

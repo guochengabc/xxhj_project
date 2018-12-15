@@ -1,0 +1,163 @@
+{
+  "code": "40000",
+  "resobj": {
+    "ChartCateg": {
+      "CategoryName": "能耗统计",
+      "Chart": [
+        {
+          "ChartNum": 1,
+          "Code": "EEC",
+          "Text": "有用功",
+          "TimeName": [
+            {
+              "ChartSign": "0",
+              "TimeCode": "A",
+              "Value": "时"
+            },
+            {
+              "ChartSign": "1",
+              "TimeCode": "B",
+              "Value": "日"
+            },
+            {
+              "ChartSign": "1",
+              "TimeCode": "C",
+              "Value": "月"
+            }
+          ]
+        },
+        {
+          "ChartNum": 1,
+          "Code": "WT",
+          "Text": "分组统计",
+          "TimeName": [
+            {
+              "ChartSign": "0",
+              "TimeCode": "A",
+              "Value": "时"
+            },
+            {
+              "ChartSign": "1",
+              "TimeCode": "B",
+              "Value": "日"
+            },
+            {
+              "ChartSign": "1",
+              "TimeCode": "C",
+              "Value": "月"
+            }
+          ]
+        }
+      ]
+    },
+    "CousCategory": [
+      {
+        "CategSign": "Power",
+        "Value": "电"
+      },
+      {
+        "CategSign": "Water",
+        "Value": "水"
+      },
+      {
+        "CategSign": "Gas",
+        "Value": "气"
+      }
+    ],
+    "GroupData": [
+      {
+        "EnerParam": [
+          {
+            "ChartSign": "0",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "总有功(KWH)",
+            "Param": "3000.0",
+            "Type": "",
+            "Y_param": "-0.0"
+          },
+          {
+            "ChartSign": "0",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "201有功(KWH)",
+            "Param": "2808.0",
+            "Type": "",
+            "Y_param": "-0.0"
+          },
+          {
+            "ChartSign": "0",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "202有功(KWH)",
+            "Param": "346",
+            "Type": "",
+            "Y_param": "-0.0"
+          }
+        ]
+      },
+      {
+        "EnerParam": [
+          {
+            "ChartSign": "0",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "总无功(KWH)",
+            "Param": "10.0",
+            "Type": "",
+            "Y_param": "-0.0"
+          },
+          {
+            "ChartSign": "0",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "201无功(KWH)",
+            "Param": "8.0",
+            "Type": "",
+            "Y_param": "-0.0"
+          },
+          {
+            "ChartSign": "0",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "202无功(KWH)",
+            "Param": "9",
+            "Type": "",
+            "Y_param": "-0.0"
+          }
+        ]
+      },
+      {
+        "EnerParam": [
+          {
+            "ChartSign": "0",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "201负荷率",
+            "Param": "75%",
+            "Type": "",
+            "Y_param": "-0.0"
+          },
+          {
+            "ChartSign": "0",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "202负荷率",
+            "Param": "89.3%",
+            "Type": "",
+            "Y_param": "-0.0"
+          },
+          {
+            "ChartSign": "0",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "峰谷电量",
+            "Param": "668",
+            "Type": "",
+            "Y_param": "+70.0"
+          }
+        ]
+      }
+    ]
+  }
+}

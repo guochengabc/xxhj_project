@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 标题栏右边文字点击效果，为白色的50%透明度 -->
+    <item android:state_selected="true" android:color="#80FFFFFF"/>
+    <item android:state_focused="true" android:color="#80FFFFFF"/>
+    <item android:state_pressed="true" android:color="#80FFFFFF"/>
+    <item android:color="#FFFFFF"></item>
+
+</selector>

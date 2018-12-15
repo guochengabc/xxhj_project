@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/hot" />
+
+
+            <TextView
+                android:id="@+id/tv_hot"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:drawablePadding="10dp"
+                android:drawableRight="@mipmap/arrows_rigth"
+                android:text="更多"
+                android:textColor="#173e58"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <ImageView
+                android:id="@+id/iv_hot1"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:src="@mipmap/picture" />
+
+            <ImageView
+                android:id="@+id/iv_hot2"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:src="@mipmap/picture" />
+
+            <ImageView
+                android:id="@+id/iv_hot3"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_margin="4dp"
+                android:scaleType="centerCrop"
+                android:layout_weight="1"
+                android:src="@mipmap/picture" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/same_city" />
+
+
+            <TextView
+                android:id="@+id/tv_same_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:drawablePadding="10dp"
+                android:drawableRight="@mipmap/arrows_rigth"
+                android:text="更多"
+                android:textColor="#173e58"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <ImageView
+                android:id="@+id/iv_city1"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:src="@mipmap/picture" />
+
+            <ImageView
+                android:id="@+id/iv_city2"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:src="@mipmap/picture" />
+
+            <ImageView
+                android:id="@+id/iv_city3"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:src="@mipmap/picture" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/same_xing" />
+
+
+            <TextView
+                android:id="@+id/tv_same_hang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:drawablePadding="10dp"
+                android:drawableRight="@mipmap/arrows_rigth"
+                android:text="更多"
+                android:textColor="#173e58"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp">
+
+            <ImageView
+                android:id="@+id/iv_work1"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:layout_margin="4dp"
+                android:scaleType="centerCrop"
+                android:layout_weight="1"
+                android:src="@mipmap/picture" />
+
+            <ImageView
+                android:id="@+id/iv_work2"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:src="@mipmap/picture" />
+
+            <ImageView
+                android:id="@+id/iv_work3"
+                android:layout_width="0dp"
+                android:layout_height="70dp"
+                android:scaleType="centerCrop"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:src="@mipmap/picture" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

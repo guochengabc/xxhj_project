@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        style="@style/title_style">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/title_center"
+            android:text="@string/title_project_info" />
+
+        <TextView
+            android:id="@+id/addProjectInfo_tv_save"
+            style="@style/title_right"
+            android:text="@string/title_save" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <com.kongtiaoapp.xxhj.ui.view.MyLinearlayout
+            android:id="@+id/line_projectid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/spaceing_to_side">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:gravity="center_vertical|right"
+                        android:text="*"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/font_huge" />
+
+                    <TextView
+                        android:id="@+id/tv_name7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical|right"
+                        android:paddingRight="@dimen/spacing_small"
+                        android:text="项目名称"
+                        android:textColor="@color/font_three"
+                        android:textSize="@dimen/font_big" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/tv_content7"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:textColor="@color/font_six"
+                    android:textSize="@dimen/font_middle" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/spaceing_to_side">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:gravity="center_vertical|right"
+                        android:text="*"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/font_huge" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical|right"
+                        android:paddingRight="@dimen/spacing_small"
+                        android:text="项目类型"
+                        android:textColor="@color/font_three"
+                        android:textSize="@dimen/font_big" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_project_type"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:textColor="@color/font_six"
+                    android:textSize="@dimen/font_middle" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/spaceing_to_side">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:gravity="center_vertical|right"
+                        android:text="*"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/font_huge" />
+
+                    <TextView
+                        android:id="@+id/tv_name2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical|right"
+                        android:paddingRight="@dimen/spacing_small"
+                        android:text="城市"
+                        android:textColor="@color/font_three"
+                        android:textSize="@dimen/font_big" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_content2"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:textColor="@color/font_six"
+                    android:textSize="@dimen/font_middle" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/spaceing_to_side">
+
+                <TextView
+                    android:id="@+id/tv_name0"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:paddingRight="@dimen/spacing_small"
+                    android:text="建筑物名称"
+                    android:textColor="@color/font_three"
+                    android:textSize="@dimen/font_big" />
+
+                <EditText
+                    android:id="@+id/tv_content0"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/font_six"
+                    android:textSize="@dimen/font_middle" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/spaceing_to_side">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:gravity="center_vertical|right"
+                        android:text="*"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/font_huge" />
+
+                    <TextView
+                        android:id="@+id/tv_name1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical|right"
+                        android:paddingRight="@dimen/spacing_small"
+                        android:text="建筑类型"
+                        android:textColor="@color/font_three"
+                        android:textSize="@dimen/font_big" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_content1"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:textColor="@color/font_six"
+                    android:textSize="@dimen/font_middle" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/spaceing_to_side">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:gravity="center_vertical|right"
+                        android:text="*"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/font_huge" />
+
+                    <TextView
+                        android:id="@+id/tv_start_running"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical|right"
+                        android:paddingRight="@dimen/spacing_small"
+                        android:text="开始时间"
+                        android:textColor="@color/font_three"
+                        android:textSize="@dimen/font_big" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_start_running_choose"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="- -请选择运行时间- -"
+                    android:textColor="@color/font_six"
+                    android:textSize="@dimen/font_middle" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/spaceing_to_side">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:gravity="center_vertical|right"
+                        android:text="*"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/font_huge" />
+
+                    <TextView
+                        android:id="@+id/tv_end_running"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical|right"
+                        android:paddingRight="@dimen/spacing_small"
+                        android:text="结束时间"
+                        android:textColor="@color/font_three"
+                        android:textSize="@dimen/font_big" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_end_running_choose"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:maxLines="1"
+                    android:text="- -请选择运行时间- -"
+                    android:textColor="@color/font_six"
+                    android:textSize="@dimen/font_middle" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/line_freeze"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/spaceing_to_side">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:gravity="center_vertical|right"
+                        android:text="*"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/font_huge" />
+
+                    <TextView
+                        android:id="@+id/tv_name3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical|right"
+                        android:paddingRight="@dimen/spacing_small"
+                        android:text="面积(㎡)"
+                        android:textColor="@color/font_three"
+                        android:textSize="@dimen/font_big" />
+                </LinearLayout>
+
+                <EditText
+                    android:id="@+id/tv_content3"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:digits="0123456789+-."
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textColor="@color/font_six"
+                    android:textSize="@dimen/font_middle" />
+            </LinearLayout>
+
+            <!-- <LinearLayout
+                 android:id="@+id/line_hot"
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="horizontal"
+                 android:paddingRight="@dimen/spaceing_to_side">
+
+                 <LinearLayout
+                     android:layout_width="0dp"
+                     android:layout_height="40dp"
+                     android:layout_marginTop="@dimen/spacing_small"
+                     android:layout_weight="1"
+                     android:gravity="center_vertical|right"
+                     android:orientation="horizontal">
+
+                     <TextView
+                         android:layout_width="wrap_content"
+                         android:layout_height="40dp"
+                         android:layout_marginRight="@dimen/spacing_small"
+                         android:gravity="center_vertical|right"
+                         android:text="*"
+                         android:textColor="@color/red"
+                         android:textSize="@dimen/font_huge" />
+
+                     <TextView
+                         android:id="@+id/tv_heatingArea"
+                         android:layout_width="wrap_content"
+                         android:layout_height="40dp"
+                         android:gravity="center_vertical|right"
+                         android:paddingRight="@dimen/spacing_small"
+                         android:text="供暖面积(㎡)"
+                         android:textColor="@color/font_three"
+                         android:textSize="@dimen/font_big" />
+                 </LinearLayout>
+
+                 <EditText
+                     android:id="@+id/et_heatingArea"
+                     android:layout_width="0dp"
+                     android:layout_height="40dp"
+                     android:layout_margin="@dimen/spacing_small"
+                     android:layout_weight="2"
+                     android:background="@drawable/shape_add_weibao_record_et_bg"
+                     android:digits="0123456789+-."
+                     android:gravity="center"
+                     android:inputType="number"
+                     android:singleLine="true"
+                     android:textColor="@color/font_six"
+                     android:textSize="@dimen/font_middle" />
+             </LinearLayout>-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/spaceing_to_side">
+
+                <TextView
+                    android:id="@+id/tv_name4"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:paddingRight="@dimen/spacing_small"
+                    android:text="供回水温差(℃)"
+                    android:textColor="@color/font_three"
+                    android:textSize="@dimen/font_big" />
+
+                <EditText
+                    android:id="@+id/tv_content4"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:digits="0123456789+-."
+                    android:gravity="center"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:textColor="@color/font_six"
+                    android:textSize="@dimen/font_middle" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/spaceing_to_side"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:gravity="center_vertical|right"
+                        android:text="*"
+                        android:textColor="@color/red"
+                        android:textSize="@dimen/font_huge" />
+
+                    <TextView
+                        android:id="@+id/tv_name5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:gravity="center_vertical|right"
+                        android:paddingRight="@dimen/spacing_small"
+                        android:text="值班人员"
+                        android:textColor="@color/font_three"
+                        android:textSize="@dimen/font_big" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_content5"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/font_six"
+                    android:textSize="@dimen/font_middle" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/spaceing_to_side">
+
+                <TextView
+                    android:id="@+id/tv_name6"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/spacing_small"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical|right"
+                    android:paddingRight="@dimen/spacing_small"
+                    android:text="设备信息"
+                    android:textColor="@color/font_three"
+                    android:textSize="@dimen/font_big" />
+
+                <TextView
+                    android:id="@+id/tv_content6"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="@dimen/spacing_small"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:singleLine="true"
+                    android:textColor="@color/font_six"
+                    android:textSize="@dimen/font_middle" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.kongtiaoapp.xxhj.ui.view.NoScrollGridView
+                    android:id="@+id/gridView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginTop="2dp"
+                    android:background="@color/white"
+                    android:divider="#00000000"
+                    android:gravity="center_horizontal"
+                    android:horizontalSpacing="2dp"
+                    android:numColumns="3"
+                    android:verticalSpacing="2dp"></com.kongtiaoapp.xxhj.ui.view.NoScrollGridView>
+            </LinearLayout>
+
+        </com.kongtiaoapp.xxhj.ui.view.MyLinearlayout>
+    </ScrollView>
+
+</LinearLayout>

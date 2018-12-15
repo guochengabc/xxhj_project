@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <!--头像模块-->
+
+    <RelativeLayout
+        android:id="@+id/rl_head_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_title">
+
+        <ImageView
+            android:id="@+id/iv_head"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_margin="@dimen/main_margin"
+            android:src="@mipmap/running_selected" />
+
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="@dimen/main_margin"
+            android:layout_toRightOf="@+id/iv_head"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/font_middle"
+            tools:text="天使爱美丽" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:layout_toRightOf="@+id/iv_head"
+            android:textColor="@color/font_six"
+            android:textSize="12sp"
+            tools:text="你很棒,哈哈哈" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/tv_name"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/main_margin"
+            android:textColor="@color/font_six"
+            android:textSize="12sp"
+            tools:text="00:00" />
+    </RelativeLayout>
+
+    <com.kongtiaoapp.xxhj.ui.view.MyListView
+        android:id="@+id/list_comment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/spacing_middle"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="@dimen/spacing_middle"
+        android:background="@color/back_color"
+        android:visibility="gone"></com.kongtiaoapp.xxhj.ui.view.MyListView>
+</LinearLayout>

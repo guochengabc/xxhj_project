@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.login_register.activity.RegisterActivity">
+    <RelativeLayout
+        android:id="@+id/rela"
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:text="@string/register"
+            style="@style/title_center" />
+        <TextView
+            android:id="@+id/tv_my_show"
+            android:text="@string/title_my_show"
+            android:visibility="gone"
+            style="@style/title_right"/>
+    </RelativeLayout>
+
+    <com.kongtiaoapp.xxhj.utils.MyTablayout
+        android:id="@+id/tablayout_register"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/me_item_height"></com.kongtiaoapp.xxhj.utils.MyTablayout>
+
+    <com.kongtiaoapp.xxhj.ui.view.DefinationViewpager
+        android:id="@+id/register_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.kongtiaoapp.xxhj.ui.view.DefinationViewpager>
+</LinearLayout>

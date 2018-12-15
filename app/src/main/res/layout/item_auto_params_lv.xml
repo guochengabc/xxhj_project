@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_margin="@dimen/spacing_small"
+        android:layout_weight="1"
+        android:gravity="left|center_vertical"
+        android:paddingLeft="@dimen/main_margin"
+        android:textColor="@color/font_three"
+        android:textSize="@dimen/font_big" />
+
+    <EditText
+        android:id="@+id/tv_content"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_margin="@dimen/spacing_small"
+        android:layout_marginRight="@dimen/spaceing_to_side"
+        android:layout_weight="2"
+        android:background="@drawable/shape_add_weibao_record_et_bg"
+        android:cursorVisible="true"
+        android:digits="0123456789+-."
+        android:enabled="true"
+        android:gravity="center"
+        android:inputType="number"
+        android:singleLine="true"
+        android:textColor="@color/font_six"
+        android:textColorHint="@color/line_color"
+        android:textSize="@dimen/font_middle" />
+
+</LinearLayout>

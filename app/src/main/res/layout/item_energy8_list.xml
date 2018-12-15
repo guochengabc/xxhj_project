@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:id="@+id/iv_picture"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:layout_marginTop="2dp"
+            android:scaleType="centerCrop"
+            android:background="@mipmap/zixun1" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="70dp"
+            android:layout_marginRight="@dimen/spaceing_to_side"
+            android:layout_marginLeft="@dimen/spaceing_to_side"
+            android:layout_marginBottom="20dp"
+            android:text="专栏"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="@color/white"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:layout_margin="@dimen/spacing_middle"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="提供关于节能的知识、科普、论坛"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_big" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,70 @@
+{
+  "code": "40000",
+  "resobj": {
+    "OneData": [
+      {
+        "OneName": "1号变压器",
+        "OneSid": "fec613d155fc4cbc848c41f78758f11d",
+        "TwoData": []
+      },
+      {
+        "OneName": "212号变压器",
+        "OneSid": "fec613d155fc4cbc848c41f78758f11d",
+        "TwoData": [
+          {
+            "TwoName": "411-54",
+            "TwoSid": "fec613d155fc4cbc848c41f78758f11d",
+            "ThreeData": []
+          },
+          {
+            "TwoName": "411-21",
+            "TwoSid": "fec613d155fc4cbc848c41f78758f11d",
+            "ThreeData": [
+              {
+                "ThreeName": "11B座地上用电11",
+                "ThreeSid": "fec613d155fc4cbc848c41f78758f11d"
+              },
+              {
+                "ThreeName": "222备用101A",
+                "ThreeSid": "fec613d155fc4cbc848c41f78758f11d"
+              },
+              {
+                "ThreeName": "333备用101A",
+                "ThreeSid": "fec613d155fc4cbc848c41f78758f11d"
+              }
+            ]
+          }
+        ]
+      },  {
+        "OneName": "2号变压器",
+        "OneSid": "fec613d155fc4cbc848c41f78758f11d",
+        "TwoData": [
+          {
+            "TwoName": "411-2",
+            "TwoSid": "fec613d155fc4cbc848c41f78758f11d",
+            "ThreeData": [
+              {
+                "ThreeName": "A座地上用电",
+                "ThreeSid": "fec613d155fc4cbc848c41f78758f11d"
+              }
+            ]
+          },
+          {
+            "TwoName": "411-2",
+            "TwoSid": "fec613d155fc4cbc848c41f78758f11d",
+            "ThreeData": [
+              {
+                "ThreeName": "B座地上用电",
+                "ThreeSid": "fec613d155fc4cbc848c41f78758f11d"
+              },
+              {
+                "ThreeName": "备用101A",
+                "ThreeSid": "fec613d155fc4cbc848c41f78758f11d"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

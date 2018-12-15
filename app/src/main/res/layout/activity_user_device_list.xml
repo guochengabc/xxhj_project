@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout style="@style/title_style">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            style="@style/title_center"
+            android:text="@string/title_device_lista" />
+
+        <TextView
+            android:id="@+id/tv_submit"
+            style="@style/title_right"
+            android:text="@string/title_choose" />
+    </RelativeLayout>
+
+    <com.kongtiaoapp.xxhj.ui.refreshui.SpringView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/springView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="2dp"
+            android:background="@color/white"
+            android:divider="#00000000"
+            android:gravity="center_horizontal"
+            android:horizontalSpacing="2dp"
+            android:numColumns="3"
+            android:verticalSpacing="2dp" />
+    </com.kongtiaoapp.xxhj.ui.refreshui.SpringView>
+</LinearLayout>

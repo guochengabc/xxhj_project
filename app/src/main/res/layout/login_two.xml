@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kongtiaoapp.xxhj.ui.view.LinearLayoutView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/login_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <TextView
+            android:id="@+id/tv_title"
+            android:text="@string/login"
+            style="@style/title_center" />
+        <TextView
+            android:id="@+id/join_register"
+            android:text="@string/register"
+            style="@style/title_right"/>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/logo" />
+
+        <ImageView
+            android:id="@+id/iv_second"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:scaleType="fitXY"
+            android:src="@mipmap/logo"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+    <View
+        style="@style/wire_horizontal"
+        android:layout_marginTop="15dp" />
+
+    <LinearLayout
+        android:id="@+id/ll_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1"
+        android:background="#ffffff"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="23dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:src="@mipmap/phone" />
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="1dp"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:drawablePadding="10dp"
+            android:hint="手机号"
+            android:inputType="number"
+            android:maxLength="11"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#999999"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:id="@+id/line_clear_phone"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|end"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="23dp"
+                android:layout_height="23dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="13dp"
+                android:src="@mipmap/clear_phone" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <View style="@style/wire_horizontal" />
+
+    <LinearLayout
+        android:id="@+id/ll_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/layout2"
+        android:background="#ffffff">
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="23dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:src="@mipmap/password" />
+
+        <EditText
+            android:id="@+id/et_password"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="2dp"
+            android:layout_toLeftOf="@+id/text_wjma"
+            android:layout_weight="1"
+            android:background="#ffffff"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="登录密码"
+            android:inputType="textPassword"
+            android:maxLength="16"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColor="#999999"
+            android:textSize="16sp"
+            android:textStyle=""></EditText>
+
+        <TextView
+            android:id="@+id/tv_forget_pass"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="忘记密码？"
+            android:textColor="@color/main_color"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <View style="@style/wire_horizontal" />
+
+    <TextView
+        android:id="@+id/txt_login_again"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/login_again"
+        android:textColor="@color/deeppink"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <com.kongtiaoapp.xxhj.ui.view.ClickTextView
+        android:id="@+id/login_bt_log"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/selector_btn_big"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+
+</com.kongtiaoapp.xxhj.ui.view.LinearLayoutView>

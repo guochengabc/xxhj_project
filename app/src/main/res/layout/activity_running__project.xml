@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.kongtiaoapp.xxhj.hvac.Running_ProjectActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:id="@+id/tv_title"
+            android:text="运行信息"
+            style="@style/title_center" />
+    </RelativeLayout>
+    <!-- TODO: Update blank fragment layout -->
+    <ExpandableListView
+        android:id="@+id/elv_runninginfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="10dp"/>
+</LinearLayout>

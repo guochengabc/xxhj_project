@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.e_code.activity.RecordFormEcodeActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        style="@style/title_style"
+        android:layout_width="match_parent">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/title_center" />
+
+        <TextView
+            android:id="@+id/tv_weiBao"
+            style="@style/title_right"
+            android:text="添加维保"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+    <com.kongtiaoapp.xxhj.utils.MyTablayout
+        android:id="@+id/mtl_recordForm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/me_item_height"></com.kongtiaoapp.xxhj.utils.MyTablayout>
+
+    <com.kongtiaoapp.xxhj.ui.view.DefinationViewpager
+        android:id="@+id/dvp_recordForm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.kongtiaoapp.xxhj.ui.view.DefinationViewpager>
+</LinearLayout>

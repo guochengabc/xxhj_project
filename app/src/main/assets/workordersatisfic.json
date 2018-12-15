@@ -1,0 +1,174 @@
+{
+  "code": "40000",
+  "resobj": {
+    "Engineer": {
+      "Data": [
+        {
+          "Count": 304,
+          "DispStateName": "已发单",
+          "NowTime": 0,
+          "Time": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "Values": [
+            29,
+            21,
+            10,
+            0,
+            0,
+            24,
+            16,
+            4,
+            9,
+            13,
+            0,
+            0,
+            16,
+            19,
+            22,
+            18,
+            17,
+            1,
+            0,
+            23,
+            11,
+            17,
+            18,
+            16
+          ]
+        }
+      ],
+      "MaxX": 31,
+      "MaxY": 29,
+      "MinX": 1,
+      "MinY": 0
+    },
+    "NowTime": 1511575800441,
+    "Repair": [
+      {
+        "Count": 287,
+        "DispStateName": "报修",
+        "MaxX": 31,
+        "MaxY": 26,
+        "MinX": 1,
+        "MinY": 0,
+        "NowTime": 0,
+        "Time": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24
+        ],
+        "Values": [
+          26,
+          18,
+          8,
+          0,
+          0,
+          22,
+          18,
+          6,
+          10,
+          15,
+          1,
+          0,
+          13,
+          20,
+          18,
+          16,
+          12,
+          1,
+          0,
+          21,
+          14,
+          19,
+          18,
+          11
+        ]
+      }
+    ],
+    "WorkData": {
+      "Total": 287,
+      "Data": [
+        {
+          "Count": 217,
+          "DispState": 7,
+          "DispStateName": "结束"
+        },
+        {
+          "Count": 3,
+          "DispState": 4,
+          "DispStateName": "未完成"
+        },
+        {
+          "Count": 15,
+          "DispState": 6,
+          "DispStateName": "已返工"
+        },
+        {
+          "Count": 303,
+          "DispState": 2,
+          "DispStateName": "已接单"
+        },
+        {
+          "Count": 43,
+          "DispState": 3,
+          "DispStateName": "已勘察"
+        },
+        {
+          "Count": 270,
+          "DispState": 5,
+          "DispStateName": "已完成"
+        },
+        {
+          "Count": 287,
+          "DispState": 0,
+          "DispStateName": "报修"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "code": "40000",
+  "resobj": [
+    {
+      "alarmId": "46c3ab13d3df4b54938fab284d1b63b2",
+      "alarmType": "",
+      "deviceName": "9月2日周报",
+      "keyWords": "严重告警：201开关柜出现问题",
+      "time": "2018-09-02 17:30:00"
+    },
+    {
+      "alarmId": "ca57a52981d440598164c785d72eab75",
+      "alarmType": "",
+      "deviceName": "9月9日周报",
+      "keyWords": "告警：202负荷率偏大",
+      "time": "2018-09-09 17:30:00"
+    },
+    {
+      "alarmId": "7677ecba661e49898a48011bfb6e0952",
+      "alarmType": "",
+      "deviceName": "9月16日周报",
+      "keyWords": "严重告警：201电流过大",
+      "time": "2018-09-16 17:30:00"
+    }
+  ]
+}

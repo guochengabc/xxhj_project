@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        style="@style/title_style"
+        android:layout_width="match_parent">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/title_center"
+            android:text="" />
+
+        <ImageView
+            android:id="@+id/iv_setting"
+            style="@style/title_right"
+            android:src="@mipmap/friend_details_more"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+
+
+            <com.kongtiaoapp.xxhj.utils.MyTablayout
+                android:id="@+id/tab_paint"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:paddingTop="10dp"
+                android:visibility="gone"></com.kongtiaoapp.xxhj.utils.MyTablayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/img_left"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:src="@mipmap/leftarrow" />
+
+                <RadioGroup
+                    android:id="@+id/group_time"
+                    android:layout_width="160dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@mipmap/white_background_circle"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/radio0"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="日"
+                        android:textColor="@drawable/selector_duanzhen"
+                        android:textSize="@dimen/comment_time_size" />
+
+                    <RadioButton
+                        android:id="@+id/radio1"
+                        android:layout_width="0dp"
+                        android:layout_height="40dp"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="月"
+                        android:textColor="@drawable/selector_duanzhen"
+                        android:textSize="@dimen/comment_time_size" />
+                </RadioGroup>
+
+                <ImageView
+                    android:id="@+id/img_right"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp"
+                    android:src="@mipmap/rightarrow" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/frame_up"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:padding="3dp">
+
+                <include layout="@layout/include_paintbackground"></include>
+
+                <include layout="@layout/include_graph_nodata"></include>//代表的是图例
+
+                <include layout="@layout/include_nodata_txt"></include>//代表的是图的提示，有数据还是没有数据
+
+            </FrameLayout>
+
+
+
+</LinearLayout>

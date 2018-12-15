@@ -1,0 +1,13 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.kongtiaoapp.xxhj.fragment.Running_ProjectFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <com.kongtiaoapp.xxhj.ui.view.MyExpandableListView
+        android:id="@+id/elv_runninginfo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

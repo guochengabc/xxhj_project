@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/txt_type"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/text_redcircle"
+        android:gravity="center"
+        android:text="维"
+        android:textColor="@color/ffffff"
+        android:textSize="13sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical"
+        android:paddingLeft="5dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <TextView
+                style="@style/work_content"
+                android:text="工单编号：" />
+
+            <TextView
+                android:id="@+id/txt_workNumber"
+                style="@style/work_content"
+                android:text="A20170816" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/work_content"
+                android:text="维保简述："/>
+
+            <TextView
+                android:id="@+id/txt_weibao_title"
+                style="@style/work_content"
+                android:text="电梯坏了" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                style="@style/work_content"
+                android:text="维保人员：" />
+
+            <TextView
+                android:id="@+id/txt_weibao_people"
+                style="@style/work_content"
+                android:text="张三" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_time"
+                style="@style/work_content"
+                android:text="维保时间：" />
+
+            <TextView
+                android:id="@+id/txt_weibao_time"
+                style="@style/work_content"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            android:visibility="gone"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txt_limitTime"
+                style="@style/work_content"
+                android:text="报修时间：" />
+
+            <TextView
+                android:id="@+id/txt_repair_formLimitTime"
+                style="@style/work_content"
+                android:text="" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

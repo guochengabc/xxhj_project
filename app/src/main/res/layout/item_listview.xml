@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.kongtiaoapp.xxhj.ui.view.MyListView
+        android:id="@+id/lv_report_second"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/a78a24c"
+        android:dividerHeight="1px"
+        android:listSelector="@android:color/transparent"
+        android:scrollbars="none"></com.kongtiaoapp.xxhj.ui.view.MyListView>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@color/a78a24c" />
+</LinearLayout>

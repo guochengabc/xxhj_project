@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TextView
+    android:layout_width="match_parent"
+    android:id="@+id/tv_comment"
+    android:textSize="@dimen/font_middle"
+    android:gravity="center_vertical"
+    android:textColor="@color/font_three"
+    android:padding="@dimen/spacing_small"
+    android:layout_height="wrap_content" />
+    <TextView
+        android:layout_width="match_parent"
+        android:id="@+id/tv_comment_time"
+        android:textSize="@dimen/font_small"
+        android:gravity="right|center_vertical"
+        android:layout_marginRight="@dimen/spacing_middle"
+        android:text=""
+        android:textColor="@color/font_six"
+        android:layout_height="wrap_content" />
+</LinearLayout>

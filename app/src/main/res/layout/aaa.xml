@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="4"
+            android:background="@color/bgColor_overlay"></View>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/report_enegry" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="4"
+            android:background="@color/bgColor_overlay"></View>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/txt_enegry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="能耗(Kwh)："
+            android:textColor="@color/a666666" />
+
+        <TextView
+            android:id="@+id/txt_enegry_shu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/txt_enegry"
+            android:text="10000"
+            android:textColor="@color/a666666" />
+
+        <TextView
+            android:id="@+id/txt_unit_enegry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_enegry"
+            android:layout_marginTop="5dp"
+            android:text="单位能耗(Kwh)："
+            android:textColor="@color/a666666" />
+
+        <TextView
+            android:id="@+id/txt_unit__enegry_shu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_enegry"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/txt_unit_enegry"
+            android:text="10000"
+            android:textColor="@color/a666666" />
+
+        <TextView
+            android:id="@+id/txt_than_enegry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_unit_enegry"
+            android:layout_marginTop="5dp"
+            android:text="高于国家标准(Kwh)："
+            android:textColor="@color/a666666" />
+
+        <TextView
+            android:id="@+id/txt_than__enegry_shu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_unit_enegry"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/txt_than_enegry"
+            android:text="10000"
+            android:textColor="@color/a666666" />
+
+        <TextView
+            android:id="@+id/txt_ranking"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/enegry_ranking"
+            android:gravity="center"
+            android:text="第1名"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <include layout="@layout/include_gray"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
+            android:background="@color/bgColor_overlay"></View>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:text="@string/runnig_rate" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
+            android:background="@color/bgColor_overlay"></View>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="15dp">
+
+        <TextView
+            android:id="@+id/txt_running_rate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="运行效率(COP)："
+            android:textColor="@color/a666666" />
+
+        <TextView
+            android:id="@+id/txt_running_rate_shu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/txt_running_rate"
+            android:text="10000"
+            android:textColor="@color/a666666" />
+
+        <TextView
+            android:id="@+id/txt_save_enegry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_running_rate"
+            android:layout_marginTop="5dp"
+            android:text="节能潜力小于(%)："
+            android:textColor="@color/a666666" />
+
+        <TextView
+            android:id="@+id/txt_save_enegry_shu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_running_rate"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/txt_save_enegry"
+            android:text="10000"
+            android:textColor="@color/a666666" />
+
+        <TextView
+            android:id="@+id/txt_need_optimize"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_save_enegry"
+            android:layout_marginTop="5dp"
+            android:text="需要优化设备："
+            android:textColor="@color/a666666" />
+
+        <TextView
+            android:id="@+id/txt_need_optimize_shu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_save_enegry"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/txt_need_optimize"
+            android:text="10000"
+            android:textColor="@color/a666666" />
+
+        <TextView
+            android:id="@+id/txt_running_ranking"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/running_rate"
+            android:gravity="center"
+            android:text="第2名"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <include layout="@layout/include_gray"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:background="@color/bgColor_overlay"></View>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/oppo_yesterday" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0.1dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="2"
+            android:background="@color/bgColor_overlay"></View>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/txt_all_enegry_shu"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="+100"
+            android:gravity="bottom"
+            android:textColor="@color/red"
+            android:textSize="@dimen/huitu_time" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_marginLeft="2dp"
+            android:layout_toRightOf="@id/txt_all_enegry_shu"
+            android:text="Kw.h"
+            android:gravity="bottom"
+            android:textColor="@color/red"
+            android:textSize="@dimen/huitu_time" />
+
+        <TextView
+            android:id="@+id/txt_all_enegry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_all_enegry_shu"
+            android:layout_marginTop="2dp"
+            android:text="总能耗"
+            android:textColor="@color/a666666"
+            android:textSize="@dimen/huitu_time" />
+
+
+        <RelativeLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true">
+            <ImageView
+                android:id="@+id/img_enegry_rank"
+                android:layout_width="20dp"
+                android:layout_height="40dp"
+                android:scaleType="fitEnd"
+                android:src="@mipmap/red_up_enegry"
+
+                android:layout_centerHorizontal="true" />
+            <TextView
+                android:id="@+id/txt_opp_rank_shu"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@id/img_enegry_rank"
+                android:gravity="bottom"
+                android:text="2"
+                android:textColor="@color/red"
+                android:textSize="@dimen/huitu_time" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_opp_rank_shu"
+                android:layout_marginTop="2dp"
+                android:text="@string/enegry_ranking"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/a666666"
+                android:textSize="@dimen/huitu_time" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/txt_cop_shu"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/txt_all_enegry"
+            android:layout_marginTop="5dp"
+            android:gravity="bottom"
+            android:text="-1.3"
+            android:textColor="@color/theme_color"
+            android:textSize="@dimen/huitu_time" />
+        <TextView
+            android:id="@+id/txt_cop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_cop_shu"
+            android:layout_marginTop="2dp"
+            android:text="COP"
+            android:textColor="@color/a666666"
+            android:textSize="@dimen/huitu_time" />
+        <RelativeLayout
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/txt_all_enegry">
+            <ImageView
+                android:id="@+id/img_cop_rank"
+                android:layout_width="20dp"
+                android:layout_height="40dp"
+                android:scaleType="fitEnd"
+                android:src="@mipmap/green_down_cop"
+                android:layout_marginTop="5dp"
+                android:layout_centerHorizontal="true" />
+            <TextView
+                android:id="@+id/txt_cop_rank_shu"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+               android:layout_toRightOf="@id/img_cop_rank"
+                android:gravity="bottom"
+                android:text="-1.3"
+                android:textColor="@color/theme_color"
+                android:textSize="@dimen/huitu_time" />
+            <TextView
+                android:id="@+id/txt_cop_rank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_cop_rank_shu"
+                android:layout_marginTop="2dp"
+                android:text="COP排名"
+                android:textColor="@color/a666666"
+                android:layout_centerHorizontal="true"
+                android:textSize="@dimen/huitu_time" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+</LinearLayout>

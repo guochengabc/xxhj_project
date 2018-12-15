@@ -1,0 +1,79 @@
+{
+  "code": "40000",
+  "resobj": {
+    "Data": [
+      {
+        "StatisticType": "本\n\n日",
+        "EtcData": [
+          {
+            "StatisticEtc": "电量（kWh）",
+            "EtcValueO": "201有功",
+            "EtcValueT": "202有功"
+          },
+          {
+            "StatisticEtc": "尖电量",
+            "EtcValueO": "11110",
+            "EtcValueT": "11111"
+          },
+          {
+            "StatisticEtc": "峰电量",
+            "EtcValueO": "11112",
+            "EtcValueT": "11113"
+          },
+          {
+            "StatisticEtc": "平电量",
+            "EtcValueO": "11114",
+            "EtcValueT": "11115"
+          },
+          {
+            "StatisticEtc": "谷电量",
+            "EtcValueO": "11116",
+            "EtcValueT": "11117"
+          },
+          {
+            "StatisticEtc": "合计",
+            "EtcValueO": "56418",
+            "EtcValueT": "56852"
+          }
+        ]
+      },{
+        "StatisticType":"",
+        "EtcData":[]
+      },
+      {
+        "StatisticType": "本\n\n月",
+        "EtcData": [
+          {
+            "StatisticEtc": "电量（kWh）",
+            "EtcValueO": "201有功",
+            "EtcValueT": "202有功"
+          },
+          {
+            "StatisticEtc": "尖电量",
+            "EtcValueO": "11118",
+            "EtcValueT": "11119"
+          },
+          {
+            "StatisticEtc": "峰电量",
+            "EtcValueO": "11120",
+            "EtcValueT": "11121"
+          },
+          {
+            "StatisticEtc": "平电量",
+            "EtcValueO": "11122",
+            "EtcValueT": "11123"
+          },
+          {
+            "StatisticEtc": "谷电量",
+            "EtcValueO": "11124",
+            "EtcValueT": "11125"
+          } ,{
+            "StatisticEtc": "合计",
+            "EtcValueO": "88888",
+            "EtcValueT": "896200"
+          }
+        ]
+      }
+    ]
+  }
+}

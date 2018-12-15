@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="@dimen/spaceing_to_side">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:focusable="true"
+        android:gravity="center_vertical|left"
+        android:maxLength="11"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="@color/font_three"
+        android:textSize="@dimen/device_list_detail" />
+
+    <EditText
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:background="@drawable/shape_add_weibao_record_et_bg"
+        android:cursorVisible="true"
+        android:enabled="true"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:textColor="@color/font_six"
+        android:textColorHint="@color/line_color"
+        android:textSize="@dimen/device_list_detail" />
+</LinearLayout>

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f6f6f6"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        style="@style/title_style">
+
+        <include layout="@layout/include_back"></include>
+
+
+        <ImageView
+            android:id="@+id/iv_lengqb"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:paddingBottom="10dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp"
+            android:scaleType="fitEnd"
+            android:src="@mipmap/ic_cloud_upload" />
+    </RelativeLayout>
+
+    <com.kongtiaoapp.xxhj.ui.view.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/run_main"
+                android:orientation="vertical">
+
+                <com.kongtiaoapp.xxhj.ui.view.StereoView
+                    android:id="@+id/run_stev"
+                    android:layout_width="@dimen/run_enegry_width"
+                    android:layout_height="@dimen/run_enegry_height"
+                    android:layout_gravity="center_horizontal">
+
+                    <LinearLayout
+                        android:layout_width="@dimen/run_enegry_width"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/line_running_3d"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:id="@+id/line_op_enegry"
+                            android:layout_width="@dimen/run_enegry_width"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="40dp"
+                            android:focusableInTouchMode="false">
+
+                            <TextView
+                                android:id="@+id/txt_openegry"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="单位功率"
+                                android:textSize="@dimen/run_enegry" />
+
+                            <TextView
+                                android:id="@+id/txt_openegry_shu"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txt_openegry"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/run_enegry_top"
+                                android:paddingBottom="3dp"
+                                android:paddingTop="5dp"
+                                android:textSize="@dimen/run_enegry_shu" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="100dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:src="@mipmap/running_up" />
+                        </RelativeLayout>
+
+                        <com.kongtiaoapp.xxhj.ui.view.RippleView
+                            android:id="@+id/rv_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:paddingRight="10dp"
+                            app:normal="@drawable/icon_next_gray"
+                            app:pressed="@drawable/icon_next" />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="@dimen/run_enegry_width"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/line_running_3d"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:id="@+id/line_total_enegry"
+                            android:layout_width="@dimen/run_enegry_width"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="40dp"
+                            android:focusableInTouchMode="false">
+
+                            <TextView
+                                android:id="@+id/txt_total_enegry"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="50dp"
+                                android:text="总能耗"
+                                android:paddingBottom="5dp"
+                                android:textColor="@color/theme_color"
+                                android:textSize="@dimen/run_enegry" />
+
+                            <TextView
+                                android:id="@+id/txt_total_enegry_shu"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txt_total_enegry"
+                                android:layout_centerHorizontal="true"
+                                android:paddingBottom="3dp"
+                                android:paddingTop="5dp"
+                                android:textColor="@color/theme_color"
+                                android:textSize="@dimen/run_enegry_shu" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txt_total_enegry_shu"
+                                android:gravity="center"
+                                android:paddingBottom="3dp"
+                                android:paddingTop="5dp"
+                                android:orientation="horizontal">
+                                <ImageView
+                                    android:id="@+id/img_enegry"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="30dp"
+                                    android:paddingTop="2dp"
+                                    android:scaleType="fitXY"/>
+                                <TextView
+                                    android:id="@+id/txt_yesterday_total_enegry_shu"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="5dp"
+                                    android:textColor="@color/theme_color"
+                                    android:textSize="@dimen/run_enegry_shu" />
+                            </LinearLayout>
+
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="100dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:src="@mipmap/running_centre" />
+                        </RelativeLayout>
+
+                        <com.kongtiaoapp.xxhj.ui.view.RippleView
+                            android:id="@+id/rv_total"
+                            app:normal="@drawable/icon_next_gray"
+                            app:pressed="@drawable/icon_next"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:paddingRight="10dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/run_enegry_width"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/line_running_3d"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:id="@+id/line_talent_enegry"
+                            android:layout_width="@dimen/run_enegry_width"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:layout_marginRight="40dp"
+                            android:focusableInTouchMode="false">
+
+                            <TextView
+                                android:id="@+id/txt_latent_enegry"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:text="节约能耗"
+                                android:textSize="@dimen/run_enegry" />
+
+                            <TextView
+                                android:id="@+id/txt_latent_enegry_shu"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/txt_latent_enegry"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginTop="@dimen/run_enegry_top"
+                                android:paddingBottom="3dp"
+                                android:paddingTop="5dp"
+                                android:textSize="@dimen/run_enegry_shu" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="100dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="10dp"
+                                android:src="@mipmap/running_down" />
+                        </RelativeLayout>
+
+                        <com.kongtiaoapp.xxhj.ui.view.RippleView
+                            android:id="@+id/rv_latent"
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_gravity="center"
+                            android:paddingRight="10dp"
+                            app:normal="@drawable/icon_next_gray"
+                            app:pressed="@drawable/icon_next" />
+                    </LinearLayout>
+                </com.kongtiaoapp.xxhj.ui.view.StereoView>
+
+                <TextView
+                    android:id="@+id/tv_project_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:text="暂无项目"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+                <com.kongtiaoapp.xxhj.ui.view.HouseView
+                    android:id="@+id/hv_running3"
+                    android:layout_width="290dp"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:visibility="visible" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|bottom"
+                    android:orientation="horizontal"
+                    android:visibility="visible"
+                    android:weightSum="2">
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="bottom|center_horizontal"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_runStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="20dp"
+                            android:paddingRight="20dp"
+                            android:text="0"
+                            android:textColor="@android:color/white"
+                            android:textSize="35sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="整体运行评价"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@android:color/white"></View>
+
+
+                    <LinearLayout
+                        android:id="@+id/line_duty"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_currentDuty"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="无"
+                            android:textColor="@android:color/white"
+                            android:textSize="30sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="9dp"
+                            android:text="当前值班人"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:scaleType="fitXY"
+                android:src="@mipmap/running_jian" />
+        </LinearLayout>
+    </com.kongtiaoapp.xxhj.ui.view.MyScrollView>
+</LinearLayout>

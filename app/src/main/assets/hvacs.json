@@ -1,0 +1,146 @@
+{
+  "code": "40000",
+  "resobj": {
+    "Comment": [],
+    "DiagCategory": [
+      {
+        "CategoryName": "能耗计量",
+        "Chart": [
+          {
+            "ChartNum": 2,
+            "Code": "OW--GCH",
+            "Text": "燃气消耗",
+            "TimeName": [
+              {
+                "ChartSign": "1",
+                "TimeCode": "B",
+                "Value": "日"
+              }
+            ]
+          },
+          {
+            "ChartNum": 1,
+            "Code": "EC",
+            "Text": "电能消耗",
+            "TimeName": [
+              {
+                "ChartSign": "0",
+                "TimeCode": "A",
+                "Value": "时"
+              },
+              {
+                "ChartSign": "1",
+                "TimeCode": "B",
+                "Value": "日"
+              }
+            ]
+          },
+          {
+            "ChartNum": 1,
+            "Code": "OW",
+            "Text": "热量消耗",
+            "TimeName": [
+              {
+                "ChartSign": "0",
+                "TimeCode": "A",
+                "Value": "时"
+              },
+              {
+                "ChartSign": "1",
+                "TimeCode": "B",
+                "Value": "日"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "CategoryName": "能效分析",
+        "Chart": [
+          {
+            "ChartNum": 1,
+            "Code": "BL",
+            "Text": "锅炉",
+            "TimeName": [
+              {
+                "ChartSign": "1",
+                "TimeCode": "B",
+                "Value": "日"
+              }
+            ]
+          },
+          {
+            "ChartNum": 1,
+            "Code": "HP",
+            "Text": "泵",
+            "TimeName": [
+              {
+                "ChartSign": "1",
+                "TimeCode": "B",
+                "Value": "日"
+              }
+            ]
+          },
+          {
+            "ChartNum": 1,
+            "Code": "TD",
+            "Text": "供回水",
+            "TimeName": [
+              {
+                "ChartSign": "1",
+                "TimeCode": "B",
+                "Value": "日"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "DutyInfo": {},
+    "ProjectId": "2cbda46200b246f898eefe7325f25ce3",
+    "ProjectInfo": {
+      "BuildingType": "商业建筑",
+      "City": "北京市",
+      "CoolingArea": "",
+      "EndDate": "1521043200",
+      "HeatingArea": "60692",
+      "ProjectName": "核心大楼(供暖)",
+      "ProjectType": "B",
+      "StartDate": "1509984000"
+    },
+    "RunningInfo": [
+      {
+        "Name": "电",
+        "Param": "0kWh",
+        "Y_param": "0kWh"
+      },
+      {
+        "Name": "热量",
+        "Param": "0GJ",
+        "Y_param": "0GJ"
+      },
+      {
+        "Name": "燃气",
+        "Param": "0m³",
+        "Y_param": "0m³"
+      },
+      {
+        "Name": "回水温差",
+        "Param": "0.0℃",
+        "Y_param": "0.0℃"
+      },
+      {
+        "Name": "室外温度",
+        "Param": "-1℃",
+        "Y_param": "+2℃"
+      },
+      {
+        "Name": "回水温度",
+        "Param": "0.0℃",
+        "Y_param": "0.0℃"
+      }
+    ],
+    "Time": "2017-12-13",
+    "Weather": "images/weather/100.png"
+  }
+}

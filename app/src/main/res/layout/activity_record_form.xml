@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.activites.RecordFormActivity">
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/dl_recordForm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.kongtiaoapp.xxhj.ui.view.MyLinearlayout
+            android:id="@+id/ml_recordForm"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rela"
+                style="@style/title_style">
+
+                <include layout="@layout/include_back"></include>
+
+                <TextView
+                    android:id="@+id/txt_recordForm"
+                    style="@style/title_center" />
+
+            </RelativeLayout>
+
+            <com.kongtiaoapp.xxhj.utils.MyTablayout
+                android:id="@+id/tl_rf"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/me_item_height"></com.kongtiaoapp.xxhj.utils.MyTablayout>
+
+            <com.kongtiaoapp.xxhj.ui.view.DefinationViewpager
+                android:id="@+id/vp_rf"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </com.kongtiaoapp.xxhj.ui.view.DefinationViewpager>
+        </com.kongtiaoapp.xxhj.ui.view.MyLinearlayout>
+        <!--滑动的菜单一定要放后面-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                style="@style/title_style"
+                android:layout_width="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_backLeft"
+                    style="@style/title_left" />
+
+                <TextView
+                    android:id="@+id/txt_csType"
+                    style="@style/title_right"
+                    android:text="交接班" />
+            </RelativeLayout>
+
+            <ExpandableListView
+                android:id="@+id/mlv_recordForm"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"></ExpandableListView>
+        </LinearLayout>
+    </android.support.v4.widget.DrawerLayout>
+
+
+</LinearLayout>

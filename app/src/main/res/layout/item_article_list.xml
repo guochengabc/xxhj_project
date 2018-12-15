@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_margin="@dimen/spacing_small"
+            android:text="专栏"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textColor="@color/font_three"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_title"
+            android:layout_margin="@dimen/spacing_small"
+            android:gravity="left"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:text="提供关于节能的知识、科普、论坛"
+            android:textColor="@color/font_nine"
+            android:textSize="@dimen/font_big" />
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/spacing_small"
+            android:layout_below="@+id/tv_content"
+            android:text="1天前"
+            android:textColor="@color/font_nine"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+</LinearLayout>

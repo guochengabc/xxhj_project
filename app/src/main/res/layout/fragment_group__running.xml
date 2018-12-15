@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.fragment.Group_RunningFragment">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_title_height"
+        android:background="@color/theme_color"
+        android:gravity="center"
+        android:text="@string/group_running_main"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_gp_survey"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/group_background"
+            android:gravity="center"
+            android:text="集团概况"
+            android:textSize="@dimen/txt_gp_sv_side" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/a666666" />
+
+        <Button
+            android:id="@+id/btn_gp_information"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/group_background"
+            android:gravity="center"
+            android:text="资讯"
+            android:textSize="@dimen/txt_gp_sv_side" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/a666666" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_gp_message"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/group_background"
+            android:gravity="center"
+            android:text="消息"
+            android:textSize="@dimen/txt_gp_sv_side" />
+
+        <TextView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/a666666" />
+
+        <Button
+            android:id="@+id/btn_gp_mine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/group_background"
+            android:gravity="center"
+            android:text="我的"
+            android:textSize="@dimen/txt_gp_sv_side" />
+    </LinearLayout>
+
+</LinearLayout>

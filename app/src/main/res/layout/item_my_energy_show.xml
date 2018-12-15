@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <ImageView
+            android:id="@+id/iv_top_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@mipmap/light" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="@dimen/spaceing_to_side"
+            android:layout_marginLeft="@dimen/spaceing_to_side"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_zhuBanFang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="主办方:xxx"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_big" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:text="时间:2016年10月8日 15:13:29"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_big" />
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:text="地点:xxx-xxx-xxx"
+                android:textColor="@color/white"
+                android:textSize="@dimen/font_big" />
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

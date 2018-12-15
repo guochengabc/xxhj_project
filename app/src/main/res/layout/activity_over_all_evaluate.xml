@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.activites.OverAllEvaluateActivity">
+
+    <RelativeLayout
+        style="@style/title_style"
+        android:layout_width="match_parent">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/title_center"
+            android:text="@string/overallEvaluate" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/include_view_line"></include>
+
+            <include layout="@layout/include_nodata_txt"></include>//代表的是图的提示，有数据还是没有数据
+
+            <LinearLayout
+                style="@style/over_all_evaluate_line">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <include layout="@layout/include_overevaluate_one"></include>
+
+                    <include layout="@layout/includeoverevaluate_two"></include>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/alloverevaluete_bottom"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="15dp">
+
+                    <ImageView
+                        android:id="@+id/img_flow"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:src="@drawable/shape_blackecircle" />
+
+
+                    <TextView
+                        android:id="@+id/txt_enegry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/a333333"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/over_all_evaluate_line">
+
+                <include layout="@layout/include_scop"></include>
+
+
+                <!--第五个图表-->
+                <com.kongtiaoapp.xxhj.ui.view.FourRectView
+                    android:id="@+id/fiveView_cop"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/alloverfourview_height" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/alloverevaluete_bottom"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="15dp">
+
+                    <ImageView
+                        android:id="@+id/img_COP"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:src="@drawable/shape_blackecircle" />
+
+
+                    <TextView
+                        android:id="@+id/txt_COP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/a333333"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                style="@style/over_all_evaluate_line">
+                <!--第六个图表-->
+                <com.kongtiaoapp.xxhj.ui.view.FourRectView
+                    android:id="@+id/sixView_enegry"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/alloverfourview_height" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/alloverevaluete_bottom"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="15dp">
+
+                    <ImageView
+                        android:id="@+id/img_enegry"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:src="@drawable/shape_blackecircle" />
+
+                    <TextView
+                        android:id="@+id/txt_run_enegry"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/a333333"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginBottom="15dp"
+                style="@style/over_all_evaluate_line">
+                <!--第七张图表-->
+                <include layout="@layout/include_freeze_distance"></include>
+                <!--第八张图表-->
+                <include layout="@layout/include_freeze_temp"></include>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/alloverevaluete_bottom"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="15dp">
+
+                    <ImageView
+                        android:id="@+id/img_temp"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:src="@drawable/shape_blackecircle" />
+
+                    <TextView
+                        android:id="@+id/txt_run_temp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="8dp"
+                        android:paddingBottom="10dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/a333333"
+                        android:textSize="18sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

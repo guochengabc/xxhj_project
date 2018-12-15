@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/back_color"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        style="@style/title_style"
+        android:layout_width="match_parent">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            style="@style/title_center"
+            android:text="@string/title_duty_detail" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/dutyname_width"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="@string/jiaoban_name_first"
+                    android:textColor="@color/font_three"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_jiaoban_name"
+                    style="@style/duty_record"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="@dimen/spacing_small"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_et_bg"
+                    android:enabled="false"
+                    android:hint="输入姓名"
+                    android:paddingLeft="@dimen/spacing_middle" />
+
+                <EditText
+                    android:id="@+id/et_jiaoban_phone"
+                    style="@style/duty_record"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape_et_bg"
+                    android:enabled="false"
+                    android:hint="输入手机号"
+                    android:paddingLeft="@dimen/spacing_middle" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/dutyname_width"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:gravity="right"
+                    android:text="@string/jiaoban_name"
+                    android:textColor="@color/font_three"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_jiaoban_name_second"
+                    style="@style/duty_record"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="@dimen/spacing_small"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_et_bg"
+                    android:enabled="false"
+                    android:hint="@string/please_jiaoban_name"
+                    android:paddingLeft="@dimen/spacing_middle" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/dutyname_width"
+                    android:layout_height="wrap_content"
+                    android:enabled="false"
+                    android:gravity="right"
+                    android:text="@string/jieban_name_first"
+                    android:textColor="@color/font_three"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_jieban_name"
+                    style="@style/duty_record"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="@dimen/spacing_small"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_et_bg"
+                    android:enabled="false"
+                    android:hint="选择交班人"
+                    android:paddingLeft="@dimen/spacing_middle" />
+
+                <EditText
+                    android:id="@+id/et_jieban_phone"
+                    style="@style/duty_record"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="2"
+                    android:background="@drawable/shape_et_bg"
+                    android:enabled="false"
+                    android:hint="手机号"
+                    android:paddingLeft="@dimen/spacing_middle" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/dutyname_width"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="@string/jieban_name"
+                    android:textColor="@color/font_three"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_jieban_name_second"
+                    style="@style/duty_record"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="@dimen/spacing_small"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_et_bg"
+                    android:enabled="false"
+                    android:hint="@string/please_jieban_name"
+                    android:paddingLeft="@dimen/spacing_middle" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/dutyname_width"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="值班时间:"
+                    android:textColor="@color/font_three"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_jiaoban_time"
+                    style="@style/duty_record"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="@dimen/spacing_small"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_et_bg"
+                    android:enabled="false"
+                    android:hint="输入时间"
+                    android:paddingLeft="@dimen/spacing_middle" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="@dimen/dutyname_width"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:text="　　　至:"
+                    android:textColor="@color/font_three"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_jieban_time"
+                    style="@style/duty_record"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="@dimen/spacing_small"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_et_bg"
+                    android:enabled="false"
+                    android:hint="输入时间"
+                    android:paddingLeft="@dimen/spacing_middle" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:text="工作内容"
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_big" />
+
+            <EditText
+                android:id="@+id/et_wrok_info"
+                style="@style/duty_record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_et_bg"
+                android:enabled="false"
+                android:gravity="top"
+                android:hint="输入工作内容"
+                android:minHeight="130dp"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:text="重点工作及交接事项"
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_big" />
+
+            <EditText
+                android:id="@+id/et_jiaojie_info"
+                style="@style/duty_record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_et_bg"
+                android:enabled="false"
+                android:gravity="top"
+                android:hint="输入重点工作及交接事项"
+                android:minHeight="130dp"
+                android:padding="8dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:text="领导交办"
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_big" />
+
+            <EditText
+                android:id="@+id/et_lingdao_info"
+                style="@style/duty_record"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_et_bg"
+                android:enabled="false"
+                android:gravity="top"
+                android:hint="输入交办内容"
+                android:minHeight="130dp"
+                android:padding="8dp" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+    <!-- <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="@dimen/spacing_middle"
+         android:background="@color/white"
+         android:orientation="vertical">
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/me_item_height"
+             android:orientation="horizontal">
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_vertical"
+                 android:layout_marginLeft="@dimen/spaceing_to_side"
+                 android:text="交班人:"
+                 android:textColor="@color/font_three"
+                 android:textSize="@dimen/font_big" />
+
+             <TextView
+                 android:id="@+id/tv_jiaoban"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_vertical"
+                 android:layout_marginLeft="@dimen/spacing_small"
+                 android:textColor="@color/font_six"
+                 android:textSize="@dimen/font_big" />
+
+         </LinearLayout>
+
+         <View
+             android:layout_width="match_parent"
+             android:layout_height="1px"
+             android:layout_marginLeft="@dimen/spacing_middle"
+             android:layout_marginRight="@dimen/spacing_middle"
+             android:background="@color/line_color" />
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/me_item_height"
+             android:orientation="horizontal">
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_vertical"
+                 android:layout_marginLeft="@dimen/spaceing_to_side"
+                 android:text="接班人:"
+                 android:textColor="@color/font_three"
+                 android:textSize="@dimen/font_big" />
+
+             <TextView
+                 android:id="@+id/tv_jieban"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_vertical"
+                 android:layout_marginLeft="@dimen/spacing_small"
+                 android:textColor="@color/font_six"
+                 android:textSize="@dimen/font_big" />
+
+         </LinearLayout>
+
+         <View
+             android:layout_width="match_parent"
+             android:layout_height="1px"
+             android:layout_marginLeft="@dimen/spacing_middle"
+             android:layout_marginRight="@dimen/spacing_middle"
+             android:background="@color/line_color" />
+
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/me_item_height"
+             android:orientation="horizontal">
+
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_vertical"
+                 android:layout_marginLeft="@dimen/spaceing_to_side"
+                 android:text="交接班时间:"
+                 android:textColor="@color/font_three"
+                 android:textSize="@dimen/font_big" />
+
+             <TextView
+                 android:id="@+id/tv_time_jiaoban"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_gravity="center_vertical"
+                 android:layout_marginLeft="@dimen/spacing_small"
+                 android:textColor="@color/font_six"
+                 android:textSize="@dimen/font_big" />
+
+         </LinearLayout>
+
+         <View
+             android:layout_width="match_parent"
+             android:layout_height="1px"
+             android:layout_marginLeft="@dimen/spacing_middle"
+             android:layout_marginRight="@dimen/spacing_middle"
+             android:background="@color/line_color" />
+     </LinearLayout>
+
+     <TextView
+         android:id="@+id/tv_work_content"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="@dimen/spacing_middle"
+         android:background="@color/white"
+         android:padding="@dimen/spaceing_to_side"
+         android:text="工作内容:"
+         android:textColor="@color/font_three"
+         android:textSize="@dimen/font_big" />
+
+     <TextView
+         android:id="@+id/tv_work_importance"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="@dimen/spacing_middle"
+         android:background="@color/white"
+         android:padding="@dimen/spaceing_to_side"
+         android:text="工作内容:"
+         android:textColor="@color/font_three"
+         android:textSize="@dimen/font_big" />
+
+     <TextView
+         android:id="@+id/tv_lingdao"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="@dimen/spacing_middle"
+         android:background="@color/white"
+         android:padding="@dimen/spaceing_to_side"
+         android:text="工作内容:"
+         android:textColor="@color/font_three"
+         android:textSize="@dimen/font_big" />-->
+</LinearLayout>

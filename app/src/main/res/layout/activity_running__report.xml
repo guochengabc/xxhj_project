@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".activites.Running_RecordActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:text="@string/title_record"
+            style="@style/title_center" />
+    </RelativeLayout>
+
+    <com.kongtiaoapp.xxhj.utils.MyTablayout
+        android:id="@+id/tl_recorder"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"></com.kongtiaoapp.xxhj.utils.MyTablayout>
+
+    <com.kongtiaoapp.xxhj.ui.view.DefinationViewpager
+        android:id="@+id/dv_recorder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.kongtiaoapp.xxhj.ui.view.DefinationViewpager>
+
+
+</LinearLayout>

@@ -1,0 +1,109 @@
+{
+  "code": "40000",
+  "resobj": {
+    "GroupData": [
+      {
+        "EnerParam": [
+          {
+            "ChartSign": "1",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "201有功",
+            "Param": "100.0",
+            "Type": "AYG",
+            "Y_param": "100.0"
+          },
+          {
+            "ChartSign": "1",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "202有功",
+            "Param": "0.0",
+            "Type": "BYG",
+            "Y_param": "0.0"
+          },
+          {
+            "ChartSign": "1",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "201无功",
+            "Param": "101.0",
+            "Type": "AWG",
+            "Y_param": "101.0"
+          },
+          {
+            "ChartSign": "1",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "202无功",
+            "Param": "0.0",
+            "Type": "BWG",
+            "Y_param": "0.0"
+          }
+        ]
+      },
+      {
+        "EnerParam": [
+          {
+            "ChartSign": "1",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "总有功",
+            "Param": "100.0",
+            "Type": "TYG",
+            "Y_param": "100.0"
+          },
+          {
+            "ChartSign": "1",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "总无功",
+            "Param": "101.0",
+            "Type": "TWG",
+            "Y_param": "101.0"
+          },
+          {
+            "ChartSign": "1",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "201负荷率",
+            "Param": "101.0",
+            "Type": "AFH",
+            "Y_param": "101.0"
+          },
+          {
+            "ChartSign": "1",
+            "DateSign": "C",
+            "DisplayType": "O",
+            "Name": "202负荷率",
+            "Param": "0.0",
+            "Type": "BFH",
+            "Y_param": "0.0"
+          }
+        ]
+      }
+    ],
+    "ChartCateg": {
+      "CategoryName": "功耗统计",
+      "Chart": [
+        {
+          "ChartNum": 1,
+          "Code": "EEC",
+          "Text": "分析",
+          "TimeName": [
+            {
+              "TimeCode": "B",
+              "Value": "日"
+            },
+            {
+              "TimeCode": "C",
+              "Value": "月"
+            }
+          ]
+        }
+      ]
+    },
+    "ProjectId": "3bf4ff9a72384a3e85ca939fd12dd809",
+    "Time": "2018-12-10"
+  }
+}

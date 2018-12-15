@@ -1,0 +1,507 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.kongtiaoapp.xxhj">
+
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_CONFIGURATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <!-- <uses-permission android:name="android.permission.WRITE_SMS" /> -->
+
+
+    <!-- 在SDCard中创建与删除文件权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 往SDCard写入数据权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 从SDCard读取数据权限 -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 相机权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 个推相关权限 -->
+    <!-- iBeancon功能所需权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!-- 个推3.0电子围栏功能所需权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon, android:theme">
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.kongtiaoapp.xxhj.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
+
+        <activity
+            android:name=".activites.MainActivity"
+            android:alwaysRetainTaskState="true"
+            android:configChanges="orientation|screenSize"
+            android:exported="true"
+            android:launchMode="singleTop"
+            android:theme="@style/StartTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".login_register.activity.LoginActivity"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".activites.WellcomeActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.MyGuideActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.MsgFriendDetailsActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".prefessionalknowledge.activity.MyFriendsActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".prefessionalknowledge.activity.HaoYouMsgActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".login_register.activity.ForgetPwdActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.SettingActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.ProjectInfoActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".prefessionalknowledge.activity.MyFavoriteActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.MyStainActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".prefessionalknowledge.activity.EnergySaving8Activity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".prefessionalknowledge.activity.EnergyShowActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".prefessionalknowledge.activity.EnergyStoreActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.ZhenDuanMsgActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.DeviceInfoActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.WeiBaoRecordActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.ZhenDuanRecordActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".prefessionalknowledge.activity.HotListActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.AddWeiBaoRecordActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.DeviceInfoDetailActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.FeedBackActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".activites.AboutUsActivity" />
+        <activity
+            android:name=".activites.PersonalInfoActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".prefessionalknowledge.activity.PublishActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.ImageScaleActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.MomentsDetailActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.DeviceListActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.AddDeviceInfoActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".prefessionalknowledge.activity.HistoryActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.RunningDeviceListActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.ProcjectInfoDetailActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.UserListActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".duty.activity.ZhiBanDetailActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".prefessionalknowledge.activity.PublishPostActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".prefessionalknowledge.activity.PostDetailActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.AddDeviceRunningActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.AddRunningSystemActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.UserDeviceListActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.AlterNameActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.AlterCompanyActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.AlterSchoolActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.UserDeviceListDuoActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.RunningRecordActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.RunningRecordDetailActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".prefessionalknowledge.activity.EnergyShowDetailActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".prefessionalknowledge.activity.EnergyShowFormeActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.SelectionDetailActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".prefessionalknowledge.activity.EnergyStoreListActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".prefessionalknowledge.activity.Energy8ZhuanLanActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.SpecialDetailActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.MyPublishActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.FriendsChatMsgActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".duty.activity.ZhiBanSubmitActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.HVAC_MainActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.AlarmActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.Add_AUTO_DeviceRunningActivity"
+            android:configChanges="orientation|screenSize" />
+        <!-- 相册选择图片所需要的A -->
+        <activity
+            android:name=".ui.ImagePicker.ImageBaseActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".ui.ImagePicker.ImageGridActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".ui.ImagePicker.ImageCropActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".ui.ImagePicker.ImagePreviewActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".ui.ImagePicker.ImagePreviewDelActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.Group_SurveyActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.AppDownActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.OverAllEvaluateActivity"
+            android:configChanges="orientation|screenSize" />
+        <!-- bug hd start -->
+        <meta-data
+            android:name="BUG_HD_SDK_GENERAL_KEY"
+            android:value="973404909ad79dcf517da03de3c9793c" />
+        <!-- bug hd end -->
+
+        <activity
+            android:name=".activites.MyZhenduanActivity"
+            android:configChanges="orientation|screenSize" />
+
+        <!--
+ ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".duty.activity.ZhiBanLeaderActivity"
+            android:configChanges="orientation|screenSize" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="582d1ddd99f0c7491c000736" />
+        //友盟进行回传参数进行统计
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="${UMENG_CHANNEL_VALUE}" />
+
+        <activity
+            android:name=".activites.RunningEvaluateActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".login_register.activity.RegisterActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.Running_RecordActivity"
+            android:configChanges="orientation|screenSize" />
+
+        <service android:name=".service.GetInfo_IntentService" />
+        <service
+            android:name=".service.GetPushService"
+            android:exported="true"
+            android:label="PushService"
+            android:process=":pushservice" />
+        android:theme="@style/AppTheme">
+        <service
+            android:name=".service.MyUpdateService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".activites.Auto_Manual_ParamsActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activites.Group_Project_DetailsActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.More_CommentsActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.InviteActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".login_register.activity.ModifyPWDActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.NoteActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.WeiXiuRecordActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.Elevator_TourActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.BPDActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.KGGActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.ZLPActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.YXJCActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".workorder.activity.WorkOrderActivity"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".workorder.activity.RepairPeopleActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.ProjectExchangeActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".workorder.activity.EngineerRepairActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="false" />
+        <activity
+            android:name=".activites.RecordFormActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.GiveWaterSystemActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".workorder.activity.ReportWorkActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.SEquitmentStatusActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.InformationActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".prefessionalknowledge.activity.ZixunActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.AlarmDetailActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.AssetActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.ChangeShiftsActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.RecordFormDetailActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".workorder.activity.WorkOrderSatisficActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.HVAC_ProjectDetailActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".activites.AppIntroductActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".energymetering.activity.EnergytMeteringActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".e_code.activity.RecordFormEcodeActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".e_code.activity.E_CodeActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".hvac.HVAC_NewActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".hvac.Running_ProjectActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".hvac.ParamPaintActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".hvac.RunningRecordHVACActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".e_code.activity.WeiBaoDetailActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".e_code.activity.AddWeiBaoActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".hvac.ProjectInfoHVACActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".hvac.EnviromentMonitoringActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".energymetering.activity.EnergyRecordActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".hvac.ParamPaintWaterActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".e_code.activity.ECodeListActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".e_code.activity.EcodeCreateActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".energymetering.activity.EnergyRecordListActivity"
+            android:configChanges="orientation|screenSize" />
+
+        <service
+            android:name=".service.RecordCommitService"
+            android:exported="false" />
+
+        <activity
+            android:name=".energymetering.activity.EnergyRecordStatusActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".e_code.activity.OtherPageActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".bpd.BPDActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".bpd.activity.BDataEntryActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".bpd.activity.BWeekReportDetailActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".bpd.activity.BDataEntryListActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".bpd.activity.BPaintActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".bpd.activity.BWeekReportActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".leader.LeaderTalkActivity" />
+        <activity android:name=".securitymonitoring.SecurityMonitoringActivity" />
+        <activity android:name=".recordform.RecordFormModule" />
+        <activity android:name=".recordform.activity.AdditionalReadingActivity" />
+        <activity android:name=".recordform.activity.ExportFormActivity" />
+        <activity android:name=".recordform.activity.GasRechargeActivity" />
+        <activity android:name=".recordform.activity.MReadingActivity" />
+        <activity android:name=".recordform.activity.ReadingSearchActivity" />
+        <activity android:name=".recordform.activity.RechargeSearchActivity" />
+        <activity android:name=".recordform.activity.SMReadingActivity" />
+        <activity android:name=".recordform.activity.StatisticSearchActivity" />
+        <activity android:name=".recordform.activity.RecordSearchDetailsActivity"></activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_title_height"
+        android:background="@color/theme_color">
+
+    </View>
+
+    <ListView
+        android:id="@+id/lv_device_state"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/device_item"
+        android:divider="#00000000"
+        android:paddingTop="9dp"></ListView>
+</LinearLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ffffff"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <RelativeLayout
+            style="@style/title_style"
+            android:layout_width="match_parent">
+
+            <include layout="@layout/include_back"></include>
+
+            <ImageView
+                android:id="@+id/img_eCode"
+                style="@style/title_right"
+                android:src="@mipmap/e_code" />
+        </RelativeLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/top_main_viewpager"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/dimenviewpager_height" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_alignBottom="@+id/top_main_viewpager"
+            android:background="#3f000000"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/txt_main_viewpagertitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_toLeftOf="@+id/dots_ll"
+                android:maxLines="1"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:id="@+id/dots_ll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal" />
+        </RelativeLayout>
+
+        <GridView
+            android:id="@+id/gridView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:numColumns="3"></GridView>
+
+    </LinearLayout>

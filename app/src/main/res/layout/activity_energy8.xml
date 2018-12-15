@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        style="@style/title_style">
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/title_content"
+            android:text="节能吧" />
+
+
+        <ImageView
+            android:id="@+id/iv_back"
+            style="@style/title_btn_back"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/main_margin"
+            android:visibility="gone"
+            android:text="搜索"
+            android:textColor="@drawable/selector_titlebar_right_font_bg"
+            android:textSize="16sp"/>
+    </RelativeLayout>
+
+    <com.kongtiaoapp.xxhj.ui.view.PagerSlidingTab
+        android:id="@+id/pstab"
+        android:layout_width="wrap_content"
+        android:layout_height="38dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_color" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:overScrollMode="never"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

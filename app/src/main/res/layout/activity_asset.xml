@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.kongtiaoapp.xxhj.activites.AssetActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:id="@+id/tv_title"
+            android:text="@string/title_project_introduce"
+            style="@style/title_center" />
+    </RelativeLayout>
+    <!--项目信息-->
+    <RelativeLayout
+        android:id="@+id/rl_wuye_info"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/me_item_height"
+        android:layout_marginTop="1dp"
+        android:background="#ffffff"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:drawableLeft="@mipmap/wuye"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:text="项目信息"
+            android:textColor="@color/font_six"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_width"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:src="@mipmap/arrows_rigth" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_color" />
+    <!--设备信息-->
+    <RelativeLayout
+        android:id="@+id/device_info"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/me_item_height"
+        android:layout_below="@+id/rl_myclass"
+        android:layout_marginTop="1dp"
+        android:background="#ffffff"
+        android:padding="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:drawableLeft="@mipmap/device_info"
+            android:drawablePadding="10dp"
+            android:gravity="center_vertical"
+            android:text="设备信息"
+            android:textColor="@color/font_six"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:layout_width="@dimen/btn_width"
+            android:layout_height="@dimen/btn_width"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:src="@mipmap/arrows_rigth" />
+    </RelativeLayout>
+    <TextView
+        android:id="@+id/view_gone1"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_color" />
+</LinearLayout>

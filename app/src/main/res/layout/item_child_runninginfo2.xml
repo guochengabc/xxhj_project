@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/line_alarm"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="@color/lines_unalarm"
+    android:paddingLeft="@dimen/project_running_childmg"
+    android:paddingRight="@dimen/project_running_childmg">
+
+
+    <TextView
+        android:id="@+id/txt_running_1"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/project_running_txt_height"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:maxLines="2"
+        android:text="设备型号"
+        android:textColor="@color/a666666"
+        android:textSize="@dimen/project_runningsize" />
+
+    <TextView
+        android:id="@+id/txt_running_2"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/project_running_txt_height"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:maxLines="2"
+        android:textColor="@color/a666666"
+        android:textSize="@dimen/project_runningsize"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/txt_running_3"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/project_running_txt_height"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="设备型号"
+        android:textColor="@color/a666666"
+        android:textSize="@dimen/project_runningsize"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/txt_running_4"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/project_running_txt_height"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:maxLines="2"
+        android:text="设备型号"
+        android:textColor="@color/a666666"
+        android:textSize="@dimen/project_runningsize"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/txt_running_5"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/project_running_txt_height"
+        android:layout_weight="1"
+        android:gravity="center_vertical|right"
+        android:maxLines="2"
+        android:text="型号名"
+        android:textColor="@color/a666666"
+        android:textSize="@dimen/project_runningsize"
+        android:visibility="gone" />
+
+</LinearLayout>

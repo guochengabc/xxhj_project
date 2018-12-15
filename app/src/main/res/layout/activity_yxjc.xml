@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".activites.YXJCActivity">
+
+    <RelativeLayout
+        style="@style/title_style"
+        android:layout_width="match_parent">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/title_center"
+            android:text="运行监测" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bpd_width">
+
+                <TextView
+                    android:id="@+id/txt_jxdy"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"
+                    android:gravity="center"
+                    android:text="1#进线开关状态"
+                    android:textSize="@dimen/bpd_size" />
+
+                <TextView
+                    android:id="@+id/txt_bpd"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="ON"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bpd_width"
+                android:background="@color/lightblue">
+
+                <TextView
+                    android:id="@+id/txt_ryjl"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"
+                    android:gravity="center"
+                    android:text="2#进线开关状态"
+                    android:textSize="@dimen/bpd_size" />
+
+                <TextView
+                    android:id="@+id/txt_bbbg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/lightblue"
+                    android:gravity="center"
+                    android:text="N/A"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bpd_width">
+
+                <TextView
+                    android:id="@+id/txt_scgl"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"
+                    android:gravity="center"
+                    android:text="母联开关状态"
+                    android:textSize="@dimen/bpd_size" />
+
+                <TextView
+                    android:id="@+id/txt_bbSbg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="OFF"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bpd_width"
+                android:background="@color/lightblue">
+
+                <TextView
+                    android:id="@+id/txt_ryjal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"
+                    android:gravity="center"
+                    android:text="1#变压器一次电流"
+                    android:textSize="@dimen/bpd_size" />
+
+                <TextView
+                    android:id="@+id/txt_Abbbg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/lightblue"
+                    android:gravity="center"
+                    android:text="ON"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bpd_width">
+
+                <TextView
+                    android:id="@+id/txt_rsyjal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"
+                    android:gravity="center"
+                    android:text="1#变压器温度"
+                    android:textSize="@dimen/bpd_size" />
+
+                <TextView
+                    android:id="@+id/txt_Xbbbg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="ON"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bpd_width"
+                android:background="@color/lightblue">
+
+                <TextView
+                    android:id="@+id/txt_ryajal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"
+                    android:gravity="center"
+                    android:text="2#变压器一次电流"
+                    android:textSize="@dimen/bpd_size" />
+
+                <TextView
+                    android:id="@+id/txt_bbfbg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/lightblue"
+                    android:gravity="center"
+                    android:text="N/A"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bpd_width">
+
+                <TextView
+                    android:id="@+id/txt_jxday"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"
+                    android:gravity="center"
+                    android:text="2#变压器温度"
+                    android:textSize="@dimen/bpd_size" />
+
+                <TextView
+                    android:id="@+id/txt_bbvbg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="OFF"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bpd_width"
+                android:background="@color/lightblue">
+
+                <TextView
+                    android:id="@+id/txt_ryajl"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"
+                    android:gravity="center"
+                    android:text="直流屏输入电压"
+                    android:textSize="@dimen/bpd_size" />
+
+                <TextView
+                    android:id="@+id/txt_bCbbg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/lightblue"
+                    android:gravity="center"
+                    android:text="ON"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bpd_width">
+
+                <TextView
+                    android:id="@+id/txta_scgl"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"
+                    android:gravity="center"
+                    android:text="直流屏充电电压"
+                    android:textSize="@dimen/bpd_size" />
+
+                <TextView
+                    android:id="@+id/txt_bbbgC"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="OFF"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bpd_width"
+                android:background="@color/lightblue">
+
+                <TextView
+                    android:id="@+id/txta_ryjal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"
+                    android:gravity="center"
+                    android:text="信号屏故障"
+                    android:textSize="@dimen/bpd_size" />
+
+                <TextView
+                    android:id="@+id/txt_Jbbbg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/lightblue"
+                    android:gravity="center"
+                    android:text="ON"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bpd_width">
+
+                <TextView
+                    android:id="@+id/txt_rsyajal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1.2"
+                    android:gravity="center"
+                    android:text="室内温度"
+                    android:textSize="@dimen/bpd_size" />
+
+                <TextView
+                    android:id="@+id/txt_Zbbbg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:text="OFF"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/lightblue"></View>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

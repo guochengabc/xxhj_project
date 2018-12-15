@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:id="@+id/tv_title"
+            android:text="@string/title_energy_show"
+            style="@style/title_center" />
+        <TextView
+            android:id="@+id/tv_my_show"
+            android:text="@string/title_my_show"
+            style="@style/title_right"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/iv_special"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/zixun1"/>
+
+        <TextView
+            android:id="@+id/tv_special_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="@dimen/spaceing_to_side"
+            android:layout_marginRight="@dimen/spaceing_to_side"
+            android:layout_marginTop="70dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="专栏"
+            android:textColor="@color/white"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:id="@+id/tv_special_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_special_title"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/spacing_middle"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLines="2"
+            android:text="提供关于节能的知识、科普、论坛"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_big"/>
+    </RelativeLayout>
+
+    <com.kongtiaoapp.xxhj.ui.refreshui.SpringView
+        android:id="@+id/springView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:overScrollMode="never"
+            android:scrollbars="none"/>
+    </com.kongtiaoapp.xxhj.ui.refreshui.SpringView>
+</LinearLayout>

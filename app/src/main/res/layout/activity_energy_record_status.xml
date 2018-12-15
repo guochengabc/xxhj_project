@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.kongtiaoapp.xxhj.energymetering.activity.EnergyRecordStatusActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        style="@style/title_style"
+        android:layout_width="match_parent">
+
+
+
+        <LinearLayout
+            style="@style/title_style"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <RadioGroup
+                android:id="@+id/rgp_record"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@drawable/line_transport"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="0.8dp">
+
+                <RadioButton
+                    android:id="@+id/radio_all"
+                    style="@style/energy_record_status"
+                    android:checked="true"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="所有的" />
+
+                <RadioButton
+                    android:id="@+id/radio_YRecord"
+                    style="@style/energy_record_status"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="已录入" />
+
+                <RadioButton
+                    android:id="@+id/radio_NRecord"
+                    style="@style/energy_record_status"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="未录入" />
+            </RadioGroup>
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_help"
+            style="@style/title_right"
+            android:src="@mipmap/help_white" />
+        <include layout="@layout/include_back"></include>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/line_help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="10dp"
+            android:background="@color/yes_status" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="已录入"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="20dp"
+            android:layout_height="10dp"
+            android:layout_marginLeft="50dp"
+            android:background="@color/no_status" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:text="未录入"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <com.kongtiaoapp.xxhj.utils.MyTablayout
+        android:id="@+id/mtl_recordForm"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/me_item_height"></com.kongtiaoapp.xxhj.utils.MyTablayout>
+
+    <com.kongtiaoapp.xxhj.ui.view.DefinationViewpager
+        android:id="@+id/dvp_recordForm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.kongtiaoapp.xxhj.ui.view.DefinationViewpager>
+</LinearLayout>

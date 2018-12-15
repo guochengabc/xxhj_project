@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:id="@+id/tv_title"
+            android:text="@string/title_running_evaluate"
+            style="@style/title_center" />
+        <TextView
+            android:id="@+id/tv_my_show"
+            android:text="@string/title_my_show"
+            android:visibility="gone"
+            style="@style/title_right"/>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_title0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spaceing_to_side"
+                android:gravity="center_horizontal"
+                android:text="评价公式"
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_big"/>
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spaceing_to_side"
+                android:layout_marginRight="@dimen/spaceing_to_side"
+                android:background="@drawable/shape_et_bg"
+                android:gravity="left|top"
+                android:minHeight="30dp"
+                android:padding="@dimen/spacing_middle"
+                android:text="节能情况*60%+空气舒适度*40%"
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_middle"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/back_color"/>
+
+            <TextView
+                android:id="@+id/tv_title1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spaceing_to_side"
+                android:gravity="center_horizontal"
+                android:text="节能情况得分"
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_big"/>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spaceing_to_side"
+                android:layout_marginRight="@dimen/spaceing_to_side"
+                android:stretchColumns="*">
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="节能率(%)"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="0~5"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="5~10"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="10~15"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="15~20"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="20~25"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text=">25"
+                        android:textColor="@color/font_three"/>
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="得分"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="100"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="90"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="80"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="70"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="60"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="50"
+                        android:textColor="@color/font_three"/>
+                </TableRow>
+            </TableLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/back_color"/>
+
+            <TextView
+                android:id="@+id/tv_title2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spaceing_to_side"
+                android:gravity="center_horizontal"
+                android:text="舒适度公式"
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_big"/>
+
+            <TextView
+                android:id="@+id/tv_content3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spaceing_to_side"
+                android:layout_marginRight="@dimen/spaceing_to_side"
+                android:background="@drawable/shape_et_bg"
+                android:gravity="left|top"
+                android:padding="@dimen/spacing_middle"
+                android:text="运算公式：温度*50%+PM25*25%+CO2*25% "
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_middle"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spaceing_to_side"
+                android:gravity="center_horizontal"
+                android:text="温度得分"
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_big"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spaceing_to_side"
+                android:layout_marginRight="@dimen/spaceing_to_side"
+                android:background="@drawable/shape_et_bg"
+                android:gravity="left|top"
+                android:padding="@dimen/spacing_middle"
+                android:text="温度：夏季24度100分，高低一度减5分，冬季 20度 100分"
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_middle"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spaceing_to_side"
+                android:gravity="center_horizontal"
+                android:text="PM25得分"
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_big"/>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spaceing_to_side"
+                android:layout_marginRight="@dimen/spaceing_to_side"
+                android:stretchColumns="*"
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_middle">
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="空气质量"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="优"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="良"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="轻度污染"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="中度污染"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="重度污染"
+                        android:textColor="@color/font_three"/>
+
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="得分"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="100"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="80"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="60"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="40"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="20"
+                        android:textColor="@color/font_three"/>
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/spaceing_to_side"
+                android:gravity="center_horizontal"
+                android:text="CO2得分"
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_big"/>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/spaceing_to_side"
+                android:layout_marginRight="@dimen/spaceing_to_side"
+                android:stretchColumns="*"
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_middle">
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="浓度"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="&lt;500"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="500~800"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="800~1000"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="1000~1500"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="1500~1800"
+                        android:textColor="@color/font_three"/>
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="得分"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="100"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="90"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="80"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="70"
+                        android:textColor="@color/font_three"/>
+
+                    <TextView
+                        android:layout_margin="2dp"
+                        android:background="@drawable/shape_et_bg"
+                        android:text="60"
+                        android:textColor="@color/font_three"/>
+
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

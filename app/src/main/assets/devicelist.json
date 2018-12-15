@@ -1,0 +1,112 @@
+{
+  "code": "40000",
+  "resobj": [
+    {
+      "DeviceId": "0",
+      "TypeName": "锅炉",
+      "Count": "2",
+      "Data": [
+        {
+          "Name": "1号锅炉"
+        },
+        {
+          "Name": "2号锅炉"
+        }
+      ]
+    },
+    {
+      "DeviceId": "1",
+      "TypeName": "冷机",
+      "Count": "2",
+      "Data": [
+        {
+          "Name": "1号约克冷机"
+        },
+        {
+          "Name": "2号约克冷机"
+        }
+      ]
+    },
+    {
+      "DeviceId": "2",
+      "TypeName": "冷冻泵",
+      "Count": "4",
+      "Data": [
+        {
+          "Name": "1号冷冻泵"
+        },
+        {
+          "Name": "2号冷冻泵"
+        },
+        {
+          "Name": "3号冷冻泵"
+        },
+        {
+          "Name": "4号冷冻泵"
+        }
+      ]
+    },
+    {
+      "DeviceId": "3",
+      "TypeName": "冷却泵",
+      "Count": "4",
+      "Data": [
+        {
+          "Name": "1号冷却泵"
+        },
+        {
+          "Name": "2号冷却泵"
+        },
+        {
+          "Name": "3号冷却泵"
+        },
+        {
+          "Name": "4号冷却泵"
+        }
+      ]
+    },
+    {
+      "DeviceId": "4",
+      "TypeName": "直燃机",
+      "Count": "2",
+      "Data": [
+        {
+          "Name": "1号直燃机"
+        },
+        {
+          "Name": "2号直燃机"
+        }
+      ]
+    },
+    {
+      "DeviceId": "5",
+      "TypeName": "集水器",
+      "Count": "1",
+      "Data": [
+        {
+          "Name": "集水器"
+        }
+      ]
+    },
+    {
+      "DeviceId": "6",
+      "TypeName": "循环泵",
+      "Count": "1",
+      "Data": [
+        {
+          "Name": "循环泵"
+        }
+      ]
+    },
+    {
+      "DeviceId": "7",
+      "TypeName": "电梯",
+      "Count": "1",
+      "Data": [
+        {
+          "Name": "电梯"
+        }
+      ]
+    }
+  ]
+}

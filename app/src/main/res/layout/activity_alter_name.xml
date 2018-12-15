@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:background="@color/back_color"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:id="@+id/tv_title"
+            android:text="@string/title_modify_name"
+            style="@style/title_center" />
+        <TextView
+            android:id="@+id/tv_submit"
+            android:text="@string/title_sure"
+            style="@style/title_right"/>
+    </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="@dimen/spaceing_to_side"
+        android:background="@color/line_color" />
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:gravity="top|left"
+        android:minHeight="30dp"
+        android:padding="10dp"
+        android:textColor="@color/font_three"
+        android:textColorHint="@color/font_three"
+        android:textSize="@dimen/font_middle"></EditText>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/line_color" />
+
+    <TextView
+        android:id="@+id/tv_shuoming"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/spacing_middle"
+        android:text="设置您的昵称"
+        android:textColor="@color/font_six"
+        android:textSize="@dimen/font_big" />
+</LinearLayout>

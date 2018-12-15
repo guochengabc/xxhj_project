@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/line_add_device_info"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="5dp">
+
+            <TextView
+                android:id="@+id/txt_setting_font_small"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="@dimen/device_space"
+                android:paddingRight="@dimen/device_space"
+                android:text="@string/txt_setting_font_normal"
+                android:textColor="@color/devicedetail_selectcolor"
+                android:textSize="@dimen/device_fontsize"
+                android:visibility="visible" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@+id/txt_setting_font_small"
+                android:background="@color/main_color"></View>
+
+            <TextView
+                android:id="@+id/txt_setting_font_mid"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginLeft="1dp"
+                android:layout_toRightOf="@+id/txt_setting_font_small"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="@dimen/device_space"
+                android:paddingRight="@dimen/device_space"
+                android:text="@string/txt_setting_font_mod"
+                android:textColor="@color/devicedetail_selectcolor"
+                android:textSize="@dimen/device_fontsize"
+                android:visibility="visible" />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="18dp"
+                android:layout_marginTop="16dp"
+                android:layout_toRightOf="@+id/txt_setting_font_mid"
+                android:background="@color/main_color"></View>
+
+            <TextView
+                android:id="@+id/txt_setting_font_big"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="1dp"
+                android:layout_toRightOf="@+id/txt_setting_font_mid"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="@dimen/device_space"
+                android:paddingRight="@dimen/device_space"
+                android:text="@string/txt_setting_font_big"
+                android:textColor="@color/devicedetail_selectcolor"
+                android:textSize="@dimen/device_fontsize"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/txt_setting_draw"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:gravity="center_vertical|right"
+                android:paddingRight="15dp"
+                android:text="@string/txt_setting_draw"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_draw_title"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <com.kongtiaoapp.xxhj.ui.view.MyLinearlayout
+            android:id="@+id/ml_add_device"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="50dp"
+            android:orientation="vertical">
+
+            <com.kongtiaoapp.xxhj.ui.view.draglistview.DragListView
+                android:id="@+id/listview"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:divider="@color/transparent" />
+
+            <LinearLayout
+                android:id="@+id/line_namePlate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <com.kongtiaoapp.xxhj.ui.view.ClickTextView
+                    android:id="@+id/ctv_clear"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:background="@drawable/selector_btn_big"
+                    android:gravity="center"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="一键清空"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <com.kongtiaoapp.xxhj.ui.view.ClickTextView
+                    android:id="@+id/addDeviceInfo_tv_save"
+                    android:layout_width="120dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/selector_btn_big"
+                    android:gravity="center"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:text="提交"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </com.kongtiaoapp.xxhj.ui.view.MyLinearlayout>
+
+        <com.kongtiaoapp.xxhj.ui.view.MyScrollView
+            android:id="@+id/msl_device_paint"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="#B3DDDDDD"
+            android:paddingLeft="@dimen/add_device_info_right"
+            android:paddingRight="@dimen/add_device_info_right"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_add_device_paint_close"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginBottom="25dp"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/close"
+                    android:visibility="gone" />
+
+                <include layout="@layout/paint_wanneng"></include>
+
+            </LinearLayout>
+        </com.kongtiaoapp.xxhj.ui.view.MyScrollView>
+
+
+    </FrameLayout>
+</LinearLayout>

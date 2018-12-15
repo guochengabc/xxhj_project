@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.energymetering.activity.EnergytMeteringActivity">
+
+    <RelativeLayout
+        style="@style/title_style"
+        android:layout_width="match_parent">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/title_center"
+            android:text="@string/heatmeter" />
+<TextView
+    android:id="@+id/txt_record"
+    style="@style/title_right"
+    android:text="能耗录入"/>
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+    <com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView
+        android:id="@+id/lv_energyP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="18dp"
+        android:layout_marginLeft="8dp"></com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView>
+            <TextView
+                android:id="@+id/txt_noDatas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:text="后续功能敬请期待！"
+                android:textColor="@color/no_data"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:textSize="17sp"/>
+
+   <!-- <include layout="@layout/include_project_dtbackground"></include>-->
+    <com.kongtiaoapp.xxhj.ui.view.ClickTextView
+        android:id="@+id/txt_moduleOne"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="2dp"
+        android:paddingTop="15dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:text="能耗排名"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="40dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/theme_color"
+        android:visibility="gone"/>
+
+    <com.kongtiaoapp.xxhj.ui.view.FullGridView
+        android:id="@+id/glv_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:visibility="gone"></com.kongtiaoapp.xxhj.ui.view.FullGridView>
+
+           <!-- <include layout="@layout/include_project_dtbackground"></include>
+
+-->
+            <com.kongtiaoapp.xxhj.ui.view.ClickTextView
+        android:id="@+id/txt_moduleTwo"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingBottom="2dp"
+        android:paddingTop="15dp"
+        android:textSize="15sp"
+        android:textStyle="bold"
+                android:visibility="gone"
+        android:text="能耗统计"/>
+
+    <TextView
+        android:layout_width="40dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="20dp"
+        android:background="@color/theme_color"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginTop="15dp"
+android:visibility="gone"
+        android:orientation="horizontal">
+
+
+        <RadioGroup
+            android:id="@+id/group_time"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="3"
+            android:background="@mipmap/white_background_circle"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/radio1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="日"
+                android:textColor="@drawable/selector_duanzhen"
+                android:textSize="@dimen/comment_time_size" />
+
+
+
+            <RadioButton
+                android:id="@+id/radio2"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="月"
+                android:textColor="@drawable/selector_duanzhen"
+                android:textSize="@dimen/comment_time_size" />
+
+            <RadioButton
+                android:id="@+id/radio3"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="年"
+                android:textColor="@drawable/selector_duanzhen"
+                android:textSize="@dimen/comment_time_size"/>
+
+            <RadioButton
+                android:id="@+id/radio4"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text=""
+                android:textColor="@drawable/selector_duanzhen"
+                android:textSize="@dimen/comment_time_size"
+                android:visibility="gone" />
+        </RadioGroup>
+
+
+    </LinearLayout>
+    <com.kongtiaoapp.xxhj.utils.MyTablayout
+        android:id="@+id/tab_paint"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:layout_weight="1"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="10dp"></com.kongtiaoapp.xxhj.utils.MyTablayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_horizontal"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_lastMonth"
+            style="@style/engineer_click"
+            android:src="@mipmap/leftarrow"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/txt_notata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/theme_color"
+            android:textSize="@dimen/font_big"
+            android:textStyle="bold"
+            android:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/img_nextMonth"
+            style="@style/engineer_click"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/rightarrow"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/frame__paint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp" />
+
+   <!-- <include layout="@layout/include_project_dtbackground"></include>-->
+            <com.kongtiaoapp.xxhj.ui.view.ClickTextView
+                android:id="@+id/txt_moduleFour"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="2dp"
+                android:paddingTop="15dp"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:text="能耗分析"
+
+                android:visibility="gone"/>
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/theme_color"
+                android:visibility="gone"/>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

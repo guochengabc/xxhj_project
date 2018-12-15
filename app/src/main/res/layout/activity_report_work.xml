@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:progress="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:text="@string/export_work"
+            style="@style/title_center" />
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+    <include layout="@layout/include_project_dtbackground"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="@dimen/record_running_left"
+        android:layout_marginRight="@dimen/record_running_left"
+        android:layout_marginTop="16dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txt_start"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="@string/running_time"
+            android:textColor="@color/a999999"
+            android:textSize="@dimen/running_report_time_size" />
+        <!--  android:background="@drawable/text_frame"-->
+        <TextView
+            android:id="@+id/txt_starttime"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/running_select"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="4"
+
+            android:gravity="center"
+            android:text="@string/project_select"
+            android:textColor="@color/a333333"
+            android:textSize="@dimen/running_report_time_size" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/project_head_background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="@dimen/record_running_left"
+        android:layout_marginRight="@dimen/record_running_left"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txt_end"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="@string/running_endtime"
+            android:textColor="@color/a999999"
+            android:textSize="@dimen/running_report_time_size" />
+
+        <TextView
+            android:id="@+id/txt_endtime"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/running_select"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text="@string/project_select"
+            android:textColor="@color/a333333"
+            android:textSize="@dimen/running_report_time_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/project_head_background" />
+    <Button
+        android:id="@+id/btn_report"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+       android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/selector_report_original_data"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:text="@string/report_original_data"
+        android:textColor="@color/white"
+        android:textSize="@dimen/report_original_data" />
+    <RelativeLayout
+        android:id="@+id/rela_loading"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txt_loading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="正在下载:"
+            android:textSize="18sp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/txt_loading_shu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@id/txt_loading"
+            android:text="0"
+            android:textSize="18sp"
+            android:visibility="invisible" />
+    </RelativeLayout>
+    <com.kongtiaoapp.xxhj.ui.view.ProgressBar_Report_Data
+        android:id="@+id/progress"
+        style="?android:attr/progressBarStyleHorizontal"
+        progress:textColor="@color/theme_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:visibility="gone" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="25dp"
+        android:background="@color/back_color">
+
+        <TextView
+            android:id="@+id/txt_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/download_notige"
+            android:textColor="@color/down_content"
+            android:textSize="@dimen/download_notige_size" />
+
+        <TextView
+            android:layout_width="@dimen/down_view_bg"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:layout_toLeftOf="@+id/txt_notice"
+            android:background="@color/down_content" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="@dimen/down_view_bg"
+            android:layout_height="1dp"
+            android:layout_marginTop="30dp"
+            android:layout_toRightOf="@id/txt_notice"
+            android:background="@color/down_content" />
+
+        <TextView
+            android:id="@+id/txt_down_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:text="@string/download_notige_1"
+            android:textColor="@color/down_content"
+            android:textSize="@dimen/download_notige_content_size"
+            android:layout_below="@+id/txt_notice"
+            android:layout_alignLeft="@+id/txt_down_2"
+            android:layout_alignStart="@+id/txt_down_2" />
+
+        <TextView
+            android:id="@+id/txt_down_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_down_1"
+            android:layout_marginLeft="@dimen/download_notice_lf"
+            android:layout_marginRight="@dimen/download_notice_lf"
+            android:layout_marginTop="@dimen/download_notice_tp"
+            android:text="@string/work_noptice1"
+            android:textColor="@color/down_content"
+            android:textSize="@dimen/download_notige_content_size" />
+
+        <TextView
+            android:id="@+id/txt_down_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_down_2"
+            android:layout_marginLeft="@dimen/download_notice_lf"
+            android:layout_marginRight="@dimen/download_notice_lf"
+            android:layout_marginTop="@dimen/download_notice_tp"
+            android:text="@string/work_noptice2"
+            android:textColor="@color/down_content"
+            android:textSize="@dimen/download_notige_content_size" />
+    </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

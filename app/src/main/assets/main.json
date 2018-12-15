@@ -1,0 +1,76 @@
+{
+  "code": "40000",
+  "resobj": {
+    "MainArray": [
+      {
+        "MainName": "首页",
+        "MainFragment": "00",
+        "ModuleArray": [
+          {
+            "ModuleName": "领导专栏",
+            "IconName": "ldzl",
+            "PackageName": "com.kongtiaoapp.xxhj",
+            "IntentName": "com.kongtiaoapp.xxhj.leader.LeaderTalkActivity"
+          },{
+            "ModuleName": "",
+            "IconName": "",
+            "PackageName": "",
+            "IntentName": ""
+          },
+          {
+            "ModuleName": "讨论专栏",
+            "IconName": "tlzl",
+            "PackageName": "com.kongtiaoapp.xxhj",
+            "IntentName": "com.kongtiaoapp.xxhj.activites.More_CommentsActivity"
+          },
+          {
+            "ModuleName": "暖通空调",
+            "IconName": "ntkt",
+            "PackageName": "com.kongtiaoapp.xxhj",
+            "IntentName": "com.kongtiaoapp.xxhj.hvac.HVAC_NewActivity"
+          },
+          {
+            "ModuleName": "能源管理",
+            "IconName": "nygl",
+            "PackageName": "com.kongtiaoapp.xxhj",
+            "IntentName": "com.kongtiaoapp.xxhj.energymetering.activity.EnergyRecordListActivity"
+          },
+          {
+            "ModuleName": "变配电",
+            "IconName": "bpd",
+            "PackageName": "com.kongtiaoapp.xxhj",
+            "IntentName": "com.kongtiaoapp.xxhj.bpd.BPDActivity"
+          },
+          {
+            "ModuleName": "工单管理",
+            "IconName": "gdgl",
+            "PackageName": "com.zchg.woa",
+            "IntentName": "com.zchg.woa.view.display.main.MainActivity"
+          },
+          {
+            "ModuleName": "消息中心",
+            "IconName": "xxzx",
+            "PackageName": "com.kongtiaoapp.xxhj",
+            "IntentName": "com.kongtiaoapp.xxhj.activites.InformationActivity"
+          },
+          {
+            "ModuleName": "安防监控",
+            "IconName": "afjk",
+            "PackageName": "com.kongtiaoapp.xxhj",
+            "IntentName": "com.kongtiaoapp.xxhj.securitymonitoring.SecurityMonitoringActivity"
+          }
+        ]
+      },
+      {
+        "MainName": "通讯录",
+        "MainFragment": "02",
+        "ModuleArray": []
+      },
+      {
+        "MainName": "我的",
+        "MainFragment": "03",
+        "ModuleArray": []
+      }
+    ]
+  }
+}

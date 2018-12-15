@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_marginTop="10dp"
+    android:layout_height="50dp">
+    <TextView
+        android:id="@+id/tv_address"
+        android:layout_width="wrap_content"
+        android:text="地址:北京市昌平区"
+        android:textSize="16sp"
+        android:layout_marginLeft="12dp"
+        android:singleLine="true"
+        android:layout_centerVertical="true"
+        android:textColor="@color/font_six"
+        android:layout_height="wrap_content" />
+    <ImageView
+        android:layout_width="@dimen/btn_width"
+        android:layout_height="@dimen/btn_width"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:scaleType="center"
+        android:src="@mipmap/arrows_rigth" />
+</RelativeLayout>
+</LinearLayout>

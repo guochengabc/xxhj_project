@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.activites.RecordFormDetailActivity">
+
+    <LinearLayout style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+    </LinearLayout>
+    <com.kongtiaoapp.xxhj.utils.MyTablayout
+        android:id="@+id/tl_reFDetail"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/me_item_height"
+        app:tabMode="scrollable"></com.kongtiaoapp.xxhj.utils.MyTablayout>
+
+    <com.kongtiaoapp.xxhj.ui.view.DefinationViewpager
+        android:id="@+id/dv_reFDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </com.kongtiaoapp.xxhj.ui.view.DefinationViewpager>
+</LinearLayout>

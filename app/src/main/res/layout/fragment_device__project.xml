@@ -1,0 +1,11 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    tools:context="com.kongtiaoapp.xxhj.fragment.Device_ProjectFragment">
+
+    <com.kongtiaoapp.xxhj.ui.view.MyExpandableListView
+        android:id="@+id/elv_deviceinfo"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"></com.kongtiaoapp.xxhj.ui.view.MyExpandableListView>
+</LinearLayout>

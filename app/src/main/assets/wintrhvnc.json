@@ -1,0 +1,108 @@
+{
+  "code": "40000",
+  "resobj": {
+    "Comment": [
+      {
+        "UserName": "李润石",
+        "UserId": "66812464ef53415080ce6156bcb4cd30",
+        "Comments": [
+          {
+            "UserName": "小溪",
+            "UserId": "b4fd70c18307472690661dae63d18d5c",
+            "ToCommentId": "8307472690661dae63d18d5",
+            "CreateTime": "1491961751",
+            "CommentInfo": "您力。",
+            "CommentId": "2e4a0bc842e147daafca50d0d271a7d6"
+          }
+        ],
+        "CreateTime": "1491961610",
+        "CommentInfo": "这个软件用的还挺来。",
+        "CommentId": "82657dcde8f34ae9b6f1d4cd459ca230"
+      }
+    ],
+    "DiagCategory": {
+      "DiagChart": [
+        {
+          "Chart": [
+            {
+              "ChartNum": 2,
+              "Code": "OW--GCH",
+              "Text": "燃气消耗"
+            },
+            {
+              "ChartNum": 1,
+              "Code": "EC",
+              "Text": "电能消耗"
+            },
+            {
+              "ChartNum": 1,
+              "Code": "QH",
+              "Text": "耗热量"
+            }
+          ],
+          "ChartName": "能耗计量"
+        },
+        {
+          "Chart": [
+            {
+              "ChartNum": 2,
+              "Code": "OW--GCH",
+              "Text": "燃气消耗"
+            },
+            {
+              "ChartNum": 1,
+              "Code": "EC",
+              "Text": "电能消耗"
+            },
+            {
+              "ChartNum": 1,
+              "Code": "QH",
+              "Text": "耗热量"
+            }
+          ],
+          "ChartName": "能效分析"
+        }
+      ]
+    },
+    "DutyInfo": {
+      "UserName": "小溪",
+      "Phone": "13701010102"
+    },
+    "EnergyInfo": {
+      "CYdayEnergy": "0kWh",
+      "OptEnergy": "0kWh",
+      "SaveEnergy": "0kWh",
+      "TotalEnergy": "0kWh",
+      "UnitEnergy": "0W/㎡",
+      "YdayEnergy": "0kWh"
+    },
+    "ProjectId": "2cbda46200b246f898eefe7325f25ce3",
+    "ProjectInfo": {
+      "BuildingType": "商业建筑",
+      "City": "北京市",
+      "EndDate": "1521043200",
+      "HeatingArea": "60692",
+      "ProjectName": "核心大楼(供暖)",
+      "ProjectType": "B",
+      "StartDate": "1509984000"
+    },
+    "RunningInfo": [
+      {
+        "Name": "电量",
+        "Param": "20",
+        "Y_Param": "1"
+      },
+      {
+        "Name": "能耗",
+        "Param": "20",
+        "Y_Param": "1"
+      },
+      {
+        "Name": "燃气",
+        "Param": "20",
+        "Y_Param": "1"
+      }
+    ],
+    "Weather": "晴天"
+  }
+}

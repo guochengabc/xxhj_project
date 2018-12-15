@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.login_register.activity.ModifyPWDActivity">
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:id="@+id/tv_title"
+            android:text="@string/title_modifypwd"
+            style="@style/title_center" />
+        <ImageView
+            android:id="@+id/iv_setting"
+            android:visibility="gone"
+            android:src="@mipmap/setting"
+            style="@style/titlerightimg"/>
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/modify_pwd_ml"
+        android:layout_marginRight="@dimen/modify_pwd_ml"
+        android:layout_marginTop="@dimen/modify_pwd_tp"
+        android:background="@drawable/shape_modify_pwd"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="23dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="12dp"
+                android:src="@mipmap/password" />
+
+            <EditText
+                android:id="@+id/edt_password"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                android:layout_toLeftOf="@+id/text_wjma"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="@string/original_pwd"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="#999999"
+                android:textSize="16sp" />
+        </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/a808080"></View>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="23dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="12dp"
+                android:src="@mipmap/password" />
+
+            <EditText
+                android:id="@+id/edt_new_password"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                android:layout_toLeftOf="@+id/text_wjma"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="@string/new_pwd"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="#999999"
+                android:textSize="16sp" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="@color/a808080"></View>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="23dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="12dp"
+                android:src="@mipmap/password" />
+
+            <EditText
+                android:id="@+id/edt_second_new_password"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_margin="3dp"
+                android:layout_toLeftOf="@+id/text_wjma"
+                android:layout_weight="1"
+                android:background="#ffffff"
+                android:drawablePadding="10dp"
+                android:ems="10"
+                android:hint="@string/second_new_pwd"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="#999999"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <com.kongtiaoapp.xxhj.ui.view.ClickTextView
+        android:id="@+id/btn_modify_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/ll_password"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/selector_btn_big"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:text="修改密码"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+</LinearLayout>

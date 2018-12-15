@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ngv="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.workorder.activity.WorkOrderActivity">
+
+    <RelativeLayout
+        style="@style/title_style"
+        android:layout_width="match_parent">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            style="@style/title_center"
+            android:text="@string/workorder" />
+
+    </RelativeLayout>
+
+    <com.kongtiaoapp.xxhj.ui.view.MyScrollView
+        android:id="@+id/sv_work_Order"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:fillViewport="true">
+
+        <com.kongtiaoapp.xxhj.ui.view.MyLinearlayout
+            android:id="@+id/line_workorder"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/line_workNumber"
+                style="@style/workorder_detail_linearlayout"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="@dimen/work_width"
+                    android:layout_height="wrap_content"
+                    android:text="工单编号:"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/work_size" />
+
+                <TextView
+                    android:id="@+id/txt_workNumber"
+                    style="@style/work_repair_edt_content"
+                    android:hint="" />
+            </LinearLayout>
+
+            <include layout="@layout/include_view_line"></include>
+
+            <LinearLayout
+                android:id="@+id/line_custom"
+                style="@style/workorder_detail_linearlayout">
+
+                <TextView
+                    android:layout_width="@dimen/work_width"
+                    android:layout_height="wrap_content"
+                    android:text="客户单位:"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/work_size" />
+
+                <EditText
+                    android:id="@+id/edt_customName"
+                    style="@style/work_repair_edt_content"
+                    android:hint="请输入客户单位" />
+            </LinearLayout>
+
+            <include layout="@layout/include_view_line"></include>
+
+            <LinearLayout style="@style/workorder_detail_linearlayout">
+
+                <TextView
+                    android:layout_width="@dimen/work_width"
+                    android:layout_height="wrap_content"
+                    android:text="报修内容:"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/work_size" />
+
+                <EditText
+                    android:id="@+id/edt_task_describe"
+                    style="@style/work_repair_edt_content"
+                    android:hint="请简述报修内容" />
+            </LinearLayout>
+
+            <include layout="@layout/include_view_line"></include>
+
+            <!--   <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   android:padding="15dp">
+
+                   <TextView
+                       android:layout_width="@dimen/work_width"
+                       android:layout_height="wrap_content"
+                       android:text="图片上传:"
+                       android:textColor="@color/a333333"
+                       android:textSize="@dimen/work_size" />
+
+                   <EditText
+                       style="@style/work_repair_edt_content"
+                       android:hint="上传图片" />
+               </LinearLayout>
+
+               <include layout="@layout/include_view_line"></include>-->
+
+            <LinearLayout style="@style/workorder_detail_linearlayout">
+
+                <TextView
+                    android:layout_width="@dimen/work_width"
+                    android:layout_height="wrap_content"
+                    android:text="@string/repair_place"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/work_size" />
+
+                <EditText
+                    android:id="@+id/edt_floor_roomNumber"
+                    style="@style/work_repair_edt_content"
+                    android:hint="请输入楼层/房间号" />
+            </LinearLayout>
+
+
+            <include layout="@layout/include_view_line"></include>
+
+            <LinearLayout style="@style/workorder_detail_linearlayout">
+
+                <TextView
+                    android:layout_width="@dimen/work_width"
+                    android:layout_height="wrap_content"
+                    android:text="报修人:"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/work_size" />
+
+                <EditText
+                    android:id="@+id/edt_repairPerson"
+                    style="@style/work_repair_edt_content"
+                    android:hint="请填写报修人" />
+            </LinearLayout>
+
+            <include layout="@layout/include_view_line"></include>
+
+            <LinearLayout style="@style/workorder_detail_linearlayout">
+
+                <TextView
+                    android:layout_width="@dimen/work_width"
+                    android:layout_height="wrap_content"
+                    android:text="联系电话:"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/work_size" />
+
+                <EditText
+                    android:id="@+id/edt_contactPhone"
+                    style="@style/work_repair_edt_content"
+                    android:digits="0123456789"
+                    android:hint="请填写联系电话"
+                    android:maxLength="11"
+                    android:phoneNumber="true" />
+            </LinearLayout>
+
+            <include layout="@layout/include_view_line"></include>
+
+            <com.kongtiaoapp.xxhj.ui.view.MyLinearlayout
+                android:id="@+id/line_worker_mode"
+                style="@style/workorder_detail_linearlayout">
+
+                <TextView
+                    android:layout_width="@dimen/work_width"
+                    android:layout_height="wrap_content"
+                    android:text="工单模式:"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/work_size" />
+
+                <TextView
+                    android:id="@+id/txt_worker_mode"
+                    style="@style/work_repair_edt_content"
+                    android:hint="抢单" />
+            </com.kongtiaoapp.xxhj.ui.view.MyLinearlayout>
+
+            <include
+                android:id="@+id/txt_visible"
+                layout="@layout/include_view_line"
+                android:visibility="gone"></include>
+
+            <com.kongtiaoapp.xxhj.ui.view.MyLinearlayout
+                android:id="@+id/line_receiver"
+                style="@style/workorder_detail_linearlayout"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="@dimen/work_width"
+                    android:layout_height="wrap_content"
+                    android:text="接单人:"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/work_size" />
+
+                <TextView
+                    android:id="@+id/txt_reciever"
+                    style="@style/work_repair_edt_content"
+                    android:hint="请选择接单人" />
+            </com.kongtiaoapp.xxhj.ui.view.MyLinearlayout>
+
+            <include
+                layout="@layout/include_view_line"
+                android:visibility="gone"></include>
+
+
+            <LinearLayout
+                android:id="@+id/line_evaluate"
+                style="@style/workorder_detail_linearlayout"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="@dimen/work_width"
+                    android:layout_height="wrap_content"
+                    android:text="质检员:"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/work_size" />
+
+                <TextView
+                    android:id="@+id/txt_evaluate"
+                    style="@style/work_repair_edt_content"
+                    android:hint="请选择质检员" />
+            </LinearLayout>
+
+            <include layout="@layout/include_view_line"></include>
+
+            <LinearLayout
+                android:id="@+id/line_finish_time"
+                style="@style/workorder_detail_linearlayout">
+
+                <TextView
+                    android:layout_width="@dimen/work_width"
+                    android:layout_height="wrap_content"
+                    android:text="@string/repair_died_line_time"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/work_size" />
+
+                <TextView
+                    android:id="@+id/txt_finish_time"
+                    style="@style/work_repair_edt_content"
+                    android:hint="- -请选择- -" />
+            </LinearLayout>
+
+            <include layout="@layout/include_view_line"></include>
+
+            <LinearLayout
+                android:id="@+id/line_byself"
+                style="@style/workorder_detail_linearlayout"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="@dimen/work_width"
+                    android:layout_height="wrap_content"
+                    android:text="本人能否完成:"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/work_size" />
+
+                <TextView
+                    android:id="@+id/txt_finish_byself"
+                    style="@style/work_repair_edt_content"
+                    android:hint="- -请选择- -" />
+            </LinearLayout>
+
+            <include
+                layout="@layout/include_view_line"
+                android:visibility="gone"></include>
+
+            <LinearLayout
+                style="@style/workorder_detail_linearlayout_vertical"
+                android:visibility="gone">
+
+                <com.kongtiaoapp.xxhj.ui.view.NoScrollGridView
+                    android:id="@+id/gridview_repair"
+                    style="@style/record_form_grid"></com.kongtiaoapp.xxhj.ui.view.NoScrollGridView>
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="@dimen/work_width"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="15dp"
+                    android:text="图片上传:"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/work_size" />
+            </LinearLayout>
+
+            <com.kongtiaoapp.xxhj.ui.NineGridView.NineGridView
+                android:id="@+id/iv_picture_repair"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_content"
+                android:layout_margin="12dp"
+                android:paddingRight="2dp"
+                android:visibility="gone"
+                ngv:gap="2dp" />
+
+            <include layout="@layout/include_view_line"></include>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="15dp">
+
+                <TextView
+                    android:id="@+id/txt_sure"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/selector_maincolor_style"
+                    android:padding="10dp"
+                    android:text="提交报单"
+                    android:textColor="@color/ffffff"
+                    android:textSize="@dimen/work_shangbao_size" />
+            </LinearLayout>
+
+        </com.kongtiaoapp.xxhj.ui.view.MyLinearlayout>
+    </com.kongtiaoapp.xxhj.ui.view.MyScrollView>
+</LinearLayout>

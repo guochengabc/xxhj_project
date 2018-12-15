@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:id="@+id/tv_title"
+            android:text="运行记录"
+            style="@style/title_center" />
+        <ImageView
+            android:id="@+id/iv_setting"
+            android:visibility="gone"
+            android:src="@mipmap/friend_details_more"
+            style="@style/title_right"/>
+    </RelativeLayout>
+    <include layout="@layout/include_project_dtbackground"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="@dimen/record_running_left"
+        android:layout_marginRight="@dimen/record_running_left"
+        android:layout_marginTop="16dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txt_start"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="@string/running_time"
+            android:textColor="@color/a999999"
+            android:textSize="@dimen/running_report_time_size" />
+        <!--  android:background="@drawable/text_frame"-->
+        <TextView
+            android:id="@+id/txt_starttime"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/running_select"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="4"
+
+            android:gravity="center"
+            android:text="@string/project_select"
+            android:textColor="@color/a333333"
+            android:textSize="@dimen/running_report_time_size" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/project_head_background" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="@dimen/record_running_left"
+        android:layout_marginRight="@dimen/record_running_left"
+        android:gravity="center">
+
+
+        <TextView
+            android:id="@+id/txt_end"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="@string/running_endtime"
+            android:textColor="@color/a999999"
+            android:textSize="@dimen/running_report_time_size" />
+
+        <TextView
+            android:id="@+id/txt_endtime"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/running_select"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:text="@string/project_select"
+            android:textColor="@color/a333333"
+            android:textSize="@dimen/running_report_time_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.1dp"
+        android:background="@color/project_head_background" />
+
+    <LinearLayout
+        android:id="@+id/line_recordPeople"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="@dimen/record_running_left"
+        android:layout_marginRight="@dimen/record_running_left"
+        android:gravity="center">
+
+
+        <TextView
+            android:id="@+id/txt_recorder"
+            android:layout_width="120dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:gravity="center"
+            android:text="@string/running_recorder"
+            android:textColor="@color/a999999"
+            android:textSize="@dimen/running_report_time_size" />
+
+        <TextView
+            android:id="@+id/txt_please"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/running_select"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:hint="@string/running_please"
+            android:textColor="@color/a333333"
+            android:textSize="@dimen/running_report_time_size" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_search"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/selector_report_original_data"
+        android:gravity="center"
+        android:text="查询"
+        android:textColor="@color/ffffff"
+        android:textSize="21sp" />
+
+    <include
+        layout="@layout/include_project_dtbackground"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="18dp"></include>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginTop="13dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@mipmap/react_green" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:gravity="center_vertical"
+            android:text="查询结果"
+            android:textColor="@color/a333333"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txt_nodata"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="暂无结果"
+        android:textColor="@color/red"
+        android:textSize="22sp"
+        android:visibility="gone" />
+
+</LinearLayout>

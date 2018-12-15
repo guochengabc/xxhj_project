@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--图片上传功能color_invest_view-->
+
+    <item android:state_pressed="true">
+        <shape>
+            <corners android:radius="2dp"></corners>
+            <solid android:color="@color/a999999"></solid>
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <corners android:radius="2dp"></corners>
+            <solid android:color="@color/work_note"></solid>
+        </shape>
+    </item>
+</selector>

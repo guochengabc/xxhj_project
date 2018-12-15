@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context=".activites.KGGActivity">
+
+    <RelativeLayout
+        style="@style/title_style"
+        android:layout_width="match_parent">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/title_center"
+            android:text="给水系统" />
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width"
+                android:layout_marginTop="@dimen/bpd_top">
+
+                <TextView
+                    android:id="@+id/txt_jxdy"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="水位高度:"
+                    android:textSize="@dimen/bpd_size" />
+
+                <EditText
+                    android:id="@+id/txt_bpd"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width"
+                android:layout_marginTop="@dimen/bpd_top">
+
+                <TextView
+                    android:id="@+id/txt_ryjl"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="供水泵系统:"
+                    android:textSize="@dimen/bpd_size" />
+
+                <EditText
+                    android:id="@+id/txt_bbbg"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width"
+                android:layout_marginTop="@dimen/bpd_top">
+
+                <TextView
+                    android:id="@+id/txt_scgl"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="压力罐（MPa）:"
+                    android:textSize="@dimen/bpd_size" />
+
+                <EditText
+                    android:id="@+id/txt_gdgl"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width"
+                android:layout_marginTop="@dimen/bpd_top">
+
+                <TextView
+                    android:id="@+id/txt_ryjal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="水箱正常:"
+                    android:textSize="@dimen/bpd_size" />
+
+                <EditText
+                    android:id="@+id/txt_bbbgs"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width"
+                android:layout_marginTop="@dimen/bpd_top">
+
+                <TextView
+                    android:id="@+id/txt_rsyjal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="灭菌系统:"
+                    android:textSize="@dimen/bpd_size" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width"
+                android:layout_marginTop="@dimen/bpd_top">
+
+                <TextView
+                    android:id="@+id/txt_ryajal"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="排水泵系统:"
+                    android:textSize="@dimen/bpd_size" />
+
+                <EditText
+                    android:id="@+id/txt_bbbags"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width"
+                android:layout_marginTop="@dimen/bpd_top">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="水房卫生:"
+                    android:textSize="@dimen/bpd_size" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/btn_width"
+                android:layout_marginTop="@dimen/bpd_top">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="检查人:"
+                    android:textSize="@dimen/bpd_size" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_add_weibao_record_et_bg"
+                    android:gravity="center"
+                    android:textSize="@dimen/bpd_size" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>

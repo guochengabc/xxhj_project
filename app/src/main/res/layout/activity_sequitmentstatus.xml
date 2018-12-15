@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/img_left"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:src="@mipmap/leftarrow" />
+        <RadioGroup
+            android:id="@+id/group_time"
+            android:layout_width="160dp"
+            android:layout_height="40dp"
+            android:background="@mipmap/white_background_circle"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/radio_day"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@mipmap/green_background_circle"
+                android:button="@null"
+                android:gravity="center"
+                android:text="日"
+                android:textColor="@drawable/selector_duanzhen"
+                android:textSize="@dimen/comment_time_size" />
+
+            <RadioButton
+                android:id="@+id/radio_month"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="月"
+                android:textColor="@drawable/selector_duanzhen"
+                android:textSize="@dimen/comment_time_size" />
+        </RadioGroup>
+        <ImageView
+            android:id="@+id/img_right"
+            android:layout_width="70dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:src="@mipmap/rightarrow" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <include layout="@layout/paint_wanneng"></include>
+        <include layout="@layout/include_project_dtbackground"></include>
+
+        <include layout="@layout/include_project_dtbackground"></include>
+    </LinearLayout>
+
+
+</LinearLayout>

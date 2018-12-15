@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/popwindow_width"
+    android:layout_height="wrap_content"
+    android:background="@drawable/black_boder"
+    android:orientation="vertical"
+    android:padding="2dp">
+
+    <LinearLayout
+        android:id="@+id/line_bianqian"
+        android:layout_width="@dimen/popwindow_width"
+        android:layout_height="wrap_content"
+        android:background="@drawable/select_popwindow"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/move_up" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/new_create"
+            android:textColor="@color/popwindow_color"
+            android:textSize="@dimen/popwindow_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="@dimen/popwindow_width"
+        android:layout_height="@dimen/a01"
+        android:background="@color/a666666"></View>
+
+    <LinearLayout
+        android:id="@+id/line_workorder"
+        android:layout_width="@dimen/popwindow_width"
+        android:layout_height="wrap_content"
+        android:background="@drawable/select_popwindow"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/move_up" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/statistic"
+            android:textColor="@color/popwindow_color"
+            android:textSize="@dimen/popwindow_size" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="@dimen/popwindow_width"
+        android:layout_height="@dimen/a01"
+        android:background="@color/a666666"></View>
+
+    <LinearLayout
+        android:id="@+id/line_task"
+        android:layout_width="@dimen/popwindow_width"
+        android:layout_height="wrap_content"
+        android:background="@drawable/select_popwindow"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        android:padding="10dp">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:scaleType="fitXY"
+            android:src="@mipmap/move_up" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/workorder_task"
+            android:textColor="@color/popwindow_color"
+            android:textSize="@dimen/popwindow_size" />
+    </LinearLayout>
+</LinearLayout>

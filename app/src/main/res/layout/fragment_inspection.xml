@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.e_code.fragment.InspectionFragment">
+
+   <ListView
+       android:id="@+id/lv_inspection"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+       android:layout_weight="1"></ListView>
+
+      <com.kongtiaoapp.xxhj.ui.view.ClickTextView
+          android:id="@+id/addDeviceInfo_tv_save"
+          android:layout_width="120dp"
+          android:layout_height="40dp"
+          android:layout_marginTop="10dp"
+          android:layout_marginBottom="15dp"
+          android:background="@drawable/selector_btn_big"
+          android:gravity="center"
+          android:layout_gravity="bottom|center_horizontal"
+          android:paddingLeft="5dp"
+          android:paddingRight="5dp"
+          android:text="提交"
+          android:textColor="@color/white"
+          android:textSize="16sp" />
+
+</LinearLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txt_device_item"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="锅炉1号"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <com.kongtiaoapp.xxhj.ui.view.NoScrollListView
+        android:id="@+id/gv_device_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="6dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"></com.kongtiaoapp.xxhj.ui.view.NoScrollListView>
+</LinearLayout>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout style="@style/workorder_detail_linearlayout_vertical"
+    android:gravity="right"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+        <com.kongtiaoapp.xxhj.ui.view.NoScrollGridView
+            android:id="@+id/gridview"
+            style="@style/record_form_grid"
+            android:paddingLeft="15dp"></com.kongtiaoapp.xxhj.ui.view.NoScrollGridView>
+
+
+</LinearLayout>

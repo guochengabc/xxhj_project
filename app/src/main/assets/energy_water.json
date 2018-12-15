@@ -1,0 +1,148 @@
+{
+  "code": "40000",
+  "resobj": {
+    "OneData": [
+      {
+        "OneName": "A座一层东南角(给水)",
+        "OneSid": "4b7ccb54514a4c9fb0ece4788536d485",
+        "TwoData": []
+      },
+      {
+        "OneName": "A座一层东南角(中水)",
+        "OneSid": "bef7abe8038b4f3c9316c78652c6fc66",
+        "TwoData": []
+      },
+      {
+        "OneName": "A座一层西南角(给水)",
+        "OneSid": "a910e6bcf0794db8917595e372f6be99",
+        "TwoData": []
+      },
+      {
+        "OneName": "A座一层西南角(中水)",
+        "OneSid": "0b9411c3ee844ce593069c6a40b2f1c9",
+        "TwoData": []
+      },
+      {
+        "OneName": "B2卫生间(自用中水)",
+        "OneSid": "5406d69493654b3681e7c8d481baadca",
+        "TwoData": []
+      },
+      {
+        "OneName": "C座一层东北角(给水)",
+        "OneSid": "3322f62859f540b8ab2861de3d2232aa",
+        "TwoData": [
+          {
+            "ThreeData": [
+              {
+                "ThreeName": "15层消防水箱(无表)(给水)",
+                "ThreeSid": "d7e59252643843fd9a45b2f76bb4fad7"
+              },
+              {
+                "ThreeName": "A座高区给水（无表）(给水)",
+                "ThreeSid": "c1e3f03f25574a3b816ec1a1973702cc"
+              },
+              {
+                "ThreeName": "A座中区给水（无表）(给水)",
+                "ThreeSid": "286bdbef95494ad7b5d31c5b2142ceac"
+              },
+              {
+                "ThreeName": "B2卫生间(给水)",
+                "ThreeSid": "b731b150c25f4aab9a25dc18c91ec8fb"
+              },
+              {
+                "ThreeName": "C座B1餐厅储物间(给水)",
+                "ThreeSid": "495696f797e3486c8c912788ac420921"
+              },
+              {
+                "ThreeName": "C座B1餐厅储物间(给水)",
+                "ThreeSid": "824f43cac0d542ba93be006eba7500fd"
+              },
+              {
+                "ThreeName": "C座B1餐厅储物间(中水)",
+                "ThreeSid": "71965d246b89431c8e08699e959bbc0a"
+              },
+              {
+                "ThreeName": "C座B1餐厅储物间(中水)",
+                "ThreeSid": "e9645e3c5ac446b4860f1f938b978ebf"
+              }
+            ],
+            "TwoName": "B2给水机房(给水)",
+            "TwoSid": "7fefc0259e764663a9183ee978ae2831"
+          },
+          {
+            "ThreeData": [],
+            "TwoName": "B2给水机房(给水)",
+            "TwoSid": "da879ce9d2a44126a00fafbcc60ccb36"
+          },
+          {
+            "ThreeData": [],
+            "TwoName": "B4冷冻机房(给水)",
+            "TwoSid": "cb86c85ec9ea4893acabbbbffb0ed344"
+          },
+          {
+            "ThreeData": [],
+            "TwoName": "B4中水机房（无表）(给水)",
+            "TwoSid": "87e32bd4c6064de18e4e447c271ea4cf"
+          }
+        ]
+      },
+      {
+        "OneName": "C座一层东北角(给水)",
+        "OneSid": "adbe679b475a4ecfa8f5e1cc35687ca6",
+        "TwoData": [
+          {
+            "ThreeData": [],
+            "TwoName": "c座B1餐厅（无表）(给水)",
+            "TwoSid": "fec613d155fc4cbc848c41f78758f11d"
+          },
+          {
+            "ThreeData": [],
+            "TwoName": "客服中心左侧(给水)",
+            "TwoSid": "4155ac287e9843b3b5e778dcd0273128"
+          }
+        ]
+      },
+      {
+        "OneName": "C座一层东北角(中水)",
+        "OneSid": "6a2fbce90a404d18a774974b01ca5771",
+        "TwoData": [
+          {
+            "ThreeData": [],
+            "TwoName": "C座B1餐厅卫生间（无表）(中水)",
+            "TwoSid": "148ce39b6dd0473faeb7b2924ab42a39"
+          },
+          {
+            "ThreeData": [],
+            "TwoName": "客服中心左侧(中水)",
+            "TwoSid": "c7ee6ee9680844e8bfb8b57545f7df67"
+          }
+        ]
+      },
+      {
+        "OneName": "D座一层右侧花坛(给水)",
+        "OneSid": "336a4394251e40ca94ddc0cf11f35b1f",
+        "TwoData": []
+      },
+      {
+        "OneName": "D座一层左侧草坪(给水)",
+        "OneSid": "75db8a179a0f4b4b96c53053b7c3f71e",
+        "TwoData": []
+      },
+      {
+        "OneName": "一层高压分界室东侧(给水)",
+        "OneSid": "f11b512c93174a108e861cc2405dcfd4",
+        "TwoData": []
+      },
+      {
+        "OneName": "园区东南角（无表）(给水)",
+        "OneSid": "de9b6116fef64525b6ed19efad5366f1",
+        "TwoData": []
+      },
+      {
+        "OneName": "园区门岗（无表）(给水)",
+        "OneSid": "96b71ef454e044f7807768fc11348d4c",
+        "TwoData": []
+      }
+    ]
+  }
+}

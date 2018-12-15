@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/line0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ffffff"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_currentValue"
+            style="@style/energy_record_name"
+            android:text="当前值：" />
+
+        <EditText
+            android:id="@+id/edt_CurrentContent"
+            style="@style/energy_record_Value"
+            android:digits="0123456789."
+            android:inputType="phone">
+
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ffffff"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txt_lastValue"
+            style="@style/energy_record_name"
+            android:text="上月值：" />
+
+        <TextView
+            android:id="@+id/txt_lastContent"
+            style="@style/energy_record_Value" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/ffffff"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/txt_runStatus"
+            style="@style/energy_record_name"
+            android:text="运行状态：" />
+
+        <LinearLayout
+            style="@style/energy_record_Value"
+            android:background="@color/ffffff"
+            android:gravity="left"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/line_switch"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/shape_circle_open"
+                android:gravity="center_vertical|left"
+                android:orientation="horizontal"
+                android:padding="3dp">
+
+                <ImageView
+                    android:id="@+id/img_switch_off"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/shape_circle_white"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/txt_switch"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="正常"
+                    android:textColor="@color/ffffff"
+                    android:textSize="13sp" />
+
+                <ImageView
+                    android:id="@+id/img_switch_on"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/shape_circle_white"
+                    android:visibility="visible" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:id="@+id/iv_chat_name"
+            android:text="@string/title_friendmsg"
+            style="@style/title_center" />
+
+    </RelativeLayout>
+
+    <com.kongtiaoapp.xxhj.ui.refreshui.SpringView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/springView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ListView
+            android:id="@+id/friendsMsg_listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:divider="#00000000"
+            android:dividerHeight="1px"
+            android:listSelector="@android:color/transparent"
+            android:overScrollMode="never"></ListView>
+    </com.kongtiaoapp.xxhj.ui.refreshui.SpringView>
+    <LinearLayout
+        android:id="@+id/ll_comment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/spacing_middle"
+        >
+
+
+        <EditText
+            android:id="@+id/edt_comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:minHeight="35dp"
+            android:textSize="@dimen/font_middle"
+            android:background="@drawable/shape_search_bg"
+            android:gravity="center_vertical"
+            android:hint="回复"
+            android:layout_marginLeft="@dimen/spacing_middle"
+            android:paddingLeft="@dimen/spacing_small" />
+
+        <Button
+            android:id="@+id/btn_comment"
+            android:layout_width="50dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="@dimen/spacing_small"
+            android:layout_marginRight="@dimen/spacing_middle"
+            android:background="@drawable/selector_button_bg"
+            android:text="发送"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</LinearLayout>

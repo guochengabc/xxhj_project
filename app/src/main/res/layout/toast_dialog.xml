@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_mydialog_top"
+        android:gravity="center"
+        android:minHeight="30dp"
+        android:text="温馨提示"
+        android:textColor="@color/white" />
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:minHeight="80dp"
+        android:text="你确定这样做吗？"
+        android:textColor="@color/font_six" />
+
+    <Button
+        android:id="@+id/btn_ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_mydialog_bottom"
+        android:minHeight="50dp"
+        android:text="@string/sure"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+</LinearLayout>

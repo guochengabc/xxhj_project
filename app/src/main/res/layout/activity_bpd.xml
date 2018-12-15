@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+    <RelativeLayout
+        style="@style/title_style"
+        android:layout_width="match_parent">
+        <include layout="@layout/include_back"></include>
+        <ImageView
+            android:id="@+id/txt_left"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingBottom="10dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="28dp"
+            android:paddingTop="10dp"
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/project_detail"
+            android:textColor="@color/whitesmoke" />
+    </RelativeLayout>
+   <GridView
+       android:id="@+id/gridview"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:numColumns="2"></GridView>
+</LinearLayout>

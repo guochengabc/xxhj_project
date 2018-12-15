@@ -1,0 +1,52 @@
+{
+  "electricity": [
+    {
+      "Code": "ConsTotal",
+      "FieldType": "float",
+      "InputType": "0",
+      "Name": "12",
+      "Unit": "kWh",
+      "Value": "当前值"
+    },
+    {
+      "Code": "ConsRead",
+      "FieldType": "float",
+      "InputType": "1",
+      "Name": "12",
+      "Unit": "kWh",
+      "Value": "表底数"
+    },
+    {
+      "Code": "ThisMonth",
+      "FieldType": "float",
+      "InputType": "1",
+      "Name": "12.0",
+      "Unit": "kWh",
+      "Value": "本月值"
+    },
+    {
+      "Code": "LastMonth",
+      "FieldType": "float",
+      "InputType": "1",
+      "Name": "0.0",
+      "Unit": "kWh",
+      "Value": "上月值"
+    },
+    {
+      "Code": "Percentage",
+      "FieldType": "string",
+      "InputType": "1",
+      "Name": "+100%",
+      "Unit": "",
+      "Value": "对比值"
+    },
+    {
+      "Code": "Status",
+      "FieldType": "string",
+      "InputType": "0",
+      "Name": "",
+      "Unit": "",
+      "Value": "运行状态"
+    }
+  ]
+}

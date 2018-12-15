@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/frame_up"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/paint_height"
+        android:padding="3dp">
+
+        <include layout="@layout/include_paintbackground"></include>
+
+        <include layout="@layout/include_graph_nodata"></include>//代表的是图例
+
+        <include layout="@layout/include_nodata_txt"></include>//代表的是图的提示，有数据还是没有数据
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_down"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/paint_height"
+        android:padding="3dp">
+        <RelativeLayout
+            android:id="@+id/rela_paint1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></RelativeLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="@dimen/loading_mrgt_fator"
+            android:layout_marginTop="33dp"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/graph11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/loading_one"
+                android:textSize="@dimen/loading_factor"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/graph21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/loading_two"
+                android:textSize="@dimen/loading_factor"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/graph31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/loading_three"
+                android:textSize="@dimen/loading_factor"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/graph41"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/loading_four"
+                android:textSize="@dimen/loading_factor"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/graph51"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/loading_five"
+                android:textSize="@dimen/loading_factor"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/graph61"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/loading_six"
+                android:textSize="@dimen/loading_factor"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/graph71"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/loading_seven"
+                android:textSize="@dimen/loading_factor"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/graph81"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/loading_eight"
+                android:textSize="@dimen/loading_factor"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/graph91"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/loading_nine"
+                android:textSize="@dimen/loading_factor"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/loading_mtop_factor"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txt_notata1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/no_data"
+                android:textColor="@color/red"
+                android:textSize="@dimen/font_big"
+                android:visibility="gone" />
+        </LinearLayout>
+
+
+    </FrameLayout>
+</LinearLayout>

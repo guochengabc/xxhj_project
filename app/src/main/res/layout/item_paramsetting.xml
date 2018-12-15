@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.kongtiaoapp.xxhj.ui.view.MyLinearlayout
+    android:id="@+id/myLine"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/txt_k0"
+        style="@style/param_setting" />
+
+
+<TextView
+    android:id="@+id/txt_line1"
+    android:layout_width="0.1dp"
+    android:layout_height="match_parent"
+    android:background="@color/a999999"
+    android:visibility="gone"/>
+    <EditText
+        android:id="@+id/txt_k1"
+        style="@style/param_setting"/>
+
+
+    <TextView
+        android:id="@+id/txt_time"
+        style="@style/param_setting"
+        android:visibility="gone"/>
+    <TextView
+        android:id="@+id/txt_line2"
+        android:layout_width="0.1dp"
+        android:layout_height="match_parent"
+        android:background="@color/a999999"
+        android:visibility="gone"/>
+
+    <EditText
+        android:id="@+id/txt_k2"
+        style="@style/param_setting"/>
+    <TextView
+        android:id="@+id/txt_time2"
+        style="@style/param_setting"
+        android:visibility="gone"/>
+</com.kongtiaoapp.xxhj.ui.view.MyLinearlayout>

@@ -1,0 +1,36 @@
+ext {
+    isBuildApp = false//false:作为Lib组件存在， true:作为application存在
+
+    android = [
+            compileSdkVersion  : 23,
+            buildToolsVersion  : "23.0.1",
+            minSdkVersion      : 16,
+            targetSdkVersion   : 23,
+            versionCode        : 2,
+            versionName        : '3.0.7',
+            sourceCompatibility: JavaVersion.VERSION_1_8,
+            targetCompatibility: JavaVersion.VERSION_1_8
+    ]
+
+    dependencies = [
+            /*   zxing       : 'com.mylhyl:zxingscanner:2.1.1'
+            reactnative:   'com.facebook.react:react-native:+',*/
+            appcompatV7 : 'com.android.support:appcompat-v7:23.4.0',
+            design      : 'com.android.support:design:23.4.0',
+            glide       : 'com.github.bumptech.glide:glide:3.7.0',
+            butterknife : 'com.jakewharton:butterknife:8.0.1',
+            zhypercent  : 'com.zhy:percent-support-extends:1.0.1',
+            logger      : 'com.orhanobut:logger:1.13',
+            xutils      : 'org.xutils:xutils:3.3.36',
+            picasso     : 'co.roverlabs:picasso:2.5.2',
+            swiplistview: 'com.baoyz.swipemenulistview:library:1.3.0',
+            robinx      : 'net.robinx:lib.blur:1.0.1',
+            playservice : 'com.google.android.gms:play-services-appindexing:8.4.0',
+            rxpermission: 'com.tbruyelle.rxpermissions:rxpermissions:0.7.0',
+            gtuisdk     : 'com.getui:sdk:2.10.2.0',
+            eventbus    : 'org.greenrobot:eventbus:3.0.0',
+            multidex    : 'com.android.support:multidex:1.0.1',
+            zxing       : 'com.mylhyl:zxingscanner:2.1.1',
+            bar         : 'cn.bingoogolapple:bga-qrcode-zbar:1.2.5'/*  下载地址   https://github.com/bingoogolapple/BGAQRCode-Android#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B1%9E%E6%80%A7%E8%AF%B4%E6%98%8E*/
+    ]
+}

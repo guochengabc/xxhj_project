@@ -1,0 +1,131 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.workorder.fragment.WorkOrderFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/main_title_height"
+        android:background="@color/theme_color"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_reportWork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:padding="9dp"
+            android:text="导出"
+            android:textColor="@drawable/selector_titlebar_right_font_bg"
+            android:textSize="@dimen/title_size_right" />
+
+        <scut.carson_ho.searchview.SearchView
+            android:id="@+id/search_view"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:padding="8dp"
+            app:searchBlockColor="#ffffff"
+            app:searchBlockHeight="80"
+            app:textColorSearch="#3F51B5"
+            app:textHintSearch="输入查询关键字"
+            app:textSizeSearch="5sp"></scut.carson_ho.searchview.SearchView>
+
+        <ImageView
+            android:id="@+id/img_menu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_vertical"
+            android:padding="10dp"
+            android:src="@mipmap/menu" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/module_height"
+        android:layout_marginTop="@dimen/workorder_margin_top"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_workorder_all"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/workorderbackground"
+            android:focusable="false"
+            android:gravity="center"
+            android:text="@string/workorder_all"
+            android:textSize="@dimen/workorder_size" />
+
+        <TextView
+            android:id="@+id/txt_workorder_recept"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/workordernobackground"
+            android:focusable="false"
+            android:gravity="center"
+            android:text="@string/workorder_recept"
+            android:textSize="@dimen/workorder_size" />
+
+        <TextView
+            android:id="@+id/txt_workorder_no_recept"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/workordernobackground"
+            android:focusable="false"
+            android:gravity="center"
+            android:text="@string/workorder_no_recept"
+            android:textSize="@dimen/workorder_size" />
+
+        <TextView
+            android:id="@+id/txt_workorder_give"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/workordernobackground"
+            android:focusable="false"
+            android:gravity="center"
+            android:text="@string/workorder_back"
+            android:textSize="@dimen/workorder_size" />
+
+        <TextView
+            android:id="@+id/txt_workorder_my_form"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/workordernobackground"
+            android:focusable="false"
+            android:gravity="center"
+            android:text="@string/workorder_my_work"
+            android:textSize="@dimen/workorder_size" />
+
+    </LinearLayout>
+
+        <com.kongtiaoapp.xxhj.ui.refreshui.SpringView
+            android:id="@+id/sv_work_Order"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ListView
+                android:id="@+id/lv_workOrder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/ffffff"></ListView>
+        </com.kongtiaoapp.xxhj.ui.refreshui.SpringView>
+</LinearLayout>

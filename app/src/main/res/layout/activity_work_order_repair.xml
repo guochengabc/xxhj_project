@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.kongtiaoapp.xxhj.workorder.activity.WorkOrderRepairActivity">
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:id="@+id/iv_chat_name"
+            android:text="@string/main_workorder"
+            style="@style/title_center" />
+
+    </RelativeLayout>
+<com.kongtiaoapp.xxhj.utils.MyTablayout
+    android:id="@+id/myTablayout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/tablayout_height"></com.kongtiaoapp.xxhj.utils.MyTablayout>
+    <com.kongtiaoapp.xxhj.ui.view.DefinationViewpager
+        android:id="@+id/myViewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.kongtiaoapp.xxhj.ui.view.DefinationViewpager>
+</LinearLayout>

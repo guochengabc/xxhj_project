@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.activites.ChangeShiftsActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        style="@style/title_style"
+        android:layout_width="match_parent">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/title_center"
+            android:text="@string/e_signtrue" />
+
+        <TextView
+            android:id="@+id/txt_save"
+            style="@style/title_right"
+            android:text="@string/title_save" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/spaceing_to_side">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_weight="1"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="@dimen/spacing_small"
+                android:gravity="center_vertical|right"
+                android:text="*"
+                android:textColor="@color/red"
+                android:textSize="@dimen/font_huge" />
+
+            <TextView
+                android:id="@+id/txt_cst"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center_vertical|right"
+                android:paddingRight="@dimen/spacing_small"
+                android:text="交接班类别"
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_big" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_cstContent"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="@dimen/spacing_small"
+            android:layout_weight="2"
+            android:background="@drawable/shape_add_weibao_record_et_bg"
+            android:gravity="center"
+            android:hint="@string/p_cst"
+            android:maxLines="1"
+            android:textColor="@color/font_six"
+            android:textSize="@dimen/font_middle" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/spaceing_to_side">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_weight="1"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="@dimen/spacing_small"
+                android:gravity="center_vertical|right"
+                android:text="*"
+                android:textColor="@color/red"
+                android:textSize="@dimen/font_huge" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center_vertical|right"
+                android:paddingRight="@dimen/spacing_small"
+                android:text="交接班时间"
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_big" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txt_csTime"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_margin="@dimen/spacing_small"
+            android:layout_weight="2"
+            android:background="@drawable/shape_add_weibao_record_et_bg"
+            android:gravity="center"
+            android:hint="@string/p_cstime"
+            android:maxLines="1"
+            android:textColor="@color/font_six"
+            android:textSize="@dimen/font_middle" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingRight="@dimen/spaceing_to_side">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_weight="1"
+            android:gravity="center_vertical|right"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_marginRight="@dimen/spacing_small"
+                android:gravity="center_vertical|right"
+                android:text="*"
+                android:textColor="@color/red"
+                android:textSize="@dimen/font_huge" />
+
+            <TextView
+                android:id="@+id/txt_people"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:gravity="center_vertical|right"
+                android:paddingRight="@dimen/spacing_small"
+                android:text="手写签名"
+                android:textColor="@color/font_three"
+                android:textSize="@dimen/font_big" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/img_eSign"
+            android:layout_width="0dp"
+            android:layout_height="42dp"
+            android:layout_margin="@dimen/spacing_small"
+            android:layout_weight="2"
+            android:background="@drawable/shape_add_weibao_record_et_bg"
+            android:gravity="center"
+            android:maxLines="1"
+            android:padding="3dp"
+            android:scaleType="fitCenter"
+            android:textColor="@color/font_six"
+            android:textSize="@dimen/font_middle" />
+    </LinearLayout>
+    <include layout="@layout/include_view_line"></include>
+    <FrameLayout
+        android:id="@+id/fl_eSign"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/e_signatrue">
+
+        <TextView
+            android:id="@+id/txt_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="签名区"
+            android:textColor="@color/a999999"
+            android:textSize="25sp" />
+
+        <com.kongtiaoapp.xxhj.ui.view.LinePathView
+            android:id="@+id/lpv_esign"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+    </FrameLayout>
+<include layout="@layout/include_view_line"></include>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_saveSign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="保存签名"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/txt_clearSign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:padding="10dp"
+            android:text="清空签名"
+            android:textSize="17sp" />
+    </LinearLayout>
+
+</LinearLayout>

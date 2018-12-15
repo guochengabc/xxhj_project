@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.kongtiaoapp.xxhj.activites.InformationActivity">
+
+    <RelativeLayout
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:id="@+id/fragmentMsg_tv_myFriends"
+            style="@style/title_center"
+            android:text="@string/title_my_friend"
+            android:visibility="gone" />
+    </RelativeLayout>
+    <fragment
+        android:id="@+id/fragments"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:name="com.kongtiaoapp.xxhj.fragment.MessageFragment"></fragment>
+</LinearLayout>

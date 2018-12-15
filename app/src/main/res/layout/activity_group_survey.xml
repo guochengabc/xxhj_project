@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:id="@+id/tv_title"
+            android:text="@string/title_project_introduce"
+            style="@style/title_center" />
+        <ImageView
+            android:id="@+id/iv_search"
+           android:src="@mipmap/ic_search_white"
+            style="@style/titlerightimg"/>
+    </RelativeLayout>
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/dl_grouplist"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.kongtiaoapp.xxhj.ui.view.MyLinearlayout
+            android:id="@+id/line_enable"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/line_first"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/title_height"
+                android:layout_marginTop="3dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/line_grouplist_0"
+                    android:layout_width="@dimen/titlemain_width"
+                    android:layout_height="@dimen/title_height"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingLeft="@dimen/padiing_main_left">
+
+                    <TextView
+                        android:id="@+id/txt_title0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center"
+                        android:text="集团项目列表"
+                        android:textColor="#850"
+                        android:textSize="@dimen/titlesize" />
+
+                    <LinearLayout
+                        android:layout_width="12dip"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="2dp"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/img_up0"
+                            android:layout_width="@dimen/groups_oritention"
+                            android:layout_height="@dimen/groups_oritention"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/groups_up" />
+
+                        <ImageView
+                            android:id="@+id/img_down0"
+                            android:layout_width="@dimen/groups_oritention"
+                            android:layout_height="@dimen/groups_oritention"
+                            android:layout_marginTop="2dp"
+                            android:scaleType="fitXY"
+                            android:src="@mipmap/groups_down" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.kongtiaoapp.xxhj.ui.view.DF_HScrollView
+                    android:id="@+id/item_scroll_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@+id/line_grouplist_1"
+                            android:layout_width="@dimen/title_width"
+                            android:layout_height="@dimen/title_height"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:id="@+id/txt_title1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center"
+                                android:textColor="#850"
+                                android:textSize="@dimen/titlesize" />
+
+                            <LinearLayout
+                                android:layout_width="12dip"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="2dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/img_up1"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_up" />
+
+                                <ImageView
+                                    android:id="@+id/img_down1"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:layout_marginTop="2dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_down" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/line_grouplist_2"
+                            android:layout_width="@dimen/title_width"
+                            android:layout_height="@dimen/title_height"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/txt_title2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center"
+                                android:textColor="#850"
+                                android:textSize="@dimen/titlesize" />
+
+                            <LinearLayout
+                                android:layout_width="12dip"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="2dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/img_up2"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_up" />
+
+                                <ImageView
+                                    android:id="@+id/img_down2"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:layout_marginTop="2dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_down" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/line_grouplist_3"
+                            android:layout_width="@dimen/title_width"
+                            android:layout_height="@dimen/title_height"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:id="@+id/txt_title3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center"
+                                android:textColor="#850"
+                                android:textSize="@dimen/titlesize" />
+
+                            <LinearLayout
+                                android:layout_width="12dip"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="2dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/img_up3"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_up" />
+
+                                <ImageView
+                                    android:id="@+id/img_down3"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:layout_marginTop="2dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_down" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/line_grouplist_4"
+                            android:layout_width="@dimen/title_width"
+                            android:layout_height="@dimen/title_height"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:id="@+id/txt_title4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center"
+                                android:textColor="#850"
+                                android:textSize="@dimen/titlesize" />
+
+                            <LinearLayout
+                                android:layout_width="12dip"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="2dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/img_up4"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_up" />
+
+                                <ImageView
+                                    android:id="@+id/img_down4"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:layout_marginTop="2dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_down" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/line_grouplist_5"
+                            android:layout_width="@dimen/title_width"
+                            android:layout_height="@dimen/title_height"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:id="@+id/txt_title5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center"
+                                android:textColor="#850"
+                                android:textSize="@dimen/titlesize" />
+
+                            <LinearLayout
+                                android:layout_width="12dip"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="2dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/img_up5"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_up" />
+
+                                <ImageView
+                                    android:id="@+id/img_down5"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:layout_marginTop="2dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_down" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/line_grouplist_6"
+                            android:layout_width="@dimen/title_width"
+                            android:layout_height="@dimen/title_height"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/txt_title6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center"
+                                android:textColor="#850"
+                                android:textSize="@dimen/titlesize" />
+
+                            <LinearLayout
+                                android:layout_width="12dip"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="2dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/img_up6"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_up" />
+
+                                <ImageView
+                                    android:id="@+id/img_down6"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:layout_marginTop="2dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_down" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/line_grouplist_7"
+                            android:layout_width="@dimen/title_width"
+                            android:layout_height="@dimen/title_height"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/txt_title7"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center"
+                                android:textColor="#850"
+                                android:textSize="@dimen/titlesize" />
+
+                            <LinearLayout
+                                android:layout_width="12dip"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="2dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/img_up7"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_up" />
+
+                                <ImageView
+                                    android:id="@+id/img_down7"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:layout_marginTop="2dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_down" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/line_grouplist_8"
+                            android:layout_width="@dimen/title_width"
+                            android:layout_height="@dimen/title_height"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:id="@+id/txt_title8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center"
+                                android:textColor="#850"
+                                android:textSize="@dimen/titlesize" />
+
+                            <LinearLayout
+                                android:layout_width="12dip"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="2dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/img_up8"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_up" />
+
+                                <ImageView
+                                    android:id="@+id/img_down8"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:layout_marginTop="2dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_down" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/line_grouplist_9"
+                            android:layout_width="@dimen/title_width"
+                            android:layout_height="@dimen/title_height"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
+
+
+                            <TextView
+                                android:id="@+id/txt_title9"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center"
+                                android:textColor="#850"
+                                android:textSize="@dimen/titlesize" />
+
+                            <LinearLayout
+                                android:layout_width="12dip"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="2dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/img_up9"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_up" />
+
+                                <ImageView
+                                    android:id="@+id/img_down9"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:layout_marginTop="2dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_down" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/line_grouplist_10"
+                            android:layout_width="@dimen/title_width"
+                            android:layout_height="@dimen/title_height"
+                            android:gravity="center"
+                            android:visibility="gone"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/txt_title10"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="2dp"
+                                android:gravity="center"
+                                android:textColor="#850"
+                                android:textSize="@dimen/titlesize" />
+
+                            <LinearLayout
+                                android:layout_width="12dip"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="2dp"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/img_up10"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_up" />
+
+                                <ImageView
+                                    android:id="@+id/img_down10"
+                                    android:layout_width="@dimen/groups_oritention"
+                                    android:layout_height="@dimen/groups_oritention"
+                                    android:layout_marginTop="2dp"
+                                    android:scaleType="fitXY"
+                                    android:src="@mipmap/groups_down" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </com.kongtiaoapp.xxhj.ui.view.DF_HScrollView>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/txt_nodata"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/no_data"
+                android:textColor="@color/red"
+                android:textSize="25sp"
+                android:visibility="gone" />
+
+            <ListView
+                android:id="@+id/scroll_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:cacheColorHint="@android:color/transparent"
+                android:scrollbars="none"></ListView>
+        </com.kongtiaoapp.xxhj.ui.view.MyLinearlayout>
+
+        <com.kongtiaoapp.xxhj.ui.view.MyScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:background="@color/grouplist_search">
+
+            <LinearLayout
+                android:id="@+id/right"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="35dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="@dimen/project_running_txt_width1"
+                        android:layout_height="@dimen/project_list_search_height"
+                        android:background="@drawable/group_search"
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            android:id="@+id/txt_search_city"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/project_list_search_height"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="城市"
+                            android:textColor="@color/a999999"
+                            android:textSize="@dimen/project_list_search_sizet" />
+
+                        <ImageView
+                            android:id="@+id/img_city_down"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="3dp"
+                            android:src="@mipmap/groups_down" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="@dimen/project_running_txt_width1"
+                        android:layout_height="@dimen/project_list_search_height"
+                        android:layout_marginLeft="16dp"
+                        android:background="@drawable/group_search"
+                        android:gravity="center_horizontal">
+
+
+                        <TextView
+                            android:id="@+id/txt_search_buidldtype"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/project_list_search_height"
+                            android:gravity="center"
+                            android:maxLines="1"
+                            android:text="建筑物类型"
+                            android:textColor="@color/a999999"
+                            android:textSize="@dimen/project_list_search_sizet" />
+
+                        <ImageView
+                            android:id="@+id/img_buildtype_down"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginLeft="3dp"
+                            android:src="@mipmap/groups_down" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/view_height"
+                    android:layout_marginTop="@dimen/project_view_top"
+                    android:background="@color/view_color" />
+
+                <TextView
+                    android:layout_width="@dimen/project_running_txt_width1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="@dimen/project_view_top"
+                    android:gravity="center_vertical"
+                    android:text="单位能耗"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/project_list_search_sizet" />
+                <!--单位能耗-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="@dimen/project_view_bottom"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/txt_search_uec_min"
+                        android:layout_width="@dimen/project_running_txt_width2"
+                        android:layout_height="40dp"
+                        android:background="@drawable/group_search_region"
+                        android:digits="0123456789+-."
+                        android:gravity="center"
+                        android:hint="最小值"
+                        android:maxLength="8"
+                        android:textColorHint="@color/grouplist_search_value"
+                        android:textSize="@dimen/project_list_search_sizet" />
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="3dp"
+                        android:background="@color/view_color" />
+
+                    <EditText
+                        android:id="@+id/txt_search_uec_max"
+                        android:layout_width="@dimen/project_running_txt_width2"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="3dp"
+                        android:background="@drawable/group_search_region"
+                        android:digits="0123456789+-."
+                        android:gravity="center"
+                        android:hint="最大值"
+                        android:maxLength="8"
+                        android:textColorHint="@color/grouplist_search_value"
+                        android:textSize="@dimen/project_list_search_sizet" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/view_height"
+                    android:layout_marginTop="@dimen/project_view_top"
+                    android:background="@color/view_color" />
+
+                <TextView
+                    android:layout_width="@dimen/project_running_txt_width1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="@dimen/project_view_top"
+                    android:gravity="center_vertical"
+                    android:text="系统COP"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/project_list_search_sizet" />
+                <!--单位能耗-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="@dimen/project_view_bottom"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/txt_search_cop_min"
+                        android:layout_width="@dimen/project_running_txt_width2"
+                        android:layout_height="40dp"
+                        android:background="@drawable/group_search_region"
+                        android:digits="0123456789+-."
+                        android:gravity="center"
+                        android:hint="最小值"
+                        android:maxLength="8"
+                        android:textColorHint="@color/grouplist_search_value"
+                        android:textSize="@dimen/project_list_search_sizet" />
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="3dp"
+                        android:background="@color/view_color" />
+
+                    <EditText
+                        android:id="@+id/txt_search_cop_max"
+                        android:layout_width="@dimen/project_running_txt_width2"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="3dp"
+                        android:background="@drawable/group_search_region"
+                        android:digits="0123456789+-."
+                        android:gravity="center"
+                        android:hint="最大值"
+                        android:maxLength="8"
+                        android:textColorHint="@color/grouplist_search_value"
+                        android:textSize="@dimen/project_list_search_sizet" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/view_height"
+                    android:layout_marginTop="@dimen/project_view_top"
+                    android:background="@color/view_color" />
+
+                <TextView
+                    android:layout_width="@dimen/project_running_txt_width1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="@dimen/project_view_top"
+                    android:gravity="center_vertical"
+                    android:text="供回水温差"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/project_list_search_sizet" />
+                <!--单位能耗-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="@dimen/project_view_bottom"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/txt_search_temp_min"
+                        android:layout_width="@dimen/project_running_txt_width2"
+                        android:layout_height="40dp"
+                        android:background="@drawable/group_search_region"
+                        android:digits="0123456789+-."
+                        android:gravity="center"
+                        android:hint="最小值"
+                        android:maxLength="8"
+                        android:textColorHint="@color/grouplist_search_value"
+                        android:textSize="@dimen/project_list_search_sizet" />
+
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="1dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="3dp"
+                        android:background="@color/view_color" />
+
+                    <EditText
+                        android:id="@+id/txt_search_temp_max"
+                        android:layout_width="@dimen/project_running_txt_width2"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="3dp"
+                        android:background="@drawable/group_search_region"
+                        android:digits="0123456789+-."
+                        android:gravity="center"
+                        android:hint="最大值"
+                        android:maxLength="8"
+                        android:textColorHint="@color/grouplist_search_value"
+                        android:textSize="@dimen/project_list_search_sizet" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginTop="40dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_search_reset"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/selector_gray"
+                        android:gravity="center"
+                        android:text="重置"
+                        android:textSize="@dimen/project_list_search_sizet" />
+
+                    <TextView
+                        android:id="@+id/txt_search_sure"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="30dp"
+                        android:background="@drawable/selector_red"
+                        android:gravity="center"
+                        android:text="确定"
+                        android:textSize="@dimen/project_list_search_sizet" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </com.kongtiaoapp.xxhj.ui.view.MyScrollView>
+    </android.support.v4.widget.DrawerLayout>
+</LinearLayout>

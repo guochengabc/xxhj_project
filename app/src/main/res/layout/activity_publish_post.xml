@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:id="@+id/tv_title"
+            android:text="@string/title_send_card"
+            style="@style/title_center" />
+        <TextView
+            android:id="@+id/tv_publish"
+            android:text="@string/title_send"
+            style="@style/title_right"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/spacing_small"
+            android:src="@mipmap/line_left" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="标题"
+            android:textColor="@color/font_three"
+            android:textSize="@dimen/font_big" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/spacing_small"
+            android:src="@mipmap/line_right" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_middle"
+        android:layout_marginLeft="@dimen/spacing_middle"
+        android:layout_marginRight="@dimen/spacing_middle"
+        android:background="@drawable/shape_et_bg"
+        android:hint="输入标题"
+        android:paddingLeft="@dimen/spacing_middle"
+        android:textColor="@color/font_six"
+        android:textSize="14sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="@dimen/spacing_small"
+            android:src="@mipmap/line_left" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="正文"
+            android:textColor="@color/font_three"
+            android:textSize="@dimen/font_big" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/spacing_small"
+            android:src="@mipmap/line_right" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:padding="@dimen/spacing_middle"
+        android:layout_marginLeft="@dimen/spacing_middle"
+        android:layout_marginRight="@dimen/spacing_middle"
+        android:background="@drawable/shape_et_bg"
+        android:gravity="left|top"
+        android:hint="输入正文"
+        android:paddingLeft="@dimen/spacing_middle"
+        android:textColor="@color/font_six"
+        android:textSize="14sp" />
+    <com.kongtiaoapp.xxhj.ui.view.NoScrollGridView
+        android:id="@+id/gridview"
+        android:layout_width="290dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spaceing_to_side"
+        android:layout_marginLeft="10dp"
+        android:horizontalSpacing="3dp"
+        android:numColumns="4"
+        android:scrollbars="none"
+        android:verticalSpacing="5dp"
+        android:visibility="visible" >
+    </com.kongtiaoapp.xxhj.ui.view.NoScrollGridView>
+</LinearLayout>

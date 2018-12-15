@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@android:color/white"
+              android:fitsSystemWindows="true"
+              android:orientation="vertical">
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:id="@+id/tv_title"
+            android:text="@string/title_design_diag"
+            style="@style/title_center" />
+        <ImageView
+            android:id="@+id/iv_change5"
+            android:src="@mipmap/change"
+            style="@style/titlerightimg"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/spacing_small"
+                    android:src="@mipmap/line_left"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="项目概括"
+                    android:textColor="@color/font_three"
+                    android:textSize="@dimen/font_big"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/spacing_small"
+                    android:src="@mipmap/line_right"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/spaceing_to_side"
+                    android:width="100dp"
+                    android:gravity="right"
+                    android:text="项目名称："
+                    android:textColor="@color/font_three"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_project_name"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="@dimen/spacing_small"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_et_bg"
+                    android:gravity="center_vertical"
+                    android:hint="项目名称"
+                    android:paddingLeft="@dimen/spacing_middle"
+                    android:textColor="@color/font_six"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/spaceing_to_side"
+                    android:width="100dp"
+                    android:gravity="right"
+                    android:text="建筑物名称："
+                    android:textColor="@color/font_three"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_jianzhu_name"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="@dimen/spacing_small"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_et_bg"
+                    android:gravity="center_vertical"
+                    android:hint="建筑物名称"
+                    android:paddingLeft="@dimen/spacing_middle"
+                    android:textColor="@color/font_six"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spacing_middle"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/spaceing_to_side"
+                    android:width="100dp"
+                    android:gravity="right"
+                    android:text="总面积："
+                    android:textColor="@color/font_three"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_jianzhu_mianji"
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="@dimen/spacing_small"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_et_bg"
+                    android:gravity="center_vertical"
+                    android:hint="总面积"
+                    android:paddingLeft="@dimen/spacing_middle"
+                    android:textColor="@color/font_six"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/diag_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                >
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:layout_marginTop="@dimen/spacing_middle"
+                    android:background="@color/line_color"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="@dimen/spacing_small"
+                        android:src="@mipmap/line_left"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="诊断结果"
+                        android:textColor="@color/font_three"
+                        android:textSize="@dimen/font_big"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/spacing_small"
+                        android:src="@mipmap/line_right"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/spaceing_to_side">
+
+                    <TextView
+                        android:id="@+id/biao1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="系统cop"
+                        android:textColor="@color/font_three"
+                        android:textSize="@dimen/font_middle"/>
+
+
+                    <RelativeLayout
+                        android:id="@+id/rl_biao1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/spaceing_to_side"
+                        android:layout_marginTop="20dp"
+                        android:gravity="center">
+
+                        <ImageView
+                            android:id="@+id/iv_biao1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@mipmap/biaopan_bg"/>
+
+                        <ImageView
+                            android:id="@+id/iv_zhizhen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:scaleType="center"
+                            android:src="@mipmap/zhizhen"/>
+
+                        <TextView
+                            android:id="@+id/tv_cop1_nmb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:paddingBottom="12dp"
+                            android:text="当前数值"
+                            android:textColor="@color/font_three"
+                            android:textSize="@dimen/font_big"/>
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_biao1_qujian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/rl_biao1"
+                        android:layout_marginTop="@dimen/spaceing_to_side"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/ll_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/biao1"
+                            android:layout_marginTop="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/color1"/>
+
+                            <TextView
+                                android:id="@+id/tv_qujian_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/spacing_small"
+                                android:text="区间1"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/ll_1"
+                            android:layout_marginTop="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/color2"/>
+
+                            <TextView
+                                android:id="@+id/tv_qujian_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/spacing_small"
+                                android:text="区间2"/>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:id="@+id/ll_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/ll_2"
+                            android:layout_marginTop="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/color3"/>
+
+                            <TextView
+                                android:id="@+id/tv_qujian_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/spacing_small"
+                                android:text="区间3"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/color4"/>
+
+                            <TextView
+                                android:id="@+id/tv_qujian_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/spacing_small"
+                                android:text="区间4"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/color5"/>
+
+                            <TextView
+                                android:id="@+id/tv_qujian_5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/spacing_small"
+                                android:text="区间5"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/tv_cop_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_below="@+id/rl_biao1"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="@dimen/spaceing_to_side"
+                        android:layout_marginRight="@dimen/spaceing_to_side"
+                        android:gravity="center"
+                        android:textColor="@color/font_three"
+                        android:textSize="@dimen/font_big"/>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/line_color"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/spaceing_to_side">
+
+                    <TextView
+                        android:id="@+id/biao2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="系统单位制冷量"
+                        android:textColor="@color/font_three"
+                        android:textSize="@dimen/font_middle"/>
+
+
+                    <RelativeLayout
+                        android:id="@+id/rl_biao2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="@dimen/spaceing_to_side"
+                        android:layout_marginTop="20dp">
+
+                        <ImageView
+                            android:id="@+id/iv_biao2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:background="@mipmap/biaopan_bg"
+                            android:scaleType="center"/>
+
+                        <ImageView
+                            android:id="@+id/iv_biao2_zhizhen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:scaleType="center"
+                            android:src="@mipmap/zhizhen"/>
+
+                        <TextView
+                            android:id="@+id/tv_biao2_nmb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_centerHorizontal="true"
+                            android:paddingBottom="12dp"
+                            android:text="当前数值"
+                            android:textColor="@color/font_three"
+                            android:textSize="@dimen/font_big"/>
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_biao2_qujian"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignTop="@+id/rl_biao2"
+                        android:layout_marginTop="@dimen/spaceing_to_side"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:id="@+id/ll_biao2_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/color1"/>
+
+                            <TextView
+                                android:id="@+id/tv_biao2_qu_1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/spacing_small"
+                                android:text="区间1"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_biao2_2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/color2"/>
+
+                            <TextView
+                                android:id="@+id/tv_biao2_qu_2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/spacing_small"
+                                android:text="区间2"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_biao2_3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/color3"/>
+
+                            <TextView
+                                android:id="@+id/tv_biao2_qu_3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/spacing_small"
+                                android:text="区间3"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_biao2_4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/color4"/>
+
+                            <TextView
+                                android:id="@+id/tv_biao2_qu_4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/spacing_small"
+                                android:text="区间4"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ll_biao2_5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/spacing_small"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/color5"/>
+
+                            <TextView
+                                android:id="@+id/tv_biao2_qu_5"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/spacing_small"
+                                android:text="区间5"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/tv_biao2_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/rl_biao2"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="@dimen/spaceing_to_side"
+                        android:layout_marginLeft="@dimen/spaceing_to_side"
+                        android:layout_marginRight="@dimen/spaceing_to_side"
+                        android:gravity="center"
+                        android:textColor="@color/font_three"
+                        android:textSize="@dimen/font_big"/>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/line_color"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/spaceing_to_side"
+                        android:text="系统设计耗电输冷比"
+                        android:textColor="@color/font_three"
+                        android:textSize="@dimen/font_middle"/>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="90dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+
+                            android:layout_height="20dp"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginRight="40dp"
+                            android:background="@mipmap/hengtiao"/>
+
+                        <RelativeLayout
+                            android:layout_width="50dp"
+                            android:layout_height="match_parent"
+                            android:layout_centerHorizontal="true">
+
+                            <TextView
+                                android:id="@+id/tv_heli"
+                                android:layout_width="wrap_content"
+                                android:layout_height="34dp"
+                                android:layout_centerHorizontal="true"
+                                android:drawableBottom="@mipmap/zhen_top"
+                                android:paddingTop="4dp"
+                                android:text="1.5"
+                                android:textColor="@color/font_three"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:drawableTop="@mipmap/zhen_green"
+                                android:text="合理值"
+                                android:textColor="@color/font_three"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rl_shiji"
+                            android:layout_width="80dp"
+                            android:layout_height="match_parent">
+
+                            <TextView
+                                android:id="@+id/tv_shiji"
+                                android:layout_width="wrap_content"
+                                android:layout_height="34dp"
+                                android:layout_centerHorizontal="true"
+                                android:drawableBottom="@mipmap/zhen_top"
+                                android:paddingTop="4dp"
+                                android:text="0.0"
+                                android:textColor="@color/font_three"/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="35dp"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true"
+                                android:drawableTop="@mipmap/zhen_yellow"
+                                android:text="实际值"
+                                android:textColor="@color/font_three"/>
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/tv_jindu_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/spaceing_to_side"
+                        android:gravity="center"
+                        android:text="系统设计耗电输冷比"
+                        android:textColor="@color/font_three"
+                        android:textSize="@dimen/font_middle"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:background="@color/line_color"/>
+            </LinearLayout>
+
+            <!--<RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <TextView
+                 android:id="@+id/tv_quxian1"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_margin="@dimen/spacing_middle"
+                 android:text="实时能耗与制冷量"
+                 android:textColor="@color/font_three"
+                 android:textSize="@dimen/font_big" />
+
+             <com.github.mikephil.charting.charts.LineChart
+                 android:id="@+id/chart1"
+                 android:layout_width="match_parent"
+                 android:layout_height="300dp"
+                 android:layout_below="@+id/tv_quxian1" />
+         </RelativeLayout>
+
+         <View
+             android:layout_width="match_parent"
+             android:layout_height="10dp"
+             android:background="@color/line_color" />
+
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+             <TextView
+                 android:id="@+id/tv_quxian2"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_margin="@dimen/spacing_middle"
+                 android:text="实时COP"
+                 android:textColor="@color/font_three"
+                 android:textSize="@dimen/font_big" />
+
+             <com.github.mikephil.charting.charts.LineChart
+                 android:id="@+id/chart2"
+                 android:layout_width="match_parent"
+                 android:layout_height="300dp"
+                 android:layout_below="@+id/tv_quxian2" />
+         </RelativeLayout>-->
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

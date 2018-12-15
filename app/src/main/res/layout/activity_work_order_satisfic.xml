@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.workorder.activity.WorkOrderSatisficActivity">
+
+    <RelativeLayout style="@style/title_style">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            style="@style/title_center"
+            android:text="@string/workorder_satisfic" />
+    </RelativeLayout>
+
+    <com.kongtiaoapp.xxhj.ui.view.MyScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.kongtiaoapp.xxhj.ui.view.MyLinearlayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.kongtiaoapp.xxhj.ui.view.ClickTextView
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="2dp"
+                android:paddingTop="15dp"
+                android:text="今日统计"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/theme_color" />
+
+            <com.kongtiaoapp.xxhj.ui.view.FullGridView
+                android:id="@+id/fgl_repairCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:numColumns="4"
+                android:scrollbars="none"></com.kongtiaoapp.xxhj.ui.view.FullGridView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:background="@color/workstasficdate" />
+
+
+            <com.kongtiaoapp.xxhj.ui.view.ClickTextView
+                android:id="@+id/txt_engineer"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="2dp"
+                android:paddingTop="15dp"
+                android:text="工程师"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/theme_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/img_lastMonth"
+                    style="@style/engineer_click"
+                    android:src="@mipmap/leftarrow" />
+
+                <TextView
+                    android:id="@+id/txt_notata"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/no_data"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/font_big"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/img_nextMonth"
+                    style="@style/engineer_click"
+                    android:layout_marginLeft="10dp"
+                    android:src="@mipmap/rightarrow" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/frame_up"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/paint_height"
+                android:layout_marginTop="10dp"
+                android:padding="3dp">
+
+                <include layout="@layout/include_paintbackground"></include>
+
+                <include layout="@layout/include_graph_nodata"></include>//代表的是图例
+
+
+            </FrameLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="15dp"
+                android:background="@color/workstasficdate" />
+
+            <com.kongtiaoapp.xxhj.ui.view.ClickTextView
+                android:id="@+id/txt_repair"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:paddingBottom="2dp"
+                android:paddingTop="15dp"
+                android:text="调度员"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="1dp"
+                android:layout_marginLeft="20dp"
+                android:background="@color/theme_color" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/img_lastMonth2"
+                    style="@style/engineer_click"
+                    android:src="@mipmap/leftarrow" />
+
+                <TextView
+                    android:id="@+id/txt_notata1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/no_data"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/font_big"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/img_nextMonth2"
+                    style="@style/engineer_click"
+                    android:layout_marginLeft="10dp"
+                    android:src="@mipmap/rightarrow" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/frame_down"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/paint_height"
+                android:padding="3dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="@dimen/loading_mrgt_fator"
+                    android:layout_marginTop="33dp"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/graph11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/loading_one"
+                        android:textSize="@dimen/loading_factor"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/graph21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/loading_two"
+                        android:textSize="@dimen/loading_factor"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/graph31"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/loading_three"
+                        android:textSize="@dimen/loading_factor"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/graph41"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/loading_four"
+                        android:textSize="@dimen/loading_factor"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/graph51"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/loading_five"
+                        android:textSize="@dimen/loading_factor"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/graph61"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/loading_six"
+                        android:textSize="@dimen/loading_factor"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/graph71"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/loading_seven"
+                        android:textSize="@dimen/loading_factor"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/graph81"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/loading_eight"
+                        android:textSize="@dimen/loading_factor"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/graph91"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/loading_nine"
+                        android:textSize="@dimen/loading_factor"
+                        android:visibility="gone" />
+                </LinearLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/rela_paint1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"></RelativeLayout>
+
+
+            </FrameLayout>
+        </com.kongtiaoapp.xxhj.ui.view.MyLinearlayout>
+    </com.kongtiaoapp.xxhj.ui.view.MyScrollView>
+
+</LinearLayout>

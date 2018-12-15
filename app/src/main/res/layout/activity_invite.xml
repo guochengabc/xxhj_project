@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    tools:context="com.kongtiaoapp.xxhj.activites.InviteActivity">
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        android:layout_width="match_parent"
+        style="@style/title_style">
+        <include layout="@layout/include_back"></include>
+        <TextView
+            android:id="@+id/tv_title"
+            android:text="@string/title_invite"
+            style="@style/title_center" />
+        <ImageView
+            android:id="@+id/iv_setting"
+            android:visibility="gone"
+            android:src="@mipmap/setting"
+            style="@style/titlerightimg"/>
+    </RelativeLayout>
+
+<LinearLayout
+    android:id="@+id/line_one"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="20dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:text="邀请码 :"
+            android:textColor="@color/red"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/txt_invite"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="left|center_vertical"
+            android:textColor="@color/red"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/edt_invite"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="2dp"
+        android:layout_toLeftOf="@+id/text_wjma"
+        android:background="@drawable/group_search"
+        android:drawablePadding="10dp"
+        android:ems="10"
+        android:hint="请输入登录密码"
+        android:inputType="textPassword"
+        android:maxLength="16"
+        android:padding="10dp"
+        android:singleLine="true"
+        android:textColor="#999999"
+        android:textSize="16sp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/txt_reset_invite"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/selector_red"
+        android:gravity="center"
+        android:text="重置邀请码"
+        android:textColor="@color/whitesmoke" />
+</LinearLayout>
+</LinearLayout>

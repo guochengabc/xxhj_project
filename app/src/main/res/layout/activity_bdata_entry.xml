@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.kongtiaoapp.xxhj.bpd.activity.BDataEntryActivity">
+    <RelativeLayout
+        android:id="@+id/rl_title"
+        style="@style/title_style">
+
+        <include layout="@layout/include_back"></include>
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/title_center"
+            android:text="数据录入" />
+
+        <TextView
+            android:id="@+id/addProjectInfo_tv_save"
+            style="@style/title_right" />
+    </RelativeLayout>
+<FrameLayout
+    android:id="@+id/frm_dataEntry"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"></FrameLayout>
+</LinearLayout>

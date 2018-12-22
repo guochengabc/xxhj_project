@@ -22,7 +22,6 @@ import com.kongtiaoapp.xxhj.bean.Loading_RefrigeratorBean;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
 import com.kongtiaoapp.xxhj.mvp.presenter.BPaintP;
 import com.kongtiaoapp.xxhj.mvp.view.BPaintView;
-import com.kongtiaoapp.xxhj.ui.address.AssetsUtils;
 import com.kongtiaoapp.xxhj.ui.address.ScreenUtils;
 import com.kongtiaoapp.xxhj.ui.view.Mf_Tools;
 import com.kongtiaoapp.xxhj.utils.DateUtils;
@@ -91,6 +90,7 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
     private String day;
     private int tabPosition;
     private String intentPosition;
+    private StatisticEtcAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,12 +105,7 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
 
     @Override
     protected void initView() {
-        String etcData = AssetsUtils.readText(this, "bpdjfpg.json");
-        EtcStatisticBean bean = gson.fromJson(etcData, EtcStatisticBean.class);
-        EtcStatisticBean.ResobjBean resobj = bean.getResobj();
-        List<EtcStatisticBean.ResobjBean.DataBean> data = resobj.getData();
-        StatisticEtcAdapter adapter = new StatisticEtcAdapter(data, this);
-        lv_etc.setAdapter(adapter);
+
     }
 
     @Override
@@ -252,11 +247,15 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
 
 
     private void getDataForService(String date) {
+        if (date==null){
+            date=DateUtils.getCurrentDate("yyyy-MM-dd");
+        }
         txt_notata.setText(date);
         List<String> list = new ArrayList<>();
         list.add(date);
         list.add(type);
         presenter.getPaint(this, list);
+        presenter.getFGDL(this, date);
     }
 
     @Override
@@ -300,6 +299,9 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
         txt_notata.setVisibility(View.VISIBLE);
         Loading_RefrigeratorBean lr_bean = (Loading_RefrigeratorBean) data;
         Loading_RefrigeratorBean.ResobjBean resobj = lr_bean.getResobj();
+        if (resobj==null){
+            return;
+        }
         List<Loading_RefrigeratorBean.ResobjBean.DataBean> listData = resobj.getData();
         if (listData == null) {
             return;
@@ -316,13 +318,25 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
         setGraph(titles);//设置图列的个数
         try {
             if (resobj.getFlag().equals("Z")) {
-                Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, true, resobj.getNowTime());
 
+                if (whichPaint == 0) {
+                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, false, resobj.getNowTime());
+                } else {
+                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, true, resobj.getNowTime());
+                }
             } else if (resobj.getFlag().equals("S")) {
-                Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, false, "month", resobj.getNowTime());
-            } else {
-                Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, false, resobj.getNowTime());
+                if (whichPaint == 0) {
+                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, false, "month", resobj.getNowTime());
+                } else {
+                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, true, "month", resobj.getNowTime());
+                }
 
+            } else {
+                if (whichPaint == 0) {
+                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, false, resobj.getNowTime());
+                } else {
+                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, true, resobj.getNowTime());
+                }
             }
         } catch (Exception e) {
             ToastUtils.showToast(this, "图表数据有异常,请您稍后再尝试!");
@@ -344,6 +358,39 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
         rela_loading.removeAllViews();
         txt_notata.setText(getString(R.string.no_data));
         txt_notata.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void list_error(Object data) {
+        txt_notata.setText(data.toString());
+    }
+
+    @Override
+    public void getFGDL(Object beans) {
+
+        EtcStatisticBean bean = (EtcStatisticBean) beans;
+        EtcStatisticBean.ResobjBean resobj = bean.getResobj();
+        List<EtcStatisticBean.ResobjBean.DataBean> data = resobj.getData();
+        if (lv_etc.getVisibility() == View.GONE) {
+            lv_etc.setVisibility(View.VISIBLE);
+        }
+        if (adapter == null) {
+            adapter = new StatisticEtcAdapter(data, this);
+            lv_etc.setAdapter(adapter);
+        } else if (adapter != null) {
+            adapter.setList(data);
+        }
+
+    }
+
+    @Override
+    public void getFGDL_null() {
+        lv_etc.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void getFGDL_error(Object data) {
+        lv_etc.setVisibility(View.GONE);
     }
 
     @Override

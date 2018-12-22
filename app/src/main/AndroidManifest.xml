@@ -490,18 +490,42 @@
         <activity
             android:name=".bpd.activity.BWeekReportActivity"
             android:configChanges="orientation|screenSize" />
-        <activity android:name=".leader.LeaderTalkActivity" />
-        <activity android:name=".securitymonitoring.SecurityMonitoringActivity" />
-        <activity android:name=".recordform.RecordFormModule" />
-        <activity android:name=".recordform.activity.AdditionalReadingActivity" />
-        <activity android:name=".recordform.activity.ExportFormActivity" />
-        <activity android:name=".recordform.activity.GasRechargeActivity" />
-        <activity android:name=".recordform.activity.MReadingActivity" />
-        <activity android:name=".recordform.activity.ReadingSearchActivity" />
-        <activity android:name=".recordform.activity.RechargeSearchActivity" />
-        <activity android:name=".recordform.activity.SMReadingActivity" />
-        <activity android:name=".recordform.activity.StatisticSearchActivity" />
-        <activity android:name=".recordform.activity.RecordSearchDetailsActivity"></activity>
+        <activity
+            android:name=".leader.LeaderTalkActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".securitymonitoring.SecurityMonitoringActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".recordform.RecordFormModule"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".recordform.activity.AdditionalReadingActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".recordform.activity.ExportFormActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".recordform.activity.GasRechargeActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".recordform.activity.MReadingActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".recordform.activity.ReadingSearchActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".recordform.activity.RechargeSearchActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".recordform.activity.SMReadingActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".recordform.activity.StatisticSearchActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".recordform.activity.RecordSearchDetailsActivity"
+            android:configChanges="orientation|screenSize"></activity>
     </application>
 
 </manifest>

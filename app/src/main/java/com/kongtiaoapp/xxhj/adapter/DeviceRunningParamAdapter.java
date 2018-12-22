@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.kongtiaoapp.xxhj.App;
 import com.kongtiaoapp.xxhj.R;
+import com.kongtiaoapp.xxhj.afinal.ConstantValue;
 import com.kongtiaoapp.xxhj.bean.RunningParam;
 import com.kongtiaoapp.xxhj.ui.timeselector.activity.TimePickerView;
 
@@ -41,6 +42,7 @@ public class DeviceRunningParamAdapter extends BaseAdapter {
     private String types = "00";
     private int TYPE_1 = 1, TYPE_2 = 2;
     private int index = -1;
+    private String dateShowType = "yyyy-MM-dd HH:mm:ss";
 
     public DeviceRunningParamAdapter(List mList, Activity mContext, boolean bool) {
         this.mList = mList;
@@ -84,6 +86,7 @@ public class DeviceRunningParamAdapter extends BaseAdapter {
         }
         TextView tvName = (TextView) convertView.findViewById(R.id.tv_name);
         EditText tvContent = (EditText) convertView.findViewById(R.id.tv_content);
+        TextView tv_content_click = (TextView) convertView.findViewById(R.id.tv_content_click);
         if (sp.getFontSize().equals("0")) {
             tvName.setTextSize(17);
             tvContent.setTextSize(17);
@@ -96,11 +99,7 @@ public class DeviceRunningParamAdapter extends BaseAdapter {
         }
         final RunningParam item = (RunningParam) getItem(position);
         String fieldType = item.getFieldType();
-        if (fieldType.equals("time")) {
-            tvContent.setFocusable(false);
-        } else {
-            tvContent.setFocusable(true);
-        }
+
         if (!TextUtils.isEmpty(item.getUnit())) {
             tvName.setText(item.getValue() + "(" + item.getUnit() + "):");
         } else {
@@ -119,6 +118,34 @@ public class DeviceRunningParamAdapter extends BaseAdapter {
         }
 
         tvContent.setText(item.getMyContent());
+        switch (fieldType) {
+            case ConstantValue.DATEMONTH:
+                dateShowType = "yyyy-MM";
+                setRecordTime(position, tv_content_click, tvContent,TimePickerView.Type.YEAR_MONTH);
+                break;
+            case ConstantValue.DATEDAY:
+                dateShowType = "yyyy-MM-dd";
+                setRecordTime(position, tv_content_click,tvContent, TimePickerView.Type.YEAR_MONTH_DAY);
+                break;
+            case ConstantValue.DATEHOUR:
+                dateShowType = "yyyy-MM-dd HH";
+                setRecordTime(position, tv_content_click,tvContent, TimePickerView.Type.YEAR_MONTH_DAY_HOURS);
+                break;
+            case ConstantValue.DATEMINUTE:
+                dateShowType = "yyyy-MM-dd HH:mm";
+                setRecordTime(position, tv_content_click, tvContent,TimePickerView.Type.YEAR_MONTH_DAY_HOURS_MIN);
+                break;
+            case ConstantValue.DATESECOND:
+                dateShowType = "yyyy-MM-dd HH:mm:ss";
+                setRecordTime(position, tv_content_click, tvContent,TimePickerView.Type.ALL);
+                break;
+            case "time":
+                tvContent.setFocusable(false);
+                break;
+            default:
+                tvContent.setFocusable(true);
+                break;
+        }
         tvContent.setOnTouchListener(new View.OnTouchListener() {
 
             public boolean onTouch(View view, MotionEvent event) {
@@ -197,6 +224,38 @@ public class DeviceRunningParamAdapter extends BaseAdapter {
 
     }
 
+    private void setRecordTime(int position, TextView  textView, TextView tvContent,TimePickerView.Type type) {
+        tvContent.setVisibility(View.GONE);
+        textView.setVisibility(View.VISIBLE);
+       textView.setText(ConstantValue.PLEASE_TIME);
+       textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                TimePickerView pvTime = new TimePickerView(mContext, type);
+                pvTime.setTime(new Date());
+                pvTime.setCyclic(false);
+                pvTime.setCancelable(true);
+                pvTime.setOnTimeSelectListener(new TimePickerView.OnTimeSelectListener() {
+                    @Override
+                    public void onTimeSelect(Date date) {
+                       textView.setText(getTime(date));
+                        RunningParam  item = (RunningParam) getItem(position);
+                        item.setMyContent(getTime(date));
+
+                        tvContent.setText(item.getMyContent());
+                    }
+                });
+                pvTime.show();
+            }
+        });
+
+    }
+
+    private String getTime(Date date) {
+        SimpleDateFormat format = new SimpleDateFormat(dateShowType);
+        return format.format(date);
+    }
     public void remove(int from) {
         mList.remove(from);
         this.notifyDataSetChanged();
@@ -219,6 +278,8 @@ public class DeviceRunningParamAdapter extends BaseAdapter {
         TextView tvName;
         @BindView(R.id.tv_content)
         EditText tvContent;
+        @BindView(R.id.tv_content_click)
+        TextView tv_content_click;
 
         ViewHolder(View view) {
             ButterKnife.bind(this, view);

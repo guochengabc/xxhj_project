@@ -202,7 +202,8 @@ public class BDataEntryDetailFragment extends BaseFragment<BDataEntryDetailP, BD
     private void save() {
         Map<String, String> map = new HashMap<>();
         map.put("DeviceId", deviceId);
-        List<RunningParam> adapterList = adapter.getmList();        if (adapterList == null) {
+        List<RunningParam> adapterList = adapter.getmList();
+        if (adapterList == null) {
             return;
         }
         for (int i = 0; i < mList.size(); i++) {
@@ -243,7 +244,7 @@ public class BDataEntryDetailFragment extends BaseFragment<BDataEntryDetailP, BD
                 if (content != null && !content.equals(""))
                     map.put(mList.get(i).getCode(), content);
             } else {
-
+                map.put(mList.get(i).getCode(), content);
             }
         }
         if (map.size() == 1) {//之前已经有mup.pu("deviceId");

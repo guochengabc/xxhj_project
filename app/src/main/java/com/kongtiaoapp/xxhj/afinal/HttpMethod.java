@@ -800,6 +800,10 @@ public class HttpMethod {
      */
     public static final String GETPOWERCHARTDATASOURCES = "GetPowerChartDataSources";
     /**
+     * 变配电峰谷电量
+     */
+    public static final String GETPOWERTABLEDATA = "GetPowerTableData";
+    /**
      * 变配电周报月报
      */
     public static final String GETPOWERREPORTDATA = "GetPowerReportData";

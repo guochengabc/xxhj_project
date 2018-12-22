@@ -236,7 +236,7 @@ public class AddDeviceRunning_EcodeFragment extends BaseFragment<AddDeviceRunnin
                 if (content != null && !content.equals(""))
                     map.put(mList.get(i).getCode(), content);
             } else {
-
+                map.put(mList.get(i).getCode(), content);
             }
         }
         if (map.size() == 1) {//之前已经有mup.pu("deviceId");

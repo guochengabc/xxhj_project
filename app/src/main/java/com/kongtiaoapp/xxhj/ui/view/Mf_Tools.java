@@ -172,7 +172,7 @@ public class Mf_Tools {
         CubicChart sensor = new CubicChart();
         if (isMonth){
             executes = sensor.execute(mActivity, titles, listX, listsY, mActivity.getResources().getString(R.string.ismonth), maxX, maxY, minY, isMonth, nowTime);
-        }else{
+        }else if (isMonth == false) {
             executes = sensor.execute(mActivity, titles, listX, listsY, mActivity.getResources().getString(R.string.isday), maxX, maxY, minY, isMonth, nowTime);
         }
             rela_loading.removeView(executes);

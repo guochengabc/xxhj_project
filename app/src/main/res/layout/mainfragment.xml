@@ -10,7 +10,6 @@
             android:layout_width="match_parent">
 
             <include layout="@layout/include_back"></include>
-
             <ImageView
                 android:id="@+id/img_eCode"
                 style="@style/title_right"

@@ -3,6 +3,7 @@ package com.kongtiaoapp.xxhj.mvp.presenter;
 import android.app.Activity;
 
 import com.kongtiaoapp.xxhj.bean.BTabViewBean;
+import com.kongtiaoapp.xxhj.bean.EtcStatisticBean;
 import com.kongtiaoapp.xxhj.bean.Loading_RefrigeratorBean;
 import com.kongtiaoapp.xxhj.mvp.base.BasePresenterLpl;
 import com.kongtiaoapp.xxhj.mvp.moduleipl.BPaintl;
@@ -33,12 +34,12 @@ public class BPaintP extends BasePresenterLpl<BPaintView, BPaintl> {
 
             @Override
             public void requestSuccess(Object o) {
-                BTabViewBean bean= (BTabViewBean) o;
-                if (bean.getCode()==SUCCEDD){
+                BTabViewBean bean = (BTabViewBean) o;
+                if (bean.getCode() == SUCCEDD) {
                     getView().getTabView(bean);
-                }else if (bean.getCode()==EMPTY){
+                } else if (bean.getCode() == EMPTY) {
                     getView().list_null();
-                }else{
+                } else {
 
                 }
             }
@@ -57,13 +58,37 @@ public class BPaintP extends BasePresenterLpl<BPaintView, BPaintl> {
 
             @Override
             public void requestSuccess(Object o) {
-                Loading_RefrigeratorBean bean= (Loading_RefrigeratorBean) o;
-                if (bean.getCode()==SUCCEDD){
+                Loading_RefrigeratorBean bean = (Loading_RefrigeratorBean) o;
+                if (bean.getCode() == SUCCEDD) {
                     getView().setText(bean);
-                }else if (bean.getCode()==EMPTY){
+                } else if (bean.getCode() == EMPTY) {
 
-                }else{
+                } else {
+                    getView().list_error(bean.getErrormsg());
+                }
+            }
+        });
+    }
 
+    /**
+     * 获取图表
+     */
+    public void getFGDL(Activity activity, String param) {
+        getModel().getFGDL(activity, param, new ResponseXXHJListener() {
+            @Override
+            public void requuestError(int code) {
+
+            }
+
+            @Override
+            public void requestSuccess(Object o) {
+                EtcStatisticBean bean = (EtcStatisticBean) o;
+                if (bean.getCode() == SUCCEDD) {
+                    getView().getFGDL(bean);
+                } else if (bean.getCode() == EMPTY) {
+                    getView().getFGDL_null();
+                } else {
+                    getView().getFGDL_error(bean.getErrormsg());
                 }
             }
         });

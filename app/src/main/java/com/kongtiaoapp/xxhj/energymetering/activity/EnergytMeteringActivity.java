@@ -69,8 +69,8 @@ public class EnergytMeteringActivity extends BaseActivity<HeatMeteringPresenter,
     @BindView(R.id.txt_notata)
     TextView txt_notata;//显示时间
 
-@BindView(R.id.txt_noDatas)
-TextView txt_noDatas;//后续版本敬请期待
+    @BindView(R.id.txt_noDatas)
+    TextView txt_noDatas;//后续版本敬请期待
     private String repeatTime = "0";//0代表没有重复  会走    1代表已经走过一次   不能连续再走了
     private String repeatTimeTwo = "0";//0代表没有重复  会走    1代表已经走过一次   不能连续再走了
     private int tabPosition = 0;//tablayout滑动的位置

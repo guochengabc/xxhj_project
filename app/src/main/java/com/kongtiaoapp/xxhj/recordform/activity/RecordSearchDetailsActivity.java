@@ -111,7 +111,7 @@ public class RecordSearchDetailsActivity extends BaseActivity<RecordSearchDetail
         return new RecordSearchDetailsP();
     }
 
-    @OnClick({R.id.iv_back, R.id.tv_modify,R.id.ctv_recall})
+    @OnClick({R.id.iv_back, R.id.tv_modify, R.id.ctv_recall})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
@@ -120,7 +120,7 @@ public class RecordSearchDetailsActivity extends BaseActivity<RecordSearchDetail
                 break;
             case R.id.ctv_recall://撤回数据
 
-                presenter.recallData(this,listParam);
+                presenter.recallData(this, listParam);
                 break;
             case R.id.tv_modify:
                 commitData();//提交数据
@@ -182,7 +182,7 @@ public class RecordSearchDetailsActivity extends BaseActivity<RecordSearchDetail
                 return;
             }
         }
-        presenter.modifyData(RecordSearchDetailsActivity.this, list, selImageList,listParam , adapter.getRecordStatus());
+        presenter.modifyData(RecordSearchDetailsActivity.this, list, selImageList, listParam, adapter.getRecordStatus());
         if (list == null || list.isEmpty()) {
             return;
         }
@@ -316,7 +316,8 @@ public class RecordSearchDetailsActivity extends BaseActivity<RecordSearchDetail
 
     @Override
     public void recallData() {
-
+        ToastUtils.showToast(this, "撤回成功");
+        finish();
     }
 
     @Override

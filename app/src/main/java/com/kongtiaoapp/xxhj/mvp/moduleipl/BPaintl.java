@@ -5,6 +5,7 @@ import android.app.Activity;
 import com.kongtiaoapp.xxhj.afinal.ConstantValue;
 import com.kongtiaoapp.xxhj.afinal.HttpMethod;
 import com.kongtiaoapp.xxhj.bean.BTabViewBean;
+import com.kongtiaoapp.xxhj.bean.EtcStatisticBean;
 import com.kongtiaoapp.xxhj.bean.Loading_RefrigeratorBean;
 import com.kongtiaoapp.xxhj.mvp.module.BPaintM;
 import com.kongtiaoapp.xxhj.net.okhttp.Encode_params;
@@ -39,5 +40,13 @@ public class BPaintl implements BPaintM {
         Map<String, String> params = new HashMap<String, String>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETPOWERCHARTDATASOURCES, map));
         new GetTask<BTabViewBean>(activity, BTabViewBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();
+    }
+    @Override
+    public void getFGDL(Activity activity, Object data, ResponseXXHJListener listener) {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("date", data.toString());
+        Map<String, String> params = new HashMap<String, String>();
+        params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETPOWERTABLEDATA, map));
+        new GetTask<EtcStatisticBean>(activity, EtcStatisticBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), false, listener).execute();
     }
 }

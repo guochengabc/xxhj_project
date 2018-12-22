@@ -51,17 +51,22 @@ public class StatisticEtcAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         EtcStatisticBean.ResobjBean.DataBean dataBean = list.get(position);
-            viewHolder.tv_etc.setText(dataBean.getStatisticType());
-            List<EtcStatisticBean.ResobjBean.DataBean.EtcDataBean> listData = dataBean.getEtcData();
+        viewHolder.tv_etc.setText(dataBean.getStatisticType());
+        List<EtcStatisticBean.ResobjBean.DataBean.EtcDataBean> listData = dataBean.getEtcData();
         if (listData == null) {
 
-        }else{
+        } else {
             StatisticEtcItemAdapter adapter = new StatisticEtcItemAdapter(listData, context);
             viewHolder.lv_statisticTec.setAdapter(adapter);
         }
 
 
         return convertView;
+    }
+
+    public void setList(List<EtcStatisticBean.ResobjBean.DataBean> data) {
+        list = data;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder {

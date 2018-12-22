@@ -129,7 +129,7 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter, MainFragme
                             if (moduleBean.getPackageName().equals("com.zchg.woa")) {
                                 intent.putExtra("intentName", "xxhj");
                             }
-                            intent.putExtra("title",moduleBean.getModuleName());
+                            intent.putExtra("title", moduleBean.getModuleName());
                             intent.setComponent(com);
                             startActivity(intent);
                         } catch (ActivityNotFoundException e) {
@@ -256,7 +256,6 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter, MainFragme
             case R.id.img_eCode://二维码扫描记录表单
                 startActivity(new Intent(mActivity, E_CodeActivity.class));
                 break;
-
             default:
                 break;
         }

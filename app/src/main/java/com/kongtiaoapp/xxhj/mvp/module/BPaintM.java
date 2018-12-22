@@ -9,6 +9,7 @@ import com.kongtiaoapp.xxhj.net.okhttp.ResponseXXHJListener;
  * Created by G_XXHJ on 2018/10/9.  变配电图表
  */
 
-public interface BPaintM<T> extends BaseModule {
+public interface BPaintM<T,M> extends BaseModule {
     void getTabView(Activity activity, T data, ResponseXXHJListener listener);
+    void getFGDL(Activity activity, M data, ResponseXXHJListener listener);
 }

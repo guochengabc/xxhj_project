@@ -7,57 +7,58 @@
         "MainFragment": "00",
         "ModuleArray": [
           {
+            "IntentName": "",
+            "PackageName": "com.kongtiaoapp.xxhj",
             "ModuleName": "领导专栏",
-            "IconName": "ldzl",
-            "PackageName": "com.kongtiaoapp.xxhj",
-            "IntentName": "com.kongtiaoapp.xxhj.leader.LeaderTalkActivity"
-          },{
-            "ModuleName": "",
-            "IconName": "",
-            "PackageName": "",
-            "IntentName": ""
+            "IconName": "ldzl"
           },
           {
+            "IntentName": "com.kongtiaoapp.xxhj.activites.AssetActivity",
+            "PackageName": "com.kongtiaoapp.xxhj",
+            "ModuleName": "资产管理",
+            "IconName": "zcgl"
+          },
+          {
+            "IntentName": "com.kongtiaoapp.xxhj.activites.More_CommentsActivity",
+            "PackageName": "com.kongtiaoapp.xxhj",
             "ModuleName": "讨论专栏",
-            "IconName": "tlzl",
-            "PackageName": "com.kongtiaoapp.xxhj",
-            "IntentName": "com.kongtiaoapp.xxhj.activites.More_CommentsActivity"
+            "IconName": "tlzl"
           },
           {
+            "IntentName": "com.kongtiaoapp.xxhj.hvac.HVAC_NewActivity",
+            "PackageName": "com.kongtiaoapp.xxhj",
             "ModuleName": "暖通空调",
-            "IconName": "ntkt",
-            "PackageName": "com.kongtiaoapp.xxhj",
-            "IntentName": "com.kongtiaoapp.xxhj.hvac.HVAC_NewActivity"
+            "IconName": "ntkt"
           },
           {
+            "IntentName": "com.kongtiaoapp.xxhj.energymetering.activity.EnergyRecordListActivity",
+            "PackageName": "com.kongtiaoapp.xxhj",
             "ModuleName": "能源管理",
-            "IconName": "nygl",
-            "PackageName": "com.kongtiaoapp.xxhj",
-            "IntentName": "com.kongtiaoapp.xxhj.energymetering.activity.EnergyRecordListActivity"
+            "IconName": "nygl"
           },
           {
+            "IntentName": "com.kongtiaoapp.xxhj.bpd.BPDActivity",
+            "PackageName": "com.kongtiaoapp.xxhj",
             "ModuleName": "变配电",
-            "IconName": "bpd",
-            "PackageName": "com.kongtiaoapp.xxhj",
-            "IntentName": "com.kongtiaoapp.xxhj.bpd.BPDActivity"
+            "IconName": "bpd"
           },
           {
-            "ModuleName": "工单管理",
-            "IconName": "gdgl",
+            "IntentName": "com.zchg.woa.view.display.main.MainActivity",
             "PackageName": "com.zchg.woa",
-            "IntentName": "com.zchg.woa.view.display.main.MainActivity"
+            "ModuleName": "工单管理",
+            "IconName": "gdgl"
           },
           {
+            "IntentName": "com.kongtiaoapp.xxhj.activites.InformationActivity",
+            "PackageName": "com.kongtiaoapp.xxhj",
             "ModuleName": "消息中心",
-            "IconName": "xxzx",
-            "PackageName": "com.kongtiaoapp.xxhj",
-            "IntentName": "com.kongtiaoapp.xxhj.activites.InformationActivity"
+            "IconName": "xxzx"
           },
           {
-            "ModuleName": "安防监控",
-            "IconName": "afjk",
+            "IntentName": "com.kongtiaoapp.xxhj.recordform.activity.ReadingSearchActivity",
             "PackageName": "com.kongtiaoapp.xxhj",
-            "IntentName": "com.kongtiaoapp.xxhj.securitymonitoring.SecurityMonitoringActivity"
+            "ModuleName": "录表查询",
+            "IconName": "lbcx"
           }
         ]
       },

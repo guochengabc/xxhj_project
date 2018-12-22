@@ -33,4 +33,19 @@
         android:textColor="@color/font_six"
         android:textColorHint="@color/line_color"
         android:textSize="@dimen/device_list_detail" />
+    <TextView
+        android:id="@+id/tv_content_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:background="@drawable/shape_add_weibao_record_et_bg"
+        android:cursorVisible="true"
+        android:enabled="true"
+        android:gravity="center"
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
+        android:textColor="@color/font_six"
+        android:textColorHint="@color/line_color"
+        android:textSize="@dimen/device_list_detail"
+        android:visibility="gone"/>
 </LinearLayout>

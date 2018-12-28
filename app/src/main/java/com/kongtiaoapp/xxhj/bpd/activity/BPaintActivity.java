@@ -277,7 +277,6 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
                 } else if (whichPaint == 1) {//日
                     month = DateUtils.getLastMonth(month);
                     getDataForService(month);
-
                 }
                 break;
             case R.id.img_right:

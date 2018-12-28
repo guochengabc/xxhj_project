@@ -26,16 +26,28 @@
             android:visibility="visible" />
 
     </RelativeLayout>
-
-    <com.kongtiaoapp.xxhj.utils.MyTablayout
+    <com.kongtiaoapp.xxhj.ui.view.ScrollViewToViewpager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+   <!--   <FrameLayout
+          android:id="@+id/fl_energyTop"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"></FrameLayout>-->
+    <com.kongtiaoapp.xxhj.utils.MyTabLayoutEnergy
         android:id="@+id/mtl_recordForm"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/me_item_height"></com.kongtiaoapp.xxhj.utils.MyTablayout>
+        android:layout_height="@dimen/me_item_height"></com.kongtiaoapp.xxhj.utils.MyTabLayoutEnergy>
 
-    <com.kongtiaoapp.xxhj.ui.view.DefinationViewpager
+    <com.kongtiaoapp.xxhj.ui.view.DefinationViewpagerEnergy
         android:id="@+id/dvp_recordForm"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.kongtiaoapp.xxhj.ui.view.DefinationViewpager>
+    </com.kongtiaoapp.xxhj.ui.view.DefinationViewpagerEnergy>
+    </LinearLayout>
+    </com.kongtiaoapp.xxhj.ui.view.ScrollViewToViewpager>
 </LinearLayout>

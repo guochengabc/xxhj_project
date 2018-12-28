@@ -59,10 +59,9 @@ public class RecordSearchDetailsl implements RecordSearchDetailsM {
     public void modifyData(Activity activity, Object dataO, Object dataT, Object dataTH, Object dataF, ResponseXXHJListener listener) {
         List<RecordDetailsBean.ResobjBean> list = (List<RecordDetailsBean.ResobjBean>) dataO;
         ArrayList<ImageItem> selImageList = (ArrayList<ImageItem>) dataT;
-        List<String> listParam = (List<String>) dataTH;
         Map<String, Object> map = new LinkedHashMap<>();
         List<Map> listC = new ArrayList<>();
-        for (int i = 0; i < list.size() - 1; i++) {
+        for (int i = 0; i < list.size(); i++) {
             String name = list.get(i).getName();
             String code = list.get(i).getCode();
             Map<String, String> mapC = new LinkedHashMap<>();

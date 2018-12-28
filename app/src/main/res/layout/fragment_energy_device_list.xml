@@ -5,7 +5,7 @@
     tools:context="com.kongtiaoapp.xxhj.energymetering.fragment.EnergyDeviceListFragment">
 
     <include layout="@layout/include_nodata"></include>
-    <ExpandableListView
+    <com.kongtiaoapp.xxhj.ui.view.MyExpandableListView
         android:id="@+id/mlv_eneryDeviceList"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

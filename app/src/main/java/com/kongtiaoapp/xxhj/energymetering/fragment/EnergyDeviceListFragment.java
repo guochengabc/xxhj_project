@@ -19,6 +19,7 @@ import com.kongtiaoapp.xxhj.energymetering.adapter.EnergyDeviceListAdapter;
 import com.kongtiaoapp.xxhj.mvp.base.BaseFragment;
 import com.kongtiaoapp.xxhj.mvp.presenter.EnergyRecordListP;
 import com.kongtiaoapp.xxhj.mvp.view.EnergyRecordListV;
+import com.kongtiaoapp.xxhj.ui.view.MyExpandableListView;
 
 import java.io.Serializable;
 import java.util.List;
@@ -33,7 +34,7 @@ public class EnergyDeviceListFragment extends BaseFragment<EnergyRecordListP, En
     @BindView(R.id.txt_noData)
     TextView txt_noData;
     @BindView(R.id.mlv_eneryDeviceList)
-    ExpandableListView mlv_eneryDeviceList;
+    MyExpandableListView mlv_eneryDeviceList;
     private List<EnergyDeviceListBean.ResobjBean.OneDataBean> listOne;
     private boolean isLoading = false;
     private String type;

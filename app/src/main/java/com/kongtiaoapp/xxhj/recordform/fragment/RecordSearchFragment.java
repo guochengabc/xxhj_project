@@ -308,10 +308,10 @@ public class RecordSearchFragment extends BaseFragment<RecordSearchP, RecordSear
     @Override
     public void list_null(Object data) {
         txt_nodata.setVisibility(View.VISIBLE);
-            listAll.clear();
+        listAll.clear();
         isSearch = false;
         currentPage = 1;
-       adapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();
     }
 
 

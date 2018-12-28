@@ -10,7 +10,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.kongtiaoapp.xxhj.R;
+import com.kongtiaoapp.xxhj.bean.BPD_DataEntryBean;
 import com.kongtiaoapp.xxhj.bean.DeviceNameE_CodeBean;
+import com.kongtiaoapp.xxhj.bpd.activity.BDataEntryActivity;
 import com.kongtiaoapp.xxhj.energymetering.activity.EnergyRecordActivity;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
 import com.kongtiaoapp.xxhj.mvp.base.BaseModule;
@@ -147,7 +149,6 @@ public class E_CodeActivity extends BaseActivity<BasePresenterLpl, BaseView> imp
     /* @Override
      public void onScannerCompletion(Result rawResult, ParsedResult parsedResult, Bitmap barcode) {
 
-
      }
  */
     @Override
@@ -158,7 +159,14 @@ public class E_CodeActivity extends BaseActivity<BasePresenterLpl, BaseView> imp
             if (deviceNameE_codeBean.getDeviceId() == null) {
                 intent.setClass(this, EnergyRecordActivity.class);
                 intent.putExtra("device", (Serializable) deviceNameE_codeBean);
-            } else {
+            } else if (deviceNameE_codeBean.getFlag().equals("power")){
+                BPD_DataEntryBean.ResobjBean.PowerBean bean=new BPD_DataEntryBean.ResobjBean.PowerBean();
+                bean.setDeviceId(deviceNameE_codeBean.getDeviceId());
+                bean.setName(deviceNameE_codeBean.getName());
+               bean.setType(deviceNameE_codeBean.getType());
+                intent.setClass(this, BDataEntryActivity.class);
+                intent.putExtra("bpd", bean);
+            }else {
                 intent.setClass(this, RecordFormEcodeActivity.class);
                 intent.putExtra("device", (Serializable) deviceNameE_codeBean);
             }

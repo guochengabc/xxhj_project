@@ -65,7 +65,7 @@ public class RecordSearchDetailsP extends BasePresenterLpl<RecordSearchDetailsV,
     /**
      * 修改数据
      */
-    public void modifyData(RecordSearchDetailsActivity activity, List<RecordDetailsBean.ResobjBean> list, ArrayList<ImageItem> selImageList, List param, String recordStatus) {
+    public void modifyData(RecordSearchDetailsActivity activity, List<RecordDetailsBean.ResobjBean> list, ArrayList<ImageItem> selImageList, String param, String recordStatus) {
         getModel().modifyData(activity, list, selImageList, param, recordStatus, new ResponseXXHJListener() {
             @Override
             public void requuestError(int code) {

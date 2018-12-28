@@ -8,6 +8,7 @@
     tools:context="com.kongtiaoapp.xxhj.energymetering.activity.EnergytMeteringActivity">
 
     <RelativeLayout
+        android:id="@+id/rl_energyTop"
         style="@style/title_style"
         android:layout_width="match_parent">
 

@@ -100,17 +100,21 @@ public class SortAdapter extends BaseAdapter implements SectionIndexer {
         }
         viewHolder.tvPhone.setText(model.getPhone());
         viewHolder.tvTitle.setText(model.getName());
-        if (model.getLevel().equals("B")) {
-            viewHolder.tv_user_item_levelName.setVisibility(View.VISIBLE);
-            viewHolder.tv_user_item_levelName.setText(model.getLevelName());
-        } else {
-            viewHolder.tv_user_item_levelName.setVisibility(View.GONE);
-        }
-        // 头像采用imageloader加载
+        try {
+            if (model.getLevel().equals("B")) {
+                viewHolder.tv_user_item_levelName.setVisibility(View.VISIBLE);
+                viewHolder.tv_user_item_levelName.setText(model.getLevelName());
+            } else {
+                viewHolder.tv_user_item_levelName.setVisibility(View.GONE);
+            }
+            // 头像采用imageloader加载
      /*   viewHolder.sex.setImageResource(model.getSex() == 0 ? R.mipmap.boy
                 : R.mipmap.girl);*/
-        Log.i("fffffffff", "===图像===" + ConstantValue.URL + model.getIconUrl());
-        Glide.with(mContext).load(ConstantValue.URL + model.getIconUrl()).placeholder(R.mipmap.default_head).transform(new GlideCircleTransform(mContext)).crossFade().into(viewHolder.icon);
+            Log.i("fffffffff", "===图像===" + ConstantValue.URL + model.getIconUrl());
+            Glide.with(mContext).load(ConstantValue.URL + model.getIconUrl()).placeholder(R.mipmap.default_head).transform(new GlideCircleTransform(mContext)).crossFade().into(viewHolder.icon);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return view;
 
     }

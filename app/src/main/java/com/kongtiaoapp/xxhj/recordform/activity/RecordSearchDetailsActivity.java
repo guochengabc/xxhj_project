@@ -182,7 +182,7 @@ public class RecordSearchDetailsActivity extends BaseActivity<RecordSearchDetail
                 return;
             }
         }
-        presenter.modifyData(RecordSearchDetailsActivity.this, list, selImageList, listParam, adapter.getRecordStatus());
+        presenter.modifyData(RecordSearchDetailsActivity.this, list, selImageList, sensorId, adapter.getRecordStatus());
         if (list == null || list.isEmpty()) {
             return;
         }

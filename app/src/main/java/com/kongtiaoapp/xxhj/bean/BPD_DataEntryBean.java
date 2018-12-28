@@ -46,6 +46,7 @@ public class BPD_DataEntryBean extends RBResponse {
             private String IsEntry;
             private String Name;
             private String Type;
+            private String Flag;
             public String getDeviceId() {
                 return DeviceId;
             }
@@ -76,6 +77,14 @@ public class BPD_DataEntryBean extends RBResponse {
 
             public void setType(String type) {
                 Type = type;
+            }
+
+            public String getFlag() {
+                return Flag;
+            }
+
+            public void setFlag(String flag) {
+                this.Flag = flag;
             }
         }
     }

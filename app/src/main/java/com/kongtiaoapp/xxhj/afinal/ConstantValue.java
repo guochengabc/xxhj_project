@@ -1,27 +1,25 @@
 package com.kongtiaoapp.xxhj.afinal;
 
-import com.kongtiaoapp.xxhj.App;
-
 /**
  * Created by Shinelon on 2016/6/6.
  */
 public class ConstantValue {
 
     // V3正式环境
-    /*public static String HTTP_URL = "http://api.xiaoxitech.cn/v3/Process";
+    public static String HTTP_URL = "http://api.xiaoxitech.cn/v3/Process";
     public static String HTTP_URLS = "https://api.xiaoxitech.cn/v3/Process";
     public static String URL = "http://xiaoxitech.cn/";
-    public static String URLS = "https://xiaoxitech.cn/";*/
+    public static String URLS = "https://xiaoxitech.cn/";
     // 测试环境
    /* public static String HTTP_URL = "http://api.xiaoxitech.cn/v3_test/Process";
     public static String HTTP_URLS = "https://api.xiaoxitech.cn/v3_test/Process";
     public static String URL = "http://xiaoxitech.cn/";
     public static String URLS = "https://xiaoxitech.cn/";*/
     // V3控制环境环境  在ui/view/DialogPrompt里面控制
-    public static String HTTP_URL = App.sp.getEnvironment();//"http://api.xiaoxitech.cn/v3_test/Process";
+    /*public static String HTTP_URL = App.sp.getEnvironment();//"http://api.xiaoxitech.cn/v3_test/Process";
     public static String HTTP_URLS = App.sp.getEnvironment();
     public static String URL = "http://xiaoxitech.cn/";//"http://xiaoxitech.cn/";
-    public static String URLS = "http://xiaoxitech.cn/";
+    public static String URLS = "http://xiaoxitech.cn/";*/
 
     // 本地环境
     /*public static String HTTP_URL = "http://10.0.2.2:8080/ktjnAPP/Process";

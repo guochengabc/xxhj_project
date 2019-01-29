@@ -8,10 +8,12 @@ import com.kongtiaoapp.xxhj.bean.RBResponse;
 import com.kongtiaoapp.xxhj.bean.UserInfoBean;
 import com.kongtiaoapp.xxhj.mvp.module.UserInfoModule;
 import com.kongtiaoapp.xxhj.net.okhttp.Encode_params;
+import com.kongtiaoapp.xxhj.net.okhttp.GetTask;
 import com.kongtiaoapp.xxhj.net.okhttp.ParamJson;
 import com.kongtiaoapp.xxhj.net.okhttp.Post_NO_Task;
 import com.kongtiaoapp.xxhj.net.okhttp.ResponseXXHJListener;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,5 +40,15 @@ public class UserInfolpl implements UserInfoModule {
         FormBody.Builder builder=new FormBody.Builder();
         builder.add("para", Encode_params.NoToken_Encodeparms(ParamJson.map2Json_param(HttpMethod.MODIFYAUTHORITY,map)));
         new Post_NO_Task<RBResponse>(activity,RBResponse.class, ConstantValue.HTTP_URLS,builder,listener).execute();
+    }
+
+    @Override
+    public void deleteNumber(Activity activity, List<Map<String,String>> list, ResponseXXHJListener listener) {
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("user",list);
+        Map<String, String> params = new HashMap<String, String>();
+        params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.DELETERUSER, map,""));
+        new GetTask<RBResponse>(activity, RBResponse.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();
     }
 }

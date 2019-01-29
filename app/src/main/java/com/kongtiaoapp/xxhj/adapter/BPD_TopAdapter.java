@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.bean.BPD_MainInfoBean;
 import com.kongtiaoapp.xxhj.bpd.activity.BPaintActivity;
+import com.kongtiaoapp.xxhj.ui.view.NoScrollGridView;
 import com.kongtiaoapp.xxhj.ui.view.horizontallistview.HorizontalListView;
 
 import java.util.List;
@@ -59,26 +60,49 @@ public class BPD_TopAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         List<BPD_MainInfoBean.ResobjBean.GroupDataBean.EnerParamBean> enerParam = list.get(position).getEnerParam();
+        if(enerParam ==null||enerParam.isEmpty()){
+            return convertView;
+        }
         BPD_TopInAdapter adapter = new BPD_TopInAdapter(enerParam, context);
-        holder.hlv_energyTop.setAdapter(adapter);
-        holder.hlv_energyTop.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                BPD_MainInfoBean.ResobjBean.GroupDataBean.EnerParamBean enerParamBean = enerParam.get(position);
-                context.startActivity(new Intent(context, BPaintActivity.class)
-                        .putExtra("name", enerParamBean.getName())
-                        .putExtra("type", enerParamBean.getType())
-                        .putExtra("dateSign",enerParamBean.getDateSign())
-                        .putExtra("position",position+""));
-            }
-        });
+        if (enerParam.size()<=3){
+            holder.hlv_energyTop.setVisibility(View.GONE);
+            holder.lv_statisticTec.setVisibility(View.VISIBLE);
+            holder.lv_statisticTec.setAdapter(adapter);
+            holder.lv_statisticTec.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    BPD_MainInfoBean.ResobjBean.GroupDataBean.EnerParamBean enerParamBean = enerParam.get(position);
+                    context.startActivity(new Intent(context, BPaintActivity.class)
+                            .putExtra("name", enerParamBean.getName())
+                            .putExtra("type", enerParamBean.getType())
+                            .putExtra("dateSign",enerParamBean.getDateSign())
+                            .putExtra("position",position+""));
+                }
+            });
+        }else{
+            holder.hlv_energyTop.setVisibility(View.VISIBLE);
+            holder.lv_statisticTec.setVisibility(View.GONE);
+            holder.hlv_energyTop.setAdapter(adapter);
+            holder.hlv_energyTop.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    BPD_MainInfoBean.ResobjBean.GroupDataBean.EnerParamBean enerParamBean = enerParam.get(position);
+                    context.startActivity(new Intent(context, BPaintActivity.class)
+                            .putExtra("name", enerParamBean.getName())
+                            .putExtra("type", enerParamBean.getType())
+                            .putExtra("dateSign",enerParamBean.getDateSign())
+                            .putExtra("position",position+""));
+                }
+            });
+        }
         return convertView;
     }
 
     public class ViewHolder {
         @BindView(R.id.hlv_energyTop)
         HorizontalListView hlv_energyTop;
-
+        @BindView(R.id.lv_statisticTec)
+        NoScrollGridView lv_statisticTec;
         ViewHolder(View view) {
             ButterKnife.bind(this, view);
         }

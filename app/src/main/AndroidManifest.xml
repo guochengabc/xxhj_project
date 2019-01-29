@@ -525,7 +525,8 @@
             android:configChanges="orientation|screenSize" />
         <activity
             android:name=".recordform.activity.RecordSearchDetailsActivity"
-            android:configChanges="orientation|screenSize"></activity>
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".environments.EnvironmentInnerActivity"></activity>
     </application>
 
 </manifest>

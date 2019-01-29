@@ -68,4 +68,17 @@ public class MePresenter extends BasePresenterLpl<MeView, Melpl> {
             }
         });
     }
+    public void aInfo(Activity activity){
+        getModel().getAInfo(activity, new ResponseXXHJListener() {
+            @Override
+            public void requuestError(int code) {
+
+            }
+
+            @Override
+            public void requestSuccess(Object o) {
+
+            }
+        });
+    }
 }

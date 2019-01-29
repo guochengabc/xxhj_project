@@ -33,10 +33,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-   <!--   <FrameLayout
+      <FrameLayout
           android:id="@+id/fl_energyTop"
           android:layout_width="match_parent"
-          android:layout_height="match_parent"></FrameLayout>-->
+          android:layout_height="match_parent"></FrameLayout>
     <com.kongtiaoapp.xxhj.utils.MyTabLayoutEnergy
         android:id="@+id/mtl_recordForm"
         android:layout_width="match_parent"

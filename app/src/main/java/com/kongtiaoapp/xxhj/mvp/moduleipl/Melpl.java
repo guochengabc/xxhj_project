@@ -35,4 +35,13 @@ public class Melpl implements MeModule {
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.LOGIN_OUT));
         new GetTask<RBResponse>(activity, RBResponse.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true,listener).execute();
     }
+
+    @Override
+    public void getAInfo(Activity activity,ResponseXXHJListener listener) {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("userId", App.sp.getUid());
+        Map<String, String> params = new HashMap<String, String>();
+        params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.AINFO,map));
+        new GetTask<RBResponse>(activity, RBResponse.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true,listener).execute();
+    }
 }

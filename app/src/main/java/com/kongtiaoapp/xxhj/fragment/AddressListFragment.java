@@ -41,7 +41,9 @@ import com.kongtiaoapp.xxhj.utils.user_contact.SortAdapter;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -69,7 +71,7 @@ public class AddressListFragment extends BaseFragment<UserInfoPresneter, UserInf
     private SortAdapter adapter; // 排序的适配器
     private int lastFirstVisibleItem = -1;
     private boolean isNeedChecked; // 是否需要出现选择的按钮
-    private List<SortModel> SourceDateList=new ArrayList<>(); // 数据
+    private List<SortModel> SourceDateList = new ArrayList<>(); // 数据
     private List<UserInfoBean.ResobjBean> resobj = new ArrayList<>();
     private final int CAMERAS = 1000;
     private int positions;
@@ -106,11 +108,10 @@ public class AddressListFragment extends BaseFragment<UserInfoPresneter, UserInf
     }
 
 
-
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        if (isVisibleToUser){
+        if (isVisibleToUser) {
             presenter.onResume(mActivity);
         }
 
@@ -252,7 +253,7 @@ public class AddressListFragment extends BaseFragment<UserInfoPresneter, UserInf
         if (adapter == null) {
             adapter = new SortAdapter(mActivity, SourceDateList);
             sortListView.setAdapter(adapter);
-        }else{
+        } else {
             adapter.setList(SourceDateList);
         }
 
@@ -307,28 +308,38 @@ public class AddressListFragment extends BaseFragment<UserInfoPresneter, UserInf
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 MyVersionDialog.Builder builder = new MyVersionDialog.Builder(mActivity);
                 SortModel models = (SortModel) adapter.getItem(position);
-                String levels = models.getLevel();
-                Log.i(TAG, "等级水平？" + levels);
-                List<String> list = new ArrayList<String>();
-                list.add(models.getUserId());
-                if (levels != null && levels.equals("B")) {
-                    builder.setTitle("确定设为操作员？");
-                    list.add("C");
-                } else if (levels != null && levels.equals("C")) {
-                    builder.setTitle("确定设为管理员？");
-                    list.add("B");
+                String phone = models.getPhone();
+                if (phone.equals("13621111653")) {
+                    String levels = models.getLevel();
+                    Log.i(TAG, "等级水平？" + levels);
+                    List<String> list = new ArrayList<String>();
+                    list.add(models.getUserId());
+                    if (levels != null && levels.equals("B")) {
+                        builder.setTitle("确定设为操作员？");
+                        list.add("C");
+                    } else if (levels != null && levels.equals("C")) {
+                        builder.setTitle("确定设为管理员？");
+                        list.add("B");
+                    }
+                    builder.setTitle("确定注销该账号？");
+                    builder.setPositiveButton("确定", (dialog, which) -> {
+
+                        Map<String, String> map = new LinkedHashMap<>();
+                        map.put("phone", phone);
+                        List<Map<String, String>> listPhone = new ArrayList<>();
+                        listPhone.add(map);
+                        presenter.deletePhone(mActivity, listPhone);
+                        dialog.dismiss();
+                    });
+                    builder.setNegativeButton("取消",
+                            (dialog, which) -> {
+                                dialog.dismiss();
+                            });
+                    builder.create().show();
                 }
-                builder.setPositiveButton("确定", (dialog, which) -> {
-                    presenter.ModifyManager(mActivity, list);
-                    dialog.dismiss();
-                });
-                builder.setNegativeButton("取消",
-                        (dialog, which) -> {
-                            dialog.dismiss();
-                        });
-                builder.create().show();
                 return true;//true   onitemclick无响应  要是false就会响应
             }
+
         });
         sortListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

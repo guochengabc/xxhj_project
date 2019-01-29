@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.bean.EnergyMeterBean;
+import com.kongtiaoapp.xxhj.ui.view.NoScrollGridView;
 import com.kongtiaoapp.xxhj.ui.view.horizontallistview.HorizontalListView;
 
 import java.util.List;
@@ -56,15 +57,29 @@ public class EnergyTopAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         List<EnergyMeterBean.ResobjBean.GroupDataBean.EnerParamBean> enerParam = list.get(position).getEnerParam();
-        EnergyTopInAdapter adapter=new EnergyTopInAdapter(enerParam,context);
-        holder.hlv_energyTop.setAdapter(adapter);
+        if (enerParam==null || enerParam.isEmpty()){
+            return convertView;
+        }
+        if (enerParam.size()<=3){
+            holder.hlv_energyTop.setVisibility(View.GONE);
+            holder.lv_statisticTec.setVisibility(View.VISIBLE);
+            EnergyTopInAdapter adapter=new EnergyTopInAdapter(enerParam,context);
+            holder.hlv_energyTop.setAdapter(adapter);
+        }else{
+            holder.hlv_energyTop.setVisibility(View.VISIBLE);
+            holder.lv_statisticTec.setVisibility(View.GONE);
+            EnergyTopInAdapter adapter=new EnergyTopInAdapter(enerParam,context);
+            holder.hlv_energyTop.setAdapter(adapter);
+        }
+
 
         return convertView;
     }
     public class ViewHolder {
         @BindView(R.id.hlv_energyTop)
         HorizontalListView hlv_energyTop;
-
+        @BindView(R.id.lv_statisticTec)
+        NoScrollGridView lv_statisticTec;
         ViewHolder(View view) {
             ButterKnife.bind(this, view);
         }

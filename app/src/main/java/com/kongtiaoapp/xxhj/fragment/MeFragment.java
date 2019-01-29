@@ -110,6 +110,7 @@ public class MeFragment extends BaseFragment<MePresenter, MeView> implements MeV
     @Override
     public void onResume() {
         super.onResume();
+    //    presenter.aInfo(mActivity);
         if (App.sp.getRefresh().equals("yes") && !isFirst.equals("true")) {//不是第一次进入并且提示刷新
             isFirst = "ok";
             getDataForServies();

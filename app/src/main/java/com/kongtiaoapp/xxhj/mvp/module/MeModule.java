@@ -10,4 +10,5 @@ import com.kongtiaoapp.xxhj.net.okhttp.ResponseXXHJListener;
  */
 public interface MeModule<T> extends BaseModule {
     void quitLogin(Activity activity, T data, ResponseXXHJListener listener);
+    void getAInfo(Activity activity,ResponseXXHJListener listener);
 }

@@ -1,7 +1,6 @@
 package com.kongtiaoapp.xxhj.mvp.moduleipl;
 
 import android.app.Activity;
-import android.util.Log;
 
 import com.kongtiaoapp.xxhj.afinal.ConstantValue;
 import com.kongtiaoapp.xxhj.afinal.HttpMethod;
@@ -83,7 +82,6 @@ public class EnergyRecordl implements EnergyRecordM {
         }
         builder.addFormDataPart("para", Encode_params.NoToken_Encodeparms(ParamJson.map2Json_params(HttpMethod.POSTENTRYDATA, map)));
         new PostTask<RBResponse>(activity, RBResponse.class, ConstantValue.HTTP_URLS, builder, true, true, listener).execute();
-        Log.i("ffffffffff", "====提交数据====" + Encode_params.NoToken_Encodeparms(ParamJson.map2Json_params(HttpMethod.SAVEINPUTRECORDDETAILS, map)));
     }
 
     @Override

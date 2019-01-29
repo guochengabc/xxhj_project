@@ -29,6 +29,7 @@ public class EnergyTopInAdapter extends BaseAdapter {
         this.context = context;
     }
 
+
     @Override
     public int getCount() {
         return list.size();

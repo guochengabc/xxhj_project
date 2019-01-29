@@ -18,6 +18,10 @@ public class HttpMethod {
      */
     public static final String LOGIN_OUT = "Logout";
     /**
+     * 注销账号
+     */
+    public static final String DELETERUSER = "DeleteUser";
+    /**
      * 注册集团账号
      */
     public static final String SIGNUPGROUP = "SignUpGroup";
@@ -833,7 +837,10 @@ public class HttpMethod {
      * 撤回录入详情接口
      */
     public static final String CANCELINPUTRECORD = "CancelInputRecord";
-
+    /**
+     * 获取我的信息
+     */
+    public static final String AINFO = "AInfo";
 }
 
 

@@ -116,6 +116,7 @@ public class ForgetPwdActivity extends BaseActivity<ForgetPwdPresenter, ForgetPw
         list.add(smsCode);
         list.add(pwd);
         presenter.changgePwd(this, list);
+
     }
 
     @Override

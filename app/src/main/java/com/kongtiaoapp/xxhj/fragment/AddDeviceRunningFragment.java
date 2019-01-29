@@ -50,7 +50,7 @@ import butterknife.OnClick;
 import static android.content.Context.INPUT_METHOD_SERVICE;
 
 /**
- * Created by xxhj_g on 2017/11/6.  添加设备运行信息
+ * Created by xxhj_g on 2017/11/6.  添加设备运行信
  */
 
 public class AddDeviceRunningFragment extends BaseFragment<AddDeviceRunningPresenter, AddDeviceRunningView> implements AddDeviceRunningView,
@@ -149,11 +149,11 @@ public class AddDeviceRunningFragment extends BaseFragment<AddDeviceRunningPrese
                     for (int i = 0; i < list.size(); i++) {
                         list.get(i).setMyContent("");
                     }
-                    if (projectTable!=null){
+                    if (projectTable != null) {
                         db.delete(projectTable);
                         adapter.setList(list, isAuto);
-                    }else{
-                        ToastUtils.showToast(mActivity,"录入保存后才可清空呦！");
+                    } else {
+                        ToastUtils.showToast(mActivity, "录入保存后才可清空呦！");
                     }
 
                 } catch (DbException e) {

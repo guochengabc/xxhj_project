@@ -22,6 +22,7 @@ import com.kongtiaoapp.xxhj.adapter.ModuleClickAdapter;
 import com.kongtiaoapp.xxhj.adapter.MyPageFragmentAdapter;
 import com.kongtiaoapp.xxhj.bean.ModuleBean;
 import com.kongtiaoapp.xxhj.e_code.activity.E_CodeActivity;
+import com.kongtiaoapp.xxhj.environments.EnvironmentInnerActivity;
 import com.kongtiaoapp.xxhj.mvp.base.BaseFragment;
 import com.kongtiaoapp.xxhj.mvp.presenter.MainFragmentPresenter;
 import com.kongtiaoapp.xxhj.mvp.view.MainFragmentView;
@@ -247,7 +248,7 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter, MainFragme
     }
 
 
-    @OnClick({R.id.iv_back, R.id.img_eCode})
+    @OnClick({R.id.iv_back, R.id.img_eCode, R.id.tv_environment})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
@@ -255,6 +256,9 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter, MainFragme
                 break;
             case R.id.img_eCode://二维码扫描记录表单
                 startActivity(new Intent(mActivity, E_CodeActivity.class));
+                break;
+            case R.id.tv_environment:
+                startActivity(new Intent(mActivity, EnvironmentInnerActivity.class));
                 break;
             default:
                 break;

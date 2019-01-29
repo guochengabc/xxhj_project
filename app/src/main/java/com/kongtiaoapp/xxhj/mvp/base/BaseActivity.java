@@ -81,7 +81,7 @@ public abstract class BaseActivity<P extends BasePresenterLpl, V extends BaseVie
         manager = AllActivityManager.getInstance();
         manager.pushOneActivity(this);
         // requestWindowFeature(Window.FEATURE_NO_TITLE);// 隐藏标题栏
-     //   setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);// 竖屏
+        //   setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);// 竖屏
         getWindow().setSoftInputMode(
                 WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);// 进入界面后不让软键盘弹出
         //初始化通用的SP&EDIT
@@ -509,6 +509,6 @@ public abstract class BaseActivity<P extends BasePresenterLpl, V extends BaseVie
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-     Log.i("fffffffff","不保存状态信息======");
+        Log.i("fffffffff", "不保存状态信息======");
     }
 }

@@ -8,6 +8,7 @@ import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.adapter.MyFragmentAdapter;
 import com.kongtiaoapp.xxhj.bean.EnergyDeviceTitleBean;
 import com.kongtiaoapp.xxhj.energymetering.fragment.EnergyDeviceListFragment;
+import com.kongtiaoapp.xxhj.energymetering.fragment.EnergymeteringFragment;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
 import com.kongtiaoapp.xxhj.mvp.presenter.EnergyRecordListP;
 import com.kongtiaoapp.xxhj.mvp.view.EnergyRecordListV;
@@ -40,10 +41,10 @@ public class EnergyRecordListActivity extends BaseActivity<EnergyRecordListP, En
 
     @Override
     protected void initView() {
-     /*   getSupportFragmentManager()    //
+        getSupportFragmentManager()    //fl_energyTop
                 .beginTransaction()
                 .add(R.id.fl_energyTop,new EnergymeteringFragment())   // 此处的R.id.fragment_container是要盛放fragment的父容器
-                .commit();*/
+                .commit();
     }
 
     @Override

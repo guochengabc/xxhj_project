@@ -34,6 +34,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * 讨论专栏
+ */
 public class More_CommentsActivity extends BaseActivity<More_CommentsPresenter, More_CommentsView> implements More_CommentsView {
     @BindView(R.id.elv_comments)
     ExpandableListView elv_project_detail;
@@ -162,7 +165,7 @@ public class More_CommentsActivity extends BaseActivity<More_CommentsPresenter, 
                     ischild = true;
                 }
             } else {
-                if (App.sp.getUid().equals(list_comment.get(i).getUserId())) {
+                if (App.sp.getUid().equals(list_comment.get(group_position).getUserId())) {
                     ShowDoubleButtonDialog("是否删除该评论?", 100);
                     group_position = i;
                     ischild = false;

@@ -36,9 +36,7 @@
                 android:id="@+id/lv_bpd_top"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="18dp"></com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView>
+                android:layout_gravity="center"></com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView>
 
             <include layout="@layout/include_project_dtbackground"></include>
 

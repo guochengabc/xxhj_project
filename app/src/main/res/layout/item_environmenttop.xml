@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent">
+
+    <com.kongtiaoapp.xxhj.ui.view.horizontallistview.HorizontalListView
+        android:id="@+id/hlv_energyTop"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_gravity="center"></com.kongtiaoapp.xxhj.ui.view.horizontallistview.HorizontalListView>
+
+    <com.kongtiaoapp.xxhj.ui.view.NoScrollGridView
+        android:id="@+id/lv_statisticTec"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_gravity="center"></com.kongtiaoapp.xxhj.ui.view.NoScrollGridView>
+</FrameLayout>

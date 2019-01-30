@@ -1,0 +1,159 @@
+{
+  "code": "40000",
+  "resobj": {
+    "ChartCateg": {
+      "CategoryName": "能耗统计",
+      "Chart": [
+        {
+          "ChartNum": 1,
+          "Code": "WD",
+          "Text": "温度",
+          "TimeName": [
+            {
+              "ChartSign": "0",
+              "TimeCode": "A",
+              "Value": "时"
+            },
+            {
+              "ChartSign": "1",
+              "TimeCode": "B",
+              "Value": "日"
+            }
+          ]
+        },
+        {
+          "ChartNum": 1,
+          "Code": "SD",
+          "Text": "湿度",
+          "TimeName": [
+            {
+              "ChartSign": "0",
+              "TimeCode": "A",
+              "Value": "时"
+            },
+            {
+              "ChartSign": "1",
+              "TimeCode": "B",
+              "Value": "日"
+            }
+          ]
+        },
+        {
+          "ChartNum": 1,
+          "Code": "CO2",
+          "Text": "二氧化碳",
+          "TimeName": [
+            {
+              "ChartSign": "0",
+              "TimeCode": "A",
+              "Value": "时"
+            },
+            {
+              "ChartSign": "1",
+              "TimeCode": "B",
+              "Value": "日"
+            }
+          ]
+        }
+      ]
+    },
+    "GroupData": [
+      {
+        "EnerParam": [
+          {
+            "DisplayType": "O",
+            "Name": "小区",
+            "Type": ""
+          },
+          {
+            "DisplayType": "O",
+            "Name": "温度",
+            "Type": ""
+          },
+          {
+            "DisplayType": "O",
+            "Name": "湿度",
+            "Type": ""
+          },
+          {
+            "DisplayType": "O",
+            "Name": "二氧化碳",
+            "Type": ""
+          }
+        ]
+      },
+      {
+        "EnerParam": [
+          {
+            "DisplayType": "O",
+            "Name": "东区",
+            "Type": ""
+          },
+          {
+            "DisplayType": "O",
+            "Name": "12℃",
+            "Type": ""
+          },
+          {
+            "DisplayType": "O",
+            "Name": "60",
+            "Type": ""
+          },
+          {
+            "DisplayType": "O",
+            "Name": "1800",
+            "Type": ""
+          }
+        ]
+      },
+      {
+        "EnerParam": [
+          {
+            "DisplayType": "O",
+            "Name": "中区",
+            "Type": ""
+          },
+          {
+            "DisplayType": "O",
+            "Name": "13℃",
+            "Type": ""
+          },
+          {
+            "DisplayType": "O",
+            "Name": "72",
+            "Type": ""
+          },
+          {
+            "DisplayType": "O",
+            "Name": "1970",
+            "Type": ""
+          }
+        ]
+      },
+      {
+        "EnerParam": [
+          {
+            "DisplayType": "O",
+            "Name": "西区",
+            "Type": ""
+          },
+          {
+            "DisplayType": "O",
+            "Name": "13.6℃",
+            "Type": ""
+          },
+          {
+            "DisplayType": "O",
+            "Name": "75",
+            "Type": ""
+          },
+          {
+            "DisplayType": "O",
+            "Name": "2106",
+            "Type": ""
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -65,6 +65,7 @@ public class BPD_TopAdapter extends BaseAdapter {
         }
         BPD_TopInAdapter adapter = new BPD_TopInAdapter(enerParam, context);
         if (enerParam.size()<=3){
+            holder.lv_statisticTec.setNumColumns(enerParam.size());
             holder.hlv_energyTop.setVisibility(View.GONE);
             holder.lv_statisticTec.setVisibility(View.VISIBLE);
             holder.lv_statisticTec.setAdapter(adapter);

@@ -12,6 +12,11 @@
         <item name="android:windowBackground">@drawable/splash</item>
         <item name="android:windowFullscreen">false</item>
     </style>
+    <style name="top_list_item">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">@dimen/top_list_size</item>
+    </style>
     <!-- 横着的线 -->
     <style name="wire_horizontal">
         <item name="android:layout_width">match_parent</item>

@@ -1,42 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dl_hk"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical">
+    android:fitsSystemWindows="true">
 
-    <RelativeLayout
-        style="@style/title_style"
-        android:layout_width="match_parent">
-
-        <include layout="@layout/include_back"></include>
-
-        <TextView
-            android:id="@+id/tv_title"
-            style="@style/title_center"
-            android:text="@string/title_environment" />
-
-    </RelativeLayout>
-
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <RelativeLayout
+            style="@style/title_style"
+            android:layout_width="match_parent">
+
+            <include layout="@layout/include_back"></include>
+
+            <TextView
+                android:id="@+id/tv_title"
+                style="@style/title_center"
+                android:text="@string/title_environment" />
+
+        </RelativeLayout>
+
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-            <com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView
-                android:id="@+id/lv_environment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"></com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:padding="10dp">
 
-            <include layout="@layout/include_project_dtbackground"></include>
+                    <TextView
+                        android:id="@+id/tv_tem"
+                        style="@style/top_list_item"
+                        android:text="室外温度:" />
 
+                    <TextView
+                        android:id="@+id/tv_temContent"
+                        style="@style/top_list_item"
+                        android:paddingLeft="4dp"
+                        android:text="23℃" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_hum"
+                            style="@style/top_list_item"
+                            android:text="室外湿度:" />
+
+                        <TextView
+                            android:id="@+id/tv_humContent"
+                            style="@style/top_list_item"
+                            android:paddingLeft="4dp"
+                            android:text="23%" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView
+                    android:id="@+id/lv_environment"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"></com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView>
+
+                <include layout="@layout/include_project_dtbackground"></include>
 
                 <LinearLayout
                     android:id="@+id/line_container"
@@ -126,12 +164,25 @@
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="20dp"></View>
+
                     <include layout="@layout/include_view_line"></include>
 
-
-
-
                 </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/line_left"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/white">
+
+        <com.kongtiaoapp.xxhj.ui.view.MyExpandableListView
+            android:id="@+id/melv_Job"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</android.support.v4.widget.DrawerLayout>

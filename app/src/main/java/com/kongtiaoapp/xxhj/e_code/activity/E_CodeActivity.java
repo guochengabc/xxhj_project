@@ -159,14 +159,17 @@ public class E_CodeActivity extends BaseActivity<BasePresenterLpl, BaseView> imp
             if (deviceNameE_codeBean.getDeviceId() == null) {
                 intent.setClass(this, EnergyRecordActivity.class);
                 intent.putExtra("device", (Serializable) deviceNameE_codeBean);
-            } else if (deviceNameE_codeBean.getFlag().equals("power")){
-                BPD_DataEntryBean.ResobjBean.PowerBean bean=new BPD_DataEntryBean.ResobjBean.PowerBean();
+            } else if (deviceNameE_codeBean.getFlag()==null&&deviceNameE_codeBean.getDeviceId()!=null) {
+                intent.setClass(this, RecordFormEcodeActivity.class);
+                intent.putExtra("device", (Serializable) deviceNameE_codeBean);
+            }else if (deviceNameE_codeBean.getFlag().equals("power")) {
+                BPD_DataEntryBean.ResobjBean.PowerBean bean = new BPD_DataEntryBean.ResobjBean.PowerBean();
                 bean.setDeviceId(deviceNameE_codeBean.getDeviceId());
                 bean.setName(deviceNameE_codeBean.getName());
-               bean.setType(deviceNameE_codeBean.getType());
+                bean.setType(deviceNameE_codeBean.getType());
                 intent.setClass(this, BDataEntryActivity.class);
                 intent.putExtra("bpd", bean);
-            }else {
+            } else {
                 intent.setClass(this, RecordFormEcodeActivity.class);
                 intent.putExtra("device", (Serializable) deviceNameE_codeBean);
             }

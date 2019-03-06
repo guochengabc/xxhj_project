@@ -1,59 +1,85 @@
 {
   "code": "40000",
   "resobj": {
-    "ChartCateg": {
-      "CategoryName": "能耗统计",
-      "Chart": [
+    "Leader": 3,
+    "JobCate": [
+      {
+        "Id": "1",
+        "Name": "鸡场1",
+        "HenHouseArray": [
+          {
+            "Id": "11",
+            "Name": "鸡舍1"
+          },
+          {
+            "Id": "12",
+            "Name": "鸡舍2"
+          },
+          {
+            "Id": "13",
+            "Name": "鸡舍3"
+          },
+          {
+            "Id": "14",
+            "Name": "鸡舍4"
+          },
+          {
+            "Id": "15",
+            "Name": "鸡舍5"
+          },
+          {
+            "Id": "16",
+            "Name": "鸡舍6"
+          }
+        ]
+      },
+      {
+        "Id": "2",
+        "Name": "鸡场2",
+        "HenHouseArray": [
+          {
+            "Id": "21",
+            "Name": "鸡舍1"
+          },
+          {
+            "Id": "22",
+            "Name": "鸡舍2"
+          },
+          {
+            "Id": "23",
+            "Name": "鸡舍3"
+          },
+          {
+            "Id": "24",
+            "Name": "鸡舍4"
+          },
+          {
+            "Id": "25",
+            "Name": "鸡舍5"
+          },
+          {
+            "Id": "26",
+            "Name": "鸡舍6"
+          }
+        ]
+      }
+    ],
+    "ChartCate": {
+      "ChartArray": [
         {
-          "ChartNum": 1,
-          "Code": "WD",
-          "Text": "温度",
-          "TimeName": [
-            {
-              "ChartSign": "0",
-              "TimeCode": "A",
-              "Value": "时"
-            },
-            {
-              "ChartSign": "1",
-              "TimeCode": "B",
-              "Value": "日"
-            }
-          ]
+          "Name": "温度",
+          "Type": "Tem",
+          "DateType": 1
         },
         {
-          "ChartNum": 1,
-          "Code": "SD",
-          "Text": "湿度",
-          "TimeName": [
-            {
-              "ChartSign": "0",
-              "TimeCode": "A",
-              "Value": "时"
-            },
-            {
-              "ChartSign": "1",
-              "TimeCode": "B",
-              "Value": "日"
-            }
-          ]
+          "Name": "湿度",
+          "Type": "Hum",
+          "DateType": 2
         },
         {
-          "ChartNum": 1,
-          "Code": "CO2",
-          "Text": "二氧化碳",
-          "TimeName": [
-            {
-              "ChartSign": "0",
-              "TimeCode": "A",
-              "Value": "时"
-            },
-            {
-              "ChartSign": "1",
-              "TimeCode": "B",
-              "Value": "日"
-            }
-          ]
+          "Name": "二氧化碳",
+          "Type": "CO2",
+          "DateType": 3
         }
       ]
     },

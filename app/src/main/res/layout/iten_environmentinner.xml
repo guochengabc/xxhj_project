@@ -16,6 +16,6 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:layout_marginTop="8dp"
-        android:textSize="16sp"
+        android:textSize="@dimen/top_list_size"
         android:text="温度"/>
 </LinearLayout>

@@ -7,7 +7,6 @@ import com.kongtiaoapp.xxhj.mvp.base.BasePresenterLpl;
 import com.kongtiaoapp.xxhj.mvp.moduleipl.HeatMeteringlpl;
 import com.kongtiaoapp.xxhj.mvp.view.HeatMeteringView;
 import com.kongtiaoapp.xxhj.net.okhttp.ResponseXXHJListener;
-import com.kongtiaoapp.xxhj.utils.emoji.ToastUtils;
 
 /**
  * Created by G_XXHJ on 2017/12/22.
@@ -34,7 +33,7 @@ public class HeatMeteringPresenter extends BasePresenterLpl<HeatMeteringView, He
                 } else if (bean.getCode() == EMPTY) {
 
                 } else {
-                    ToastUtils.showToast(activity, bean.getErrormsg());
+                 //   ToastUtils.showToast(activity, bean.getErrormsg());
                 }
             }
         });

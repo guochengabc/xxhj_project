@@ -22,7 +22,7 @@ public class ConstantValue {
     public static String URLS = "http://xiaoxitech.cn/";*/
 
     // 本地环境
-   /* public static String HTTP_URL = "http://10.0.2.2:8080/ktjnAPP/Process";
+  /*  public static String HTTP_URL = "http://10.0.2.2:8080/ktjnAPP/Process";
     public static String HTTP_URLS = "http://10.0.2.2:8080/ktjnAPP/Process";
   //  public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process"; 我的本地IP地址
     public static String URL = "http://192.168.1.141/";
@@ -47,6 +47,7 @@ public class ConstantValue {
     public static final int GETDEVICEINPARAM = 0x000c;//7.1.1获取设备信息参数
     public static final int GETDEVICEINFO = 0x000d;//7.1.4获取设备信息详情
     public static final int POSTDEVICEINFO = 0x000d;//7.1.2提交设备信息
+
     public static final int DELETEDEVICEINFO = 0x000e;//7.1.5删除设备信息
     public static final int GETPROJECTINFOLIST = 0x000f;//6.3.2获取项目信息列表
     public static final int GETRUNNINGHOMEDATA = 0x0010;//5.1.1获取运行首页数据

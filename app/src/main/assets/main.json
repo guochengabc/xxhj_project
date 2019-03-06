@@ -59,6 +59,12 @@
             "PackageName": "com.kongtiaoapp.xxhj",
             "ModuleName": "录表查询",
             "IconName": "lbcx"
+          },
+          {
+            "IntentName": "com.kongtiaoapp.xxhj.environments.EnvironmentInnerActivity",
+            "PackageName": "com.kongtiaoapp.xxhj",
+            "ModuleName": "环境监测",
+            "IconName": "hjjc"
           }
         ]
       },

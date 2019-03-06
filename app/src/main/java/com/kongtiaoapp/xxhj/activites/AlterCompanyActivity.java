@@ -21,7 +21,7 @@ import com.kongtiaoapp.xxhj.utils.emoji.ToastUtils;
  * @description 类说明 : 修改昵称页面
  */
 
-public class  AlterCompanyActivity extends BaseActivity<AlterCompanyPresenter, AlterCompanyView> implements OnClickListener, AlterCompanyView {
+public class AlterCompanyActivity extends BaseActivity<AlterCompanyPresenter, AlterCompanyView> implements OnClickListener, AlterCompanyView {
 
     private TextView tv_submit;//提交
     private EditText et_name;//公司昵称
@@ -64,9 +64,9 @@ public class  AlterCompanyActivity extends BaseActivity<AlterCompanyPresenter, A
         return new AlterCompanyPresenter();
     }
 
-    /*
-    * 设置点击事件
-    * */
+    /**
+     * 设置点击事件
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

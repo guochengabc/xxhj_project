@@ -116,8 +116,7 @@ public class EnergytMeteringActivity extends BaseActivity<HeatMeteringPresenter,
     }
 
     @Override
-    protected void initData() {
-        presenter.onResume(this);
+    protected void initData() { presenter.onResume(this);
 /*
 
         //第一部分图表信息

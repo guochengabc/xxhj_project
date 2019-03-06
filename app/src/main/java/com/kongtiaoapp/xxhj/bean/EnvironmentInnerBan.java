@@ -6,7 +6,7 @@ public class EnvironmentInnerBan extends RBResponse {
 
     /**
      * code : 40000
-     * resobj : {"ChartCateg":{"CategoryName":"能耗统计","Chart":[{"ChartNum":1,"Code":"WD","Text":"温度","TimeName":[{"ChartSign":"0","TimeCode":"A","Value":"时"},{"ChartSign":"1","TimeCode":"B","Value":"日"}]},{"ChartNum":1,"Code":"SD","Text":"湿度","TimeName":[{"ChartSign":"0","TimeCode":"A","Value":"时"},{"ChartSign":"1","TimeCode":"B","Value":"日"}]},{"ChartNum":1,"Code":"CO2","Text":"二氧化碳","TimeName":[{"ChartSign":"0","TimeCode":"A","Value":"时"},{"ChartSign":"1","TimeCode":"B","Value":"日"}]}]},"GroupData":[{"EnerParam":[{"DisplayType":"O","Name":"小区","Type":""},{"DisplayType":"O","Name":"温度","Type":""},{"DisplayType":"O","Name":"湿度","Type":""},{"DisplayType":"O","Name":"二氧化碳","Type":""}]},{"EnerParam":[{"DisplayType":"O","Name":"东区","Type":""},{"DisplayType":"O","Name":"12℃","Type":""},{"DisplayType":"O","Name":"60","Type":""},{"DisplayType":"O","Name":"1800","Type":""}]},{"EnerParam":[{"DisplayType":"O","Name":"中区","Type":""},{"DisplayType":"O","Name":"13℃","Type":""},{"DisplayType":"O","Name":"72","Type":""},{"DisplayType":"O","Name":"1970","Type":""}]},{"EnerParam":[{"DisplayType":"O","Name":"西区","Type":""},{"DisplayType":"O","Name":"13.6℃","Type":""},{"DisplayType":"O","Name":"75","Type":""},{"DisplayType":"O","Name":"2106","Type":""}]}]}
+     * resobj : {"Leader":2,"JobCate":[{"Id":"1","Name":"鸡场1","HenHouseArray":[{"Id":"11","Name":"鸡舍1"},{"Id":"12","Name":"鸡舍2"},{"Id":"13","Name":"鸡舍3"},{"Id":"14","Name":"鸡舍4"},{"Id":"15","Name":"鸡舍5"},{"Id":"16","Name":"鸡舍6"}]},{"Id":"2","Name":"鸡场2","HenHouseArray":[{"Id":"21","Name":"鸡舍1"},{"Id":"22","Name":"鸡舍2"},{"Id":"23","Name":"鸡舍3"},{"Id":"24","Name":"鸡舍4"},{"Id":"25","Name":"鸡舍5"},{"Id":"26","Name":"鸡舍6"}]}],"ChartCate":{"ChartArray":[{"Name":"温度","Type":"Tem","DateType":1},{"Name":"湿度","Type":"Hum","DateType":2},{"Name":"二氧化碳","Type":"CO2","DateType":3}]},"GroupData":[{"EnerParam":[{"DisplayType":"O","Name":"小区","Type":""},{"DisplayType":"O","Name":"温度","Type":""},{"DisplayType":"O","Name":"湿度","Type":""},{"DisplayType":"O","Name":"二氧化碳","Type":""}]},{"EnerParam":[{"DisplayType":"O","Name":"东区","Type":""},{"DisplayType":"O","Name":"12℃","Type":""},{"DisplayType":"O","Name":"60","Type":""},{"DisplayType":"O","Name":"1800","Type":""}]},{"EnerParam":[{"DisplayType":"O","Name":"中区","Type":""},{"DisplayType":"O","Name":"13℃","Type":""},{"DisplayType":"O","Name":"72","Type":""},{"DisplayType":"O","Name":"1970","Type":""}]},{"EnerParam":[{"DisplayType":"O","Name":"西区","Type":""},{"DisplayType":"O","Name":"13.6℃","Type":""},{"DisplayType":"O","Name":"75","Type":""},{"DisplayType":"O","Name":"2106","Type":""}]}]}
      */
 
     private ResobjBean resobj;
@@ -21,19 +21,39 @@ public class EnvironmentInnerBan extends RBResponse {
 
     public static class ResobjBean {
         /**
-         * ChartCateg : {"CategoryName":"能耗统计","Chart":[{"ChartNum":1,"Code":"WD","Text":"温度","TimeName":[{"ChartSign":"0","TimeCode":"A","Value":"时"},{"ChartSign":"1","TimeCode":"B","Value":"日"}]},{"ChartNum":1,"Code":"SD","Text":"湿度","TimeName":[{"ChartSign":"0","TimeCode":"A","Value":"时"},{"ChartSign":"1","TimeCode":"B","Value":"日"}]},{"ChartNum":1,"Code":"CO2","Text":"二氧化碳","TimeName":[{"ChartSign":"0","TimeCode":"A","Value":"时"},{"ChartSign":"1","TimeCode":"B","Value":"日"}]}]}
+         * Leader : 2
+         * JobCate : [{"Id":"1","Name":"鸡场1","HenHouseArray":[{"Id":"11","Name":"鸡舍1"},{"Id":"12","Name":"鸡舍2"},{"Id":"13","Name":"鸡舍3"},{"Id":"14","Name":"鸡舍4"},{"Id":"15","Name":"鸡舍5"},{"Id":"16","Name":"鸡舍6"}]},{"Id":"2","Name":"鸡场2","HenHouseArray":[{"Id":"21","Name":"鸡舍1"},{"Id":"22","Name":"鸡舍2"},{"Id":"23","Name":"鸡舍3"},{"Id":"24","Name":"鸡舍4"},{"Id":"25","Name":"鸡舍5"},{"Id":"26","Name":"鸡舍6"}]}]
+         * ChartCate : {"ChartArray":[{"Name":"温度","Type":"Tem","DateType":1},{"Name":"湿度","Type":"Hum","DateType":2},{"Name":"二氧化碳","Type":"CO2","DateType":3}]}
          * GroupData : [{"EnerParam":[{"DisplayType":"O","Name":"小区","Type":""},{"DisplayType":"O","Name":"温度","Type":""},{"DisplayType":"O","Name":"湿度","Type":""},{"DisplayType":"O","Name":"二氧化碳","Type":""}]},{"EnerParam":[{"DisplayType":"O","Name":"东区","Type":""},{"DisplayType":"O","Name":"12℃","Type":""},{"DisplayType":"O","Name":"60","Type":""},{"DisplayType":"O","Name":"1800","Type":""}]},{"EnerParam":[{"DisplayType":"O","Name":"中区","Type":""},{"DisplayType":"O","Name":"13℃","Type":""},{"DisplayType":"O","Name":"72","Type":""},{"DisplayType":"O","Name":"1970","Type":""}]},{"EnerParam":[{"DisplayType":"O","Name":"西区","Type":""},{"DisplayType":"O","Name":"13.6℃","Type":""},{"DisplayType":"O","Name":"75","Type":""},{"DisplayType":"O","Name":"2106","Type":""}]}]
          */
 
-        private ChartCategBean ChartCateg;
+        private int Leader;
+        private ChartCateBean ChartCate;
+        private List<JobCateBean> JobCate;
         private List<GroupDataBean> GroupData;
 
-        public ChartCategBean getChartCateg() {
-            return ChartCateg;
+        public int getLeader() {
+            return Leader;
         }
 
-        public void setChartCateg(ChartCategBean ChartCateg) {
-            this.ChartCateg = ChartCateg;
+        public void setLeader(int Leader) {
+            this.Leader = Leader;
+        }
+
+        public ChartCateBean getChartCate() {
+            return ChartCate;
+        }
+
+        public void setChartCate(ChartCateBean ChartCate) {
+            this.ChartCate = ChartCate;
+        }
+
+        public List<JobCateBean> getJobCate() {
+            return JobCate;
+        }
+
+        public void setJobCate(List<JobCateBean> JobCate) {
+            this.JobCate = JobCate;
         }
 
         public List<GroupDataBean> getGroupData() {
@@ -44,110 +64,112 @@ public class EnvironmentInnerBan extends RBResponse {
             this.GroupData = GroupData;
         }
 
-        public static class ChartCategBean {
-            /**
-             * CategoryName : 能耗统计
-             * Chart : [{"ChartNum":1,"Code":"WD","Text":"温度","TimeName":[{"ChartSign":"0","TimeCode":"A","Value":"时"},{"ChartSign":"1","TimeCode":"B","Value":"日"}]},{"ChartNum":1,"Code":"SD","Text":"湿度","TimeName":[{"ChartSign":"0","TimeCode":"A","Value":"时"},{"ChartSign":"1","TimeCode":"B","Value":"日"}]},{"ChartNum":1,"Code":"CO2","Text":"二氧化碳","TimeName":[{"ChartSign":"0","TimeCode":"A","Value":"时"},{"ChartSign":"1","TimeCode":"B","Value":"日"}]}]
-             */
+        public static class ChartCateBean {
+            private List<ChartArrayBean> ChartArray;
 
-            private String CategoryName;
-            private List<ChartBean> Chart;
-
-            public String getCategoryName() {
-                return CategoryName;
+            public List<ChartArrayBean> getChartArray() {
+                return ChartArray;
             }
 
-            public void setCategoryName(String CategoryName) {
-                this.CategoryName = CategoryName;
+            public void setChartArray(List<ChartArrayBean> ChartArray) {
+                this.ChartArray = ChartArray;
             }
 
-            public List<ChartBean> getChart() {
-                return Chart;
-            }
-
-            public void setChart(List<ChartBean> Chart) {
-                this.Chart = Chart;
-            }
-
-            public static class ChartBean {
+            public static class ChartArrayBean {
                 /**
-                 * ChartNum : 1
-                 * Code : WD
-                 * Text : 温度
-                 * TimeName : [{"ChartSign":"0","TimeCode":"A","Value":"时"},{"ChartSign":"1","TimeCode":"B","Value":"日"}]
+                 * Name : 温度
+                 * Type : Tem
+                 * DateType : 1
                  */
 
-                private int ChartNum;
-                private String Code;
-                private String Text;
-                private List<TimeNameBean> TimeName;
+                private String Name;
+                private String Type;
+                private int DateType;
 
-                public int getChartNum() {
-                    return ChartNum;
+                public String getName() {
+                    return Name;
                 }
 
-                public void setChartNum(int ChartNum) {
-                    this.ChartNum = ChartNum;
+                public void setName(String Name) {
+                    this.Name = Name;
                 }
 
-                public String getCode() {
-                    return Code;
+                public String getType() {
+                    return Type;
                 }
 
-                public void setCode(String Code) {
-                    this.Code = Code;
+                public void setType(String Type) {
+                    this.Type = Type;
                 }
 
-                public String getText() {
-                    return Text;
+                public int getDateType() {
+                    return DateType;
                 }
 
-                public void setText(String Text) {
-                    this.Text = Text;
+                public void setDateType(int DateType) {
+                    this.DateType = DateType;
+                }
+            }
+        }
+
+        public static class JobCateBean {
+            /**
+             * Id : 1
+             * Name : 鸡场1
+             * HenHouseArray : [{"Id":"11","Name":"鸡舍1"},{"Id":"12","Name":"鸡舍2"},{"Id":"13","Name":"鸡舍3"},{"Id":"14","Name":"鸡舍4"},{"Id":"15","Name":"鸡舍5"},{"Id":"16","Name":"鸡舍6"}]
+             */
+
+            private String Id;
+            private String Name;
+            private List<HenHouseArrayBean> HenHouseArray;
+
+            public String getId() {
+                return Id;
+            }
+
+            public void setId(String Id) {
+                this.Id = Id;
+            }
+
+            public String getName() {
+                return Name;
+            }
+
+            public void setName(String Name) {
+                this.Name = Name;
+            }
+
+            public List<HenHouseArrayBean> getHenHouseArray() {
+                return HenHouseArray;
+            }
+
+            public void setHenHouseArray(List<HenHouseArrayBean> HenHouseArray) {
+                this.HenHouseArray = HenHouseArray;
+            }
+
+            public static class HenHouseArrayBean {
+                /**
+                 * Id : 11
+                 * Name : 鸡舍1
+                 */
+
+                private String Id;
+                private String Name;
+
+                public String getId() {
+                    return Id;
                 }
 
-                public List<TimeNameBean> getTimeName() {
-                    return TimeName;
+                public void setId(String Id) {
+                    this.Id = Id;
                 }
 
-                public void setTimeName(List<TimeNameBean> TimeName) {
-                    this.TimeName = TimeName;
+                public String getName() {
+                    return Name;
                 }
 
-                public static class TimeNameBean {
-                    /**
-                     * ChartSign : 0
-                     * TimeCode : A
-                     * Value : 时
-                     */
-
-                    private String ChartSign;
-                    private String TimeCode;
-                    private String Value;
-
-                    public String getChartSign() {
-                        return ChartSign;
-                    }
-
-                    public void setChartSign(String ChartSign) {
-                        this.ChartSign = ChartSign;
-                    }
-
-                    public String getTimeCode() {
-                        return TimeCode;
-                    }
-
-                    public void setTimeCode(String TimeCode) {
-                        this.TimeCode = TimeCode;
-                    }
-
-                    public String getValue() {
-                        return Value;
-                    }
-
-                    public void setValue(String Value) {
-                        this.Value = Value;
-                    }
+                public void setName(String Name) {
+                    this.Name = Name;
                 }
             }
         }

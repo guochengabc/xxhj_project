@@ -1,9 +1,13 @@
 package com.kongtiaoapp.xxhj.environments;
 
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -18,6 +22,7 @@ import com.kongtiaoapp.xxhj.mvp.view.EnvironmentInnerView;
 import com.kongtiaoapp.xxhj.ui.address.AssetsUtils;
 import com.kongtiaoapp.xxhj.ui.address.ScreenUtils;
 import com.kongtiaoapp.xxhj.ui.view.Mf_Tools;
+import com.kongtiaoapp.xxhj.ui.view.MyExpandableListView;
 import com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView;
 import com.kongtiaoapp.xxhj.utils.DateUtils;
 import com.kongtiaoapp.xxhj.utils.MyTablayout;
@@ -31,6 +36,14 @@ import butterknife.OnClick;
 import static com.kongtiaoapp.xxhj.R.id.rela_paint;
 
 public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPresenter, EnvironmentInnerView> implements EnvironmentInnerView, RadioGroup.OnCheckedChangeListener {
+    @BindView(R.id.tv_tem)
+    TextView tv_tem;//室外温度
+    @BindView(R.id.tv_temContent)
+    TextView tv_temContent;//室外温度值
+    @BindView(R.id.tv_hum)
+    TextView tv_hum;//室外湿度
+    @BindView(R.id.tv_humContent)
+    TextView tv_humContent;//室外支付值
     @BindView(R.id.lv_environment)
     ListOutView lv_environment;
     @BindView(R.id.tab_paint)
@@ -69,14 +82,19 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
     RadioButton radio0;//时
     @BindView(R.id.radio1)
     RadioButton radio1;//日
-
+    @BindView(R.id.dl_hk)
+    DrawerLayout dl_hk;//抽屉布局
+    @BindView(R.id.melv_Job)
+    MyExpandableListView melv_Job;//左侧菜单栏
+    @BindView(R.id.line_left)
+    LinearLayout line_left;//左侧抽屉
     private boolean isMonth = false;
     private List<TextView> list = new ArrayList<>();
     private String type = "";
     private int whichPaint = 0;//0  代表的时   1  代表的日
     private String month;
     private String day;
-    private int tabPosition;
+    private int tabPosition = 0;//tab滑动的位置
     private String intentPosition;
 
     @Override
@@ -86,6 +104,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
 
     @Override
     protected int initContentView() {
+
         return R.layout.activity_environmentinner;
     }
 
@@ -116,8 +135,39 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
     public void getEnvironmentInnerInfo(Object data) {
         String environmentInner = AssetsUtils.readText(this, "environmentinner.json");
         EnvironmentInnerBan bean = gson.fromJson(environmentInner, EnvironmentInnerBan.class);
-        EnvironmentInnerTopAdapter adapter = new EnvironmentInnerTopAdapter(this, bean.getResobj().getGroupData());
+        EnvironmentInnerBan.ResobjBean resobj = bean.getResobj();
+        EnvironmentInnerTopAdapter adapter = new EnvironmentInnerTopAdapter(this, resobj.getGroupData());
         lv_environment.setAdapter(adapter);
+        setTabDatePaint(resobj.getChartCate().getChartArray().get(tabPosition).getDateType());//设置图表
+        if (resobj.getLeader() == 3) {//分厂长
+            LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+            param.gravity = Gravity.CENTER;
+            line_left.setLayoutParams(param);
+        }
+
+    }
+
+    private void setTabDatePaint(int dateType) {
+
+        switch (dateType) {
+            case 1://显示日
+                radio0.setVisibility(View.VISIBLE);
+                radio1.setVisibility(View.GONE);
+                break;
+            case 2://显示月
+                radio0.setVisibility(View.GONE);
+                radio1.setVisibility(View.VISIBLE);
+                break;
+            case 3://显示日月
+                radio0.setVisibility(View.VISIBLE);
+                radio1.setVisibility(View.VISIBLE);
+                break;
+            default:
+                radio0.setVisibility(View.VISIBLE);
+                radio1.setVisibility(View.VISIBLE);
+                break;
+        }
+
     }
 
     @Override
@@ -130,7 +180,6 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
             Mf_Tools.setLayoutHeight(this, frame_up, rela_loading, 1);//根据横竖屏切换控制视图展示   竖屏
         } else {
             Mf_Tools.setLayoutHeight(this, frame_up, rela_loading, 2);//根据横竖屏切换控制视图展示  横屏
-
         }
         list.add(graph1);
         list.add(graph2);
@@ -196,7 +245,6 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
                 radio0.setBackgroundResource(R.mipmap.green_background_circle);
                 radio1.setBackgroundResource(R.mipmap.white_background_circle);
                 //  getDataForService(day);
-
                 break;
             case R.id.radio1:
                 whichPaint = 1;//代表我点击日
@@ -207,7 +255,6 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
                 radio1.setBackgroundResource(R.mipmap.green_background_circle);
                 //  getDataForService(month);
                 break;
-
         }
     }
 }

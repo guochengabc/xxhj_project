@@ -541,4 +541,5 @@ public class SpUtils {
     public String getEnvironmentImageDocument() {
         return sp.getString("environment_document", "http://xiaoxitech.cn/");//true代表在activity界面  false代表不在activity界面
     }
+
 }

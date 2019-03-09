@@ -1,10 +1,11 @@
 package com.kongtiaoapp.xxhj.environments;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.widget.DrawerLayout;
-import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.ExpandableListView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -14,18 +15,19 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.kongtiaoapp.xxhj.R;
+import com.kongtiaoapp.xxhj.adapter.EnvironmentInnerAdapter;
 import com.kongtiaoapp.xxhj.adapter.EnvironmentInnerTopAdapter;
+import com.kongtiaoapp.xxhj.bean.EnvironmentCPaintBean;
 import com.kongtiaoapp.xxhj.bean.EnvironmentInnerBan;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
 import com.kongtiaoapp.xxhj.mvp.presenter.EnvironmentInnerPresenter;
 import com.kongtiaoapp.xxhj.mvp.view.EnvironmentInnerView;
-import com.kongtiaoapp.xxhj.ui.address.AssetsUtils;
 import com.kongtiaoapp.xxhj.ui.address.ScreenUtils;
 import com.kongtiaoapp.xxhj.ui.view.Mf_Tools;
-import com.kongtiaoapp.xxhj.ui.view.MyExpandableListView;
 import com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView;
 import com.kongtiaoapp.xxhj.utils.DateUtils;
 import com.kongtiaoapp.xxhj.utils.MyTablayout;
+import com.kongtiaoapp.xxhj.utils.emoji.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +45,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
     @BindView(R.id.tv_hum)
     TextView tv_hum;//室外湿度
     @BindView(R.id.tv_humContent)
-    TextView tv_humContent;//室外支付值
+    TextView tv_humContent;//室外湿度内容
     @BindView(R.id.lv_environment)
     ListOutView lv_environment;
     @BindView(R.id.tab_paint)
@@ -85,7 +87,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
     @BindView(R.id.dl_hk)
     DrawerLayout dl_hk;//抽屉布局
     @BindView(R.id.melv_Job)
-    MyExpandableListView melv_Job;//左侧菜单栏
+    ExpandableListView melv_Job;//左侧菜单栏
     @BindView(R.id.line_left)
     LinearLayout line_left;//左侧抽屉
     private boolean isMonth = false;
@@ -95,7 +97,10 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
     private String month;
     private String day;
     private int tabPosition = 0;//tab滑动的位置
-    private String intentPosition;
+    private String intentPosition = "0";
+    private int whichLeader = 1;
+    private boolean isFirstPaint = true;
+    private EnvironmentInnerAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,8 +109,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
 
     @Override
     protected int initContentView() {
-
-        return R.layout.activity_environmentinner;
+        return whichLeader > 2 ? R.layout.activity_environmentinner2 : R.layout.activity_environmentinner;
     }
 
     @Override
@@ -119,11 +123,13 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
         group_time.check(R.id.radio0);
         month = DateUtils.getYM();
         day = DateUtils.getYMD();
+        setPaint();//设置图表
     }
 
     @Override
     protected void initData() {
-        getEnvironmentInnerInfo("");
+        //   getEnvironmentInnerInfo("");
+        presenter.getEnvironmentInfo(this);
     }
 
     @Override
@@ -131,18 +137,112 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
         return new EnvironmentInnerPresenter();
     }
 
+    private void setTabPaint(List<EnvironmentInnerBan.ResobjBean.ChartArrayBean> runData) {
+        tab_paint.setTabMode(TabLayout.MODE_FIXED);
+        final String title[] = new String[runData.size()];
+        int size = runData.size();
+        if (size == 1) {
+            tab_paint.setVisibility(View.GONE);
+        }
+        for (int i = 0; i < size; i++) {
+            title[i] = runData.get(i).getName();
+            tab_paint.addTab(tab_paint.newTab().setText(title[i]));
+        }
+        tab_paint.getTabAt(Integer.parseInt(intentPosition)).select();
+        tabPosition = Integer.parseInt(intentPosition);
+        tab_paint.setSelectedTabIndicatorColor(getResources().getColor(R.color.theme_color));
+        setTabColor(title, tab_paint);//设置初始值的textview的状态
+        tab_paint.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                TextView textView = ((TextView) tab.getCustomView().findViewById(R.id.title_tv));
+                textView.setTextColor(getResources().getColor(R.color.theme_color));
+                textView.setSelected(true);
+                tabPosition = tab.getPosition();
+                type = runData.get(tabPosition).getType();
+                setTabDatePaint(runData.get(tabPosition).getDateType());//设置图表  更新日期
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+                TextView textView = ((TextView) tab.getCustomView().findViewById(R.id.title_tv));
+                textView.setTextColor(getResources().getColor(R.color.a666666));
+                textView.setSelected(false);
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+    }
+
+    /**
+     * 获取图表数据
+     */
+    private void getPaintData(String date) {
+        List<String> list = new ArrayList<>();
+        list.add(date);
+        list.add(type);
+        presenter.getEnvironmentPaint(this, list);
+    }
+
+    private void setTabColor(String[] title, TabLayout tabs) {
+        for (int i = 0; i < title.length; i++) {
+            TabLayout.Tab tab = tabs.getTabAt(i);
+            tab.setCustomView(getTabView(i, title[i]));
+        }
+    }
+
+    public View getTabView(int position, String title) {
+        LayoutInflater mInflater = LayoutInflater.from(this);
+        View view = mInflater.inflate(R.layout.icon_layout, null);
+        TextView textView = (TextView) view.findViewById(R.id.title_tv);
+        textView.setText(title);
+        if (position == tabPosition) {
+            textView.setTextColor(getResources().getColor(R.color.theme_color));
+        } else {
+            textView.setTextColor(getResources().getColor(R.color.a666666));
+        }
+        return view;
+    }
+
     @Override
     public void getEnvironmentInnerInfo(Object data) {
-        String environmentInner = AssetsUtils.readText(this, "environmentinner.json");
-        EnvironmentInnerBan bean = gson.fromJson(environmentInner, EnvironmentInnerBan.class);
+
+        EnvironmentInnerBan bean = (EnvironmentInnerBan) data;
         EnvironmentInnerBan.ResobjBean resobj = bean.getResobj();
         EnvironmentInnerTopAdapter adapter = new EnvironmentInnerTopAdapter(this, resobj.getGroupData());
         lv_environment.setAdapter(adapter);
-        setTabDatePaint(resobj.getChartCate().getChartArray().get(tabPosition).getDateType());//设置图表
-        if (resobj.getLeader() == 3) {//分厂长
-            LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-            param.gravity = Gravity.CENTER;
-            line_left.setLayoutParams(param);
+        List<EnvironmentInnerBan.ResobjBean.ChartArrayBean> chartArray = resobj.getChartArray();
+        if (chartArray != null && !chartArray.isEmpty()) {
+            type = chartArray.get(0).getType();
+            isFirstPaint = false;//防止图表请求多次   radioGroup先进行请求
+            setTabDatePaint(chartArray.get(0).getDateType());//设置图表  更新日期
+            setTabPaint(resobj.getChartArray());
+        }
+        tv_temContent.setText(resobj.getOuterTem() + "");
+        tv_humContent.setText(resobj.getOutHum() + "");
+
+        if (resobj.getLeader() == 3) {//操作员
+        } else {
+            setLeftDrawerLayout(resobj.getJobCate());//获取环控左侧抽屉布局
+        }
+
+    }
+
+    /**
+     * 抽屉布局左侧界面  各鸡场和鸡舍界面
+     */
+    private void setLeftDrawerLayout(List<EnvironmentInnerBan.ResobjBean.JobCateBean> list) {
+        if (adapter==null){
+            adapter = new EnvironmentInnerAdapter(list, this);
+            melv_Job.setAdapter(adapter);
+            melv_Job.setGroupIndicator(null);
+            for (int i = 0; i < adapter.getGroupCount(); i++) {
+                melv_Job.expandGroup(i, true);
+            }
         }
 
     }
@@ -151,18 +251,54 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
 
         switch (dateType) {
             case 1://显示日
+                img_left.setImageResource(R.mipmap.leftarrow);
+                img_right.setImageResource(R.mipmap.rightarrow);
+                whichPaint = 0;
+                radio0.setBackgroundResource(R.mipmap.green_background_circle);
+                getPaintData(day);
                 radio0.setVisibility(View.VISIBLE);
                 radio1.setVisibility(View.GONE);
                 break;
             case 2://显示月
+                img_left.setImageResource(R.mipmap.arrow_double_left);
+                img_right.setImageResource(R.mipmap.arrow_double_right);
+                whichPaint = 1;
+                radio1.setBackgroundResource(R.mipmap.green_background_circle);
+                getPaintData(month);
                 radio0.setVisibility(View.GONE);
                 radio1.setVisibility(View.VISIBLE);
                 break;
             case 3://显示日月
+                if (isMonth == false) {
+                    img_left.setImageResource(R.mipmap.leftarrow);
+                    img_right.setImageResource(R.mipmap.rightarrow);
+                    whichPaint = 0;
+                    radio0.setBackgroundResource(R.mipmap.green_background_circle);
+                    radio1.setBackgroundResource(R.mipmap.white_background_circle);
+                    getPaintData(day);
+                } else {
+                    img_left.setImageResource(R.mipmap.arrow_double_left);
+                    img_right.setImageResource(R.mipmap.arrow_double_right);
+                    whichPaint = 1;
+                    radio0.setBackgroundResource(R.mipmap.white_background_circle);
+                    radio1.setBackgroundResource(R.mipmap.green_background_circle);
+                    getPaintData(month);
+                }
                 radio0.setVisibility(View.VISIBLE);
                 radio1.setVisibility(View.VISIBLE);
                 break;
             default:
+                if (isMonth == false) {
+                    whichPaint = 0;
+                    radio0.setBackgroundResource(R.mipmap.green_background_circle);
+                    radio1.setBackgroundResource(R.mipmap.white_background_circle);
+                    getPaintData(day);
+                } else {
+                    whichPaint = 1;
+                    radio0.setBackgroundResource(R.mipmap.white_background_circle);
+                    radio1.setBackgroundResource(R.mipmap.green_background_circle);
+                    getPaintData(month);
+                }
                 radio0.setVisibility(View.VISIBLE);
                 radio1.setVisibility(View.VISIBLE);
                 break;
@@ -172,6 +308,61 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
 
     @Override
     public void getEnvironmentInnerPaint(Object data) {
+
+        EnvironmentCPaintBean bean = (EnvironmentCPaintBean) data;
+        EnvironmentCPaintBean.ResobjBean resobj = bean.getResobj();
+        Mf_Tools.hintAllView(list);
+        rela_loading.removeAllViews();
+        txt_notata.setVisibility(View.VISIBLE);
+        txt_notata.setText(whichPaint == 0 ? day : month);
+        if (resobj == null) {
+
+            return;
+        }
+        List<EnvironmentCPaintBean.ResobjBean.DataBean> listData = resobj.getData();
+        if (listData == null) {
+            return;
+        }
+
+        List<double[]> listX = new ArrayList<>();
+        List<double[]> listY = new ArrayList<>();
+        String[] titles = new String[listData.size()];
+        for (int i = 0; i < listData.size(); i++) {
+            titles[i] = listData.get(i).getText();
+            listX.add(resobj.getTime());
+            listY.add(listData.get(i).getValue());
+        }
+        setGraph(titles);//设置图列的个数
+        try {
+            if (resobj.getFlag().equals("Z")) {
+
+                if (whichPaint == 0) {
+                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, false, resobj.getNowTime());
+                } else {
+                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, true, resobj.getNowTime());
+                }
+            } else if (resobj.getFlag().equals("S")) {
+                if (whichPaint == 0) {
+                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, false, "month", resobj.getNowTime());
+                } else {
+                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, true, "month", resobj.getNowTime());
+                }
+
+            } else {
+                if (whichPaint == 0) {
+                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, false, resobj.getNowTime());
+                } else {
+                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, true, resobj.getNowTime());
+                }
+            }
+        } catch (Exception e) {
+            ToastUtils.showToast(this, "图表数据有异常,请您稍后再尝试!");
+            return;
+        }
+    }
+
+    @Override
+    public void paintError(Object data) {
 
     }
 
@@ -206,19 +397,19 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
                 if (whichPaint == 0) {//时
 
                     day = DateUtils.getSpecifiedDayBefore(day);
-                    //getDataForService(day);
+                    getPaintData(day);
                 } else if (whichPaint == 1) {//日
                     month = DateUtils.getLastMonth(month);
-                    //getDataForService(month);
+                    getPaintData(month);
                 }
                 break;
             case R.id.img_right:
                 if (whichPaint == 0) {//时
                     day = DateUtils.getSpecifiedDayAfter(day);
-                    // getDataForService(day);
+                    getPaintData(day);
                 } else if (whichPaint == 1) {//日
                     month = DateUtils.getNextMonth(month);
-                    //getDataForService(month);
+                    getPaintData(month);
                 }
                 break;
         }
@@ -236,6 +427,9 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
+        if (isFirstPaint) {
+            return;
+        }
         switch (checkedId) {
             case R.id.radio0:
                 whichPaint = 0;//代表我点击时
@@ -244,7 +438,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
                 isMonth = false;
                 radio0.setBackgroundResource(R.mipmap.green_background_circle);
                 radio1.setBackgroundResource(R.mipmap.white_background_circle);
-                //  getDataForService(day);
+                getPaintData(day);
                 break;
             case R.id.radio1:
                 whichPaint = 1;//代表我点击日
@@ -253,7 +447,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
                 isMonth = true;
                 radio0.setBackgroundResource(R.mipmap.white_background_circle);
                 radio1.setBackgroundResource(R.mipmap.green_background_circle);
-                //  getDataForService(month);
+                getPaintData(month);
                 break;
         }
     }

@@ -841,6 +841,14 @@ public class HttpMethod {
      * 获取我的信息
      */
     public static final String AINFO = "AInfo";
+    /**
+     * 获取环控列表
+     */
+    public static final String GETENVIRONMENTDATA = "GetEnvironmentData";
+    /**
+     * 获取环控图表
+     */
+    public static final String GETENVIRONMENTCHART = "GetEnvironmentChart";
 }
 
 

@@ -8,7 +8,6 @@ import com.kongtiaoapp.xxhj.mvp.base.BasePresenterLpl;
 import com.kongtiaoapp.xxhj.mvp.moduleipl.Main_Fragmentlpl;
 import com.kongtiaoapp.xxhj.mvp.view.MainFragmentView;
 import com.kongtiaoapp.xxhj.net.okhttp.ResponseXXHJListener;
-import com.kongtiaoapp.xxhj.utils.emoji.ToastUtils;
 
 import java.util.List;
 
@@ -37,7 +36,7 @@ public class MainFragmentPresenter extends BasePresenterLpl<MainFragmentView, Ma
                     App.sp.setProjectId(list.get(0).getProjectId());
                 } else if (bean.getCode() == EMPTY) {
                 } else {
-                    ToastUtils.showToast(activity, bean.getErrormsg());
+                  //  ToastUtils.showToast(activity, bean.getErrormsg());
                 }
             }
         });

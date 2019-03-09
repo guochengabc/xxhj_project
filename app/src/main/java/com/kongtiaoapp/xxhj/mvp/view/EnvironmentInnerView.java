@@ -14,4 +14,8 @@ public interface EnvironmentInnerView<T> extends BaseView {
      * 获取环境监测图表
      */
     void getEnvironmentInnerPaint(T data);
+    /**
+     * 获取环境监测图表  云端开小差
+     */
+    void paintError(T data);
 }

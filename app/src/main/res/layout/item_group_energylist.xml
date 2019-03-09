@@ -12,6 +12,7 @@
         android:layout_height="@dimen/project_device_height"
         android:gravity="center_vertical"
         android:textColor="@color/a8cc63c"
+        android:text="12"
         android:textSize="17sp" />
 
     <TextView

@@ -148,7 +148,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView, Linea
     private void login(String phone, String pass) {
         List<String> list = new ArrayList<>();
         list.add(phone);
-        list.add( MD5Utils.String2MD5(pass));
+        list.add(MD5Utils.String2MD5(pass));
         presenter.onResume(this, list);
     }
 

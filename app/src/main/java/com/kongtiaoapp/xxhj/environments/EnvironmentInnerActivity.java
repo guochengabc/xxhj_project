@@ -1,5 +1,6 @@
 package com.kongtiaoapp.xxhj.environments;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.widget.DrawerLayout;
@@ -14,14 +15,17 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.alibaba.fastjson.JSON;
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.adapter.EnvironmentInnerAdapter;
 import com.kongtiaoapp.xxhj.adapter.EnvironmentInnerTopAdapter;
+import com.kongtiaoapp.xxhj.afinal.UserManegerList;
 import com.kongtiaoapp.xxhj.bean.EnvironmentCPaintBean;
 import com.kongtiaoapp.xxhj.bean.EnvironmentInnerBan;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
 import com.kongtiaoapp.xxhj.mvp.presenter.EnvironmentInnerPresenter;
 import com.kongtiaoapp.xxhj.mvp.view.EnvironmentInnerView;
+import com.kongtiaoapp.xxhj.ui.address.AssetsUtils;
 import com.kongtiaoapp.xxhj.ui.address.ScreenUtils;
 import com.kongtiaoapp.xxhj.ui.view.Mf_Tools;
 import com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView;
@@ -50,6 +54,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
     ListOutView lv_environment;
     @BindView(R.id.tab_paint)
     MyTablayout tab_paint;//滑动项
+    //第一张图表
     @BindView(R.id.frame_up)
     FrameLayout frame_up;
     @BindView(rela_paint)
@@ -74,6 +79,33 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
     TextView graph9;
     @BindView(R.id.txt_notata)
     TextView txt_notata;
+
+    //第二张图表
+    @BindView(R.id.frame_down)
+    FrameLayout frame_down;
+    @BindView(R.id.rela_paint1)
+    RelativeLayout rela_loading1;
+    @BindView(R.id.graph11)//graph1-9代表的是图例
+            TextView graph11;
+    @BindView(R.id.graph21)
+    TextView graph21;
+    @BindView(R.id.graph31)
+    TextView graph31;
+    @BindView(R.id.graph41)
+    TextView graph41;
+    @BindView(R.id.graph51)
+    TextView graph51;
+    @BindView(R.id.graph61)
+    TextView graph61;
+    @BindView(R.id.graph71)
+    TextView graph71;
+    @BindView(R.id.graph81)
+    TextView graph81;
+    @BindView(R.id.graph91)
+    TextView graph91;
+    @BindView(R.id.txt_notata1)
+    TextView txt_notata1;
+
     @BindView(R.id.img_left)
     ImageView img_left;
     @BindView(R.id.img_right)
@@ -92,6 +124,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
     LinearLayout line_left;//左侧抽屉
     private boolean isMonth = false;
     private List<TextView> list = new ArrayList<>();
+    private List<TextView> list1 = new ArrayList<>();
     private String type = "";
     private int whichPaint = 0;//0  代表的时   1  代表的日
     private String month;
@@ -109,7 +142,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
 
     @Override
     protected int initContentView() {
-        return whichLeader > 2 ? R.layout.activity_environmentinner2 : R.layout.activity_environmentinner;
+        return UserManegerList.OPERATEFACTORY() ? R.layout.activity_environmentinner2 : R.layout.activity_environmentinner;
     }
 
     @Override
@@ -128,8 +161,22 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
 
     @Override
     protected void initData() {
-        //   getEnvironmentInnerInfo("");
-        presenter.getEnvironmentInfo(this);
+        getEnvironmentInnerInfo("");
+        if (ScreenUtils.isScreenOriatationPortrait(this)) {
+            Mf_Tools.setLayoutHeight(this, frame_up, rela_loading, 1);//根据横竖屏切换控制视图展示   竖屏
+            Mf_Tools.setLayoutHeight(this, frame_down, rela_loading1, 1);//根据横竖屏切换控制视图展示
+        } else {
+            Mf_Tools.setLayoutHeight(this, frame_up, rela_loading, 2);//根据横竖屏切换控制视图展示  横屏
+            Mf_Tools.setLayoutHeight(this, frame_down, rela_loading1, 2);//根据横竖屏切换控制视图展示
+        }
+        //  presenter.getEnvironmentInfo(this);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Mf_Tools.setLayoutHeight(this, frame_up, rela_loading, newConfig.orientation);//根据横竖屏切换控制视图展示
+        Mf_Tools.setLayoutHeight(this, frame_down, rela_loading1, newConfig.orientation);//根据横竖屏切换控制视图展示
     }
 
     @Override
@@ -210,12 +257,14 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
 
     @Override
     public void getEnvironmentInnerInfo(Object data) {
-
-        EnvironmentInnerBan bean = (EnvironmentInnerBan) data;
+        String s = AssetsUtils.readText(this, "environmentinner.json");
+        EnvironmentInnerBan bean = JSON.parseObject(s, EnvironmentInnerBan.class);
+        // EnvironmentInnerBan bean = (EnvironmentInnerBan) data;
         EnvironmentInnerBan.ResobjBean resobj = bean.getResobj();
         EnvironmentInnerTopAdapter adapter = new EnvironmentInnerTopAdapter(this, resobj.getGroupData());
         lv_environment.setAdapter(adapter);
-        List<EnvironmentInnerBan.ResobjBean.ChartArrayBean> chartArray = resobj.getChartArray();
+
+     /*   List<EnvironmentInnerBan.ResobjBean.ChartArrayBean> chartArray = resobj.getChartArray();
         if (chartArray != null && !chartArray.isEmpty()) {
             type = chartArray.get(0).getType();
             isFirstPaint = false;//防止图表请求多次   radioGroup先进行请求
@@ -224,19 +273,18 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
         }
         tv_temContent.setText(resobj.getOuterTem() + "");
         tv_humContent.setText(resobj.getOutHum() + "");
-
         if (resobj.getLeader() == 3) {//操作员
         } else {
             setLeftDrawerLayout(resobj.getJobCate());//获取环控左侧抽屉布局
-        }
-
+        }*/
+        setLeftDrawerLayout(resobj.getJobCate());//获取环控左侧抽屉布局
     }
 
     /**
      * 抽屉布局左侧界面  各鸡场和鸡舍界面
      */
     private void setLeftDrawerLayout(List<EnvironmentInnerBan.ResobjBean.JobCateBean> list) {
-        if (adapter==null){
+        if (adapter == null) {
             adapter = new EnvironmentInnerAdapter(list, this);
             melv_Job.setAdapter(adapter);
             melv_Job.setGroupIndicator(null);
@@ -347,7 +395,6 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
                 } else {
                     Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, true, "month", resobj.getNowTime());
                 }
-
             } else {
                 if (whichPaint == 0) {
                     Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, false, resobj.getNowTime());
@@ -381,10 +428,23 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
         list.add(graph7);
         list.add(graph8);
         list.add(graph9);
+        list1.add(graph11);
+        list1.add(graph21);
+        list1.add(graph31);
+        list1.add(graph41);
+        list1.add(graph51);
+        list1.add(graph61);
+        list1.add(graph71);
+        list1.add(graph81);
+        list1.add(graph91);
     }
 
     private void setGraph(String[] titles) {
         Mf_Tools.setGraph(list, titles);
+    }
+
+    private void setGraph1(String[] titles) {
+        Mf_Tools.setGraph(list1, titles);
     }
 
     @OnClick({R.id.iv_back, R.id.img_left, R.id.img_right})

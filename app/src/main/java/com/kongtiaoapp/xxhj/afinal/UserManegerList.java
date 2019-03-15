@@ -120,4 +120,37 @@ public class UserManegerList {
         }
         return false;
     }
+
+    /**
+     * 总厂长
+     */
+    public static boolean TOTALFACTORY() {
+        String roles = App.sp.getRoles();
+        if (roles.contains("FA")) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 分厂长
+     */
+    public static boolean FENFACTORY() {
+        String roles = App.sp.getRoles();
+        if (roles.contains("FB")) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 普通员工
+     */
+    public static boolean OPERATEFACTORY() {
+        String roles = App.sp.getRoles();
+        if (roles.contains("FC")) {
+            return true;
+        }
+        return false;
+    }
 }

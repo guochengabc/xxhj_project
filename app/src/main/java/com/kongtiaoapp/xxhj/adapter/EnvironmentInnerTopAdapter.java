@@ -23,8 +23,8 @@ public class EnvironmentInnerTopAdapter extends BaseAdapter {
 
 
     public EnvironmentInnerTopAdapter(Context context, List<EnvironmentInnerBan.ResobjBean.GroupDataBean> groupData) {
-        this.context=context;
-        this.list=groupData;
+        this.context = context;
+        this.list = groupData;
     }
 
     @Override
@@ -62,17 +62,22 @@ public class EnvironmentInnerTopAdapter extends BaseAdapter {
             holder.lv_statisticTec.setNumColumns(numColumns);
             holder.hlv_energyTop.setVisibility(View.GONE);
             holder.lv_statisticTec.setVisibility(View.VISIBLE);
-            EnvironmentInnerItemAdapter adapter = new EnvironmentInnerItemAdapter(enerParam, context,1);
+            EnvironmentInnerItemAdapter adapter = new EnvironmentInnerItemAdapter(enerParam, context, 1);
             holder.lv_statisticTec.setAdapter(adapter);
         } else {
             holder.hlv_energyTop.setVisibility(View.VISIBLE);
             holder.lv_statisticTec.setVisibility(View.GONE);
-            EnvironmentInnerItemAdapter adapter = new EnvironmentInnerItemAdapter(enerParam, context,2);
+            EnvironmentInnerItemAdapter adapter = new EnvironmentInnerItemAdapter(enerParam, context, 2);
             holder.hlv_energyTop.setAdapter(adapter);
         }
 
 
         return convertView;
+    }
+
+    public void setList(List<EnvironmentInnerBan.ResobjBean.GroupDataBean> groupData) {
+        list = groupData;
+        notifyDataSetChanged();
     }
 
     public class ViewHolder {

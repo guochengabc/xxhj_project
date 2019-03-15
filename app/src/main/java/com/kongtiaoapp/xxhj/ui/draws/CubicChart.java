@@ -59,18 +59,33 @@ public class CubicChart extends AbstractOneChart {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
                     , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
                     , context.getResources().getColor(R.color.loading_six)};
+            styles = new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND,
+                    PointStyle.TRIANGLE, PointStyle.SQUARE, PointStyle.POINT,PointStyle.X};
         } else if (titles.length == 7) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
                     , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
                     , context.getResources().getColor(R.color.loading_six), context.getResources().getColor(R.color.loading_seven)};
+            styles = new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND,
+                    PointStyle.TRIANGLE, PointStyle.SQUARE, PointStyle.POINT,PointStyle.X,PointStyle.CIRCLE};
         } else if (titles.length == 8) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
                     , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
                     , context.getResources().getColor(R.color.loading_six), context.getResources().getColor(R.color.loading_seven), context.getResources().getColor(R.color.loading_eight)};
+            styles = new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND,
+                    PointStyle.TRIANGLE, PointStyle.SQUARE, PointStyle.POINT,PointStyle.X,PointStyle.CIRCLE, PointStyle.DIAMOND};
         } else if (titles.length == 9) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
                     , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
                     , context.getResources().getColor(R.color.loading_six), context.getResources().getColor(R.color.loading_seven), context.getResources().getColor(R.color.loading_eight), context.getResources().getColor(R.color.loading_nine)};
+            styles = new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND,
+                    PointStyle.TRIANGLE, PointStyle.SQUARE, PointStyle.POINT,PointStyle.X,PointStyle.CIRCLE, PointStyle.DIAMOND, PointStyle.SQUARE};
+        } else if (titles.length == 10) {
+            colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
+                    , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
+                    , context.getResources().getColor(R.color.loading_six), context.getResources().getColor(R.color.loading_seven), context.getResources().getColor(R.color.loading_eight),
+                    context.getResources().getColor(R.color.loading_nine), context.getResources().getColor(R.color.loading_ten)};
+            styles = new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND,
+                    PointStyle.TRIANGLE, PointStyle.SQUARE, PointStyle.POINT,PointStyle.X,PointStyle.CIRCLE, PointStyle.DIAMOND, PointStyle.SQUARE, PointStyle.POINT};
         }
 
         XYMultipleSeriesRenderer renderer = buildRenderer(colors, styles);

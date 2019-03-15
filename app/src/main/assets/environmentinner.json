@@ -2,8 +2,27 @@
   "code": "40000",
   "resobj": {
     "Leader": 1,
-    "OuterTem":"18℃",
-    "OutHum":"60%",
+    "HenHouse": "鸡舍1",
+    "OuterTem": "18℃",
+    "OutHum": "60%",
+    "StasticArray": [
+      {
+        "Name": "温度",
+        "Value": "16℃"
+      },
+      {
+        "Name": "湿度",
+        "Value": "45"
+      },
+      {
+        "Name": "燃气余量",
+        "Value": "1m³"
+      },
+      {
+        "Name": "电量",
+        "Value": "12Kwh"
+      }
+    ],
     "JobCate": [
       {
         "Id": 1,
@@ -21,10 +40,12 @@
             "Name": "鸡舍3"
           }
         ],
-        "Name": "鸡场1"
+        "Name": "鸡场1",
+        "Type": "1"
       },
       {
         "Id": 2,
+        "Type": "0",
         "HenHouseArray": [
           {
             "Id": "24",
@@ -61,7 +82,7 @@
           {
             "Type": "",
             "DisplayType": "0",
-            "Name": "位置"
+            "Name": "区域"
           },
           {
             "Type": "",
@@ -149,6 +170,64 @@
             "Type": "",
             "DisplayType": "0",
             "Name": "1068.0"
+          }
+        ]
+      },
+      {
+        "EnerParam": [
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "区域"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "送风"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "排风"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "送风频率"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "排风频率"
+          }
+        ]
+      },
+      {
+        "EnerParam": [
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "东南"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "16"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "20"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "50"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "80"
           }
         ]
       }

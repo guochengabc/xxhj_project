@@ -64,6 +64,7 @@ public class Project_PaintTwoFragment extends BaseFragment<Protect_PaintPresente
     TextView graph9;
     @BindView(R.id.txt_notata)
     TextView txt_notata;
+
     @BindView(R.id.rela_paint1)
     RelativeLayout rela_loading1;
     @BindView(R.id.graph11)//graph1-9代表的是图例

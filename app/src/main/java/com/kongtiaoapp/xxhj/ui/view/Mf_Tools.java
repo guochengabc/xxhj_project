@@ -170,12 +170,12 @@ public class Mf_Tools {
     public static void setData(String[] titles, List<double[]> listsY, List<double[]> listX, int maxX, double maxY, double minY, Activity mActivity, RelativeLayout rela_loading, boolean isMonth, String type, long nowTime) {
         GraphicalView executes = null;
         CubicChart sensor = new CubicChart();
-        if (isMonth){
+        if (isMonth) {
             executes = sensor.execute(mActivity, titles, listX, listsY, mActivity.getResources().getString(R.string.ismonth), maxX, maxY, minY, isMonth, nowTime);
-        }else if (isMonth == false) {
+        } else if (isMonth == false) {
             executes = sensor.execute(mActivity, titles, listX, listsY, mActivity.getResources().getString(R.string.isday), maxX, maxY, minY, isMonth, nowTime);
         }
-            rela_loading.removeView(executes);
+        rela_loading.removeView(executes);
         if (executes != null) {
             rela_loading.addView(executes);
         }
@@ -244,6 +244,7 @@ public class Mf_Tools {
             rela_loading.invalidate();
         }
     }
+
     public static void setLayoutMatchHeight(Activity mActivity, ViewGroup frame, ViewGroup rela_loading, int newConfig) {
         ViewGroup.LayoutParams params = rela_loading.getLayoutParams();
         ViewGroup.LayoutParams frameParam = frame.getLayoutParams();
@@ -287,9 +288,9 @@ public class Mf_Tools {
     /**
      * 对饼状图进行相关设置饼状图，做出一个中间层，方便后期调试和修改 2018-6-6
      */
-    public static void setDataPieChart(Context context, String title, double[] values,String[]name, ViewGroup rela_loading) {
+    public static void setDataPieChart(Context context, String title, double[] values, String[] name, ViewGroup rela_loading) {
         rela_loading.removeAllViews();
         PieChart chart = new PieChart();
-        chart.execute(context, title, values,name,rela_loading);
+        chart.execute(context, title, values, name, rela_loading);
     }
 }

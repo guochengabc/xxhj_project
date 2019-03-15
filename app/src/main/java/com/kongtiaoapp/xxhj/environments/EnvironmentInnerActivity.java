@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.widget.DrawerLayout;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ExpandableListView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -15,19 +16,21 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.alibaba.fastjson.JSON;
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.adapter.EnvironmentInnerAdapter;
+import com.kongtiaoapp.xxhj.adapter.EnvironmentInnerListAdapter;
 import com.kongtiaoapp.xxhj.adapter.EnvironmentInnerTopAdapter;
+import com.kongtiaoapp.xxhj.adapter.EnvironmentStatisticAdapter;
 import com.kongtiaoapp.xxhj.afinal.UserManegerList;
 import com.kongtiaoapp.xxhj.bean.EnvironmentCPaintBean;
 import com.kongtiaoapp.xxhj.bean.EnvironmentInnerBan;
+import com.kongtiaoapp.xxhj.interfaces.EnvironmentHenHouse;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
 import com.kongtiaoapp.xxhj.mvp.presenter.EnvironmentInnerPresenter;
 import com.kongtiaoapp.xxhj.mvp.view.EnvironmentInnerView;
-import com.kongtiaoapp.xxhj.ui.address.AssetsUtils;
 import com.kongtiaoapp.xxhj.ui.address.ScreenUtils;
 import com.kongtiaoapp.xxhj.ui.view.Mf_Tools;
+import com.kongtiaoapp.xxhj.ui.view.NoScrollGridView;
 import com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView;
 import com.kongtiaoapp.xxhj.utils.DateUtils;
 import com.kongtiaoapp.xxhj.utils.MyTablayout;
@@ -41,20 +44,25 @@ import butterknife.OnClick;
 
 import static com.kongtiaoapp.xxhj.R.id.rela_paint;
 
-public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPresenter, EnvironmentInnerView> implements EnvironmentInnerView, RadioGroup.OnCheckedChangeListener {
-    @BindView(R.id.tv_tem)
-    TextView tv_tem;//室外温度
-    @BindView(R.id.tv_temContent)
-    TextView tv_temContent;//室外温度值
-    @BindView(R.id.tv_hum)
-    TextView tv_hum;//室外湿度
-    @BindView(R.id.tv_humContent)
-    TextView tv_humContent;//室外湿度内容
+public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPresenter, EnvironmentInnerView> implements EnvironmentInnerView,
+        RadioGroup.OnCheckedChangeListener, EnvironmentHenHouse, AdapterView.OnItemClickListener {
+    @BindView(R.id.line_environment)
+    LinearLayout line_environment;
+    @BindView(R.id.glv_statistic)
+    NoScrollGridView glv_statistic;//环控统计
+    @BindView(R.id.glv_henHouse)
+    NoScrollGridView glv_henHouse;//所有鸡舍
+    @BindView(R.id.line_backJiShe)
+    LinearLayout line_backJiShe;//鸡舍背景图
     @BindView(R.id.lv_environment)
     ListOutView lv_environment;
     @BindView(R.id.tab_paint)
     MyTablayout tab_paint;//滑动项
+    @BindView(R.id.tv_title)
+    TextView tv_title;
     //第一张图表
+    @BindView(R.id.line_onePaint)
+    LinearLayout line_onePaint;//第一张图表显示和隐藏
     @BindView(R.id.frame_up)
     FrameLayout frame_up;
     @BindView(rela_paint)
@@ -79,8 +87,9 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
     TextView graph9;
     @BindView(R.id.txt_notata)
     TextView txt_notata;
-
     //第二张图表
+    @BindView(R.id.line_twoPaint)
+    LinearLayout line_twoPaint;//第二张图表显示隐藏
     @BindView(R.id.frame_down)
     FrameLayout frame_down;
     @BindView(R.id.rela_paint1)
@@ -125,6 +134,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
     private boolean isMonth = false;
     private List<TextView> list = new ArrayList<>();
     private List<TextView> list1 = new ArrayList<>();
+    private boolean isFirstTab = true;
     private String type = "";
     private int whichPaint = 0;//0  代表的时   1  代表的日
     private String month;
@@ -134,6 +144,13 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
     private int whichLeader = 1;
     private boolean isFirstPaint = true;
     private EnvironmentInnerAdapter adapter;
+    private String deviceId = "";
+    private List<EnvironmentInnerBan.ResobjBean.JobCateBean> jobCate;
+    private EnvironmentStatisticAdapter adapterStatistic;
+    private EnvironmentInnerTopAdapter adapterTop;
+    private EnvironmentInnerListAdapter adapterHenHouse;
+    private int dateType;
+    private List<EnvironmentInnerBan.ResobjBean.JobCateBean.HenHouseArrayBean> listHenHouse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,6 +170,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
     @Override
     protected void initListener() {
         group_time.setOnCheckedChangeListener(this);
+        glv_henHouse.setOnItemClickListener(this);
         group_time.check(R.id.radio0);
         month = DateUtils.getYM();
         day = DateUtils.getYMD();
@@ -161,7 +179,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
 
     @Override
     protected void initData() {
-        getEnvironmentInnerInfo("");
+        //getEnvironmentInnerInfo("");
         if (ScreenUtils.isScreenOriatationPortrait(this)) {
             Mf_Tools.setLayoutHeight(this, frame_up, rela_loading, 1);//根据横竖屏切换控制视图展示   竖屏
             Mf_Tools.setLayoutHeight(this, frame_down, rela_loading1, 1);//根据横竖屏切换控制视图展示
@@ -169,7 +187,11 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
             Mf_Tools.setLayoutHeight(this, frame_up, rela_loading, 2);//根据横竖屏切换控制视图展示  横屏
             Mf_Tools.setLayoutHeight(this, frame_down, rela_loading1, 2);//根据横竖屏切换控制视图展示
         }
-        //  presenter.getEnvironmentInfo(this);
+        getMainData();//获取首页信息
+    }
+
+    private void getMainData() {
+        presenter.getEnvironmentInfo(this, deviceId);
     }
 
     @Override
@@ -207,7 +229,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
                 textView.setSelected(true);
                 tabPosition = tab.getPosition();
                 type = runData.get(tabPosition).getType();
-                setTabDatePaint(runData.get(tabPosition).getDateType());//设置图表  更新日期
+                setTabDatePaint(runData.get(tabPosition).getDateType(), true);//设置图表  更新日期
             }
 
             @Override
@@ -232,6 +254,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
         List<String> list = new ArrayList<>();
         list.add(date);
         list.add(type);
+        list.add(deviceId);
         presenter.getEnvironmentPaint(this, list);
     }
 
@@ -257,27 +280,47 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
 
     @Override
     public void getEnvironmentInnerInfo(Object data) {
-        String s = AssetsUtils.readText(this, "environmentinner.json");
-        EnvironmentInnerBan bean = JSON.parseObject(s, EnvironmentInnerBan.class);
-        // EnvironmentInnerBan bean = (EnvironmentInnerBan) data;
+      /*  String s = AssetsUtils.readText(this, "environmentinner.json");
+        EnvironmentInnerBan bean = JSON.parseObject(s, EnvironmentInnerBan.class);*/
+        line_environment.invalidate();
+        EnvironmentInnerBan bean = (EnvironmentInnerBan) data;
         EnvironmentInnerBan.ResobjBean resobj = bean.getResobj();
-        EnvironmentInnerTopAdapter adapter = new EnvironmentInnerTopAdapter(this, resobj.getGroupData());
-        lv_environment.setAdapter(adapter);
-
-     /*   List<EnvironmentInnerBan.ResobjBean.ChartArrayBean> chartArray = resobj.getChartArray();
-        if (chartArray != null && !chartArray.isEmpty()) {
-            type = chartArray.get(0).getType();
-            isFirstPaint = false;//防止图表请求多次   radioGroup先进行请求
-            setTabDatePaint(chartArray.get(0).getDateType());//设置图表  更新日期
-            setTabPaint(resobj.getChartArray());
-        }
-        tv_temContent.setText(resobj.getOuterTem() + "");
-        tv_humContent.setText(resobj.getOutHum() + "");
-        if (resobj.getLeader() == 3) {//操作员
+        List<EnvironmentInnerBan.ResobjBean.StatisticsNumberBean> stasticArray = resobj.getStatisticsNumber();
+        if (adapterStatistic == null) {
+            adapterStatistic = new EnvironmentStatisticAdapter(stasticArray, this);
+            glv_statistic.setAdapter(adapterStatistic);
         } else {
-            setLeftDrawerLayout(resobj.getJobCate());//获取环控左侧抽屉布局
-        }*/
-        setLeftDrawerLayout(resobj.getJobCate());//获取环控左侧抽屉布局
+            adapterStatistic.setList(stasticArray);
+        }
+        if (adapterTop == null) {
+            adapterTop = new EnvironmentInnerTopAdapter(this, resobj.getGroupData());
+            lv_environment.setAdapter(adapterTop);
+        } else {
+            adapterTop.setList(resobj.getGroupData());
+        }
+
+        List<EnvironmentInnerBan.ResobjBean.ChartArrayBean> chartArray = resobj.getChartArray();
+        if (chartArray != null && !chartArray.isEmpty()) {
+            if (isFirstTab) {
+                jobCate = resobj.getJobCate();//获取抽屉集合
+                if (!jobCate.isEmpty() && jobCate != null) {
+                    if (resobj.getLeader() == 3) {//操作员
+                    } else {
+                        setLeftDrawerLayout(jobCate);//获取环控左侧抽屉布局
+                    }
+
+                }
+                type = chartArray.get(0).getType();
+                isFirstPaint = false;//防止图表请求多次   radioGroup先进行请求
+                setTabDatePaint(chartArray.get(0).getDateType(), true);//设置图表  更新日期
+                isFirstTab = !isFirstTab;
+                setTabPaint(resobj.getChartArray());
+            } else if (isFirstTab == false) {
+                setTabDatePaint(2, false);//设置图表  更新日期
+            }
+        }
+
+
     }
 
     /**
@@ -288,6 +331,17 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
             adapter = new EnvironmentInnerAdapter(list, this);
             melv_Job.setAdapter(adapter);
             melv_Job.setGroupIndicator(null);
+            List<EnvironmentInnerBan.ResobjBean.JobCateBean.HenHouseArrayBean> henHouseArray = list.get(0).getHenHouseArray();
+            if (henHouseArray == null || henHouseArray.isEmpty()) {
+                return;
+            } else if (henHouseArray.size() == 1) {
+                glv_henHouse.setVisibility(View.GONE);
+                line_backJiShe.setVisibility(View.GONE);
+            }
+            deviceId = henHouseArray.get(0).getId();
+            tv_title.setText(henHouseArray.get(0).getName());
+            adapterHenHouse = new EnvironmentInnerListAdapter(henHouseArray, this);
+            glv_henHouse.setAdapter(adapterHenHouse);
             for (int i = 0; i < adapter.getGroupCount(); i++) {
                 melv_Job.expandGroup(i, true);
             }
@@ -295,7 +349,10 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
 
     }
 
-    private void setTabDatePaint(int dateType) {
+    private void setTabDatePaint(int dateTypes, boolean assignment) {
+        if (assignment) {
+            this.dateType = dateTypes;
+        }
 
         switch (dateType) {
             case 1://显示日
@@ -356,55 +413,105 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
 
     @Override
     public void getEnvironmentInnerPaint(Object data) {
-
+        rela_loading.removeAllViews();
+        rela_loading1.removeAllViews();
         EnvironmentCPaintBean bean = (EnvironmentCPaintBean) data;
         EnvironmentCPaintBean.ResobjBean resobj = bean.getResobj();
         Mf_Tools.hintAllView(list);
-        rela_loading.removeAllViews();
+        Mf_Tools.hintAllView(list1);
         txt_notata.setVisibility(View.VISIBLE);
         txt_notata.setText(whichPaint == 0 ? day : month);
+        line_onePaint.setVisibility(View.GONE);
+        line_twoPaint.setVisibility(View.GONE);
         if (resobj == null) {
-
             return;
         }
-        List<EnvironmentCPaintBean.ResobjBean.DataBean> listData = resobj.getData();
+        //第一张图表
+        List<EnvironmentCPaintBean.ResobjBean.DataBean> listChat = resobj.getData();
+        int chartSize = listChat.size();//图表个数
+
+        line_onePaint.setVisibility(View.VISIBLE);
+        EnvironmentCPaintBean.ResobjBean.DataBean dataBean = listChat.get(0);
+        List<EnvironmentCPaintBean.ResobjBean.DataBean.CharDataBean> listData = dataBean.getCharData();
         if (listData == null) {
             return;
         }
-
-        List<double[]> listX = new ArrayList<>();
-        List<double[]> listY = new ArrayList<>();
-        String[] titles = new String[listData.size()];
-        for (int i = 0; i < listData.size(); i++) {
-            titles[i] = listData.get(i).getText();
-            listX.add(resobj.getTime());
-            listY.add(listData.get(i).getValue());
-        }
-        setGraph(titles);//设置图列的个数
         try {
-            if (resobj.getFlag().equals("Z")) {
+            List<double[]> listX = new ArrayList<>();
+            List<double[]> listY = new ArrayList<>();
+            String[] titles = new String[listData.size()];
+            for (int i = 0; i < listData.size(); i++) {
+                titles[i] = listData.get(i).getText();
+                listX.add(resobj.getTime());
+                listY.add(listData.get(i).getValue());
+            }
 
+            if (resobj.getFlag().equals("Z")) {
                 if (whichPaint == 0) {
-                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, false, resobj.getNowTime());
+                    Mf_Tools.setData(titles, listY, listX, dataBean.getMaxX(), dataBean.getMaxY(), dataBean.getMinY(), this, rela_loading, false, resobj.getNowTime());
                 } else {
-                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, true, resobj.getNowTime());
+                    Mf_Tools.setData(titles, listY, listX, dataBean.getMaxX(), dataBean.getMaxY(), dataBean.getMinY(), this, rela_loading, true, resobj.getNowTime());
                 }
             } else if (resobj.getFlag().equals("S")) {
                 if (whichPaint == 0) {
-                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, false, "month", resobj.getNowTime());
+                    Mf_Tools.setData(titles, listY, listX, dataBean.getMaxX(), dataBean.getMaxY(), dataBean.getMinY(), this, rela_loading, false, "month", resobj.getNowTime());
                 } else {
-                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, true, "month", resobj.getNowTime());
+                    Mf_Tools.setData(titles, listY, listX, dataBean.getMaxX(), dataBean.getMaxY(), dataBean.getMinY(), this, rela_loading, true, "month", resobj.getNowTime());
                 }
             } else {
                 if (whichPaint == 0) {
-                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, false, resobj.getNowTime());
+                    Mf_Tools.setData(titles, listY, listX, dataBean.getMaxX(), dataBean.getMaxY(), dataBean.getMinY(), this, rela_loading, false, resobj.getNowTime());
                 } else {
-                    Mf_Tools.setData(titles, listY, listX, resobj.getMaxX(), resobj.getMaxY(), resobj.getMinY(), this, rela_loading, true, resobj.getNowTime());
+                    Mf_Tools.setData(titles, listY, listX, dataBean.getMaxX(), dataBean.getMaxY(), dataBean.getMinY(), this, rela_loading, true, resobj.getNowTime());
                 }
             }
+            setGraph(titles);//设置图列的个数
         } catch (Exception e) {
             ToastUtils.showToast(this, "图表数据有异常,请您稍后再尝试!");
             return;
+        }
+
+        //第二张图表
+        if (chartSize == 2) {
+            line_twoPaint.setVisibility(View.VISIBLE);
+            EnvironmentCPaintBean.ResobjBean.DataBean dataBean1 = listChat.get(1);
+            List<EnvironmentCPaintBean.ResobjBean.DataBean.CharDataBean> listData1 = dataBean1.getCharData();
+            if (listData1 == null) {
+                return;
+            }
+            /* try {*/
+            List<double[]> listX1 = new ArrayList<>();
+            List<double[]> listY1 = new ArrayList<>();
+            String[] titles1 = new String[listData1.size()];
+            for (int i = 0; i < listData1.size(); i++) {
+                titles1[i] = listData1.get(i).getText();
+                listX1.add(resobj.getTime());
+                listY1.add(listData1.get(i).getValue());
+            }
+            if (resobj.getFlag().equals("Z")) {
+                if (whichPaint == 0) {
+                    Mf_Tools.setData(titles1, listY1, listX1, dataBean1.getMaxX(), dataBean1.getMaxY(), dataBean1.getMinY(), this, rela_loading1, false, resobj.getNowTime());
+                } else {
+                    Mf_Tools.setData(titles1, listY1, listX1, dataBean1.getMaxX(), dataBean1.getMaxY(), dataBean1.getMinY(), this, rela_loading1, true, resobj.getNowTime());
+                }
+            } else if (resobj.getFlag().equals("S")) {
+                if (whichPaint == 0) {
+                    Mf_Tools.setData(titles1, listY1, listX1, dataBean1.getMaxX(), dataBean1.getMaxY(), dataBean1.getMinY(), this, rela_loading1, false, "month", resobj.getNowTime());
+                } else {
+                    Mf_Tools.setData(titles1, listY1, listX1, dataBean1.getMaxX(), dataBean1.getMaxY(), dataBean1.getMinY(), this, rela_loading1, true, "month", resobj.getNowTime());
+                }
+            } else {
+                if (whichPaint == 0) {
+                    Mf_Tools.setData(titles1, listY1, listX1, dataBean1.getMaxX(), dataBean1.getMaxY(), dataBean1.getMinY(), this, rela_loading1, false, resobj.getNowTime());
+                } else {
+                    Mf_Tools.setData(titles1, listY1, listX1, dataBean1.getMaxX(), dataBean1.getMaxY(), dataBean1.getMinY(), this, rela_loading1, true, resobj.getNowTime());
+                }
+            }
+            setGraph1(titles1);//设置图列的个数
+           /* } catch (Exception e) {
+                ToastUtils.showToast(this, "图表数据有异常,请您稍后再尝试!");
+                return;
+            }*/
         }
     }
 
@@ -510,5 +617,46 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
                 getPaintData(month);
                 break;
         }
+    }
+
+    /**
+     * 得到该厂所有环控鸡舍
+     */
+    @Override
+    public void getHenHouse(Object data, int position) {
+        listHenHouse = (List<EnvironmentInnerBan.ResobjBean.JobCateBean.HenHouseArrayBean>) data;
+        if (adapterHenHouse == null) {
+            adapterHenHouse = new EnvironmentInnerListAdapter(listHenHouse, this, position);
+            glv_henHouse.setAdapter(adapterHenHouse);
+        } else {
+            adapterHenHouse.setList(listHenHouse, position);
+        }
+        if (listHenHouse == null || listHenHouse.isEmpty() || listHenHouse.size() == 1) {
+            glv_henHouse.setVisibility(View.GONE);
+            line_backJiShe.setVisibility(View.GONE);
+        } else {
+            glv_henHouse.setVisibility(View.VISIBLE);
+            line_backJiShe.setVisibility(View.VISIBLE);
+        }
+        EnvironmentInnerBan.ResobjBean.JobCateBean.HenHouseArrayBean henHouseArrayBean = listHenHouse.get(position);
+        deviceId = henHouseArrayBean.getId();
+        tv_title.setText(henHouseArrayBean.getName());
+        dl_hk.closeDrawers();
+        getMainData();
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if (listHenHouse == null || listHenHouse.isEmpty()) {
+            return;
+        }
+        //点击环控鸡舍首页列表出现数据
+        EnvironmentInnerBan.ResobjBean.JobCateBean.HenHouseArrayBean henHouseArrayBean = listHenHouse.get(position);
+        adapterHenHouse.setNotifyUI(position, true);
+        deviceId = henHouseArrayBean.getId();
+        tv_title.setText(henHouseArrayBean.getName());
+        dl_hk.closeDrawers();
+        getMainData();
     }
 }

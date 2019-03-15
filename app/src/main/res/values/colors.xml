@@ -452,12 +452,13 @@
     <color name="loading_one">#abd728</color>
     <color name="loading_two">#00ddff</color>
     <color name="loading_three">#ba55d3</color>
-    <color name="loading_four">#ff4631</color>
-    <color name="loading_five">#4b0082</color>
+    <color name="loading_four">#4b0082</color>
+    <color name="loading_five">#ff4631</color>
     <color name="loading_six">#ffcc0000</color>
     <color name="loading_seven">#4169e1</color>
-    <color name="loading_eight">#0000cd</color>
-    <color name="loading_nine">#80000000</color>
+    <color name="loading_eight">#0B88c3</color>
+    <color name="loading_nine">#0000cd</color>
+    <color name="loading_ten">#80000000</color>
     <!--可拖拽listview-->
     <color name="grayStart">#adadad</color>
     <color name="grayEnd">#ffffff</color>

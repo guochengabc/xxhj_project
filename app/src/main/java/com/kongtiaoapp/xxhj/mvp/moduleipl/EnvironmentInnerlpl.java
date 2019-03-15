@@ -24,7 +24,7 @@ public class EnvironmentInnerlpl implements EnvironmentInnerModule {
     public void EnvironmentInnerInfo(Activity activity, Object data, ResponseXXHJListener listener) {
         Map<String, String> map = new HashMap<String, String>();
         map.put("projectId", "6d96a71ce7154dac867b38fb57834a00");
-        map.put("deviceId", "");
+        map.put("deviceId", data.toString());
         Map<String, String> params = new HashMap<String, String>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETENVIRONMENTDATA, map));
         new GetTask<EnvironmentInnerBan>(activity, EnvironmentInnerBan.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();
@@ -37,6 +37,7 @@ public class EnvironmentInnerlpl implements EnvironmentInnerModule {
         map.put("projectId", "6d96a71ce7154dac867b38fb57834a00");
         map.put("date", list.get(0));
         map.put("chartType", list.get(1));
+        map.put("deviceId", list.get(2));
         Map<String, String> params = new HashMap<String, String>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETENVIRONMENTCHART, map));
         new GetTask<EnvironmentCPaintBean>(activity, EnvironmentCPaintBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();

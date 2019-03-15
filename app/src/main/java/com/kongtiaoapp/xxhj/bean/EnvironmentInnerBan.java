@@ -6,7 +6,7 @@ public class EnvironmentInnerBan extends RBResponse {
 
     /**
      * code : 40000
-     * resobj : {"Leader":1,"OuterTem":"18℃","OutHum":"30.4","JobCate":[{"Id":1,"HenHouseArray":[{"Id":"21","Name":"鸡舍1"},{"Id":"22","Name":"鸡舍2"},{"Id":"23","Name":"鸡舍3"}],"Name":"鸡场1"},{"Id":2,"HenHouseArray":[{"Id":"24","Name":"鸡舍4"},{"Id":"25","Name":"鸡舍5"}],"Name":"鸡场2"}],"ChartArray":[{"Type":"Tem","DateType":1,"Name":"温度"},{"Type":"Hum","DateType":2,"Name":"湿度"},{"Type":"CO2","DateType":3,"Name":"二氧化碳"}],"GroupData":[{"EnerParam":[{"Type":"","DisplayType":"0","Name":"位置"},{"Type":"","DisplayType":"0","Name":"温度"},{"Type":"","DisplayType":"0","Name":"湿度"},{"Type":"","DisplayType":"0","Name":"二氧化碳"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"东区"},{"Type":"","DisplayType":"0","Name":"18.0"},{"Type":"","DisplayType":"0","Name":"33.0"},{"Type":"","DisplayType":"0","Name":"1234.0"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"中区"},{"Type":"","DisplayType":"0","Name":"18.4"},{"Type":"","DisplayType":"0","Name":"30.4"},{"Type":"","DisplayType":"0","Name":"1214.0"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"西区"},{"Type":"","DisplayType":"0","Name":"16.9"},{"Type":"","DisplayType":"0","Name":"27.5"},{"Type":"","DisplayType":"0","Name":"1068.0"}]}]}
+     * resobj : {"Leader":1,"StatisticsNumber":[{"Type":"OuterTem","DisPatchType":0,"Value":"10.3℃","Name":"室外温度"},{"Type":"OutHum","Value":"21.0℃","DateType":0,"Name":"室外湿度"},{"Type":"OuterTem","Value":"10000KwH","DateType":1,"Name":"电量"},{"Type":"OuterTem","Value":"300m³","DateType":1,"Name":"燃气余量"}],"HenHouse":"7栋","JobCate":[{"Type":1,"Id":"8622C4EBF0F7430098E5709FB0AF5494","HenHouseArray":[{"Id":"a1f34835e84e4cdc9dfc296c929325da","Name":"7栋"}],"Name":"虎什哈第一养鸡厂"},{"Type":0,"Id":"9B5C58ECB9E5413DA7E2884238DB45E2","HenHouseArray":[{"Id":"89ba0f3fba504ce","Name":"4栋"},{"Id":"c863a5a522f44e7","Name":"1栋"},{"Id":"a1f34835e84e4cd","Name":"6栋"},{"Id":"11fae03005f94a4","Name":"2栋"},{"Id":"03e7e38183e14a2","Name":"3栋"},{"Id":"463abca8258f4f6","Name":"5栋"}],"Name":"虎什哈第二养鸡厂"}],"ChartArray":[{"Type":"overview","DateType":3,"Name":"概览"},{"Type":"Tem","DateType":3,"Name":"温度"},{"Type":"Hum","DateType":3,"Name":"湿度"},{"Type":"CO2","DateType":3,"Name":"二氧化碳"}],"GroupData":[{"EnerParam":[{"Type":"","DisplayType":"0","Name":"区域"},{"Type":"","DisplayType":"0","Name":"温度"},{"Type":"","DisplayType":"0","Name":"湿度"},{"Type":"","DisplayType":"0","Name":"二氧化碳"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"东区"},{"Type":"","DisplayType":"0","Name":"20.0"},{"Type":"","DisplayType":"0","Name":"32.0"},{"Type":"","DisplayType":"0","Name":"1222.0"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"中区"},{"Type":"","DisplayType":"0","Name":"19.4"},{"Type":"","DisplayType":"0","Name":"31.4"},{"Type":"","DisplayType":"0","Name":"1244.0"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"西区"},{"Type":"","DisplayType":"0","Name":"17.9"},{"Type":"","DisplayType":"0","Name":"29.5"},{"Type":"","DisplayType":"0","Name":"1008.0"}]},{"EnerParam":[]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"区域"},{"Type":"","DisplayType":"0","Name":"送风"},{"Type":"","DisplayType":"0","Name":"排风"},{"Type":"","DisplayType":"0","Name":"送风频率"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"东南"},{"Type":"","DisplayType":"0","Name":"20.4"},{"Type":"","DisplayType":"0","Name":"21.6"},{"Type":"","DisplayType":"0","Name":"3100"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"西南"},{"Type":"","DisplayType":"0","Name":"18.4"},{"Type":"","DisplayType":"0","Name":"20.6"},{"Type":"","DisplayType":"0","Name":"2800"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"东北"},{"Type":"","DisplayType":"0","Name":"17.8"},{"Type":"","DisplayType":"0","Name":"19.4"},{"Type":"","DisplayType":"0","Name":"3300"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"西北"},{"Type":"","DisplayType":"0","Name":"21.4"},{"Type":"","DisplayType":"0","Name":"22.6"},{"Type":"","DisplayType":"0","Name":"2900"}]}]}
      */
 
     private ResobjBean resobj;
@@ -22,16 +22,16 @@ public class EnvironmentInnerBan extends RBResponse {
     public static class ResobjBean {
         /**
          * Leader : 1
-         * OuterTem : 18℃
-         * OutHum : 30.4
-         * JobCate : [{"Id":1,"HenHouseArray":[{"Id":"21","Name":"鸡舍1"},{"Id":"22","Name":"鸡舍2"},{"Id":"23","Name":"鸡舍3"}],"Name":"鸡场1"},{"Id":2,"HenHouseArray":[{"Id":"24","Name":"鸡舍4"},{"Id":"25","Name":"鸡舍5"}],"Name":"鸡场2"}]
-         * ChartArray : [{"Type":"Tem","DateType":1,"Name":"温度"},{"Type":"Hum","DateType":2,"Name":"湿度"},{"Type":"CO2","DateType":3,"Name":"二氧化碳"}]
-         * GroupData : [{"EnerParam":[{"Type":"","DisplayType":"0","Name":"位置"},{"Type":"","DisplayType":"0","Name":"温度"},{"Type":"","DisplayType":"0","Name":"湿度"},{"Type":"","DisplayType":"0","Name":"二氧化碳"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"东区"},{"Type":"","DisplayType":"0","Name":"18.0"},{"Type":"","DisplayType":"0","Name":"33.0"},{"Type":"","DisplayType":"0","Name":"1234.0"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"中区"},{"Type":"","DisplayType":"0","Name":"18.4"},{"Type":"","DisplayType":"0","Name":"30.4"},{"Type":"","DisplayType":"0","Name":"1214.0"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"西区"},{"Type":"","DisplayType":"0","Name":"16.9"},{"Type":"","DisplayType":"0","Name":"27.5"},{"Type":"","DisplayType":"0","Name":"1068.0"}]}]
+         * StatisticsNumber : [{"Type":"OuterTem","DisPatchType":0,"Value":"10.3℃","Name":"室外温度"},{"Type":"OutHum","Value":"21.0℃","DateType":0,"Name":"室外湿度"},{"Type":"OuterTem","Value":"10000KwH","DateType":1,"Name":"电量"},{"Type":"OuterTem","Value":"300m³","DateType":1,"Name":"燃气余量"}]
+         * HenHouse : 7栋
+         * JobCate : [{"Type":1,"Id":"8622C4EBF0F7430098E5709FB0AF5494","HenHouseArray":[{"Id":"a1f34835e84e4cdc9dfc296c929325da","Name":"7栋"}],"Name":"虎什哈第一养鸡厂"},{"Type":0,"Id":"9B5C58ECB9E5413DA7E2884238DB45E2","HenHouseArray":[{"Id":"89ba0f3fba504ce","Name":"4栋"},{"Id":"c863a5a522f44e7","Name":"1栋"},{"Id":"a1f34835e84e4cd","Name":"6栋"},{"Id":"11fae03005f94a4","Name":"2栋"},{"Id":"03e7e38183e14a2","Name":"3栋"},{"Id":"463abca8258f4f6","Name":"5栋"}],"Name":"虎什哈第二养鸡厂"}]
+         * ChartArray : [{"Type":"overview","DateType":3,"Name":"概览"},{"Type":"Tem","DateType":3,"Name":"温度"},{"Type":"Hum","DateType":3,"Name":"湿度"},{"Type":"CO2","DateType":3,"Name":"二氧化碳"}]
+         * GroupData : [{"EnerParam":[{"Type":"","DisplayType":"0","Name":"区域"},{"Type":"","DisplayType":"0","Name":"温度"},{"Type":"","DisplayType":"0","Name":"湿度"},{"Type":"","DisplayType":"0","Name":"二氧化碳"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"东区"},{"Type":"","DisplayType":"0","Name":"20.0"},{"Type":"","DisplayType":"0","Name":"32.0"},{"Type":"","DisplayType":"0","Name":"1222.0"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"中区"},{"Type":"","DisplayType":"0","Name":"19.4"},{"Type":"","DisplayType":"0","Name":"31.4"},{"Type":"","DisplayType":"0","Name":"1244.0"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"西区"},{"Type":"","DisplayType":"0","Name":"17.9"},{"Type":"","DisplayType":"0","Name":"29.5"},{"Type":"","DisplayType":"0","Name":"1008.0"}]},{"EnerParam":[]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"区域"},{"Type":"","DisplayType":"0","Name":"送风"},{"Type":"","DisplayType":"0","Name":"排风"},{"Type":"","DisplayType":"0","Name":"送风频率"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"东南"},{"Type":"","DisplayType":"0","Name":"20.4"},{"Type":"","DisplayType":"0","Name":"21.6"},{"Type":"","DisplayType":"0","Name":"3100"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"西南"},{"Type":"","DisplayType":"0","Name":"18.4"},{"Type":"","DisplayType":"0","Name":"20.6"},{"Type":"","DisplayType":"0","Name":"2800"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"东北"},{"Type":"","DisplayType":"0","Name":"17.8"},{"Type":"","DisplayType":"0","Name":"19.4"},{"Type":"","DisplayType":"0","Name":"3300"}]},{"EnerParam":[{"Type":"","DisplayType":"0","Name":"西北"},{"Type":"","DisplayType":"0","Name":"21.4"},{"Type":"","DisplayType":"0","Name":"22.6"},{"Type":"","DisplayType":"0","Name":"2900"}]}]
          */
 
         private int Leader;
-        private String OuterTem;
-        private String OutHum;
+        private String HenHouse;
+        private List<StatisticsNumberBean> StatisticsNumber;
         private List<JobCateBean> JobCate;
         private List<ChartArrayBean> ChartArray;
         private List<GroupDataBean> GroupData;
@@ -44,20 +44,20 @@ public class EnvironmentInnerBan extends RBResponse {
             this.Leader = Leader;
         }
 
-        public String getOuterTem() {
-            return OuterTem;
+        public String getHenHouse() {
+            return HenHouse;
         }
 
-        public void setOuterTem(String OuterTem) {
-            this.OuterTem = OuterTem;
+        public void setHenHouse(String HenHouse) {
+            this.HenHouse = HenHouse;
         }
 
-        public String getOutHum() {
-            return OutHum;
+        public List<StatisticsNumberBean> getStatisticsNumber() {
+            return StatisticsNumber;
         }
 
-        public void setOutHum(String OutHum) {
-            this.OutHum = OutHum;
+        public void setStatisticsNumber(List<StatisticsNumberBean> StatisticsNumber) {
+            this.StatisticsNumber = StatisticsNumber;
         }
 
         public List<JobCateBean> getJobCate() {
@@ -84,22 +84,88 @@ public class EnvironmentInnerBan extends RBResponse {
             this.GroupData = GroupData;
         }
 
-        public static class JobCateBean {
+        public static class StatisticsNumberBean {
             /**
-             * Id : 1
-             * HenHouseArray : [{"Id":"21","Name":"鸡舍1"},{"Id":"22","Name":"鸡舍2"},{"Id":"23","Name":"鸡舍3"}]
-             * Name : 鸡场1
+             * Type : OuterTem
+             * DisPatchType : 0
+             * Value : 10.3℃
+             * Name : 室外温度
+             * DateType : 0
              */
 
-            private int Id;
+            private String Type;
+            private int DisPatchType;
+            private String Value;
+            private String Name;
+            private int DateType;
+
+            public String getType() {
+                return Type;
+            }
+
+            public void setType(String Type) {
+                this.Type = Type;
+            }
+
+            public int getDisPatchType() {
+                return DisPatchType;
+            }
+
+            public void setDisPatchType(int DisPatchType) {
+                this.DisPatchType = DisPatchType;
+            }
+
+            public String getValue() {
+                return Value;
+            }
+
+            public void setValue(String Value) {
+                this.Value = Value;
+            }
+
+            public String getName() {
+                return Name;
+            }
+
+            public void setName(String Name) {
+                this.Name = Name;
+            }
+
+            public int getDateType() {
+                return DateType;
+            }
+
+            public void setDateType(int DateType) {
+                this.DateType = DateType;
+            }
+        }
+
+        public static class JobCateBean {
+            /**
+             * Type : 1
+             * Id : 8622C4EBF0F7430098E5709FB0AF5494
+             * HenHouseArray : [{"Id":"a1f34835e84e4cdc9dfc296c929325da","Name":"7栋"}]
+             * Name : 虎什哈第一养鸡厂
+             */
+
+            private int Type;
+            private String Id;
             private String Name;
             private List<HenHouseArrayBean> HenHouseArray;
 
-            public int getId() {
+            public int getType() {
+                return Type;
+            }
+
+            public void setType(int Type) {
+                this.Type = Type;
+            }
+
+            public String getId() {
                 return Id;
             }
 
-            public void setId(int Id) {
+            public void setId(String Id) {
                 this.Id = Id;
             }
 
@@ -121,8 +187,8 @@ public class EnvironmentInnerBan extends RBResponse {
 
             public static class HenHouseArrayBean {
                 /**
-                 * Id : 21
-                 * Name : 鸡舍1
+                 * Id : a1f34835e84e4cdc9dfc296c929325da
+                 * Name : 7栋
                  */
 
                 private String Id;
@@ -148,9 +214,9 @@ public class EnvironmentInnerBan extends RBResponse {
 
         public static class ChartArrayBean {
             /**
-             * Type : Tem
-             * DateType : 1
-             * Name : 温度
+             * Type : overview
+             * DateType : 3
+             * Name : 概览
              */
 
             private String Type;
@@ -197,7 +263,7 @@ public class EnvironmentInnerBan extends RBResponse {
                 /**
                  * Type :
                  * DisplayType : 0
-                 * Name : 位置
+                 * Name : 区域
                  */
 
                 private String Type;

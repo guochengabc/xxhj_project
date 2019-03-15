@@ -18,8 +18,8 @@ public class EnvironmentInnerPresenter extends BasePresenterLpl<EnvironmentInner
         return new EnvironmentInnerlpl();
     }
 
-    public void getEnvironmentInfo(Activity activity) {
-        getModel().EnvironmentInnerInfo(activity, "", new ResponseXXHJListener() {
+    public void getEnvironmentInfo(Activity activity,String param) {
+        getModel().EnvironmentInnerInfo(activity, param, new ResponseXXHJListener() {
             @Override
             public void requuestError(int code) {
 

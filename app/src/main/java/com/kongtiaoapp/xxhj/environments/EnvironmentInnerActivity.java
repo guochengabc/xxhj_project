@@ -207,7 +207,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
     }
 
     private void setTabPaint(List<EnvironmentInnerBan.ResobjBean.ChartArrayBean> runData) {
-        tab_paint.setTabMode(TabLayout.MODE_FIXED);
+        tab_paint.setTabMode(TabLayout.DRAWING_CACHE_QUALITY_AUTO);
         final String title[] = new String[runData.size()];
         int size = runData.size();
         if (size == 1) {
@@ -331,16 +331,16 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
             adapter = new EnvironmentInnerAdapter(list, this);
             melv_Job.setAdapter(adapter);
             melv_Job.setGroupIndicator(null);
-            List<EnvironmentInnerBan.ResobjBean.JobCateBean.HenHouseArrayBean> henHouseArray = list.get(0).getHenHouseArray();
-            if (henHouseArray == null || henHouseArray.isEmpty()) {
+            listHenHouse = list.get(0).getHenHouseArray();
+            if (listHenHouse == null || listHenHouse.isEmpty()) {
                 return;
-            } else if (henHouseArray.size() == 1) {
+            } else if (listHenHouse.size() == 1) {
                 glv_henHouse.setVisibility(View.GONE);
                 line_backJiShe.setVisibility(View.GONE);
             }
-            deviceId = henHouseArray.get(0).getId();
-            tv_title.setText(henHouseArray.get(0).getName());
-            adapterHenHouse = new EnvironmentInnerListAdapter(henHouseArray, this);
+            deviceId = listHenHouse.get(0).getId();
+            tv_title.setText(listHenHouse.get(0).getName());
+            adapterHenHouse = new EnvironmentInnerListAdapter(listHenHouse, this,0);
             glv_henHouse.setAdapter(adapterHenHouse);
             for (int i = 0; i < adapter.getGroupCount(); i++) {
                 melv_Job.expandGroup(i, true);
@@ -479,7 +479,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
             if (listData1 == null) {
                 return;
             }
-            /* try {*/
+             try {
             List<double[]> listX1 = new ArrayList<>();
             List<double[]> listY1 = new ArrayList<>();
             String[] titles1 = new String[listData1.size()];
@@ -508,10 +508,10 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
                 }
             }
             setGraph1(titles1);//设置图列的个数
-           /* } catch (Exception e) {
+            } catch (Exception e) {
                 ToastUtils.showToast(this, "图表数据有异常,请您稍后再尝试!");
                 return;
-            }*/
+            }
         }
     }
 

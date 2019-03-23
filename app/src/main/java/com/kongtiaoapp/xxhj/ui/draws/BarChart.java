@@ -66,6 +66,12 @@ public class BarChart extends AbstractOneChart {
                     , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
                     , context.getResources().getColor(R.color.loading_six), context.getResources().getColor(R.color.loading_seven), context.getResources().getColor(R.color.loading_eight), context.getResources().getColor(R.color.loading_nine)};
         }
+        else if (titles.length == 10) {
+            colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
+                    , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
+                    , context.getResources().getColor(R.color.loading_six), context.getResources().getColor(R.color.loading_seven), context.getResources().getColor(R.color.loading_eight),
+                    context.getResources().getColor(R.color.loading_nine), context.getResources().getColor(R.color.loading_ten)};
+        }
         XYMultipleSeriesRenderer renderer = buildRenderer(colors);
         int length = renderer.getSeriesRendererCount();
         for (int i = 0; i < length; i++) {

@@ -21,7 +21,6 @@ public class EnvironmentInnerTopAdapter extends BaseAdapter {
     private Context context;
     private List<EnvironmentInnerBan.ResobjBean.GroupDataBean> list;
 
-
     public EnvironmentInnerTopAdapter(Context context, List<EnvironmentInnerBan.ResobjBean.GroupDataBean> groupData) {
         this.context = context;
         this.list = groupData;
@@ -54,7 +53,10 @@ public class EnvironmentInnerTopAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         List<EnvironmentInnerBan.ResobjBean.GroupDataBean.EnerParamBean> enerParam = list.get(position).getEnerParam();
+
         if (enerParam == null || enerParam.isEmpty()) {
+            holder.hlv_energyTop.setVisibility(View.VISIBLE);
+            holder.lv_statisticTec.setVisibility(View.GONE);
             return convertView;
         }
         int numColumns = enerParam.size();
@@ -85,7 +87,6 @@ public class EnvironmentInnerTopAdapter extends BaseAdapter {
         HorizontalListView hlv_energyTop;
         @BindView(R.id.lv_statisticTec)
         NoScrollGridView lv_statisticTec;
-
         ViewHolder(View view) {
             ButterKnife.bind(this, view);
         }

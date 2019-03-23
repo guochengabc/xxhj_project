@@ -49,18 +49,39 @@ public class BarChartCompare extends AbstractOneChart {
         }
         if (titles.length == 1) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one)};
-
         } else if (titles.length == 2) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)};
-
         } else if (titles.length == 3) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two), context.getResources().getColor(R.color.loading_three)};
-
         } else if (titles.length == 4) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
                     , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four)};
-
+        } else if (titles.length == 5) {
+            colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
+                    , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)};
+        } else if (titles.length == 6) {
+            colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
+                    , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
+                    , context.getResources().getColor(R.color.loading_six)};
+        } else if (titles.length == 7) {
+            colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
+                    , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
+                    , context.getResources().getColor(R.color.loading_six), context.getResources().getColor(R.color.loading_seven)};
+        } else if (titles.length == 8) {
+            colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
+                    , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
+                    , context.getResources().getColor(R.color.loading_six), context.getResources().getColor(R.color.loading_seven), context.getResources().getColor(R.color.loading_eight)};
+        } else if (titles.length == 9) {
+            colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
+                    , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
+                    , context.getResources().getColor(R.color.loading_six), context.getResources().getColor(R.color.loading_seven), context.getResources().getColor(R.color.loading_eight), context.getResources().getColor(R.color.loading_nine)};
+        } else if (titles.length == 10) {
+            colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
+                    , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
+                    , context.getResources().getColor(R.color.loading_six), context.getResources().getColor(R.color.loading_seven), context.getResources().getColor(R.color.loading_eight),
+                    context.getResources().getColor(R.color.loading_nine), context.getResources().getColor(R.color.loading_ten)};
         }
+
         List<double[]> yValue = new ArrayList<>();
         XYMultipleSeriesRenderer renderer = buildRenderer(colors);
         renderer.setDisplayChartValues(true);//是否显示y轴的值

@@ -29,48 +29,65 @@ public class AverageTemperatureChart extends AbstractOneChart {
     @TargetApi(Build.VERSION_CODES.M)
     public GraphicalView execute(Context context, String[] titles, List<double[]> x, List<double[]> yvalues, String xtitile, int xMax, double yMax, double minY, boolean isMonth, long nowTime) {
         int[] colors = null;
-        PointStyle[] styles =null;
+        PointStyle[] styles = null;
         if (titles.length == 0) {
             colors = new int[]{};
+            styles = new PointStyle[]{};
         }
         if (titles.length == 1) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one)};
-            styles=new PointStyle[] { PointStyle.CIRCLE};
+            styles = new PointStyle[]{PointStyle.CIRCLE};
         } else if (titles.length == 2) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)};
-            styles=new PointStyle[] { PointStyle.CIRCLE, PointStyle.DIAMOND,
-                  };
+            styles = new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND,
+            };
         } else if (titles.length == 3) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two), context.getResources().getColor(R.color.loading_three)};
-            styles=new PointStyle[] { PointStyle.CIRCLE, PointStyle.DIAMOND,
+            styles = new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND,
                     PointStyle.TRIANGLE};
         } else if (titles.length == 4) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
                     , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four)};
-            styles=new PointStyle[] { PointStyle.CIRCLE, PointStyle.DIAMOND,
+            styles = new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND,
                     PointStyle.TRIANGLE, PointStyle.SQUARE};
         } else if (titles.length == 5) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
                     , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)};
-            styles=new PointStyle[] { PointStyle.CIRCLE, PointStyle.DIAMOND,
-                    PointStyle.TRIANGLE, PointStyle.SQUARE,PointStyle.POINT};
+            styles = new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND,
+                    PointStyle.TRIANGLE, PointStyle.SQUARE, PointStyle.POINT};
         } else if (titles.length == 6) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
                     , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
                     , context.getResources().getColor(R.color.loading_six)};
+            styles = new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND,
+                    PointStyle.TRIANGLE, PointStyle.SQUARE, PointStyle.POINT,PointStyle.X};
         } else if (titles.length == 7) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
                     , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
                     , context.getResources().getColor(R.color.loading_six), context.getResources().getColor(R.color.loading_seven)};
+            styles = new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND,
+                    PointStyle.TRIANGLE, PointStyle.SQUARE, PointStyle.POINT,PointStyle.X,PointStyle.CIRCLE};
         } else if (titles.length == 8) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
                     , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
                     , context.getResources().getColor(R.color.loading_six), context.getResources().getColor(R.color.loading_seven), context.getResources().getColor(R.color.loading_eight)};
+            styles = new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND,
+                    PointStyle.TRIANGLE, PointStyle.SQUARE, PointStyle.POINT,PointStyle.X,PointStyle.CIRCLE, PointStyle.DIAMOND};
         } else if (titles.length == 9) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
                     , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
                     , context.getResources().getColor(R.color.loading_six), context.getResources().getColor(R.color.loading_seven), context.getResources().getColor(R.color.loading_eight), context.getResources().getColor(R.color.loading_nine)};
+            styles = new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND,
+                    PointStyle.TRIANGLE, PointStyle.SQUARE, PointStyle.POINT,PointStyle.X,PointStyle.CIRCLE, PointStyle.DIAMOND, PointStyle.SQUARE};
+        } else if (titles.length == 10) {
+            colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
+                    , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
+                    , context.getResources().getColor(R.color.loading_six), context.getResources().getColor(R.color.loading_seven), context.getResources().getColor(R.color.loading_eight),
+                    context.getResources().getColor(R.color.loading_nine), context.getResources().getColor(R.color.loading_ten)};
+            styles = new PointStyle[]{PointStyle.CIRCLE, PointStyle.DIAMOND,
+                    PointStyle.TRIANGLE, PointStyle.SQUARE, PointStyle.POINT,PointStyle.X,PointStyle.CIRCLE, PointStyle.DIAMOND, PointStyle.SQUARE, PointStyle.POINT};
         }
+
 
         XYMultipleSeriesRenderer renderer = buildRenderer(colors,styles);
         int length = renderer.getSeriesRendererCount();

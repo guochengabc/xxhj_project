@@ -26,6 +26,7 @@ public class BarChartH_String extends AbstractOneChart {
 
     /**
      * Execute graphical view.
+     *
      * @param context the context
      * @param titles  the titles
      * @param x       the x
@@ -38,7 +39,7 @@ public class BarChartH_String extends AbstractOneChart {
      * @param nowTime the now time
      * @return the graphical view
      */
-/*title.length()   代表的是图例的个数*/
+    /*title.length()   代表的是图例的个数*/
     @TargetApi(Build.VERSION_CODES.M)
     public GraphicalView execute(Context context, String[] titles, List<String> x, List<double[]> yvalues, String xtitile, int xMax, double yMax, double minY, boolean isMonth, long nowTime) {
         int[] colors = null;
@@ -47,21 +48,16 @@ public class BarChartH_String extends AbstractOneChart {
         }
         if (titles.length == 1) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one)};
-
         } else if (titles.length == 2) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)};
-
         } else if (titles.length == 3) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two), context.getResources().getColor(R.color.loading_three)};
-
         } else if (titles.length == 4) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
                     , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four)};
-
         } else if (titles.length == 5) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
                     , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)};
-
         } else if (titles.length == 6) {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
                     , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
@@ -78,7 +74,13 @@ public class BarChartH_String extends AbstractOneChart {
             colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
                     , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
                     , context.getResources().getColor(R.color.loading_six), context.getResources().getColor(R.color.loading_seven), context.getResources().getColor(R.color.loading_eight), context.getResources().getColor(R.color.loading_nine)};
+        } else if (titles.length == 10) {
+            colors = new int[]{context.getResources().getColor(R.color.loading_one), context.getResources().getColor(R.color.loading_two)
+                    , context.getResources().getColor(R.color.loading_three), context.getResources().getColor(R.color.loading_four), context.getResources().getColor(R.color.loading_five)
+                    , context.getResources().getColor(R.color.loading_six), context.getResources().getColor(R.color.loading_seven), context.getResources().getColor(R.color.loading_eight),
+                    context.getResources().getColor(R.color.loading_nine), context.getResources().getColor(R.color.loading_ten)};
         }
+
         XYMultipleSeriesRenderer renderer = buildRenderer(colors);
         renderer.setDisplayChartValues(true);//是否显示y轴的值
         double[] dy = new double[11 * x.size() * yvalues.size()];
@@ -107,22 +109,20 @@ public class BarChartH_String extends AbstractOneChart {
             format_month = new SimpleDateFormat("MM-dd");
         }
         String month_day = format_month.format(new Date(nowTime));//读取的是月和日
-            /*不是2月份进行分析图表的显示x图表的个数*/
+        /*不是2月份进行分析图表的显示x图表的个数*/
         if (format_day == null) {
             format_day = new SimpleDateFormat("HH");
         }
 
-        if (yMax < 8){
+        if (yMax < 8) {
             if (minY >= 0) {
-                    setChartSettings(context, renderer, "", xtitile, "", xMin, xMax, 0, 8,
-                            Color.LTGRAY, Color.LTGRAY);
+                setChartSettings(context, renderer, "", xtitile, "", xMin, xMax, 0, 8,
+                        Color.LTGRAY, Color.LTGRAY);
             } else {
                 setChartSettings(context, renderer, "", xtitile, "", xMin, xMax, minY, 8,
                         Color.LTGRAY, Color.LTGRAY);
             }
-        }
-
-        else {
+        } else {
             if (minY >= 0) {
                 if (isMonth) {
                     setChartSettings(context, renderer, "", xtitile, "", xMin, xMax, minY * (0.8), yMax * (1.2f),

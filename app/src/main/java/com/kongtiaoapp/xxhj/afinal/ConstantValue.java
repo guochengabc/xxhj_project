@@ -6,10 +6,10 @@ package com.kongtiaoapp.xxhj.afinal;
 public class ConstantValue {
 
     // V3正式环境
-   /* public static String HTTP_URL = "http://api.xiaoxitech.cn/v3/Process";
+    public static String HTTP_URL = "http://api.xiaoxitech.cn/v3/Process";
     public static String HTTP_URLS = "https://api.xiaoxitech.cn/v3/Process";
     public static String URL = "http://xiaoxitech.cn/";
-    public static String URLS = "https://xiaoxitech.cn/";*/
+    public static String URLS = "https://xiaoxitech.cn/";
     // 测试环境
     /*public static String HTTP_URL = "http://api.xiaoxitech.cn/v3_test/Process";
     public static String HTTP_URLS = "https://api.xiaoxitech.cn/v3_test/Process";
@@ -27,13 +27,21 @@ public class ConstantValue {
   //  public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process"; 我的本地IP地址
     public static String URL = "http://192.168.1.141/";
     public static String URLS = "https://192.168.1.141/";*/
-    //本地手机测试
-    // 本地环境
-    public static String HTTP_URL = "http://192.168.1.132:8080/ktjnAPP/Process";
-  public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process";
+
+
+  /*public static String HTTP_URL = "http://192.168.1.101:8080/ktjnAPP/Process";
+  public static String HTTP_URLS = "http://192.168.1.101:8080/ktjnAPP/Process";
   //  public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process"; 我的本地IP地址
   public static String URL = "http://192.168.1.141/";
-  public static String URLS = "https://192.168.1.141/";
+  public static String URLS = "https://192.168.1.141/";*/
+
+    //本地手机测试
+    // 本地环境
+  /*  public static String HTTP_URL = "http://192.168.1.132:8080/ktjnAPP/Process";
+    public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process";
+    //  public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process"; 我的本地IP地址
+    public static String URL = "http://192.168.1.141/";
+    public static String URLS = "https://192.168.1.141/";*/
     //APP下载地址
     public static String APP_URL = "http://files.xiaoxitech.cn/";
 
@@ -61,6 +69,7 @@ public class ConstantValue {
     public static final int GETMTRECORDLIST = 0x0011;//6.4.2获取维保记录列表
     public static final int DELETEMTRECORD = 0x0012;//6.4.4删除维保记录
     public static final int GETRUNNINGDEVICELIST = 0x0013;//5.1.2获取运行设备列表
+
     public static final int GETPROJECTINFO = 0x0014;//7.3.3获取项目信息详情
     public static final int POSTPROJECTINFO = 0x0015;//7.3.3获取项目信息详情
     public static final int DELETEPROJECTINFO = 0x0016;//7.3.4删除项目信息

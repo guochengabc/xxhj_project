@@ -338,9 +338,9 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
                 glv_henHouse.setVisibility(View.GONE);
                 line_backJiShe.setVisibility(View.GONE);
             }
-            deviceId = listHenHouse.get(0).getId();
-            tv_title.setText(listHenHouse.get(0).getName());
-            adapterHenHouse = new EnvironmentInnerListAdapter(listHenHouse, this,0);
+            deviceId = listHenHouse.get(2).getId();
+            tv_title.setText(listHenHouse.get(2).getName());
+            adapterHenHouse = new EnvironmentInnerListAdapter(listHenHouse, this,2);
             glv_henHouse.setAdapter(adapterHenHouse);
             for (int i = 0; i < adapter.getGroupCount(); i++) {
                 melv_Job.expandGroup(i, true);

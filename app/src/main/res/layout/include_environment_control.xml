@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/line_environment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.kongtiaoapp.xxhj.ui.view.NoScrollGridView
+                android:id="@+id/glv_statistic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="4"></com.kongtiaoapp.xxhj.ui.view.NoScrollGridView>
+            <include layout="@layout/include_project_dtbackground"></include>
+            <com.kongtiaoapp.xxhj.ui.view.NoScrollGridView
+                android:id="@+id/glv_henHouse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:numColumns="4"></com.kongtiaoapp.xxhj.ui.view.NoScrollGridView>
+            <LinearLayout
+                android:id="@+id/line_backJiShe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <include layout="@layout/include_project_dtbackground"></include>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/line_onePaint"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.kongtiaoapp.xxhj.utils.MyTablayout
+                    android:id="@+id/tab_paint"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="10dp"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="5dp"></com.kongtiaoapp.xxhj.utils.MyTablayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:paddingTop="5dp">
+
+                    <ImageView
+                        android:id="@+id/img_left"
+                        android:layout_width="70dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:src="@mipmap/leftarrow" />
+
+                    <RadioGroup
+                        android:id="@+id/group_time"
+                        android:layout_width="160dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_horizontal"
+                        android:background="@mipmap/white_background_circle"
+                        android:orientation="horizontal">
+
+                        <RadioButton
+                            android:id="@+id/radio0"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="日"
+                            android:textColor="@drawable/selector_duanzhen"
+                            android:textSize="@dimen/comment_time_size" />
+
+                        <RadioButton
+                            android:id="@+id/radio1"
+                            android:layout_width="0dp"
+                            android:layout_height="40dp"
+                            android:layout_weight="1"
+                            android:button="@null"
+                            android:gravity="center"
+                            android:text="月"
+                            android:textColor="@drawable/selector_duanzhen"
+                            android:textSize="@dimen/comment_time_size" />
+                    </RadioGroup>
+
+                    <ImageView
+                        android:id="@+id/img_right"
+                        android:layout_width="70dp"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center_vertical"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:src="@mipmap/rightarrow" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:id="@+id/frame_up"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/paint_height"
+                    android:layout_marginTop="10dp"
+                    android:padding="3dp">
+
+                    <include layout="@layout/include_paintbackground"></include>
+
+                    <include layout="@layout/include_graph_nodata"></include>//代表的是图例
+
+                    <include layout="@layout/include_nodata_txt"></include>//代表的是图的提示，有数据还是没有数据
+
+                </FrameLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"></View>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/line_twoPaint"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:id="@+id/frame_down"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/paint_height"
+                    android:padding="3dp">
+
+                    <RelativeLayout
+                        android:id="@+id/rela_paint1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"></RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="33dp"
+                        android:layout_marginRight="@dimen/loading_mrgt_fator"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:id="@+id/graph11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/loading_one"
+                            android:textSize="@dimen/loading_factor"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/graph21"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/loading_two"
+                            android:textSize="@dimen/loading_factor"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/graph31"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/loading_three"
+                            android:textSize="@dimen/loading_factor"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/graph41"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/loading_four"
+                            android:textSize="@dimen/loading_factor"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/graph51"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/loading_five"
+                            android:textSize="@dimen/loading_factor"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/graph61"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/loading_six"
+                            android:textSize="@dimen/loading_factor"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/graph71"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/loading_seven"
+                            android:textSize="@dimen/loading_factor"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/graph81"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/loading_eight"
+                            android:textSize="@dimen/loading_factor"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/graph91"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/loading_nine"
+                            android:textSize="@dimen/loading_factor"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/loading_mtop_factor"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txt_notata1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="@string/no_data"
+                            android:textColor="@color/red"
+                            android:textSize="@dimen/font_big"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+
+                </FrameLayout>
+            </LinearLayout>
+            <include layout="@layout/include_project_dtbackground"></include>
+            <com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView
+                android:id="@+id/lv_environment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"></com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -91,6 +91,10 @@ public class EnergyRecordAdapter extends BaseAdapter {
                 setSwipth(holder);//设置运行状态开关
             } else {
               /*  holder.edt_CurrentContent.setFocusable(true);
+                最大临时数据：145.8==最小临时数据==0.0
+                最大临时数据：145.8==最小临时数据==0.0
+                最大临时数据：145.8==最小临时数据==0.0
+                最大临时数据：125.0==最小临时数据==0.0
                 holder.edt_CurrentContent.setFocusableInTouchMode(true);*/
  /*
                 context.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);*/

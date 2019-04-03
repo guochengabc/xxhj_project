@@ -4,7 +4,7 @@
     <!--tablayout标题栏设置字体大小-->
     <dimen name="tl_size">16sp</dimen>
     <!--所有模块顶部的列表字体大小-->
-    <dimen name="top_list_size">16sp</dimen>
+    <dimen name="top_list_size">14sp</dimen>
     <!--更新框-->
     <dimen name="update_dialogsize">17sp</dimen>
     <dimen name="view_01">0.1dp</dimen>

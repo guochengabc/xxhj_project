@@ -107,7 +107,12 @@ public class CubicChart extends AbstractOneChart {
             }
 
         } else {
-            renderer.setPanLimits(new double[]{0, xMax, (int) minY - 2, (int) (yMax*1.2)});//设置拉动的范围  前2个参数是x轴的  后两个参数是y轴
+            if (minY<0){
+                renderer.setPanLimits(new double[]{0, xMax, (int) minY-2, (int) (yMax*1.2)});//设置拉动的范围  前2个参数是x轴的  后两个参数是y轴
+            }else{
+                renderer.setPanLimits(new double[]{0, xMax, (int) minY, (int) (yMax*1.2)});//设置拉动的范围  前2个参数是x轴的  后两个参数是y轴
+            }
+
         }
 
         //  renderer.setZoomLimits(new double[]{0, xMax/2, 0, yMax});//缩放的范围 参数同上
@@ -186,7 +191,7 @@ public class CubicChart extends AbstractOneChart {
         }
 
         else {
-            if (minY > 0) {
+            if (minY >= 0) {
                 if (isMonth) {
                     setChartSettings(context, renderer, "", xtitile, "", xMin, xMax, (int) (minY * (0.8)), (int) (yMax * (1.2f)),
                             Color.LTGRAY, Color.LTGRAY);

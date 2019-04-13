@@ -232,6 +232,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
                 setTabDatePaint(runData.get(tabPosition).getDateType(), true);//设置图表  更新日期
             }
 
+
             @Override
             public void onTabUnselected(TabLayout.Tab tab) {
                 TextView textView = ((TextView) tab.getCustomView().findViewById(R.id.title_tv));

@@ -1,0 +1,28 @@
+{
+  "StatisticsNumber": [
+    {
+      "Type": "OuterTem",
+      "DisPatchType": 0,
+      "Value": "0",
+      "Name": "室外温度"
+    },
+    {
+      "Type": "OutHum",
+      "Value": "20.5%",
+      "DisPatchType": 0,
+      "Name": "室外湿度"
+    },
+    {
+      "Type": "OuterTem",
+      "Value": "659.5kWh",
+      "DisPatchType": 1,
+      "Name": "累计电量"
+    },
+    {
+      "Type": "OuterTem",
+      "Value": "0天",
+      "DisPatchType": 1,
+      "Name": "日龄"
+    }
+  ]
+}

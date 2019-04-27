@@ -1,0 +1,322 @@
+{
+  "code": "40000",
+  "resobj": {
+    "CO2_M": "2578.0",
+    "HRV_Exhaust_3": "231.0",
+    "ActivePower": "50.5",
+    "DeviceId": "a1f34835e84e4cd",
+    "HRV_Fresh_2": "274.0",
+    "Name": "6栋",
+    "Leader": 1,
+    "StatisticsNumber": [
+      {
+        "Type": "OuterTem",
+        "DisPatchType": 0,
+        "Value": "0℃",
+        "Name": "室外温度"
+      },
+      {
+        "Type": "OutHum",
+        "Value": "0%",
+        "DateType": 0,
+        "Name": "室外湿度"
+      },
+      {
+        "Type": "OuterTem",
+        "Value": "0.0kWh",
+        "DateType": 1,
+        "Name": "累计电量"
+      },
+      {
+        "Type": "OuterTem",
+        "Value": "0天",
+        "DateType": 1,
+        "Name": "日龄"
+      }
+    ],
+    "HenHouse": "6栋",
+    "JobCate": [
+      {
+        "Type": 1,
+        "Id": "9B5C58ECB9E5413DA7E2884238DB45E2",
+        "HenHouseArray": [
+          {
+            "Id": "89ba0f3fba504ce",
+            "Name": "4栋"
+          },
+          {
+            "Id": "c863a5a522f44e7",
+            "Name": "1栋"
+          },
+          {
+            "Id": "a1f34835e84e4cd",
+            "Name": "6栋"
+          },
+          {
+            "Id": "11fae03005f94a4",
+            "Name": "2栋"
+          },
+          {
+            "Id": "03e7e38183e14a2",
+            "Name": "3栋"
+          },
+          {
+            "Id": "463abca8258f4f6",
+            "Name": "5栋"
+          }
+        ],
+        "Name": "华都集团"
+      }
+    ],
+    "ChartArray": {
+      "ChartArray": [
+        {
+          "Type": "Overview",
+          "DateType": 3,
+          "Name": "姒傝"
+        },
+        {
+          "Type": "Tem",
+          "DateType": 3,
+          "Name": "娓╁害"
+        },
+        {
+          "Type": "Hum",
+          "DateType": 3,
+          "Name": "婀垮害"
+        },
+        {
+          "Type": "CO2",
+          "DateType": 3,
+          "Name": "浜屾哀鍖栫⒊"
+        },
+        {
+          "Type": "Fre",
+          "DateType": 3,
+          "Name": "棰戠巼"
+        }
+      ]
+    },
+    "GroupData": [
+      {
+        "EnerParam": [
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "区域"
+          },
+          {
+            "Type": "Tem",
+            "DisplayType": "0",
+            "Name": "温度"
+          },
+          {
+            "Type": "Hum",
+            "DisplayType": "0",
+            "Name": "湿度"
+          },
+          {
+            "Type": "CO2",
+            "DisplayType": "0",
+            "Name": "二氧化碳"
+          }
+        ]
+      },
+      {
+        "EnerParam": [
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "东区"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0.0"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0.0"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0"
+          }
+        ]
+      },
+      {
+        "EnerParam": [
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "中区"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0.0"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0.0"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "2578.0"
+          }
+        ]
+      },
+      {
+        "EnerParam": [
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "西区"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0.0"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0.0"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0"
+          }
+        ]
+      },
+      {
+        "EnerParam": []
+      },
+      {
+        "EnerParam": [
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "区域"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "送风"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "排风"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "送风/转轮"
+          }
+        ]
+      },
+      {
+        "EnerParam": [
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "东南"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "27.4"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0.0"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0/0HZ"
+          }
+        ]
+      },
+      {
+        "EnerParam": [
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "西南"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0.0"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0.0"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0/0HZ"
+          }
+        ]
+      },
+      {
+        "EnerParam": [
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "东北"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0.0"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0.0"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0/0HZ"
+          }
+        ]
+      },
+      {
+        "EnerParam": [
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "西北"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0.0"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "23.1"
+          },
+          {
+            "Type": "",
+            "DisplayType": "0",
+            "Name": "0/0HZ"
+          }
+        ]
+      }
+    ]
+  }
+}

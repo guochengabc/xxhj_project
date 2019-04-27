@@ -1,0 +1,127 @@
+{
+  "GroupData": [
+    {
+      "EnerParam": [
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "区域"
+        },
+        {
+          "Type": "Tem",
+          "DisplayType": "0",
+          "Name": "温度"
+        },
+        {
+          "Type": "Hum",
+          "DisplayType": "0",
+          "Name": "湿度"
+        },
+        {
+          "Type": "CO2",
+          "DisplayType": "0",
+          "Name": "二氧化碳"
+        }
+      ]
+    },
+    {
+      "EnerParam": [
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "东区"
+        },
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "28.2"
+        },
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "35.9"
+        },
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "0"
+        }
+      ]
+    },
+    {
+      "EnerParam": [
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "中区"
+        },
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "29.6"
+        },
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "39.2"
+        },
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "3167.0"
+        }
+      ]
+    },
+    {
+      "EnerParam": [
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "西区"
+        },
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "29.7"
+        },
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "39.8"
+        },
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "0"
+        }
+      ]
+    },
+    {
+      "EnerParam": []
+    },
+    {
+      "EnerParam": [
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "区域"
+        },
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "送风"
+        },
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "排风"
+        },
+        {
+          "Type": "",
+          "DisplayType": "0",
+          "Name": "送风/转轮"
+        }
+      ]
+    }
+  ]
+}

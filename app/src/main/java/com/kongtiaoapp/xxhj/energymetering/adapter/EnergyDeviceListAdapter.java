@@ -41,8 +41,9 @@ public class EnergyDeviceListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
+
+      //  return list.get(groupPosition).getTwoData()==null?0:list.get(groupPosition).getTwoData().size();
         return 1;
-        //return list.get(groupPosition).getTwoData().size();
     }
 
     @Override
@@ -135,6 +136,11 @@ public class EnergyDeviceListAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return false;
+    }
+
+    public void setList(List<EnergyDeviceListBean.ResobjBean.OneDataBean> list) {
+        this.list=list;
+        notifyDataSetChanged();
     }
 
     public static class ViewHolderGroup {

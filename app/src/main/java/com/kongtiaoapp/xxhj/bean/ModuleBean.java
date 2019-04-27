@@ -81,6 +81,25 @@ public class ModuleBean extends RBResponse {
                 private String IconName;
                 private String IntentName;
                 private String PackageName;
+                private String ProjectType;
+                private String ProjectId;
+
+                public String getProjectType() {
+                    return ProjectType;
+                }
+
+                public void setProjectType(String projectType) {
+                    ProjectType = projectType;
+                }
+
+                public String getProjectId() {
+                    return ProjectId;
+                }
+
+                public void setProjectId(String projectId) {
+                    ProjectId = projectId;
+                }
+
                 public String getModuleName() {
                     return ModuleName;
                 }

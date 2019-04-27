@@ -23,6 +23,7 @@ import com.kongtiaoapp.xxhj.bean.RunningParam;
 import com.kongtiaoapp.xxhj.ui.timeselector.activity.TimePickerView;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -56,12 +57,12 @@ public class DeviceRunningParamAdapter extends BaseAdapter {
     }
 
     public List getmList() {
-        return this.mList;
+        return this.mList==null?new ArrayList():this.mList;
     }
 
     @Override
     public int getCount() {
-        return mList.size();
+        return mList==null?0:mList.size();
     }
 
     @Override

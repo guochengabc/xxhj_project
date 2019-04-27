@@ -297,6 +297,8 @@ public class AddDeviceRunning_EcodeFragment extends BaseFragment<AddDeviceRunnin
     @Override
     public void initData() {
         super.initData();
+        adapter = new DeviceRunningParamAdapter(mList, mActivity, isAuto);
+        mListview.setAdapter(adapter);
         mListview.setOnScrollListener(this);
         Bundle bundle = getArguments();
         if (bundle != null) {
@@ -382,6 +384,9 @@ public class AddDeviceRunning_EcodeFragment extends BaseFragment<AddDeviceRunnin
         isFirstRefresh = false;
         mList.clear();
         List list = (List<RunningParam>) data;
+        if (list==null){
+            return;
+        }
         mList.addAll(list);
         if (mList == null) {
             return;
@@ -389,8 +394,7 @@ public class AddDeviceRunning_EcodeFragment extends BaseFragment<AddDeviceRunnin
         if (mList.size() > 0) {
             key = mList.get(0).getUnit();
         }
-        adapter = new DeviceRunningParamAdapter(mList, mActivity, isAuto);
-        mListview.setAdapter(adapter);
+       adapter.setList(mList,isAuto);
         refreshList();
     }
 
@@ -449,7 +453,7 @@ public class AddDeviceRunning_EcodeFragment extends BaseFragment<AddDeviceRunnin
     }
 
     private void setInitData(DeviceNameE_CodeBean eCode) {
-        type = eCode.getType();
+        type = eCode.getType()==null?"":eCode.getType();
         deviceId = eCode.getDeviceId();
         DbManager.DaoConfig daoConfig = XUtil.getDaoConfig();
         db = x.getDb(daoConfig);

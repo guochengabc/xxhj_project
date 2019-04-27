@@ -526,7 +526,8 @@
         <activity
             android:name=".recordform.activity.RecordSearchDetailsActivity"
             android:configChanges="orientation|screenSize" />
-        <activity android:name=".environments.EnvironmentInnerActivity"></activity>
+        <activity android:name=".environments.EnvironmentInnerActivity" />
+        <activity android:name=".hvac_new.HvacNewActivity"></activity>
     </application>
 
 </manifest>

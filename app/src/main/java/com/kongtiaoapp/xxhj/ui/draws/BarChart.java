@@ -88,12 +88,12 @@ public class BarChart extends AbstractOneChart {
             if (format_month == null) {
                 format_month = new SimpleDateFormat("MM-dd");
             }
-            String month_day = format_month.format(new Date(nowTime));//读取的是月和日
+            String month_day = format_month.format(new Date());//读取的是月和日
             String[] date_split = month_day.split("-");
             float month_split = Float.parseFloat(date_split[0]);
             /*不是2月份进行分析图表的显示x图表的个数*/
             xMin = 0.002f;
-            if (month_split != 2) {
+            if (month_split == 2) {
                 float month_date = Float.parseFloat(date_split[1]);
                 if (month_date <= 10) {
                     xMax = 10;
@@ -136,7 +136,7 @@ public class BarChart extends AbstractOneChart {
             xMax = 16;*/
 
         }
-        if (yMax < 10)
+        if (yMax < 10){
             if (minY >= 0) {
                 if (isMonth) {
                     setChartSettings(context, renderer, "", xtitile, "", xMin, xMax, 0, 10,
@@ -154,6 +154,8 @@ public class BarChart extends AbstractOneChart {
                             Color.LTGRAY, Color.LTGRAY);
                 }
             }
+        }
+
         else {
             if (minY >= 0) {
                 if (isMonth) {

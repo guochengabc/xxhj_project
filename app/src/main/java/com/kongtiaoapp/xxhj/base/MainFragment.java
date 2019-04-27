@@ -123,28 +123,32 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter, MainFragme
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     ModuleBean.ResobjBean.MainArrayBean.ModuleArrayBean moduleBean = (ModuleBean.ResobjBean.MainArrayBean.ModuleArrayBean) moduleAdapter.getItem(position);
-                    if (!moduleBean.getIntentName().equals("")) {
-                        try {
-                            ComponentName com = new ComponentName(moduleBean.getPackageName(), moduleBean.getIntentName());
-                            Intent intent = new Intent();
-                            if (moduleBean.getPackageName().equals("com.zchg.woa")) {
-                                intent.putExtra("intentName", "xxhj");
+                    if (!moduleBean.getProjectType().equals("")){
+                        if (!moduleBean.getIntentName().equals("")) {
+                            try {
+                                ComponentName com = new ComponentName(moduleBean.getPackageName(), moduleBean.getIntentName());
+                                Intent intent = new Intent();
+                                if (moduleBean.getPackageName().equals("com.zchg.woa")) {
+                                    intent.putExtra("intentName", "xxhj");
+                                }
+                                intent.putExtra("projectId",moduleBean.getProjectId());
+                                intent.putExtra("title", moduleBean.getModuleName());
+                                intent.setComponent(com);
+                                startActivity(intent);
+                            } catch (ActivityNotFoundException e) {
+                                e.printStackTrace();
+                                ToastUtils.showToast(mActivity, "缺少相应包文件");
+                            } catch (NullPointerException e) {
+                                e.printStackTrace();
+                                ToastUtils.showToast(mActivity, "请联系后台");
+                            } catch (IndexOutOfBoundsException e) {
+                                e.printStackTrace();
+                                ToastUtils.showToast(mActivity, "请联系后台");
                             }
-                            intent.putExtra("title", moduleBean.getModuleName());
-                            intent.setComponent(com);
-                            startActivity(intent);
-                        } catch (ActivityNotFoundException e) {
-                            e.printStackTrace();
-                            ToastUtils.showToast(mActivity, "缺少相应包文件");
-                        } catch (NullPointerException e) {
-                            e.printStackTrace();
-                            ToastUtils.showToast(mActivity, "请联系后台");
-                        } catch (IndexOutOfBoundsException e) {
-                            e.printStackTrace();
-                            ToastUtils.showToast(mActivity, "请联系后台");
-                        }
 
+                        }
                     }
+
 
                 }
             });
@@ -256,6 +260,7 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter, MainFragme
                 break;
             case R.id.img_eCode://二维码扫描记录表单
                 startActivity(new Intent(mActivity, E_CodeActivity.class));
+                //startActivity(new Intent(mActivity, EnergyMainActivity.class));
                 break;
             case R.id.tv_environment:
                 startActivity(new Intent(mActivity, EnvironmentInnerActivity.class));

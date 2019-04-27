@@ -18,13 +18,14 @@
 
         <TextView
             android:id="@+id/tv_environmentEtc"
-            style="@style/environment_statistic" />
+            style="@style/environment_statistic"
+            />
 
         <TextView
             android:id="@+id/tv_environmentEtcValue"
             style="@style/environment_statistic"
             android:textColor="@color/theme_color"
-            android:textSize="14sp" />
+            android:textSize="13sp" />
     </LinearLayout>
 
 

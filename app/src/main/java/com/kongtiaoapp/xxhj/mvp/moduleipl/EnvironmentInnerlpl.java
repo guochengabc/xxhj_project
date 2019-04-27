@@ -21,9 +21,10 @@ import java.util.Map;
  */
 public class EnvironmentInnerlpl implements EnvironmentInnerModule {
     @Override
-    public void EnvironmentInnerInfo(Activity activity, Object data, ResponseXXHJListener listener) {
+    public void EnvironmentInnerInfo(Activity activity, Object data, String projectId,ResponseXXHJListener listener) {
         Map<String, String> map = new HashMap<String, String>();
-        map.put("projectId", "6d96a71ce7154dac867b38fb57834a00");
+        map.put("projectId", projectId);
+        //"6d96a71ce7154dac867b38fb57834a00"
         map.put("deviceId", data.toString());
         Map<String, String> params = new HashMap<String, String>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETENVIRONMENTDATA, map));
@@ -31,10 +32,10 @@ public class EnvironmentInnerlpl implements EnvironmentInnerModule {
     }
 
     @Override
-    public void EnvironmentInnerPaint(Activity activity, Object data, ResponseXXHJListener listener) {
+    public void EnvironmentInnerPaint(Activity activity, Object data,String projectId, ResponseXXHJListener listener) {
         List<String> list = (List<String>) data;
         Map<String, String> map = new HashMap<String, String>();
-        map.put("projectId", "6d96a71ce7154dac867b38fb57834a00");
+        map.put("projectId", projectId);
         map.put("date", list.get(0));
         map.put("chartType", list.get(1));
         map.put("deviceId", list.get(2));

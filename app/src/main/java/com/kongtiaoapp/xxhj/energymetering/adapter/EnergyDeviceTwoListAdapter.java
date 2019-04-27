@@ -45,8 +45,8 @@ public class EnergyDeviceTwoListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return 1;
-        // return list.get(groupPosition).getThreeData().size();
+       // return list.get(groupPosition)==null?0:(list.get(groupPosition).getThreeData()==null?0:list.get(groupPosition).getThreeData().size());
+         return 1;
     }
 
     @Override

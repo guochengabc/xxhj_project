@@ -1,5 +1,6 @@
 package com.kongtiaoapp.xxhj.environments;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -151,6 +152,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
     private EnvironmentInnerListAdapter adapterHenHouse;
     private int dateType;
     private List<EnvironmentInnerBan.ResobjBean.JobCateBean.HenHouseArrayBean> listHenHouse;
+    private String projectId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -180,6 +182,10 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
     @Override
     protected void initData() {
         //getEnvironmentInnerInfo("");
+        Intent intent = getIntent();
+        if (intent != null) {
+            projectId = intent.getStringExtra("projectId")==null?"":intent.getStringExtra("projectId");
+        }
         if (ScreenUtils.isScreenOriatationPortrait(this)) {
             Mf_Tools.setLayoutHeight(this, frame_up, rela_loading, 1);//根据横竖屏切换控制视图展示   竖屏
             Mf_Tools.setLayoutHeight(this, frame_down, rela_loading1, 1);//根据横竖屏切换控制视图展示
@@ -191,7 +197,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
     }
 
     private void getMainData() {
-        presenter.getEnvironmentInfo(this, deviceId);
+        presenter.getEnvironmentInfo(this, deviceId,projectId);
     }
 
     @Override
@@ -256,7 +262,7 @@ public class EnvironmentInnerActivity extends BaseActivity<EnvironmentInnerPrese
         list.add(date);
         list.add(type);
         list.add(deviceId);
-        presenter.getEnvironmentPaint(this, list);
+        presenter.getEnvironmentPaint(this, list,projectId);
     }
 
     private void setTabColor(String[] title, TabLayout tabs) {

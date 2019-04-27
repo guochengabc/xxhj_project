@@ -8,12 +8,11 @@ import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.adapter.MyFragmentAdapter;
 import com.kongtiaoapp.xxhj.bean.EnergyDeviceTitleBean;
 import com.kongtiaoapp.xxhj.energymetering.fragment.EnergyDeviceListFragment;
-import com.kongtiaoapp.xxhj.energymetering.fragment.EnergymeteringFragment;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
 import com.kongtiaoapp.xxhj.mvp.presenter.EnergyRecordListP;
 import com.kongtiaoapp.xxhj.mvp.view.EnergyRecordListV;
-import com.kongtiaoapp.xxhj.ui.view.DefinationViewpagerEnergy;
-import com.kongtiaoapp.xxhj.utils.MyTabLayoutEnergy;
+import com.kongtiaoapp.xxhj.ui.view.DefinationViewpager;
+import com.kongtiaoapp.xxhj.utils.MyTablayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,9 +23,9 @@ import butterknife.OnClick;
 
 public class EnergyRecordListActivity extends BaseActivity<EnergyRecordListP, EnergyRecordListV> implements EnergyRecordListV {
     @BindView(R.id.mtl_recordForm)
-    MyTabLayoutEnergy mtl_recordForm;//滑动卡
+    MyTablayout mtl_recordForm;//滑动卡
     @BindView(R.id.dvp_recordForm)
-    DefinationViewpagerEnergy dvp_recordForm;//盛装fragment的容器
+    DefinationViewpager dvp_recordForm;//盛装fragment的容器
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +40,10 @@ public class EnergyRecordListActivity extends BaseActivity<EnergyRecordListP, En
 
     @Override
     protected void initView() {
-        getSupportFragmentManager()    //fl_energyTop
+       /* getSupportFragmentManager()    //fl_energyTop
                 .beginTransaction()
                 .add(R.id.fl_energyTop,new EnergymeteringFragment())   // 此处的R.id.fragment_container是要盛放fragment的父容器
-                .commit();
+                .commit();*/
     }
 
     @Override

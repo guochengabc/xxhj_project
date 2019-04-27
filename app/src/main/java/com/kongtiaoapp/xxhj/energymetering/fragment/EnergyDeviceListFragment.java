@@ -19,7 +19,6 @@ import com.kongtiaoapp.xxhj.energymetering.adapter.EnergyDeviceListAdapter;
 import com.kongtiaoapp.xxhj.mvp.base.BaseFragment;
 import com.kongtiaoapp.xxhj.mvp.presenter.EnergyRecordListP;
 import com.kongtiaoapp.xxhj.mvp.view.EnergyRecordListV;
-import com.kongtiaoapp.xxhj.ui.view.MyExpandableListView;
 
 import java.io.Serializable;
 import java.util.List;
@@ -34,11 +33,12 @@ public class EnergyDeviceListFragment extends BaseFragment<EnergyRecordListP, En
     @BindView(R.id.txt_noData)
     TextView txt_noData;
     @BindView(R.id.mlv_eneryDeviceList)
-    MyExpandableListView mlv_eneryDeviceList;
+    ExpandableListView mlv_eneryDeviceList;
     private List<EnergyDeviceListBean.ResobjBean.OneDataBean> listOne;
     private boolean isLoading = false;
     private String type;
     private int position = 0;
+    private EnergyDeviceListAdapter adapter;
 
     public EnergyDeviceListFragment() {
         // Required empty public constructor
@@ -77,7 +77,7 @@ public class EnergyDeviceListFragment extends BaseFragment<EnergyRecordListP, En
         position = bundle.getInt("position");
         if (type != null) {
             if (position == 0) {
-                presenter.getDeviceList(mActivity, type,"","0");
+                presenter.getDeviceList(mActivity, type, "", "0");
             }
         }
 
@@ -91,7 +91,8 @@ public class EnergyDeviceListFragment extends BaseFragment<EnergyRecordListP, En
             if (position != 0) {
                 if (!isLoading) {
                     isLoading = true;
-                    presenter.getDeviceList(mActivity, type,"","0");//0代表不用检查录入状态   ""代表全部
+                    presenter.getDeviceList(mActivity, type, "", "0");//0代表不用检查录入状态   ""代表全部
+
                 }
             }
         }
@@ -135,8 +136,17 @@ public class EnergyDeviceListFragment extends BaseFragment<EnergyRecordListP, En
         EnergyDeviceListBean bean = (EnergyDeviceListBean) data;
         EnergyDeviceListBean.ResobjBean resobj = bean.getResobj();
         listOne = resobj.getOneData();
-        EnergyDeviceListAdapter adapter = new EnergyDeviceListAdapter(mActivity, listOne);
-        mlv_eneryDeviceList.setAdapter(adapter);
+        if (adapter == null) {
+            adapter = new EnergyDeviceListAdapter(mActivity, listOne);
+            mlv_eneryDeviceList.setAdapter(adapter);
+            if (position == 0) {
+                mlv_eneryDeviceList.invalidate();
+                adapter.setList(listOne);
+            }
+        } else if (adapter != null) {
+            adapter.setList(listOne);
+        }
+
         for (int i = 0; i < adapter.getGroupCount(); i++) {
             mlv_eneryDeviceList.expandGroup(i);
         }
@@ -150,6 +160,6 @@ public class EnergyDeviceListFragment extends BaseFragment<EnergyRecordListP, En
     @Override
     public void getError(Object data) {
         txt_noData.setVisibility(View.VISIBLE);
-        txt_noData.setText(""+data.toString());
+        txt_noData.setText("" + data.toString());
     }
 }

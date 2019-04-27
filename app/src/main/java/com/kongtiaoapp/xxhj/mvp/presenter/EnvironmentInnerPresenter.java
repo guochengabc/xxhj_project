@@ -18,8 +18,8 @@ public class EnvironmentInnerPresenter extends BasePresenterLpl<EnvironmentInner
         return new EnvironmentInnerlpl();
     }
 
-    public void getEnvironmentInfo(Activity activity,String param) {
-        getModel().EnvironmentInnerInfo(activity, param, new ResponseXXHJListener() {
+    public void getEnvironmentInfo(Activity activity,String param,String projectId) {
+        getModel().EnvironmentInnerInfo(activity, param, projectId,new ResponseXXHJListener() {
             @Override
             public void requuestError(int code) {
 
@@ -39,8 +39,8 @@ public class EnvironmentInnerPresenter extends BasePresenterLpl<EnvironmentInner
         });
     }
 
-    public void getEnvironmentPaint(Activity activity, List param) {
-        getModel().EnvironmentInnerPaint(activity, param, new ResponseXXHJListener() {
+    public void getEnvironmentPaint(Activity activity, List param,String projectId) {
+        getModel().EnvironmentInnerPaint(activity, param, projectId,new ResponseXXHJListener() {
             @Override
             public void requuestError(int code) {
 

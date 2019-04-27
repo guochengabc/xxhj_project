@@ -147,7 +147,7 @@ public class CubicChart extends AbstractOneChart {
                 } else if (month_date > xVisivle && month_date <= 26) {
                     xMax = (int) month_date + 2;
                     xMin = xMax - xVisivle;
-                } else if (month_date >= 126) {
+                } else if (month_date >= 26) {
                     xMax = 28;
                     xMin = xMax - xVisivle;
                 }

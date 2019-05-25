@@ -4,7 +4,7 @@ import android.app.Activity;
 
 import com.kongtiaoapp.xxhj.bean.BTabViewBean;
 import com.kongtiaoapp.xxhj.bean.EtcStatisticBean;
-import com.kongtiaoapp.xxhj.bean.Loading_RefrigeratorBean;
+import com.kongtiaoapp.xxhj.bean.ChartDataBean;
 import com.kongtiaoapp.xxhj.mvp.base.BasePresenterLpl;
 import com.kongtiaoapp.xxhj.mvp.moduleipl.BPaintl;
 import com.kongtiaoapp.xxhj.mvp.view.BPaintView;
@@ -58,7 +58,7 @@ public class BPaintP extends BasePresenterLpl<BPaintView, BPaintl> {
 
             @Override
             public void requestSuccess(Object o) {
-                Loading_RefrigeratorBean bean = (Loading_RefrigeratorBean) o;
+                ChartDataBean bean = (ChartDataBean) o;
                 if (bean.getCode() == SUCCEDD) {
                     getView().setText(bean);
                 } else if (bean.getCode() == EMPTY) {

@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.bean.BPD_MainInfoBean;
-import com.kongtiaoapp.xxhj.bean.Loading_RefrigeratorBean;
+import com.kongtiaoapp.xxhj.bean.ChartDataBean;
 import com.kongtiaoapp.xxhj.mvp.base.BaseFragment;
 import com.kongtiaoapp.xxhj.mvp.presenter.BPD_PaintP;
 import com.kongtiaoapp.xxhj.mvp.view.BPD_PaintV;
@@ -136,9 +136,9 @@ public class BPD_PaintFragment extends BaseFragment<BPD_PaintP, BPD_PaintV> impl
     public void setText(Object data) {
 
         txt_notata.setVisibility(View.VISIBLE);
-        Loading_RefrigeratorBean lr_bean = (Loading_RefrigeratorBean) data;
-        Loading_RefrigeratorBean.ResobjBean resobj = lr_bean.getResobj();
-        List<Loading_RefrigeratorBean.ResobjBean.DataBean> listData = resobj.getData();
+        ChartDataBean lr_bean = (ChartDataBean) data;
+        ChartDataBean.ResobjBean resobj = lr_bean.getResobj();
+        List<ChartDataBean.ResobjBean.DataBean> listData = resobj.getData();
         if (listData == null) {
             return;
         }

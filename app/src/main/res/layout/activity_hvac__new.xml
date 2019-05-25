@@ -73,7 +73,7 @@
                     android:orientation="horizontal">
 
                     <com.kongtiaoapp.xxhj.ui.view.HorizontalGridView
-                        android:id="@+id/glv_top"
+                        android:id="@+id/glv_topThree"
                         android:layout_width="fill_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
@@ -86,6 +86,7 @@
 
 
             <LinearLayout
+                android:id="@+id/line_two_gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
@@ -115,7 +116,7 @@
                         <include layout="@layout/include_view_line" />
 
                         <com.kongtiaoapp.xxhj.ui.view.HorizontalGridView
-                            android:id="@+id/glv_topThree"
+                            android:id="@+id/glv_top"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
@@ -189,38 +190,33 @@
                 android:paddingRight="5dp"
                 android:paddingTop="10dp"></com.kongtiaoapp.xxhj.utils.MyTablayout>
 
-            <LinearLayout
-                android:id="@+id/line_time"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginLeft="70dp"
-                android:layout_marginRight="70dp"
-                android:layout_marginTop="15dp"
-                android:orientation="horizontal"
-                android:visibility="gone">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingTop="5dp">
+
+                <ImageView
+                    android:id="@+id/img_left"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:src="@mipmap/leftarrow" />
 
                 <RadioGroup
                     android:id="@+id/group_time"
-                    android:layout_width="0dp"
+                    android:layout_width="160dp"
                     android:layout_height="40dp"
-                    android:layout_weight="3"
+                    android:layout_gravity="center_horizontal"
                     android:background="@mipmap/white_background_circle"
                     android:orientation="horizontal">
 
                     <RadioButton
-                        android:id="@+id/radio1"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:button="@null"
-                        android:gravity="center"
-                        android:text="时"
-                        android:textColor="@drawable/selector_duanzhen"
-                        android:textSize="@dimen/comment_time_size" />
-
-                    <RadioButton
-                        android:id="@+id/radio2"
+                        android:id="@+id/radio0"
                         android:layout_width="0dp"
                         android:layout_height="40dp"
                         android:layout_weight="1"
@@ -231,7 +227,7 @@
                         android:textSize="@dimen/comment_time_size" />
 
                     <RadioButton
-                        android:id="@+id/radio3"
+                        android:id="@+id/radio1"
                         android:layout_width="0dp"
                         android:layout_height="40dp"
                         android:layout_weight="1"
@@ -239,23 +235,17 @@
                         android:gravity="center"
                         android:text="月"
                         android:textColor="@drawable/selector_duanzhen"
-                        android:textSize="@dimen/comment_time_size"
-                        android:visibility="gone" />
-
-                    <RadioButton
-                        android:id="@+id/radio4"
-                        android:layout_width="0dp"
-                        android:layout_height="40dp"
-                        android:layout_weight="1"
-                        android:button="@null"
-                        android:gravity="center"
-                        android:text=""
-                        android:textColor="@drawable/selector_duanzhen"
-                        android:textSize="@dimen/comment_time_size"
-                        android:visibility="gone" />
+                        android:textSize="@dimen/comment_time_size" />
                 </RadioGroup>
 
-
+                <ImageView
+                    android:id="@+id/img_right"
+                    android:layout_width="70dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:src="@mipmap/rightarrow" />
             </LinearLayout>
 
             <LinearLayout

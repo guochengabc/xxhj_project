@@ -18,7 +18,7 @@ import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.adapter.StatisticEtcAdapter;
 import com.kongtiaoapp.xxhj.bean.BTabViewBean;
 import com.kongtiaoapp.xxhj.bean.EtcStatisticBean;
-import com.kongtiaoapp.xxhj.bean.Loading_RefrigeratorBean;
+import com.kongtiaoapp.xxhj.bean.ChartDataBean;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
 import com.kongtiaoapp.xxhj.mvp.presenter.BPaintP;
 import com.kongtiaoapp.xxhj.mvp.view.BPaintView;
@@ -296,12 +296,12 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
         Mf_Tools.hintAllView(list);
         rela_loading.removeAllViews();
         txt_notata.setVisibility(View.VISIBLE);
-        Loading_RefrigeratorBean lr_bean = (Loading_RefrigeratorBean) data;
-        Loading_RefrigeratorBean.ResobjBean resobj = lr_bean.getResobj();
+        ChartDataBean lr_bean = (ChartDataBean) data;
+        ChartDataBean.ResobjBean resobj = lr_bean.getResobj();
         if (resobj==null){
             return;
         }
-        List<Loading_RefrigeratorBean.ResobjBean.DataBean> listData = resobj.getData();
+        List<ChartDataBean.ResobjBean.DataBean> listData = resobj.getData();
         if (listData == null) {
             return;
         }

@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="("
-             android:textSize="@dimen/project_runningsize" />
+             android:textSize="@dimen/project_runningsize"/>
         <ImageView
             android:id="@+id/img_arrow"
             android:layout_width="10dp"

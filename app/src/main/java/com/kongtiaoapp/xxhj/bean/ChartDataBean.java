@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Created by xxhj_g on 2016/11/12.
  */
-public class Loading_RefrigeratorBean extends RBResponse {
+public class ChartDataBean extends RBResponse {
 
 
     /**

@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.kongtiaoapp.xxhj.App;
 import com.kongtiaoapp.xxhj.R;
-import com.kongtiaoapp.xxhj.bean.Loading_RefrigeratorBean;
+import com.kongtiaoapp.xxhj.bean.ChartDataBean;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
 import com.kongtiaoapp.xxhj.mvp.presenter.SEquitmentStatusPresenter;
 import com.kongtiaoapp.xxhj.mvp.view.SEquitmentStatusView;
@@ -142,15 +142,15 @@ public class SEquitmentStatusActivity extends BaseActivity<SEquitmentStatusPrese
 
     private void getPaintTwo() {
         String json = AssetsUtils.readText(this, "shuibengeffect.json");
-        Loading_RefrigeratorBean lr_bean = JSON.parseObject(json, Loading_RefrigeratorBean.class);
+        ChartDataBean lr_bean = JSON.parseObject(json, ChartDataBean.class);
         String dates = "";
         dates = App.sp.getDate();
         if (!dates.isEmpty() && !dates.equals("")) {
             txt_notata1.setText(dates);
             txt_notata1.setTextColor(getResources().getColor(R.color.theme_color));
         }
-        Loading_RefrigeratorBean.ResobjBean resobj = lr_bean.getResobj();
-        List<Loading_RefrigeratorBean.ResobjBean.DataBean> listData = resobj.getData();
+        ChartDataBean.ResobjBean resobj = lr_bean.getResobj();
+        List<ChartDataBean.ResobjBean.DataBean> listData = resobj.getData();
         List<double[]> listX = new ArrayList<>();
         List<double[]> listY = new ArrayList<>();
         String[] titles = new String[listData.size()];
@@ -170,14 +170,14 @@ public class SEquitmentStatusActivity extends BaseActivity<SEquitmentStatusPrese
 
     private void getPaintOne() {
         String json = AssetsUtils.readText(this, "shuibengenergy.json");
-        Loading_RefrigeratorBean lr_bean = JSON.parseObject(json, Loading_RefrigeratorBean.class);
+        ChartDataBean lr_bean = JSON.parseObject(json, ChartDataBean.class);
    /*     if (!date.isEmpty() && !date.equals("")) {
             txt_notata.setText(date);
             txt_notata.setTextColor(getResources().getColor(R.color.theme_color));
             txt_notata.setVisibility(View.VISIBLE);
         }*/
-        Loading_RefrigeratorBean.ResobjBean resobj = lr_bean.getResobj();
-        List<Loading_RefrigeratorBean.ResobjBean.DataBean> listData = resobj.getData();
+        ChartDataBean.ResobjBean resobj = lr_bean.getResobj();
+        List<ChartDataBean.ResobjBean.DataBean> listData = resobj.getData();
         if (listData == null) {
             return;
         }

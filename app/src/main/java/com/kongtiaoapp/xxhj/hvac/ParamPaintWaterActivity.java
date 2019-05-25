@@ -16,7 +16,7 @@ import android.widget.TextView;
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.bean.HVACPieChartBean;
 import com.kongtiaoapp.xxhj.bean.HVAC_NewProjectDetailBean;
-import com.kongtiaoapp.xxhj.bean.Loading_RefrigeratorBean;
+import com.kongtiaoapp.xxhj.bean.ChartDataBean;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
 import com.kongtiaoapp.xxhj.mvp.presenter.ParamPaintP;
 import com.kongtiaoapp.xxhj.mvp.view.ParamPaintV;
@@ -98,7 +98,7 @@ public class ParamPaintWaterActivity extends BaseActivity<ParamPaintP, ParamPain
 
     @Override
     protected void initView() {
-
+        System.out.println("===eventBus=======");
     }
 
     @Override
@@ -351,13 +351,12 @@ public class ParamPaintWaterActivity extends BaseActivity<ParamPaintP, ParamPain
         Mf_Tools.hintAllView(list);
         rela_loading.removeAllViews();
         txt_notata.setVisibility(View.VISIBLE);
-        Loading_RefrigeratorBean lr_bean = (Loading_RefrigeratorBean) data;
-        Loading_RefrigeratorBean.ResobjBean resobj = lr_bean.getResobj();
-        List<Loading_RefrigeratorBean.ResobjBean.DataBean> listData = resobj.getData();
+        ChartDataBean lr_bean = (ChartDataBean) data;
+        ChartDataBean.ResobjBean resobj = lr_bean.getResobj();
+        List<ChartDataBean.ResobjBean.DataBean> listData = resobj.getData();
         if (listData == null) {
             return;
         }
-
         List<double[]> listX = new ArrayList<>();
         List<double[]> listY = new ArrayList<>();
         String[] titles = new String[listData.size()];

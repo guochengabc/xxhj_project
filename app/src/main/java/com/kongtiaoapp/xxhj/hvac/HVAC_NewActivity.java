@@ -3,7 +3,6 @@ package com.kongtiaoapp.xxhj.hvac;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -47,7 +46,6 @@ import com.kongtiaoapp.xxhj.hvac.fragment.ParamSettingFragment;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
 import com.kongtiaoapp.xxhj.mvp.presenter.Group_Project_DetailPresenter;
 import com.kongtiaoapp.xxhj.mvp.view.Group_Project_DetailView;
-import com.kongtiaoapp.xxhj.ui.timeselector.activity.TimePickerView;
 import com.kongtiaoapp.xxhj.ui.view.ClickTextView;
 import com.kongtiaoapp.xxhj.ui.view.CustomViewPager;
 import com.kongtiaoapp.xxhj.ui.view.DoubleButtonDialog;
@@ -73,30 +71,34 @@ import butterknife.OnClick;
 
 public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter, Group_Project_DetailView>
         implements Group_Project_DetailView, RadioGroup.OnCheckedChangeListener {
+    @BindView(R.id.tv_title)
+    TextView tv_title;
     @BindView(R.id.img_weather)
     ImageView img_weather;
     @BindView(R.id.glv_top)
     HorizontalGridView glv_top;
     @BindView(R.id.line_topOne)
     LinearLayout line_topOne;
+    @BindView(R.id.line_two_gone)
+    LinearLayout line_two_gone;
     @BindView(R.id.line_topTwo)
     LinearLayout line_topTwo;
     @BindView(R.id.glv_topTwo)
     HorizontalGridView glv_topTwo;
     @BindView(R.id.glv_topThree)
     HorizontalGridView glv_topThree;
-    @BindView(R.id.line_time)
-    LinearLayout line_time;
+
+    @BindView(R.id.img_left)
+    ImageView img_left;
+    @BindView(R.id.img_right)
+    ImageView img_right;
     @BindView(R.id.group_time)
     RadioGroup group_time;
+    @BindView(R.id.radio0)
+    RadioButton radio0;//时
     @BindView(R.id.radio1)
-    RadioButton radio1;
-    @BindView(R.id.radio2)
-    RadioButton radio2;
-    @BindView(R.id.radio3)
-    RadioButton radio3;
-    @BindView(R.id.radio4)
-    RadioButton radio4;
+    RadioButton radio1;//日
+
     @BindView(R.id.btn_comments)
     Button btn_comments;
     @BindView(R.id.edt_comments)
@@ -180,6 +182,12 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
     private List<HVAC_NewProjectDetailBean.ResobjBean.EfficParaInfoBean> efficParaInfoList = new ArrayList<>();
     private List<HVAC_NewProjectDetailBean.ResobjBean.SysParamInfoBean> sysParamInfo = new ArrayList<>();
     private HVAC_NewProjectDetailBean.ResobjBean.ProjectInfoBean projectInfo;
+    private boolean isFirstPaint = true;
+    private int whichPaint = 0;//0  代表的时   1  代表的日
+    private boolean isMonth = false;
+    private String month;
+    private String day;
+    private String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -194,13 +202,14 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
 
     @Override
     protected void initView() {
-
+        month = DateUtils.getYM();
+        day = DateUtils.getYMD();
     }
 
     @Override
     protected void initListener() {
         group_time.setOnCheckedChangeListener(this);
-        group_time.check(R.id.radio1);
+
     }
 
     @Override
@@ -432,10 +441,18 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
         glv_top.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if (runningInfoList.get(position).getChartSign().equals("0")) {
-                    startActivity(new Intent(HVAC_NewActivity.this, ParamPaintActivity.class).
+                HVAC_NewProjectDetailBean.ResobjBean.EnergyParaInfoBean infoBean = runningInfoList.get(position);
+                if (infoBean.getChartSign().equals("0")) {
+                   /* startActivity(new Intent(HVAC_NewActivity.this, ParamPaintActivity.class).
                             putExtra("which", "1").
-                            putExtra("paintOne", (Serializable) runningInfoList.get(position)));
+                            putExtra("paintOne", (Serializable) runningInfoList.get(position)));*/
+                    tv_title.setText(infoBean.getName() == null ? "暖通空调" : infoBean.getName());
+                    type = infoBean.getType();
+                    if (whichPaint == 0) {//时
+                        getPaintData(day);
+                    } else if (whichPaint == 1) {//日
+                        getPaintData(month);
+                    }
                 }
 
             }
@@ -445,7 +462,7 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 HVAC_NewProjectDetailBean.ResobjBean.EfficParaInfoBean infoBean = efficParaInfoList.get(position);
                 if (infoBean.getChartSign().equals("0")) {
-                    if (infoBean.getDisplayType().equals("M")) {
+                   /* if (infoBean.getDisplayType().equals("M")) {
                         startActivity(new Intent(HVAC_NewActivity.this, EnviromentMonitoringActivity.class));
                         // ToastUtils.showToast(HVAC_NewActivity.this,"正在研发。。。");
                     } else if (infoBean.getDisplayType().equals("F")) {//图表拉长
@@ -455,6 +472,18 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
                     } else {
                         startActivity(new Intent(HVAC_NewActivity.this, ParamPaintActivity.class).putExtra("which", "2").
                                 putExtra("paintTwo", (Serializable) efficParaInfoList.get(position)));
+                    }*/
+                    if (infoBean.getDisplayType().equals("M")) {
+                        startActivity(new Intent(HVAC_NewActivity.this, EnviromentMonitoringActivity.class));
+                    }else{
+                        tv_title.setText(infoBean.getName() == null ? "暖通空调" : infoBean.getName());
+                        type = infoBean.getType();
+                        if (whichPaint == 0) {//时
+                            getPaintData(day);
+                        } else if (whichPaint == 1) {//日
+                            getPaintData(month);
+
+                        }
                     }
 
                 }
@@ -466,7 +495,7 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 HVAC_NewProjectDetailBean.ResobjBean.SysParamInfoBean infoBean = sysParamInfo.get(position);
                 if (infoBean.getChartSign().equals("0")) {
-                    if (infoBean.getDisplayType().equals("M")) {
+                 /*   if (infoBean.getDisplayType().equals("M")) {
                         startActivity(new Intent(HVAC_NewActivity.this, EnviromentMonitoringActivity.class));
                         // ToastUtils.showToast(HVAC_NewActivity.this,"正在研发。。。");
                     } else if (infoBean.getDisplayType().equals("F")) {
@@ -475,7 +504,19 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
                     } else {
                         startActivity(new Intent(HVAC_NewActivity.this, ParamPaintActivity.class).putExtra("which", "3").
                                 putExtra("paintThree", (Serializable) sysParamInfo.get(position)));
+                    }*/
+                    if (infoBean.getDisplayType().equals("M")) {
+                        startActivity(new Intent(HVAC_NewActivity.this, EnviromentMonitoringActivity.class));
+                    }else{
+                        tv_title.setText(infoBean.getName() == null ? "暖通空调" : infoBean.getName());
+                        type = infoBean.getType();
+                        if (whichPaint == 0) {//时
+                            getPaintData(day);
+                        } else if (whichPaint == 1) {//日
+                            getPaintData(month);
+                        }
                     }
+
                 }
 
             }
@@ -484,6 +525,7 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
 
 
     private void initFragment() {
+        //显示图表信息
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.frame__paint, Protect_PaintFragment.getInstance()).commit();
     }
@@ -492,7 +534,6 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
     @Override
     protected void onResume() {
         super.onResume();
-
     }
 
     private void setTabColor(String[] title, TabLayout tabs) {
@@ -522,142 +563,12 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
     }
 
 
-    /**
-     * 设置图表信息
-     *
-     * @param
-     */
-    private void initSetPaint() {
-        eventbusBean = new EventbusBean();
-        setPaintParams("0");
-        List<HVAC_NewProjectDetailBean.ResobjBean.DiagCategoryBean.ChartBean.TimeNameBean> timeName = list_diagOne.get(0).getTimeName();
-        if (timeName.get(0).getTimeCode().equals("A")) {
-            eventbusBean.setIsMonth("0");
-        } else {
-            eventbusBean.setIsMonth("1");
-        }
-
-        eventbusBean.setChartSign(list_diagOne.get(0).getTimeName().get(0).getChartSign());
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        App.sp.setDate(format.format(new Date(System.currentTimeMillis())));
-        EventBus.getDefault().post(eventbusBean);
-        tab_paint.setTabMode(TabLayout.MODE_FIXED);
-        final String title[] = new String[list_diagOne.size()];
-        for (int i = 0; i < list_diagOne.size(); i++) {
-            title[i] = list_diagOne.get(i).getText();
-            tab_paint.addTab(tab_paint.newTab().setText(title[i]));
-        }
-        tab_paint.setSelectedTabIndicatorColor(getResources().getColor(R.color.theme_color));
-        setTabColor(title, tab_paint);//设置初始值的textview的状态
-        tab_paint.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                TextView textView = ((TextView) tab.getCustomView().findViewById(R.id.title_tv));
-                textView.setTextColor(getResources().getColor(R.color.theme_color));
-                textView.setSelected(true);
-                tabPosition = tab.getPosition();
-                switch (tabPosition) {
-                    case 0:
-                        tabPostion_position = "0";
-                        setPaintParams(tabPostion_position);
-                        setTimeVisible(tabPosition);//设置选择时日月的显示
-                        EventBus.getDefault().post(eventbusBean);
-
-                        break;
-                    case 1:
-                        tabPostion_position = "1";
-                        setPaintParams(tabPostion_position);
-                        setTimeVisible(tabPosition);//设置选择时日月的显示
-                        EventBus.getDefault().post(eventbusBean);
-                        break;
-                    case 2:
-                        tabPostion_position = "2";
-                        setPaintParams(tabPostion_position);
-                        setTimeVisible(tabPosition);//设置选择时日月的显示
-                        EventBus.getDefault().post(eventbusBean);
-                        break;
-                    case 3:
-                        tabPostion_position = "3";
-                        setPaintParams(tabPostion_position);
-                        setTimeVisible(tabPosition);//设置选择时日月的显示
-                        EventBus.getDefault().post(eventbusBean);
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-                TextView textView = ((TextView) tab.getCustomView().findViewById(R.id.title_tv));
-                textView.setTextColor(getResources().getColor(R.color.a666666));
-                textView.setSelected(false);
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-    }
-
-
-    /**
-     * 显示时日月
-     */
-    private void setTimeVisible(int tabPosition) {
-        List<HVAC_NewProjectDetailBean.ResobjBean.DiagCategoryBean.ChartBean.TimeNameBean> listTime = list_diagOne.get(tabPosition).getTimeName();
-        radio1.setVisibility(View.GONE);
-        radio2.setVisibility(View.GONE);
-        radio3.setVisibility(View.GONE);
-        radio1.setBackgroundResource(R.mipmap.white_background_circle);
-        radio2.setBackgroundResource(R.mipmap.white_background_circle);
-        radio3.setBackgroundResource(R.mipmap.white_background_circle);
-        line_time.setVisibility(View.GONE);
-        //时和日能动态显示
-    /*    for (int i = 0; i < listTime.size(); i++) {
-            Log.i("setTimeVisible", "返回的TimeCode===" + listTime.get(i).getTimeCode());
-            switch (listTime.get(i).getTimeCode()) {
-                case "A":
-                    radio1.setVisibility(View.VISIBLE);
-                    if (time == 0) {
-                        eventbusBean.setIsMonth("0");
-                        radio1.setBackgroundResource(R.mipmap.green_background_circle);
-                    }
-                    Log.i("setTimeVisible", "返回的TimeCode===" + listTime.get(i).getTimeCode());
-                    break;
-                case "B":
-                    if (radio1.getVisibility() == View.GONE) {
-                        eventbusBean.setIsMonth("1");
-                        radio2.setBackgroundResource(R.mipmap.green_background_circle);
-                    } else {
-                        if (time == 1) {//当点击日的时候，并且有时跟日   会获取日的数据
-                            radio2.setBackgroundResource(R.mipmap.green_background_circle);
-                        }
-                    }
-                    radio2.setVisibility(View.VISIBLE);
-                    Log.i("setTimeVisible", "返回的TimeCode===" + listTime.get(i).getTimeCode());
-                    break;
-                case "C":
-                    radio3.setVisibility(View.VISIBLE);
-                    if (radio1.getVisibility() == View.GONE && radio2.getVisibility() == View.GONE) {
-                        eventbusBean.setIsMonth("1");
-                        radio3.setBackgroundResource(R.mipmap.green_background_circle);
-                    }
-                    break;
-                default:
-                    break;
-            }
-        }*/
-    }
-
     private void setPaintParams(String tabPostion_position) {
         if (list_diagOne.get(Integer.parseInt(tabPostion_position)).getCode() != null) {
             category = list_diagOne.get(Integer.parseInt(tabPostion_position)).getCode();
         }
         eventbusBean.setPosition(tabPostion_position);
-        eventbusBean.setPaintCount(list_diagOne.get(Integer.parseInt(tabPostion_position)).getChartNum());
+        eventbusBean.setPaintCount(1);
         eventbusBean.setCode(category);
     }
 
@@ -747,8 +658,7 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
 
     }
 
-    @OnClick({R.id.iv_back, R.id.img_add_time, R.id.btn_comments, R.id.txt_gp_moretalk, R.id.img_lastMonth,
-            R.id.img_nextMonth})
+    @OnClick({R.id.iv_back, R.id.img_add_time, R.id.btn_comments, R.id.txt_gp_moretalk, R.id.img_left, R.id.img_right})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
@@ -770,132 +680,47 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
                 //setdatePicker(time);  //项目信息
                 startActivity(new Intent(this, ProjectInfoHVACActivity.class).putExtra("info", (Serializable) projectInfo));
                 break;
-            case R.id.img_lastMonth://上一天或者上一个月
-                setdateLastTime(time, "up", "last");//   第二个参数代表的是哪一个模块  第三个参数last 代表上一个  next代表下一个
+            case R.id.img_left:
+                if (whichPaint == 0) {//时
+                    day = DateUtils.getSpecifiedDayBefore(day);
+                    getPaintData(day);
+                } else if (whichPaint == 1) {//日
+                    month = DateUtils.getLastMonth(month);
+                    getPaintData(month);
+                }
                 break;
-            case R.id.img_nextMonth:
-                setdateLastTime(time, "up", "next");
+            case R.id.img_right:
+                if (whichPaint == 0) {//时
+                    day = DateUtils.getSpecifiedDayAfter(day);
+
+                    getPaintData(day);
+                } else if (whichPaint == 1) {//日
+                    month = DateUtils.getNextMonth(month);
+                    getPaintData(month);
+                }
                 break;
 
             default:
                 break;
         }
     }
-
 
     /**
-     * 显示上一个月或者下一个月  上一天或者下一天
+     * 请求图表数据
+     *
+     * @param dateStr
      */
-    private void setdateLastTime(int item, String whichModule, String whith) {
-
-        switch (item) {
-            case 0:
-
-                //更新第一个模块图表时间
-                if (whichModule.equals("up")) {
-                    if (whith.equals("last")) {
-                        App.sp.setDate(DateUtils.getSpecifiedDayBefore(App.sp.getDate()));
-                    } else if (whith.equals("next")) {
-                        App.sp.setDate(DateUtils.getSpecifiedDayAfter(App.sp.getDate()));
-                    }
-                    setPaintParams(tabPostion_position);//设置图的个数和类型
-                    EventBus.getDefault().post(eventbusBean);
-                    txt_notata.setText(App.sp.getDate());
-                } else {
-                    //更新第二张图表
-                    if (whith.equals("last")) {
-                        App.sp.setDateEnergy(DateUtils.getSpecifiedDayBefore(App.sp.getDateEnergy()));
-                    } else if (whith.equals("next")) {
-                        App.sp.setDateEnergy(DateUtils.getSpecifiedDayAfter(App.sp.getDateEnergy()));
-                    }
-                    EventBus.getDefault().post(eventBusDownBean);
-
-                }
-
-
-                break;
-            case 1:
-                //更新第一个模块图表时间
-                if (whichModule.equals("up")) {
-                    if (whith.equals("last")) {
-                        App.sp.setDate(DateUtils.getLastMonth(App.sp.getDate()));
-                    } else if (whith.equals("next")) {
-                        App.sp.setDate(DateUtils.getNextMonth(App.sp.getDate()));
-                    }
-                    setPaintParams(tabPostion_position);//设置图的个数和类型
-                    EventBus.getDefault().post(eventbusBean);
-                    txt_notata.setText(App.sp.getDate());
-                }
-                break;
-            case 2:
-                //这个有问题  后台没有做 我们这也没有精细处理
-                if (whichModule.equals("up")) {
-                    if (whith.equals("last")) {
-                        App.sp.setDate(DateUtils.getSpecifiedDayBefore(App.sp.getDate()));
-                    } else if (whith.equals("next")) {
-                        App.sp.setDate(DateUtils.getSpecifiedDayAfter(App.sp.getDate()));
-                    }
-                    setPaintParams(tabPostion_position);//设置图的个数和类型
-                    EventBus.getDefault().post(eventbusBean);
-                    txt_notata.setText(App.sp.getDate());
-                }
-                break;
-            default:
-                break;
+    private void getPaintData(String dateStr) {
+        EventbusBean eventbusBean = new EventbusBean();
+        eventbusBean.setCode(type);
+        eventbusBean.setDateStr(dateStr);
+        eventbusBean.setPaintCount(1);
+        if (isMonth) {
+            eventbusBean.setIsMonth("1");
+        } else {
+            eventbusBean.setIsMonth("0");
         }
-    }
-
-    private void setdatePicker(final int item) {
-        if (list_diagOne != null && list_diagOne.size() > 0) {
-            // 时间选择器
-            TimePickerView pvTime = null;
-            if (item == 0) {
-                pvTime = new TimePickerView(this, TimePickerView.Type.YEAR_MONTH_DAY);
-            } else if (item == 1) {
-                pvTime = new TimePickerView(this, TimePickerView.Type.YEAR_MONTH);
-            } else if (item == 2) {
-                pvTime = new TimePickerView(this, TimePickerView.Type.YEAR);
-            }
-            pvTime.setTime(new Date());
-            pvTime.setCyclic(false);
-            pvTime.setCancelable(true);
-            pvTime.setOnTimeSelectListener(date -> {
-                switch (item) {
-                    case 0:
-                        if (getTime(date, false).length() == 10) {
-                            day_rememrber = getTime(date, false);
-                        }
-                        App.sp.setDate(getTime(date, false));
-                        App.sp.setDateEnergy(getTime(date, false));
-                        //更新第一个模块图表时间
-                        setPaintParams(tabPostion_position);//设置图的个数和类型
-                        EventBus.getDefault().post(eventbusBean);
-                        txt_notata.setText(App.sp.getDate());
-
-                        break;
-                    case 1:
-                        setPaintParams(tabPostion_position);//设置图的个数和类型
-                        App.sp.setDate(getTime(date, true));
-                        App.sp.setDateEnergy(getTime(date, true));
-                        EventBus.getDefault().post(eventbusBean);
-                        txt_notata.setText(App.sp.getDate());
-
-                        break;
-                    case 2:
-                        setPaintParams(tabPostion_position);//设置图的个数和类型
-                        App.sp.setDate(getTime(date, true));
-                        App.sp.setDateEnergy(getTime(date, true));
-                        EventBus.getDefault().post(eventbusBean);
-                        txt_notata.setText(App.sp.getDate());
-
-                        break;
-                    default:
-                        break;
-                }
-
-            });
-            pvTime.show();
-        }
+        EventBus.getDefault().post(eventbusBean);//进行订阅
     }
 
 
@@ -919,84 +744,6 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
         return format.format(date);
     }
 
-    @Override
-    public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-        Intent intent = null;
-        switch (group.getId()) {
-            case R.id.group_time:
-                if (eventbusBean != null) {
-
-                    switch (checkedId) {
-
-                        case R.id.radio1:
-                            if (repeatTime.equals("0")) {
-                                repeatTime = "1";
-                                radio1.setBackgroundResource(R.mipmap.green_background_circle);
-                                radio2.setBackgroundResource(R.mipmap.white_background_circle);
-                                radio3.setBackgroundResource(R.mipmap.white_background_circle);
-                                time = 0;//记录选择时间  弹出时间框
-                                if (App.sp.getDate().equals("") || TextUtils.isEmpty(App.sp.getDate())) {
-                                    SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                                    App.sp.setDate(format.format(new Date(System.currentTimeMillis())));
-                                } else {
-                                    if (day_rememrber.equals("")) {
-                                        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                                        App.sp.setDate(format.format(new Date(System.currentTimeMillis())));
-                                    } else {
-                                        App.sp.setDate(day_rememrber);
-                                    }
-                                }
-                                eventbusBean.setIsMonth("0");
-                                setPaintParams(tabPostion_position);//设置图的个数和类型
-                                EventBus.getDefault().post(eventbusBean);
-                            }
-                            break;
-                        case R.id.radio2:
-                            repeatTime = "0";
-                            radio2.setBackgroundResource(R.mipmap.green_background_circle);
-                            radio1.setBackgroundResource(R.mipmap.white_background_circle);
-                            radio3.setBackgroundResource(R.mipmap.white_background_circle);
-                            time = 1;
-                            if (App.sp.getDate().equals("") || TextUtils.isEmpty(App.sp.getDate())) {
-                                SimpleDateFormat format = new SimpleDateFormat("yyyy-MM");
-                                App.sp.setDate(format.format(new Date(System.currentTimeMillis())));
-                            } else {
-                                String date = App.sp.getDate();
-                                if (date.length() == 10) {
-                                    App.sp.setDate(date.substring(0, 7));
-                                }
-                            }
-                            eventbusBean.setIsMonth("1");
-                            setPaintParams(tabPostion_position);//设置图的个数和类型
-                            EventBus.getDefault().post(eventbusBean);
-                            break;
-                        case R.id.radio3:
-                            repeatTime = "0";
-                            radio3.setBackgroundResource(R.mipmap.green_background_circle);
-                            radio1.setBackgroundResource(R.mipmap.white_background_circle);
-                            radio2.setBackgroundResource(R.mipmap.white_background_circle);
-                            time = 2;
-                            if (App.sp.getDate().equals("") || TextUtils.isEmpty(App.sp.getDate())) {
-                                SimpleDateFormat format = new SimpleDateFormat("yyyy");
-                                App.sp.setDate(format.format(new Date(System.currentTimeMillis())));
-                            } else {
-                                String date = App.sp.getDate();
-                                if (date.length() == 10) {
-                                    App.sp.setDate(date.substring(0, 4));
-                                }
-                            }
-                            eventbusBean.setIsMonth("2");
-                            setPaintParams(tabPostion_position);//设置图的个数和类型
-                            EventBus.getDefault().post(eventbusBean);
-                            break;
-
-                    }
-                }
-                break;
-
-        }
-
-    }
 
     @Override
     public void setText(Object data) {
@@ -1010,13 +757,15 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
         if (listCategory == null || listCategory.isEmpty()) {
             return;
         }
+        radio0.setBackgroundResource(R.mipmap.green_background_circle);
         txt_paintOneName.setText(listCategory.get(0).getCategoryName());
         list_diagOne = listCategory.get(0).getChart();
+        isFirstPaint = false;//防止图表请求多次   radioGroup先进行请求
         if (list_diagOne != null && !list_diagOne.isEmpty()) {
             if (isFist) {
                 isFist = !isFist;
-                initSetPaint();//设置图表信息
-                setTimeVisible(0);
+                type=resobj.getSysParamInfo().get(2).getType();
+                getPaintData( day);
             }
 
         }
@@ -1028,10 +777,13 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
             App.sp.setDate(resobj.getTime());
             App.sp.setDateEnergy(resobj.getTime());
         }*/
-        //第一个顶部
+        //第二个顶部
         runningInfoList = resobj.getEnergyParaInfo();
-        if (runningInfoList != null) {
+        if (runningInfoList == null) {
+            line_two_gone.setVisibility(View.GONE);
 
+
+        } else {
             glv_top.setGridViewParam(this, runningInfoList);
             if (adapterOne == null) {
                 adapterOne = new EnergyParaInfoAdapter(runningInfoList, this);
@@ -1039,9 +791,8 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
             } else {
                 adapterOne.setList(runningInfoList);
             }
-
         }
-        //第二个顶部
+        //第一个顶部
         efficParaInfoList = resobj.getEfficParaInfo();
         if (efficParaInfoList != null) {
             line_topOne.setVisibility(View.VISIBLE);
@@ -1076,5 +827,32 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        if (isFirstPaint) {
+            return;
+        }
+        switch (checkedId) {
+            case R.id.radio0:
+                whichPaint = 0;//代表我点击时
+                img_left.setImageResource(R.mipmap.leftarrow);
+                img_right.setImageResource(R.mipmap.rightarrow);
+                isMonth = false;
+                radio0.setBackgroundResource(R.mipmap.green_background_circle);
+                radio1.setBackgroundResource(R.mipmap.white_background_circle);
+                getPaintData(day);
+                break;
+            case R.id.radio1:
+                whichPaint = 1;//代表我点击日
+                img_left.setImageResource(R.mipmap.arrow_double_left);
+                img_right.setImageResource(R.mipmap.arrow_double_right);
+                isMonth = true;
+                radio0.setBackgroundResource(R.mipmap.white_background_circle);
+                radio1.setBackgroundResource(R.mipmap.green_background_circle);
+                getPaintData(month);
+                break;
+        }
     }
 }

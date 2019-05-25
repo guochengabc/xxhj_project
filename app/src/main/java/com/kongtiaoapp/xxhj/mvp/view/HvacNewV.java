@@ -13,4 +13,5 @@ public interface HvacNewV<T> extends BaseView {
      */
     void getMainData(T data);
     void getChart(T data);
+
 }

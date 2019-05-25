@@ -10,4 +10,5 @@ public interface Group_Project_DetailView<T> extends BaseView {
      void postCommit(T data);//提交留言
     void deleteCommitList(T data);//删除评论
     void getPaintAnylize(T data);//图表分析诊断功能
+
 }

@@ -2,7 +2,7 @@ package com.kongtiaoapp.xxhj.mvp.presenter;
 
 import android.app.Activity;
 
-import com.kongtiaoapp.xxhj.bean.Loading_RefrigeratorBean;
+import com.kongtiaoapp.xxhj.bean.ChartDataBean;
 import com.kongtiaoapp.xxhj.mvp.base.BasePresenterLpl;
 import com.kongtiaoapp.xxhj.mvp.moduleipl.Protect_Paintlpl;
 import com.kongtiaoapp.xxhj.mvp.view.Protect_PaintView;
@@ -28,7 +28,7 @@ public class Protect_PaintPresenter extends BasePresenterLpl<Protect_PaintView, 
 
             @Override
             public void requestSuccess(Object o) {
-                Loading_RefrigeratorBean bean = (Loading_RefrigeratorBean) o;
+                ChartDataBean bean = (ChartDataBean) o;
                 getView().paint_succeed_one();
                 if (bean.getCode() == 40000) {
                     getView().paint_one(bean);
@@ -50,7 +50,7 @@ public class Protect_PaintPresenter extends BasePresenterLpl<Protect_PaintView, 
 
             @Override
             public void requestSuccess(Object o) {
-                Loading_RefrigeratorBean bean = (Loading_RefrigeratorBean) o;
+                ChartDataBean bean = (ChartDataBean) o;
                 getView().paint_succeed_two();
                 if (bean.getCode() == 40000) {
                     getView().paint_two(bean);

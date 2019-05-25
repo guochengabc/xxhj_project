@@ -853,10 +853,19 @@ public class HttpMethod {
     /**
      * 获取暖通新版项目数据
      */
-    public static final String HVAC_MAIN = "HVAC_Main";/**
+    public static final String HVAC_MAIN = "HVAC_Main";
+    /**
      * 获取暖通新版项目图表数据
      */
     public static final String HVAC_MAINCHART = "HVAC_MainChart";
+    /**
+     * 金融街头部列表
+     */
+    public static final String FINANCIASTREET = "FinancialStreet";
+    /**
+     * 金融街头部列表
+     */
+    public static final String FINALCIALCHART = "FinalcialStreetChart";
 }
 
 

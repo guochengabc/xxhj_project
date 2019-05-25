@@ -7,7 +7,7 @@ import com.kongtiaoapp.xxhj.App;
 import com.kongtiaoapp.xxhj.afinal.ConstantValue;
 import com.kongtiaoapp.xxhj.afinal.HttpMethod;
 import com.kongtiaoapp.xxhj.bean.HVACPieChartBean;
-import com.kongtiaoapp.xxhj.bean.Loading_RefrigeratorBean;
+import com.kongtiaoapp.xxhj.bean.ChartDataBean;
 import com.kongtiaoapp.xxhj.mvp.module.ParamPaintM;
 import com.kongtiaoapp.xxhj.net.okhttp.Encode_params;
 import com.kongtiaoapp.xxhj.net.okhttp.GetTask;
@@ -33,7 +33,7 @@ public class ParamPaintl implements ParamPaintM {
         map.put("date", list.get(1));
         Map<String, String> params = new HashMap<String, String>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETMONITORDATA, map));
-        new GetTask<Loading_RefrigeratorBean>(activity, Loading_RefrigeratorBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();
+        new GetTask<ChartDataBean>(activity, ChartDataBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();
     }
 
     @Override

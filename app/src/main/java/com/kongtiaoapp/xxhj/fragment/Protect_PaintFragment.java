@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.kongtiaoapp.xxhj.App;
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.bean.EventbusBean;
-import com.kongtiaoapp.xxhj.bean.Loading_RefrigeratorBean;
+import com.kongtiaoapp.xxhj.bean.ChartDataBean;
 import com.kongtiaoapp.xxhj.mvp.base.BaseFragment;
 import com.kongtiaoapp.xxhj.mvp.presenter.Protect_PaintPresenter;
 import com.kongtiaoapp.xxhj.mvp.view.Protect_PaintView;
@@ -147,26 +147,12 @@ public class Protect_PaintFragment extends BaseFragment<Protect_PaintPresenter, 
             }
         }
         Log.i(TAG, "月==========" + isMonth + "====code===" + eventbusBean.getCode() + "====time=====" + App.sp.getDate());
-        switch (Integer.parseInt(eventbusBean.getPosition())) {
-            case 0:
-                setPaint(eventbusBean);//设置图裂显示个数
-                break;
-            case 1:
-                setPaint(eventbusBean);//设置图裂显示个数
-                break;
-            case 2:
-                setPaint(eventbusBean);//设置图裂显示个数
-                break;
-            case 3:
-                setPaint(eventbusBean);//设置图裂显示个数
-                break;
-            default:
-                break;
-        }
+        setPaint(eventbusBean);//设置图裂显示个数
     }
 
     private void setPaint(EventbusBean eventbusBean) {
         paintCount = eventbusBean.getPaintCount();
+        date = eventbusBean.getDateStr();
         if (paintCount == 1) {
             type = eventbusBean.getCode();
             frame_down.setVisibility(View.GONE);
@@ -178,7 +164,7 @@ public class Protect_PaintFragment extends BaseFragment<Protect_PaintPresenter, 
             }
             frame_down.setVisibility(View.VISIBLE);
         }
-        if (!App.sp.getDate().equals("")) {
+       /* if (!App.sp.getDate().equals("")) {
             if (isMonth == true) {
                 String[] timeSplit = App.sp.getDate().split("-");
                 date = timeSplit[0] + "-" + timeSplit[1];
@@ -186,7 +172,7 @@ public class Protect_PaintFragment extends BaseFragment<Protect_PaintPresenter, 
                 date = App.sp.getDate();
             }
 
-        }
+        }*/
         getDataForServers();
     }
 
@@ -268,11 +254,11 @@ public class Protect_PaintFragment extends BaseFragment<Protect_PaintPresenter, 
             txt_notata.setTextColor(getResources().getColor(R.color.theme_color));
             txt_notata.setVisibility(View.VISIBLE);
         }*/
-        txt_notata.setText("");
+        txt_notata.setText(date);
         txt_notata.setVisibility(View.VISIBLE);
-        Loading_RefrigeratorBean lr_bean = (Loading_RefrigeratorBean) response;
-        Loading_RefrigeratorBean.ResobjBean resobj = lr_bean.getResobj();
-        List<Loading_RefrigeratorBean.ResobjBean.DataBean> listData = resobj.getData();
+        ChartDataBean lr_bean = (ChartDataBean) response;
+        ChartDataBean.ResobjBean resobj = lr_bean.getResobj();
+        List<ChartDataBean.ResobjBean.DataBean> listData = resobj.getData();
         if (listData == null) {
             return;
         }
@@ -310,9 +296,9 @@ public class Protect_PaintFragment extends BaseFragment<Protect_PaintPresenter, 
             txt_notata1.setTextColor(getResources().getColor(R.color.theme_color));
         }*/
         txt_notata1.setText("");
-        Loading_RefrigeratorBean lr_bean = (Loading_RefrigeratorBean) response;
-        Loading_RefrigeratorBean.ResobjBean resobj = lr_bean.getResobj();
-        List<Loading_RefrigeratorBean.ResobjBean.DataBean> listData = resobj.getData();
+        ChartDataBean lr_bean = (ChartDataBean) response;
+        ChartDataBean.ResobjBean resobj = lr_bean.getResobj();
+        List<ChartDataBean.ResobjBean.DataBean> listData = resobj.getData();
         List<double[]> listX = new ArrayList<>();
         List<double[]> listY = new ArrayList<>();
         String[] titles = new String[listData.size()];

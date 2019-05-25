@@ -1,0 +1,164 @@
+{
+  "Top": [
+    {
+      "TableName": "Electricity",
+      "Type": "COF",
+      "index": 0,
+      "DisPatchType": 0,
+      "ParamType": "Chart1",
+      "Value": "",
+      "Name": "1管",
+      "devideCount": 1
+    },
+    {
+      "TableName": "Electricity",
+      "Type": "COF",
+      "index": 1,
+      "DisPatchType": 0,
+      "ParamType": "Chart1",
+      "Value": "",
+      "Name": "2管",
+      "devideCount": 1
+    },
+    {
+      "TableName": "Electricity",
+      "Type": "COF",
+      "index": 2,
+      "DisPatchType": 0,
+      "ParamType": "Chart1",
+      "Value": "",
+      "Name": "3管",
+      "devideCount": 1
+    },
+    {
+      "TableName": "Electricity",
+      "Type": "COF",
+      "index": 3,
+      "DisPatchType": 0,
+      "ParamType": "Chart1",
+      "Value": "",
+      "Name": "4管",
+      "devideCount": 1
+    },
+    {
+      "TableName": "Electricity",
+      "Type": "COF",
+      "index": 4,
+      "DisPatchType": 0,
+      "ParamType": "Chart2",
+      "Value": "",
+      "Name": "5管",
+      "devideCount": 1
+    },
+    {
+      "TableName": "Electricity",
+      "Type": "COF",
+      "index": 5,
+      "DisPatchType": 0,
+      "ParamType": "Chart2",
+      "Value": "",
+      "Name": "6管",
+      "devideCount": 1
+    },
+    {
+      "TableName": "Electricity",
+      "Type": "COF",
+      "index": 6,
+      "DisPatchType": 0,
+      "ParamType": "Chart2",
+      "Value": "",
+      "Name": "7管",
+      "devideCount": 1
+    },
+    {
+      "TableName": "Electricity",
+      "Type": "COF",
+      "index": 7,
+      "DisPatchType": 0,
+      "ParamType": "Chart2",
+      "Value": "",
+      "Name": "8管",
+      "devideCount": 1
+    },
+    {
+      "TableName": "Electricity",
+      "Type": "COF",
+      "index": 8,
+      "DisPatchType": 0,
+      "ParamType": "Chart3",
+      "Value": "",
+      "Name": "9管",
+      "devideCount": 1
+    },
+    {
+      "TableName": "Electricity",
+      "Type": "COF",
+      "index": 9,
+      "DisPatchType": 0,
+      "ParamType": "Chart3",
+      "Value": "",
+      "Name": "10管",
+      "devideCount": 1
+    },
+    {
+      "TableName": "Electricity",
+      "Type": "COF",
+      "index": 10,
+      "DisPatchType": 0,
+      "ParamType": "Chart3",
+      "Value": "",
+      "Name": "11管",
+      "devideCount": 1
+    },
+    {
+      "TableName": "Electricity",
+      "Type": "COF",
+      "index": 11,
+      "DisPatchType": 0,
+      "ParamType": "Chart3",
+      "Value": "",
+      "Name": "12管",
+      "devideCount": 1
+    },
+    {
+      "TableName": "Electricity",
+      "Type": "COF",
+      "index": 12,
+      "DisPatchType": 0,
+      "ParamType": "Chart4",
+      "Value": "",
+      "Name": "13管",
+      "devideCount": 1
+    },
+    {
+      "TableName": "Electricity",
+      "Type": "COF",
+      "index": 13,
+      "DisPatchType": 0,
+      "ParamType": "Chart4",
+      "Value": "",
+      "Name": "14管",
+      "devideCount": 1
+    },
+    {
+      "TableName": "Electricity",
+      "Type": "COF",
+      "index": 14,
+      "DisPatchType": 0,
+      "ParamType": "Chart4",
+      "Value": "",
+      "Name": "15管",
+      "devideCount": 1
+    },
+    {
+      "TableName": "Electricity",
+      "Type": "COF",
+      "index": 15,
+      "DisPatchType": 0,
+      "ParamType": "Chart4",
+      "Value": "",
+      "Name": "16管",
+      "devideCount": 1
+    }
+  ]
+}

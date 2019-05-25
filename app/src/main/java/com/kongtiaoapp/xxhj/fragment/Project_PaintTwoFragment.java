@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.kongtiaoapp.xxhj.App;
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.bean.EventBusDownBean;
-import com.kongtiaoapp.xxhj.bean.Loading_RefrigeratorBean;
+import com.kongtiaoapp.xxhj.bean.ChartDataBean;
 import com.kongtiaoapp.xxhj.mvp.base.BaseFragment;
 import com.kongtiaoapp.xxhj.mvp.presenter.Protect_PaintPresenter;
 import com.kongtiaoapp.xxhj.mvp.view.Protect_PaintView;
@@ -268,9 +268,9 @@ public class Project_PaintTwoFragment extends BaseFragment<Protect_PaintPresente
             txt_notata.setVisibility(View.VISIBLE);
         }*/
         txt_notata.setText("");
-        Loading_RefrigeratorBean lr_bean = (Loading_RefrigeratorBean) response;
-        Loading_RefrigeratorBean.ResobjBean resobj = lr_bean.getResobj();
-        List<Loading_RefrigeratorBean.ResobjBean.DataBean> listData = resobj.getData();
+        ChartDataBean lr_bean = (ChartDataBean) response;
+        ChartDataBean.ResobjBean resobj = lr_bean.getResobj();
+        List<ChartDataBean.ResobjBean.DataBean> listData = resobj.getData();
         if (listData == null) {
             return;
         }
@@ -308,9 +308,9 @@ public class Project_PaintTwoFragment extends BaseFragment<Protect_PaintPresente
             txt_notata1.setTextColor(getResources().getColor(R.color.theme_color));
         }*/
         txt_notata1.setText("");
-        Loading_RefrigeratorBean lr_bean = (Loading_RefrigeratorBean) response;
-        Loading_RefrigeratorBean.ResobjBean resobj = lr_bean.getResobj();
-        List<Loading_RefrigeratorBean.ResobjBean.DataBean> listData = resobj.getData();
+        ChartDataBean lr_bean = (ChartDataBean) response;
+        ChartDataBean.ResobjBean resobj = lr_bean.getResobj();
+        List<ChartDataBean.ResobjBean.DataBean> listData = resobj.getData();
         List<double[]> listX = new ArrayList<>();
         List<double[]> listY = new ArrayList<>();
         String[] titles = new String[listData.size()];

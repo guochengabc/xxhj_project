@@ -1,53 +1,16 @@
 {
-  "Nameplate": [
+  "chartArray": [
     {
-      "Value": "品牌",
-      "FieldType": "string",
-      "Name": "上海百诺泵阀有限公司",
-      "Code": "",
-      "Unit": ""
+      "Type": "COF",
+      "DateType": 1,
+      "Name": "能耗",
+      "SensorId": "9d38076632cb44"
     },
     {
-      "Value": "规格型号",
-      "FieldType": "string",
-      "Name": "C150-28-18.5NY",
-      "Code": "",
-      "Unit": ""
-    },
-    {
-      "Value": "额定功率",
-      "FieldType": "string",
-      "Name": "18.5KW",
-      "Code": "",
-      "Unit": "kg"
-    },
-    {
-      "Value": "额定电压",
-      "FieldType": "string",
-      "Name": "380V",
-      "Code": "",
-      "Unit": ""
-    },
-    {
-      "Value": "额定电流",
-      "FieldType": "string",
-      "Name": "46.2",
-      "Code": "",
-      "Unit": ""
-    },
-    {
-      "Value": "区域",
-      "FieldType": "string",
-      "Name": "负二空调机房",
-      "Code": "",
-      "Unit": ""
-    },
-    {
-      "Value": "运行状态",
-      "FieldType": "string",
-      "Name": "正常",
-      "Code": "",
-      "Unit": "Kw"
+      "Type": "COF",
+      "DateType": 1,
+      "Name": "频率",
+      "DeviceId": "d99b3a61445742e"
     }
   ]
 }

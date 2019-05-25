@@ -28,7 +28,7 @@ public class ConstantValue {
     public static String URL = "http://192.168.1.141/";
     public static String URLS = "https://192.168.1.141/";*/
     //
- /* public static String HTTP_URL = "http://10.0.2.2:8080/ktjnAPP/Process";
+/*  public static String HTTP_URL = "http://10.0.2.2:8080/ktjnAPP/Process";
   public static String HTTP_URLS = "http://10.0.2.2:8080/ktjnAPP/Process";
   //  public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process"; 我的本地IP地址
   public static String URL = "http://192.168.1.141/";
@@ -42,6 +42,9 @@ public class ConstantValue {
 
     //本地手机测试
     // 本地环境
+
+
+
    /* public static String HTTP_URL = "http://192.168.1.132:8080/ktjnAPP/Process";
     public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process";
     //  public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process"; 我的本地IP地址

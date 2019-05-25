@@ -9,6 +9,7 @@ public class EventbusBean {
     private double paintCount;
     private String Code;
     private String ChartSign;//0代表曲线  1代表柱状图
+    private String dateStr;
     public String getPosition() {
         return position;
     }
@@ -47,5 +48,13 @@ public class EventbusBean {
 
     public void setChartSign(String chartSign) {
         ChartSign = chartSign;
+    }
+
+    public String getDateStr() {
+        return dateStr;
+    }
+
+    public void setDateStr(String dateStr) {
+        this.dateStr = dateStr;
     }
 }

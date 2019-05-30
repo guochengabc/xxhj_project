@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
@@ -50,6 +49,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView, Linea
     EditText etPhone;   //手机号
     @BindView(R.id.et_password)
     EditText etPassWrod;    //密码
+    @BindView(R.id.line_clear_pwd)
+    LinearLayout line_clear_pwd;//显示和隐藏密码
     @BindView(R.id.tv_forget_pass)
     TextView tvForgetPass;    //忘记密码
     @BindView(R.id.iv_icon)
@@ -64,11 +65,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView, Linea
     TextView txt_login_again;
     private String phone;
     private String pass;
+    private boolean savePwd=true;
     private String uid;
     private KProgressHUD mProgress;
     protected static Gson gson = new Gson();
     private LoginPresenter presenter;
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_two);
@@ -94,12 +95,12 @@ public class LoginActivity extends AppCompatActivity implements LoginView, Linea
         login_rot.setKeyBordStateListener(this);
         etPhone.addTextChangedListener(new Change_Phone_State());
         etPassWrod.addTextChangedListener(new Change_PhonePassWord_State());
-        if (!App.sp.getPhone().equals("")) {
-            etPhone.setText(App.sp.getPhone());
-        }
+        etPhone.setText(App.sp.getPhone());
+        etPassWrod.setText(App.sp.getPwd());
+
     }
 
-    @OnClick({R.id.login_bt_log, R.id.tv_forget_pass, R.id.join_register, R.id.line_clear_phone})
+    @OnClick({R.id.login_bt_log, R.id.tv_forget_pass, R.id.join_register, R.id.line_clear_phone, R.id.line_clear_pwd})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.tv_forget_pass:       //忘记密码
@@ -140,15 +141,28 @@ public class LoginActivity extends AppCompatActivity implements LoginView, Linea
                 line_clear_phone.setVisibility(View.GONE);
                 txt_login_again.setVisibility(View.GONE);
                 break;
+            case R.id.line_clear_pwd:
+                etPassWrod.setText("");
+                App.sp.removeSp("pwd");
+                line_clear_pwd.setVisibility(View.GONE);
+                txt_login_again.setVisibility(View.GONE);
+                break;
             default:
                 break;
         }
     }
 
-    private void login(String phone, String pass) {
+    private void login(String phone, String passs) {
         List<String> list = new ArrayList<>();
         list.add(phone);
-        list.add(MD5Utils.String2MD5(pass));
+
+        if (App.sp.getPwd().equals("")) {
+            pass = MD5Utils.String2MD5(passs);
+            list.add(pass);
+        } else {
+            list.add(passs);
+        }
+
         presenter.onResume(this, list);
     }
 
@@ -233,6 +247,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView, Linea
     public void setText(Object text) {
         LoginBean loginBean = (LoginBean) text;
         uid = loginBean.getResobj().getUserId();
+        App.sp.setPhone(phone);
+        App.sp.setPwd(pass);
         if (uid != null) {
             LoginBean.ResobjBean resobj = loginBean.getResobj();
             if (resobj != null) {
@@ -246,7 +262,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView, Linea
         }
         App.sp.setToken(loginBean.getResobj().getToken());
         List<String> list_roles = loginBean.getResobj().getRoles();//权限只能列表
-        Log.i("LoginActivity", "token===" + loginBean.getResobj().getToken());
         App.sp.setRole(gson.toJson(list_roles).toString());
         getUserInfo();
     }
@@ -294,8 +309,19 @@ public class LoginActivity extends AppCompatActivity implements LoginView, Linea
 
         @Override
         public void onTextChanged(CharSequence s, int i, int i1, int i2) {
-            if (s.length() == 1) {
-                txt_login_again.setVisibility(View.GONE);
+            if (!s.toString().equals("")) {
+                line_clear_pwd.setVisibility(View.VISIBLE);
+              if (savePwd){
+                  savePwd=false;
+              }else if (savePwd==false){
+                  App.sp.setPwd("");
+                  System.out.println("ffffffffffffffffffffffffffff");
+              }
+                if (s.length() == 1) {
+                    txt_login_again.setVisibility(View.GONE);
+                }
+            } else {
+                line_clear_pwd.setVisibility(View.GONE);
             }
         }
 

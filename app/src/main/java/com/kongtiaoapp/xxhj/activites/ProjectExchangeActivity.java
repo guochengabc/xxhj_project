@@ -14,7 +14,6 @@ import com.kongtiaoapp.xxhj.bean.ProjectManagerBean;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
 import com.kongtiaoapp.xxhj.mvp.presenter.LoginPresenter;
 import com.kongtiaoapp.xxhj.mvp.view.LoginView;
-import com.kongtiaoapp.xxhj.utils.emoji.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +28,8 @@ public class ProjectExchangeActivity extends BaseActivity<LoginPresenter, LoginV
     private List<ProjectManagerBean> list = new ArrayList<>();
     private String uid;
     private List<ProjectListBean.ResobjBean> listProject;
+    private String phone;
+    private String passWord;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,15 +54,9 @@ public class ProjectExchangeActivity extends BaseActivity<LoginPresenter, LoginV
         lv_project_manager.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String status = listProject.get(position).getStatus();
-                if (status != null && status.equals("0")) {
-                    String userNmae = listProject.get(position).getPhone();
-                    String passWord = listProject.get(position).getPwd();
-                    login(userNmae, passWord);
-                } else {
-                    ToastUtils.showToast(ProjectExchangeActivity.this, "您暂时切换不了项目");
-                }
-
+                    phone = listProject.get(position).getPhone();
+                    passWord = listProject.get(position).getPwd();
+                    login(phone, passWord);
             }
         });
     }
@@ -92,10 +87,12 @@ public class ProjectExchangeActivity extends BaseActivity<LoginPresenter, LoginV
     public void setText(Object data) {
         LoginBean loginBean = (LoginBean) data;
         uid = loginBean.getResobj().getUserId();
+        App.sp.setPhone(phone);
+        App.sp.setPwd(passWord);
         if (uid != null) {
             LoginBean.ResobjBean resobj = loginBean.getResobj();
             if (resobj != null) {
-                String loginType = resobj.getLoginType().toString();
+                String loginType = resobj.getLoginType();
                 if (loginType == null) {
                     loginType = "";
                 }

@@ -127,9 +127,22 @@ public class SpUtils {
     public String getPhone() {
         return sp.getString("phone", "");
     }
+    /**
+     * 设置用户密码
+     *
+     * @param pwd
+     */
+    public void setPwd(String pwd) {
+        editors.putString("pwd", pwd);
+        editors.commit();
+    }
 
+    public String getPwd() {
+        return sp.getString("pwd", "");
+    }
     /**
      * 设置是否为领导
+     *
      *
      * @param isLeader
      */

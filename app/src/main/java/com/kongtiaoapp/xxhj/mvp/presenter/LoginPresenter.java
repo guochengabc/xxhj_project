@@ -5,6 +5,7 @@ import android.content.Intent;
 
 import com.kongtiaoapp.xxhj.App;
 import com.kongtiaoapp.xxhj.R;
+import com.kongtiaoapp.xxhj.activites.AllActivityManager;
 import com.kongtiaoapp.xxhj.activites.MainActivity;
 import com.kongtiaoapp.xxhj.bean.LoginBean;
 import com.kongtiaoapp.xxhj.bean.ProjectListBean;
@@ -41,6 +42,8 @@ public class LoginPresenter extends BasePresenterLpl<LoginView, Loginlpl> {
             public void requestSuccess(Object o) {
                 LoginBean loginBean = (LoginBean) o;
                 if (loginBean.getCode() == 40000) {
+                    App.sp.setPhone(list.get(0).toString());
+                    App.sp.setPwd(list.get(1).toString());
                     getView().setText(loginBean);
                 } else {
                     ToastUtils.showToast(activity, loginBean.getErrormsg());
@@ -89,8 +92,7 @@ public class LoginPresenter extends BasePresenterLpl<LoginView, Loginlpl> {
                         Intent intent = new Intent(activity, MainActivity.class);
                         intent.putExtra("main", "resume");
                         activity.startActivity(intent);
-                        activity.finish();
-
+                        AllActivityManager.getInstance().finishAllActivity();
                     } catch (DbException e) {
                         e.printStackTrace();
                     }

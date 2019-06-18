@@ -526,9 +526,15 @@
         <activity
             android:name=".recordform.activity.RecordSearchDetailsActivity"
             android:configChanges="orientation|screenSize" />
-        <activity android:name=".environments.EnvironmentInnerActivity" />
-        <activity android:name=".hvac_new.HvacNewActivity" />
-        <activity android:name=".hvac_new.FanicialStreetActivity"></activity>
+        <activity
+            android:name=".environments.EnvironmentInnerActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".hvac_new.HvacNewActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name=".hvac_new.FanicialStreetActivity"
+            android:configChanges="orientation|screenSize" />
     </application>
 
 </manifest>

@@ -33,7 +33,7 @@ public class EnviromentMonitoringActivity extends BaseActivity<EnviromentMonitor
     @BindView(R.id.txt_control)
     TextView txt_control;//模式控制
     @BindView(R.id.txt_fSetting)
-    TextView txt_fSetting;//风速设定
+    TextView txt_fSetting;//风机设置
     @BindView(R.id.txt_hourseTemp)
     TextView txt_hourseTemp;//房间温度
     @BindView(R.id.txt_settingTemp)

@@ -279,7 +279,6 @@ public class WorkOrderFragment extends BaseFragment<WorkOrderPresenter, WorkOrde
     protected View initView() {
         return View.inflate(mActivity, R.layout.fragment_word_order, null);
     }
-
     @Override
     public void initData() {
         super.initData();
@@ -407,7 +406,6 @@ public class WorkOrderFragment extends BaseFragment<WorkOrderPresenter, WorkOrde
                 }
                 break;
             case R.id.txt_workorder_recept://报修单
-                Log.i("ffffffffff", "保修单====" + repairClick);
                 if (repairClick == 0) {
                     noRepairClick = 0;
                     repairClick = 1;
@@ -707,7 +705,7 @@ public class WorkOrderFragment extends BaseFragment<WorkOrderPresenter, WorkOrde
                 ToastUtils.showToast(mActivity, "您没有权限建工单哦!");
                 return;
             }
-        } else if (whichActivity.equals("1")) {
+        } else if (whichActivity.equals("1")) {//统计
             startActivity(new Intent(mActivity, WorkOrderSatisficActivity.class));
         }
         // ToastUtils.showToast(mActivity, "工单统计研发中。。。");

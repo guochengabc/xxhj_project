@@ -455,7 +455,7 @@ public class BDataEntryDetailFragment extends BaseFragment<BDataEntryDetailP, BD
     }
 
     private void setInitData(BPD_DataEntryBean.ResobjBean.PowerBean eCode) {
-        type = eCode.getType();
+        type = eCode.getType()==null?"": eCode.getType();
         deviceId = eCode.getDeviceId();
         DbManager.DaoConfig daoConfig = XUtil.getDaoConfig();
         db = x.getDb(daoConfig);

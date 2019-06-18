@@ -218,6 +218,9 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
             NineGridView iv_picture_finish;
     @BindView(R.id.iv_picture)
     NineGridView iv_picture;
+
+    @BindView(R.id.line_acceptWork)
+    MyLinearlayout line_acceptWork;//接单显示和隐藏
    /* //报修图片
     @BindView(R.id.iv_repair)
     NineGridView iv_repair;*/
@@ -377,7 +380,7 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
             , R.id.txt_add_enegry_metarial, txt_prospect
             , R.id.txt_professional, R.id.txt_finish_time
             , R.id.txt_profession_date, R.id.txt_isFinish, R.id.txt_isPass, R.id.txt_sure
-            , R.id.txt_evaluate, R.id.txt_modifyForm})
+            , R.id.txt_evaluate, R.id.txt_modifyForm, R.id.txt_acceptWork})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.line_workorder:
@@ -454,8 +457,11 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
             case R.id.txt_modifyForm://修改报修单
                 if (!dispatchId.equals("")) {
                     startActivity(new Intent(mActivity, WorkOrderActivity.class).
-                            putExtra("dispatchId", dispatchId).putExtra("ismodify", true).putExtra("isVisible","false"));
+                            putExtra("dispatchId", dispatchId).putExtra("ismodify", true).putExtra("isVisible", "false"));
                 }
+                break;
+            case R.id.txt_acceptWork://接单
+                presenter.setOrderTaking(mActivity, dispatchId);
                 break;
             default:
 
@@ -561,7 +567,7 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
     }
 
 
-    private void  commitProspect() {
+    private void commitProspect() {
         String order_date = txt_order_date.getText().toString();//接单日期
         String professional = txt_professional.getTag().toString();//专业
         String prospect = edt_prospect.getText().toString().trim();//勘查情况
@@ -643,6 +649,30 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
     public void setDetailInfo(WorkOrderGet beans) {
         WorkOrderGet.ResobjBean bean = beans.getResobj();
         finishStatus = Integer.parseInt(bean.getDispState());
+        if (UserManegerList.WORKORDER_ENGI()) {//工程师
+
+            line_evaluate_commit.setVisibility(View.GONE);
+            line_evaluate.setVisibility(View.GONE);
+            if (finishStatus == 4 || finishStatus == 5) {
+                setComment();
+                line_workorder.getFocus(true);
+            } else if (finishStatus == 6 || finishStatus == 7) {
+                line_spros.setVisibility(View.GONE);
+                line_commit.setVisibility(View.GONE);
+                line_evaluate_commit.setVisibility(View.GONE);
+                line_evaluate.setVisibility(View.VISIBLE);
+                line_workorder.getFocus(true);
+            }
+            if (UserManegerList.WORKORDER_INSP()) {//质检员
+                if (finishStatus == 4|| finishStatus==5) {//异常
+                    line_evaluate.setVisibility(View.VISIBLE);
+                    line_evaluate_commit.setVisibility(View.VISIBLE);
+                } else if (finishStatus == 6 || finishStatus == 7) {
+                    line_finish.setVisibility(View.VISIBLE);
+                    line_evaluate.setVisibility(View.VISIBLE);
+                }
+            }
+        }else{//不带工程师得
         //不同角色界面显示风格不一样
         if (UserManegerList.WORKORDER_INSP()) {//质检员
 
@@ -688,21 +718,6 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
                 line_evaluate.setVisibility(View.VISIBLE);
             }
 
-        } else if (UserManegerList.WORKORDER_ENGI()) {//工程师
-
-            line_evaluate_commit.setVisibility(View.GONE);
-            line_evaluate.setVisibility(View.GONE);
-            if (finishStatus == 4 || finishStatus == 5) {
-                setComment();
-                line_workorder.getFocus(true);
-            } else if (finishStatus == 6 || finishStatus == 7) {
-                line_spros.setVisibility(View.GONE);
-                line_commit.setVisibility(View.GONE);
-                line_evaluate_commit.setVisibility(View.GONE);
-                line_evaluate.setVisibility(View.VISIBLE);
-                line_workorder.getFocus(true);
-            }
-
         } else if (UserManegerList.WORKORDER_EDITOR()) {
             txt_modifyForm.setVisibility(View.VISIBLE);
             if (finishStatus == 2) {
@@ -725,6 +740,7 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
             }
 
         }
+        }
         if (UserManegerList.WORKORDER_ENGI() && (finishStatus == 0 || finishStatus == 1)) {//是工程师，并且是以提交状态
             GrabDialog.Builder builder = new GrabDialog.Builder(mActivity);
             builder.setTitle("是否接单");
@@ -736,7 +752,10 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
             builder.setNegativeButton("否",
                     (dialog, which) -> {
                         dialog.dismiss();
-
+                        line_pros.setVisibility(View.GONE);
+                        line_finish.setVisibility(View.GONE);
+                        line_evaluate.setVisibility(View.GONE);
+                        line_acceptWork.setVisibility(View.VISIBLE);
                     });
             builder.create().show();
         }
@@ -898,6 +917,10 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
     public void setOrderTaking(String orderTime) {//接单
         ToastUtils.showToast(mActivity, this.getString(R.string.order_succeed));
         txt_order_date.setText(orderTime);
+        line_pros.setVisibility(View.VISIBLE);
+        line_finish.setVisibility(View.VISIBLE);
+        line_evaluate.setVisibility(View.VISIBLE);
+        line_acceptWork.setVisibility(View.GONE);
     }
 
     @Override

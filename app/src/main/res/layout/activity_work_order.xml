@@ -303,7 +303,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
                 android:padding="15dp">
 
                 <TextView
@@ -315,6 +316,19 @@
                     android:padding="10dp"
                     android:text="提交报单"
                     android:textColor="@color/ffffff"
+                    android:textSize="@dimen/work_shangbao_size" />
+
+                <TextView
+                    android:id="@+id/txt_repairWork"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@drawable/selector_maincolor_style"
+                    android:padding="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:text="报修工单"
+                    android:textColor="@color/ffffff"
+                    android:visibility="gone"
                     android:textSize="@dimen/work_shangbao_size" />
             </LinearLayout>
 

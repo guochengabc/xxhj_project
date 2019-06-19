@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.kongtiaoapp.xxhj.App;
 import com.kongtiaoapp.xxhj.R;
+import com.kongtiaoapp.xxhj.activites.AllActivityManager;
 import com.kongtiaoapp.xxhj.activites.UserListActivity;
 import com.kongtiaoapp.xxhj.adapter.ImageAdapter;
 import com.kongtiaoapp.xxhj.afinal.UserManegerList;
@@ -99,6 +100,8 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
     NoScrollGridView gridview_repair;
     @BindView(R.id.iv_picture_repair)
     NineGridView iv_picture_repair;
+    @BindView(R.id.txt_repairWork)
+    TextView txt_repairWork;
     private ImageAdapter adapterFinish;
     private ArrayList<ImageItem> selFinishList = new ArrayList<>(); // 当前选择的所有图片 完成
     private int maxImgCount_finish = 9; // 允许选择图片最大数
@@ -115,6 +118,7 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
     public static final int REQUEST_CODE_PREVIEW = 101;
     public static final int REQUEST_CODE_SELECT_FINISH = 1000;
     public static final int REQUEST_CODE_PREVIEW_FINISH = 1001;
+    private String dispatchIds;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -139,7 +143,8 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
         txt_finish_time.setText(DateUtils.getMonth_Day_Hour_Min(new Date()));
         if (UserManegerList.WORKORDER_DISP()) {//调度员
             line_byself.setVisibility(View.GONE);
-        }/* else if (UserManegerList.WORKORDER_ENGI()) {//工程师
+        }
+        /* else if (UserManegerList.WORKORDER_ENGI()) {//工程师
             line_custom.setVisibility(View.GONE);
             line_receiver.setVisibility(View.GONE);
             line_finish_time.setVisibility(View.GONE);
@@ -171,7 +176,7 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
         enum_work_mode.add(item_mode_pai);
         Intent intent = getIntent();
         if (intent != null) {
-            String dispatchIds = intent.getStringExtra("dispatchId");
+            dispatchIds = intent.getStringExtra("dispatchId");//工单号
             String isVisibles = intent.getStringExtra("isVisible");
             String contentName = intent.getStringExtra("contentName");
             if (contentName!=null){
@@ -183,6 +188,9 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
             if (dispatchIds != null) {
                 dispatchId = dispatchIds;
                 line_workNumber.setVisibility(View.VISIBLE);
+                if (UserManegerList.WORKORDER_ENGI()){
+                    txt_repairWork.setVisibility(View.VISIBLE);
+                }
             }
             ismodify = intent.getBooleanExtra("ismodify", true);
             if (ismodify == false) {//不可进行修改
@@ -219,7 +227,7 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
     }
 
     @OnClick({R.id.iv_back, R.id.txt_sure, R.id.line_workorder, R.id.txt_reciever, R.id.txt_evaluate,
-            R.id.txt_finish_time
+            R.id.txt_finish_time,R.id.txt_repairWork
             , R.id.txt_finish_byself, R.id.line_worker_mode})
     public void onClick(View view) {
         switch (view.getId()) {
@@ -258,6 +266,11 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
             case R.id.line_worker_mode://工单模式
                 if (isVisible.equals(""))
                     showSortPopup_work(txt_worker_mode, enum_work_mode);
+                break;
+            case R.id.txt_repairWork:
+                startActivity(new Intent(this, EngineerRepairActivity.class).
+                        putExtra("dispatchId", dispatchId));
+                AllActivityManager.getInstance().removeOneActivity(this);
                 break;
             default:
                 break;

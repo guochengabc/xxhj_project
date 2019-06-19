@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.kongtiaoapp.xxhj.R;
+import com.kongtiaoapp.xxhj.activites.AllActivityManager;
 import com.kongtiaoapp.xxhj.workorder.activity.EngineerRepairActivity;
 import com.kongtiaoapp.xxhj.activites.MainActivity;
 import com.kongtiaoapp.xxhj.workorder.activity.ReportWorkActivity;
@@ -519,6 +520,7 @@ public class WorkOrderFragment extends BaseFragment<WorkOrderPresenter, WorkOrde
             } else {
                 startActivity(new Intent(mActivity, EngineerRepairActivity.class).
                         putExtra("dispatchId", dispatchId));
+
             }
         } else if (UserManegerList.WORKORDER_DISP() || UserManegerList.WORKORDER_MANAGER()) {//调度员/管理员
             if (bean.getDispState() == 0 || bean.getDispState() == 1)//0抢单模式工程师未接单  1   派单模式工程师为接单

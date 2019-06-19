@@ -1,164 +1,207 @@
 {
-  "Top": [
+  "OW": [
     {
-      "TableName": "Electricity",
-      "Type": "COF",
-      "index": 0,
-      "DisPatchType": 0,
-      "ParamType": "Chart1",
-      "Value": "",
-      "Name": "1管",
-      "devideCount": 1
+      "Name": "System.OutT",
+      "Text": "室外温度(℃)"
+    } ],
+  "LCOP": [
+    {
+      "Name": "System.RunUCOP",
+      "Text": "冷机COP"
+    }
+  ],
+  "PR": [
+    {
+      "Name": "Unit",
+      "SubName": "PR",
+      "Text": "负载率",
+      "Type": "Array"
+    }
+  ],
+  "EC": [
+    {
+      "Name": "System.SEC",
+      "Text": "总功率(kW)"
     },
     {
-      "TableName": "Electricity",
-      "Type": "COF",
-      "index": 1,
-      "DisPatchType": 0,
-      "ParamType": "Chart1",
-      "Value": "",
-      "Name": "2管",
-      "devideCount": 1
+      "Name": "System.UEC",
+      "Text": "冷机功率(kW)"
+    }
+  ],
+  "SECU": [
+    {
+      "Name": "System.SEC",
+      "Text": "总功率(kW)"
+    }
+  ],
+  "DRD": [
+    {
+      "Name": "Unit",
+      "SubName": "Duration",
+      "Text": "冷机运行时长(h)",
+      "Type": "ArrayMax"
+    }
+  ],
+  "HP": [
+    {
+      "Name": "System.ChPR",
+      "Text": "冷却泵功率百分比(%)"
     },
     {
-      "TableName": "Electricity",
-      "Type": "COF",
-      "index": 2,
-      "DisPatchType": 0,
-      "ParamType": "Chart1",
-      "Value": "",
-      "Name": "3管",
-      "devideCount": 1
+      "Name": "System.CoPR1",
+      "Text": "一级冷冻泵功率百分比(%)"
     },
     {
-      "TableName": "Electricity",
-      "Type": "COF",
-      "index": 3,
-      "DisPatchType": 0,
-      "ParamType": "Chart1",
-      "Value": "",
-      "Name": "4管",
-      "devideCount": 1
+      "Name": "System.CoPR2",
+      "Text": "二级冷冻泵功率百分比(%)"
+    }
+  ],
+  "WTD": [
+    {
+      "Name": "System.ChTDAVG",
+      "Text": "冷却水温差(℃)"
     },
     {
-      "TableName": "Electricity",
-      "Type": "COF",
-      "index": 4,
-      "DisPatchType": 0,
-      "ParamType": "Chart2",
-      "Value": "",
-      "Name": "5管",
-      "devideCount": 1
+      "Name": "System.CoTDAVG",
+      "Text": "冷冻水温差(℃)"
+    }
+  ],
+  "WT": [
+    {
+      "Name": "System.CoEWT",
+      "Text": "冷冻水回水温度(℃)"
     },
     {
-      "TableName": "Electricity",
-      "Type": "COF",
-      "index": 5,
-      "DisPatchType": 0,
-      "ParamType": "Chart2",
-      "Value": "",
-      "Name": "6管",
-      "devideCount": 1
+      "Name": "System.CoLWT",
+      "Text": "冷冻水供水温度(℃)"
+    }
+  ],
+  "CHWT": [
+    {
+      "Name": "System.ChLWT",
+      "Text": "冷却水供水温度(℃)"
     },
     {
-      "TableName": "Electricity",
-      "Type": "COF",
-      "index": 6,
-      "DisPatchType": 0,
-      "ParamType": "Chart2",
-      "Value": "",
-      "Name": "7管",
-      "devideCount": 1
+      "Name": "System.ChEWT",
+      "Text": "冷却水回水温度(℃)"
     },
     {
-      "TableName": "Electricity",
-      "Type": "COF",
-      "index": 7,
-      "DisPatchType": 0,
-      "ParamType": "Chart2",
-      "Value": "",
-      "Name": "8管",
-      "devideCount": 1
+      "Name": "System.WT",
+      "Text": "湿球温度(℃)"
+    }
+  ],
+  "COWT": [
+    {
+      "Name": "System.ChLWT",
+      "Text": "冷却水供水温度(℃)"
     },
     {
-      "TableName": "Electricity",
-      "Type": "COF",
-      "index": 8,
-      "DisPatchType": 0,
-      "ParamType": "Chart3",
-      "Value": "",
-      "Name": "9管",
-      "devideCount": 1
+      "Name": "System.ChEWT",
+      "Text": "冷却水回水温度(℃)"
     },
     {
-      "TableName": "Electricity",
-      "Type": "COF",
-      "index": 9,
-      "DisPatchType": 0,
-      "ParamType": "Chart3",
-      "Value": "",
-      "Name": "10管",
-      "devideCount": 1
+      "Name": "System.WT",
+      "Text": "湿球温度(℃)"
+    }
+  ],
+  "SCOP": [
+    {
+      "Name": "System.RunSCOP",
+      "Text": "系统COP"
+    }
+  ],
+  "GCH": [
+    {
+      "Name": "System.OC",
+      "SubName": "",
+      "Type": "Array",
+      "Text": "燃气消耗(kW)"
+    }
+  ],
+  "QH": [
+    {
+      "Name": "System.RefP",
+      "Text": "冷量消耗(kW)"
+    }
+  ],
+  "HX": [
+    {
+      "Name": "System.ROutBINT",
+      "Text": "冷量消耗(MWh)"
+    }
+  ],
+  "TO": [
+    {
+      "Name": "System.SECU",
+      "Text": "电能消耗(kWh)"
+    }
+  ],
+  "TOPP": [
+    {
+      "Name": "System.SEC",
+      "Text": "功率(kW)"
+    }
+  ],
+  "FZ": [
+    {
+      "Name": "System.PR",
+      "Text": "负载率"
+    }
+  ],
+  "LQ": [
+    {
+      "Name": "Weather.WbTemp",
+      "Text": "湿球温度(℃)"
+    }
+  ],
+  "LD": [
+    {
+      "Name": "System.LDEC1",
+      "Text": "一级冷冻泵功率"
     },
     {
-      "TableName": "Electricity",
-      "Type": "COF",
-      "index": 10,
-      "DisPatchType": 0,
-      "ParamType": "Chart3",
-      "Value": "",
-      "Name": "11管",
-      "devideCount": 1
+      "Name": "System.LDEC2",
+      "Text": "二级冷冻泵功率"
+    }
+  ],
+  "LQT": [
+    {
+      "Name": "System.LQTEC",
+      "Text": "冷却塔功率"
+    }
+  ],
+  "SD": [
+    {
+      "Name": "Weather.Humidity",
+      "Text": "室外湿度(%)"
+    }
+  ],
+  "SQ": [
+    {
+      "Name": "System.WT",
+      "Text": "湿球温度(℃)"
     },
     {
-      "TableName": "Electricity",
-      "Type": "COF",
-      "index": 11,
-      "DisPatchType": 0,
-      "ParamType": "Chart3",
-      "Value": "",
-      "Name": "12管",
-      "devideCount": 1
-    },
+      "Name": "System.CoToMargin",
+      "Text": "裕度(℃)"
+    }
+  ],
+  "LJ": [
     {
-      "TableName": "Electricity",
-      "Type": "COF",
-      "index": 12,
-      "DisPatchType": 0,
-      "ParamType": "Chart4",
-      "Value": "",
-      "Name": "13管",
-      "devideCount": 1
-    },
+      "Name": "System.UEC",
+      "Text": "冷机功率"
+    }
+  ],
+  "LQB": [
     {
-      "TableName": "Electricity",
-      "Type": "COF",
-      "index": 13,
-      "DisPatchType": 0,
-      "ParamType": "Chart4",
-      "Value": "",
-      "Name": "14管",
-      "devideCount": 1
-    },
+      "Name": "System.LQEC",
+      "Text": "冷却泵功率"
+    }
+  ],
+  "ZNH": [
     {
-      "TableName": "Electricity",
-      "Type": "COF",
-      "index": 14,
-      "DisPatchType": 0,
-      "ParamType": "Chart4",
-      "Value": "",
-      "Name": "15管",
-      "devideCount": 1
-    },
-    {
-      "TableName": "Electricity",
-      "Type": "COF",
-      "index": 15,
-      "DisPatchType": 0,
-      "ParamType": "Chart4",
-      "Value": "",
-      "Name": "16管",
-      "devideCount": 1
+      "Name": "System.SEC",
+      "Text": "总功率(kW)"
     }
   ]
 }

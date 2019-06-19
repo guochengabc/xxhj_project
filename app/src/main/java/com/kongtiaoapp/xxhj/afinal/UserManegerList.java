@@ -79,10 +79,13 @@ public class UserManegerList {
      * 工单维修模块  工单编辑员，可以随意修改工单相关操作
      */
     public static boolean WORKORDER_EDITOR() {
-        String role = App.sp.getRoles();
-        List roles = JSON.parseArray(role, String.class);
-        if (roles.contains("CBB")) {
-            return true;
+        String roleArray = App.sp.getRoles();
+        List roles = JSON.parseArray(roleArray, String.class);
+        for (int i = 0; i < roles.size(); i++) {
+            String role = roles.get(i).toString();
+            if (role.contains("CBB")){
+                return true;
+            }
         }
         return false;
     }
@@ -91,10 +94,13 @@ public class UserManegerList {
      * 工单维修模块  工程师
      */
     public static boolean WORKORDER_ENGI() {
-        String role = App.sp.getRoles();
-        List roles = JSON.parseArray(role, String.class);
-        if (roles.contains("CCB")) {
-            return true;
+        String roleArray = App.sp.getRoles();
+        List roles = JSON.parseArray(roleArray, String.class);
+        for (int i = 0; i < roles.size(); i++) {
+            String role = roles.get(i).toString();
+            if (role.contains("CCB")){
+                return true;
+            }
         }
         return false;
     }
@@ -103,9 +109,13 @@ public class UserManegerList {
      * 工单维修模块  调度员
      */
     public static boolean WORKORDER_DISP() {
-        String roles = App.sp.getRoles();
-        if (roles.contains("CCC")) {
-            return true;
+        String roleArray = App.sp.getRoles();
+        List roles = JSON.parseArray(roleArray, String.class);
+        for (int i = 0; i < roles.size(); i++) {
+            String role = roles.get(i).toString();
+            if (role.contains("CCC")){
+                return true;
+            }
         }
         return false;
     }
@@ -114,9 +124,13 @@ public class UserManegerList {
      * 工单维修模块  质检员
      */
     public static boolean WORKORDER_INSP() {
-        String roles = App.sp.getRoles();
-        if (roles.contains("CCD")) {
-            return true;
+        String roleArray = App.sp.getRoles();
+        List roles = JSON.parseArray(roleArray, String.class);
+        for (int i = 0; i < roles.size(); i++) {
+            String role = roles.get(i).toString();
+            if (role.contains("CCD")){
+                return true;
+            }
         }
         return false;
     }

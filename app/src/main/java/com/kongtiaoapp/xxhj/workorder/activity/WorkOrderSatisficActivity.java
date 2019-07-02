@@ -8,6 +8,7 @@ import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.kongtiaoapp.xxhj.App;
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.activites.UserListActivity;
 import com.kongtiaoapp.xxhj.workorder.adapter.WorkOrderSatisficAdapter;
@@ -118,6 +119,7 @@ public class WorkOrderSatisficActivity extends BaseActivity<WorkOrderSatisficPre
 
     @Override
     protected void initView() {
+        userId = App.sp.getUid();
         list = new ArrayList<>();
         list1 = new ArrayList<>();
         if (ScreenUtils.isScreenOriatationPortrait(this)) {

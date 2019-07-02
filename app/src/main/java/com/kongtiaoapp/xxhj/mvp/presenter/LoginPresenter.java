@@ -92,7 +92,9 @@ public class LoginPresenter extends BasePresenterLpl<LoginView, Loginlpl> {
                         Intent intent = new Intent(activity, MainActivity.class);
                         intent.putExtra("main", "resume");
                         activity.startActivity(intent);
+                        activity.finish();
                         AllActivityManager.getInstance().finishAllActivity();
+
                     } catch (DbException e) {
                         e.printStackTrace();
                     }

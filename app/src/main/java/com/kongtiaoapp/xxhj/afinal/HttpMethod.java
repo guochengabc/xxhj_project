@@ -855,6 +855,14 @@ public class HttpMethod {
      */
     public static final String HVAC_MAIN = "HVAC_Main";
     /**
+     * 明德医院
+     */
+    public static final String MINGDE = "mingde";
+    /**
+     * 明德医院图表
+     */
+    public static final String MINGDECHART = "mingdeChart";
+    /**
      * 获取暖通新版项目图表数据
      */
     public static final String HVAC_MAINCHART = "HVAC_MainChart";

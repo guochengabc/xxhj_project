@@ -18,9 +18,10 @@ import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.adapter.EnvironmentStatisticAdapter;
 import com.kongtiaoapp.xxhj.bean.EnvironmentCPaintBean;
 import com.kongtiaoapp.xxhj.bean.EnvironmentInnerBan;
+import com.kongtiaoapp.xxhj.bean.NoRealTimeBean;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
-import com.kongtiaoapp.xxhj.mvp.presenter.HvacNewP;
-import com.kongtiaoapp.xxhj.mvp.view.HvacNewV;
+import com.kongtiaoapp.xxhj.mvp.presenter.NoRealTimePresenter;
+import com.kongtiaoapp.xxhj.mvp.view.NoRealTimeView;
 import com.kongtiaoapp.xxhj.ui.address.ScreenUtils;
 import com.kongtiaoapp.xxhj.ui.view.Mf_Tools;
 import com.kongtiaoapp.xxhj.ui.view.NoScrollGridView;
@@ -29,6 +30,7 @@ import com.kongtiaoapp.xxhj.utils.MyTablayout;
 import com.kongtiaoapp.xxhj.utils.emoji.ToastUtils;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.BindView;
@@ -36,7 +38,7 @@ import butterknife.OnClick;
 
 import static com.kongtiaoapp.xxhj.R.id.rela_paint;
 
-public class HvacNewActivity extends BaseActivity<HvacNewP,HvacNewV> implements HvacNewV,  RadioGroup.OnCheckedChangeListener {
+public class NoRealTimeActivity extends BaseActivity<NoRealTimePresenter, NoRealTimeView> implements NoRealTimeView, RadioGroup.OnCheckedChangeListener {
 
     @BindView(R.id.glv_statistic)
     NoScrollGridView glv_statistic;//顶部列表
@@ -111,6 +113,10 @@ public class HvacNewActivity extends BaseActivity<HvacNewP,HvacNewV> implements 
     RadioButton radio0;//时
     @BindView(R.id.radio1)
     RadioButton radio1;//日
+    @BindView(R.id.txt_analysis)
+    TextView txt_analysis;//分析字
+    @BindView(R.id.tv_analysisContent)
+    TextView txt_analysisContent;
     private boolean isMonth = false;
     private List<TextView> list = new ArrayList<>();
     private List<TextView> list1 = new ArrayList<>();
@@ -125,6 +131,7 @@ public class HvacNewActivity extends BaseActivity<HvacNewP,HvacNewV> implements 
     private EnvironmentStatisticAdapter adapterStatistic;
     private int dateType;
     private String projectId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -132,7 +139,7 @@ public class HvacNewActivity extends BaseActivity<HvacNewP,HvacNewV> implements 
 
     @Override
     protected int initContentView() {
-        return R.layout.activity_new_hvac_new;
+        return R.layout.activity_no_real_time;
     }
 
     @Override
@@ -153,7 +160,7 @@ public class HvacNewActivity extends BaseActivity<HvacNewP,HvacNewV> implements 
     protected void initData() {
         Intent intent = getIntent();
         if (intent != null) {
-            projectId = intent.getStringExtra("projectId")==null?"":intent.getStringExtra("projectId");
+            projectId = intent.getStringExtra("projectId") == null ? "" : intent.getStringExtra("projectId");
         }
         if (ScreenUtils.isScreenOriatationPortrait(this)) {
             Mf_Tools.setLayoutHeight(this, frame_up, rela_loading, 1);//根据横竖屏切换控制视图展示   竖屏
@@ -162,12 +169,12 @@ public class HvacNewActivity extends BaseActivity<HvacNewP,HvacNewV> implements 
             Mf_Tools.setLayoutHeight(this, frame_up, rela_loading, 2);//根据横竖屏切换控制视图展示  横屏
             Mf_Tools.setLayoutHeight(this, frame_down, rela_loading1, 2);//根据横竖屏切换控制视图展示
         }
-        presenter.onResume(this,projectId);
+        presenter.onResume(this, projectId);
     }
 
     @Override
-    protected HvacNewP getPresenter() {
-        return new HvacNewP();
+    protected NoRealTimePresenter getPresenter() {
+        return new NoRealTimePresenter();
     }
 
 
@@ -183,7 +190,6 @@ public class HvacNewActivity extends BaseActivity<HvacNewP,HvacNewV> implements 
         Mf_Tools.setLayoutHeight(this, frame_up, rela_loading, newConfig.orientation);//根据横竖屏切换控制视图展示
         Mf_Tools.setLayoutHeight(this, frame_down, rela_loading1, newConfig.orientation);//根据横竖屏切换控制视图展示
     }
-
 
 
     private void setTabPaint(List<EnvironmentInnerBan.ResobjBean.ChartArrayBean> runData) {
@@ -236,8 +242,13 @@ public class HvacNewActivity extends BaseActivity<HvacNewP,HvacNewV> implements 
         list.add(projectId);
         list.add(date);
         list.add(type);
-        list.add(tabPosition+"");
-        presenter.getChart(this, list);
+        list.add(tabPosition + "");
+        if (date.length() > 7) {
+            presenter.getChart(this, list);
+        } else {
+            presenter.getChartMonth(this, list);
+        }
+
     }
 
     private void setTabColor(String[] title, TabLayout tabs) {
@@ -356,6 +367,51 @@ public class HvacNewActivity extends BaseActivity<HvacNewP,HvacNewV> implements 
     public void getChart(Object data) {
         rela_loading.removeAllViews();
         rela_loading1.removeAllViews();
+        NoRealTimeBean bean = (NoRealTimeBean) data;
+        NoRealTimeBean.ResobjBean resobj = bean.getResobj();
+        Mf_Tools.hintAllView(list);
+        Mf_Tools.hintAllView(list1);
+        txt_notata.setVisibility(View.VISIBLE);
+        txt_notata.setText(whichPaint == 0 ? day : month);
+        line_onePaint.setVisibility(View.GONE);
+        line_twoPaint.setVisibility(View.GONE);
+        if (resobj == null) {
+            return;
+        }
+        //第一张图表
+        List<NoRealTimeBean.ResobjBean.DataBean> listChat = resobj.getData();
+        line_onePaint.setVisibility(View.VISIBLE);
+        if (listChat == null) {
+            return;
+        }
+        try {
+            List<double[]> listY = new ArrayList<>();
+            String[] titles = new String[listChat.size()];
+            int maxX = 24;
+
+            for (int i = 0; i < listChat.size(); i++) {
+                NoRealTimeBean.ResobjBean.DataBean dataBean = listChat.get(i);
+                titles[i] = dataBean.getDeviceName();
+                double[] coFDataInner = dataBean.getCoFDataInner();
+                listY.add(coFDataInner);
+                int xCount = Integer.parseInt(dataBean.getCounts() == null ? 0 + "" : dataBean.getCounts());
+                maxX = 4 * xCount + 5;
+            }
+            Mf_Tools.setDataNoRealTime(titles, listY, resobj.getTime(), maxX, resobj.getMaxY(), resobj.getMinY(), this, rela_loading, new Date().getTime());
+            setGraph(titles);//设置图列的个数
+            txt_analysis.setVisibility(View.VISIBLE);
+            txt_analysisContent.setVisibility(View.VISIBLE);
+            txt_analysisContent.setText(resobj.getStatistical() == null ? "" : resobj.getStatistical());
+        } catch (Exception e) {
+            ToastUtils.showToast(this, "图表数据有异常,请您稍后再尝试!");
+            return;
+        }
+    }
+
+    @Override
+    public void getChartMonth(Object data) {
+        rela_loading.removeAllViews();
+        rela_loading1.removeAllViews();
         EnvironmentCPaintBean bean = (EnvironmentCPaintBean) data;
         EnvironmentCPaintBean.ResobjBean resobj = bean.getResobj();
         Mf_Tools.hintAllView(list);
@@ -410,49 +466,6 @@ public class HvacNewActivity extends BaseActivity<HvacNewP,HvacNewV> implements 
         } catch (Exception e) {
             ToastUtils.showToast(this, "图表数据有异常,请您稍后再尝试!");
             return;
-        }
-
-        //第二张图表
-        if (chartSize == 2) {
-            line_twoPaint.setVisibility(View.VISIBLE);
-            EnvironmentCPaintBean.ResobjBean.DataBean dataBean1 = listChat.get(1);
-            List<EnvironmentCPaintBean.ResobjBean.DataBean.CharDataBean> listData1 = dataBean1.getCharData();
-            if (listData1 == null) {
-                return;
-            }
-            try {
-                List<double[]> listX1 = new ArrayList<>();
-                List<double[]> listY1 = new ArrayList<>();
-                String[] titles1 = new String[listData1.size()];
-                for (int i = 0; i < listData1.size(); i++) {
-                    titles1[i] = listData1.get(i).getText();
-                    listX1.add(resobj.getTime());
-                    listY1.add(listData1.get(i).getValue());
-                }
-                if (resobj.getFlag().equals("Z")) {
-                    if (whichPaint == 0) {
-                        Mf_Tools.setData(titles1, listY1, listX1, dataBean1.getMaxX(), dataBean1.getMaxY(), dataBean1.getMinY(), this, rela_loading1, false, resobj.getNowTime());
-                    } else {
-                        Mf_Tools.setData(titles1, listY1, listX1, dataBean1.getMaxX(), dataBean1.getMaxY(), dataBean1.getMinY(), this, rela_loading1, true, resobj.getNowTime());
-                    }
-                } else if (resobj.getFlag().equals("S")) {
-                    if (whichPaint == 0) {
-                        Mf_Tools.setData(titles1, listY1, listX1, dataBean1.getMaxX(), dataBean1.getMaxY(), dataBean1.getMinY(), this, rela_loading1, false, "month", resobj.getNowTime());
-                    } else {
-                        Mf_Tools.setData(titles1, listY1, listX1, dataBean1.getMaxX(), dataBean1.getMaxY(), dataBean1.getMinY(), this, rela_loading1, true, "month", resobj.getNowTime());
-                    }
-                } else {
-                    if (whichPaint == 0) {
-                        Mf_Tools.setData(titles1, listY1, listX1, dataBean1.getMaxX(), dataBean1.getMaxY(), dataBean1.getMinY(), this, rela_loading1, false, resobj.getNowTime());
-                    } else {
-                        Mf_Tools.setData(titles1, listY1, listX1, dataBean1.getMaxX(), dataBean1.getMaxY(), dataBean1.getMinY(), this, rela_loading1, true, resobj.getNowTime());
-                    }
-                }
-                setGraph1(titles1);//设置图列的个数
-            } catch (Exception e) {
-                ToastUtils.showToast(this, "图表数据有异常,请您稍后再尝试!");
-                return;
-            }
         }
     }
 
@@ -518,7 +531,6 @@ public class HvacNewActivity extends BaseActivity<HvacNewP,HvacNewV> implements 
                 break;
         }
     }
-
 
 
     @Override

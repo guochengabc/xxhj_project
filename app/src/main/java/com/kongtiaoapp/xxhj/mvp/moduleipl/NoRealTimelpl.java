@@ -1,12 +1,14 @@
 package com.kongtiaoapp.xxhj.mvp.moduleipl;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.kongtiaoapp.xxhj.afinal.ConstantValue;
 import com.kongtiaoapp.xxhj.afinal.HttpMethod;
 import com.kongtiaoapp.xxhj.bean.EnvironmentCPaintBean;
 import com.kongtiaoapp.xxhj.bean.EnvironmentInnerBan;
-import com.kongtiaoapp.xxhj.mvp.module.HvacNewM;
+import com.kongtiaoapp.xxhj.bean.NoRealTimeBean;
+import com.kongtiaoapp.xxhj.mvp.module.NoRealTimeModule;
 import com.kongtiaoapp.xxhj.net.okhttp.Encode_params;
 import com.kongtiaoapp.xxhj.net.okhttp.GetTask;
 import com.kongtiaoapp.xxhj.net.okhttp.ParamJson;
@@ -16,10 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * 新版暖通项目  包含海底捞
- */
-public class HvacNewl implements HvacNewM {
+public class NoRealTimelpl implements NoRealTimeModule {
     @Override
     public void getDataForservices(Activity activity, Object data, ResponseXXHJListener listener) {
         Map<String, String> map = new HashMap<String, String>();
@@ -42,11 +41,21 @@ public class HvacNewl implements HvacNewM {
         map.put("type", list.get(2));
         map.put("position", list.get(3));
         Map<String, String> params = new HashMap<String, String>();
-        if (list.get(0).equals("3346a6ab81b64621aaaa83c670f3105b")) {//明德医院
-            params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.MINGDECHART, map));
-        } else {
-            params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.HVAC_MAINCHART, map));
-        }
-        new GetTask<EnvironmentCPaintBean>(activity, EnvironmentCPaintBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();
+        params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.MINGDECHART, map));
+        new GetTask<NoRealTimeBean>(activity, NoRealTimeBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();
+    }
+
+    @Override
+    public void getChartMonth(Activity activity, Object data, ResponseXXHJListener lisenter) {
+        Log.i("fffffffff","===================");
+        List<String> list = (List<String>) data;
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("projectId", list.get(0));
+        map.put("date", list.get(1));
+        map.put("type", list.get(2));
+        map.put("position", list.get(3));
+        Map<String, String> params = new HashMap<String, String>();
+        params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.MINGDECHART, map));
+        new GetTask<EnvironmentCPaintBean>(activity, EnvironmentCPaintBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, lisenter).execute();
     }
 }

@@ -6,10 +6,10 @@ package com.kongtiaoapp.xxhj.afinal;
 public class ConstantValue {
 
     // V3正式环境
-//    public static String HTTP_URL = "http://api.xiaoxitech.cn/v3/Process";
-//    public static String HTTP_URLS = "https://api.xiaoxitech.cn/v3/Process";
-//    public static String URL = "http://xiaoxitech.cn/";
-//    public static String URLS = "https://xiaoxitech.cn/";
+    /*public static String HTTP_URL = "http://api.xiaoxitech.cn/v3/Process";
+    public static String HTTP_URLS = "https://api.xiaoxitech.cn/v3/Process";
+    public static String URL = "http://xiaoxitech.cn/";
+    public static String URLS = "https://xiaoxitech.cn/";*/
     // 测试环境
   /*  public static String HTTP_URL = "http://api.xiaoxitech.cn/v3_test/Process";
     public static String HTTP_URLS = "https://api.xiaoxitech.cn/v3_test/Process";
@@ -27,11 +27,11 @@ public class ConstantValue {
   //  public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process"; 我的本地IP地址
     public static String URL = "http://192.168.1.141/";
     public static String URLS = "https://192.168.1.141/";*/
-  public static String HTTP_URL = "http://10.0.2.2:8080/ktjnAPP/Process";
-  public static String HTTP_URLS = "http://10.0.2.2:8080/ktjnAPP/Process";
-  //  public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process"; 我的本地IP地址
+/*  public static String HTTP_URL = "http://10.0.2.2:8080/ktjnAPP/Process";
+ // public static String HTTP_URLS = "http://10.0.2.2:8080/ktjnAPP/Process";
+   public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process"; //我的本地IP地址
   public static String URL = "http://192.168.1.141/";
-  public static String URLS = "https://192.168.1.141/";
+  public static String URLS = "https://192.168.1.141/";*/
     //杜雪冰地址
   /*
   public static String HTTP_URL = "http://192.168.1.150:8080/ktjnAPP/Process";
@@ -39,16 +39,13 @@ public class ConstantValue {
   //  public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process"; 我的本地IP地址
   public static String URL = "http://192.168.1.150/";
   public static String URLS = "https://192.168.1.150/";*/
-
     //本地手机测试
     // 本地环境
-
-
-    /* public static String HTTP_URL = "http://192.168.1.132:8080/ktjnAPP/Process";
+     public static String HTTP_URL = "http://192.168.1.132:8080/ktjnAPP/Process";
      public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process";
      //  public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process"; 我的本地IP地址
      public static String URL = "http://192.168.1.141/";
-     public static String URLS = "https://192.168.1.141/";*/
+     public static String URLS = "https://192.168.1.141/";
     //APP下载地址
     public static String APP_URL = "http://files.xiaoxitech.cn/";
 
@@ -99,6 +96,7 @@ public class ConstantValue {
     public static final int GETHEATECEEDATA1 = 0x0020ACAA1;//5.3.7获取燃气消耗监测记录1（暖）
     public static final int GETHEATSAFEDATA = 0x0020ACAA39;//5.3.9获取热源设备安全监测记录（暖）
     public static final int GETHEATTRANSFERDATA = 0x0020ACAA31;//5.3.10获取热量输送监测记录（暖）
+
     public static final int GETRUNREPORT = 0x0057;//5.7获取报告的内容
     public static final int POSTRUNNINGDATA = 0x0021;//提交设备
     public static final int GETDIAGDATALIST = 0x0022;//诊断记录列表

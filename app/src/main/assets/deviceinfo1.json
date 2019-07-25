@@ -1,207 +1,31 @@
 {
-  "OW": [
-    {
-      "Name": "System.OutT",
-      "Text": "室外温度(℃)"
-    } ],
-  "LCOP": [
-    {
-      "Name": "System.RunUCOP",
-      "Text": "冷机COP"
-    }
-  ],
-  "PR": [
-    {
-      "Name": "Unit",
-      "SubName": "PR",
-      "Text": "负载率",
-      "Type": "Array"
-    }
-  ],
-  "EC": [
-    {
-      "Name": "System.SEC",
-      "Text": "总功率(kW)"
-    },
-    {
-      "Name": "System.UEC",
-      "Text": "冷机功率(kW)"
-    }
-  ],
-  "SECU": [
-    {
-      "Name": "System.SEC",
-      "Text": "总功率(kW)"
-    }
-  ],
-  "DRD": [
-    {
-      "Name": "Unit",
-      "SubName": "Duration",
-      "Text": "冷机运行时长(h)",
-      "Type": "ArrayMax"
-    }
-  ],
-  "HP": [
-    {
-      "Name": "System.ChPR",
-      "Text": "冷却泵功率百分比(%)"
-    },
-    {
-      "Name": "System.CoPR1",
-      "Text": "一级冷冻泵功率百分比(%)"
-    },
-    {
-      "Name": "System.CoPR2",
-      "Text": "二级冷冻泵功率百分比(%)"
-    }
-  ],
-  "WTD": [
-    {
-      "Name": "System.ChTDAVG",
-      "Text": "冷却水温差(℃)"
-    },
-    {
-      "Name": "System.CoTDAVG",
-      "Text": "冷冻水温差(℃)"
-    }
-  ],
-  "WT": [
-    {
-      "Name": "System.CoEWT",
-      "Text": "冷冻水回水温度(℃)"
-    },
-    {
-      "Name": "System.CoLWT",
-      "Text": "冷冻水供水温度(℃)"
-    }
-  ],
-  "CHWT": [
-    {
-      "Name": "System.ChLWT",
-      "Text": "冷却水供水温度(℃)"
-    },
-    {
-      "Name": "System.ChEWT",
-      "Text": "冷却水回水温度(℃)"
-    },
-    {
-      "Name": "System.WT",
-      "Text": "湿球温度(℃)"
-    }
-  ],
-  "COWT": [
-    {
-      "Name": "System.ChLWT",
-      "Text": "冷却水供水温度(℃)"
-    },
-    {
-      "Name": "System.ChEWT",
-      "Text": "冷却水回水温度(℃)"
-    },
-    {
-      "Name": "System.WT",
-      "Text": "湿球温度(℃)"
-    }
-  ],
-  "SCOP": [
-    {
-      "Name": "System.RunSCOP",
-      "Text": "系统COP"
-    }
-  ],
-  "GCH": [
-    {
-      "Name": "System.OC",
-      "SubName": "",
-      "Type": "Array",
-      "Text": "燃气消耗(kW)"
-    }
-  ],
-  "QH": [
-    {
-      "Name": "System.RefP",
-      "Text": "冷量消耗(kW)"
-    }
-  ],
-  "HX": [
-    {
-      "Name": "System.ROutBINT",
-      "Text": "冷量消耗(MWh)"
-    }
-  ],
-  "TO": [
-    {
-      "Name": "System.SECU",
-      "Text": "电能消耗(kWh)"
-    }
-  ],
-  "TOPP": [
-    {
-      "Name": "System.SEC",
-      "Text": "功率(kW)"
-    }
-  ],
-  "FZ": [
-    {
-      "Name": "System.PR",
-      "Text": "负载率"
-    }
-  ],
-  "LQ": [
-    {
-      "Name": "Weather.WbTemp",
-      "Text": "湿球温度(℃)"
-    }
-  ],
-  "LD": [
-    {
-      "Name": "System.LDEC1",
-      "Text": "一级冷冻泵功率"
-    },
-    {
-      "Name": "System.LDEC2",
-      "Text": "二级冷冻泵功率"
-    }
-  ],
-  "LQT": [
-    {
-      "Name": "System.LQTEC",
-      "Text": "冷却塔功率"
-    }
-  ],
-  "SD": [
-    {
-      "Name": "Weather.Humidity",
-      "Text": "室外湿度(%)"
-    }
-  ],
-  "SQ": [
-    {
-      "Name": "System.WT",
-      "Text": "湿球温度(℃)"
-    },
-    {
-      "Name": "System.CoToMargin",
-      "Text": "裕度(℃)"
-    }
-  ],
-  "LJ": [
-    {
-      "Name": "System.UEC",
-      "Text": "冷机功率"
-    }
-  ],
-  "LQB": [
-    {
-      "Name": "System.LQEC",
-      "Text": "冷却泵功率"
-    }
-  ],
-  "ZNH": [
-    {
-      "Name": "System.SEC",
-      "Text": "总功率(kW)"
-    }
-  ]
+  "ProjectId": "3346a6ab81b64621aaaa83c670f3105b",
+  "Data": {
+    "Electricity": [
+      {
+        "name": "喷淋",
+        "PointCoF": "0",
+        "CoF": "0.0",
+        "F": "4.0",
+        "DeviceId": "0b06cc3c9496452"
+      },
+      {
+        "name": "消防栓",
+        "PointCoF": "0",
+        "CoF": "0.0",
+        "F": "21.0",
+        "DeviceId": "7bfc40ccd15b4e9"
+      }
+    ]
+  },
+  "Time": 1563955214865,
+  "_id": {
+    "date": 1563955216000,
+    "machineIdentifier": 3939309,
+    "counter": 9653646,
+    "processIdentifier": 22408,
+    "time": 1563955216000,
+    "timeSecond": 1563955216,
+    "timestamp": 1563955216
+  }
 }

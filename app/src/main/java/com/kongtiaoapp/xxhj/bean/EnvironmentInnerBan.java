@@ -222,7 +222,7 @@ public class EnvironmentInnerBan extends RBResponse {
             private String Type;
             private int DateType;
             private String Name;
-
+            private String DeviceId;
             public String getType() {
                 return Type;
             }
@@ -245,6 +245,14 @@ public class EnvironmentInnerBan extends RBResponse {
 
             public void setName(String Name) {
                 this.Name = Name;
+            }
+
+            public String getDeviceId() {
+                return DeviceId;
+            }
+
+            public void setDeviceId(String deviceId) {
+                DeviceId = deviceId;
             }
         }
 

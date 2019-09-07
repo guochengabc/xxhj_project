@@ -5,7 +5,6 @@ import android.util.Log;
 
 import com.kongtiaoapp.xxhj.afinal.ConstantValue;
 import com.kongtiaoapp.xxhj.afinal.HttpMethod;
-import com.kongtiaoapp.xxhj.bean.EnvironmentCPaintBean;
 import com.kongtiaoapp.xxhj.bean.EnvironmentInnerBan;
 import com.kongtiaoapp.xxhj.bean.NoRealTimeBean;
 import com.kongtiaoapp.xxhj.mvp.module.NoRealTimeModule;
@@ -56,6 +55,6 @@ public class NoRealTimelpl implements NoRealTimeModule {
         map.put("position", list.get(3));
         Map<String, String> params = new HashMap<String, String>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.MINGDECHART, map));
-        new GetTask<EnvironmentCPaintBean>(activity, EnvironmentCPaintBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, lisenter).execute();
+        new GetTask<NoRealTimeBean>(activity, NoRealTimeBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, lisenter).execute();
     }
 }

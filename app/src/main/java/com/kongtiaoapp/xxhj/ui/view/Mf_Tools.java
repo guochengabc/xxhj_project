@@ -165,6 +165,29 @@ public class Mf_Tools {
 
     }
 
+/**
+     * 设置图例，分日和月份进行处理  曲线图
+ *      isMonth      0 日     1 月      2 年
+     */
+    public static void setData(String[] titles, List<double[]> listsY, List<double[]> listX, int maxX, double maxY, double minY, Activity mActivity, RelativeLayout rela_loading, int isMonth, long nowTime) {
+        GraphicalView executes = null;
+        if (isMonth==0) {//日
+            CubicChart sensor = new CubicChart();
+            executes = sensor.execute(mActivity, titles, listX, listsY, mActivity.getResources().getString(R.string.isday), maxX, maxY, minY, true, nowTime);
+        } else if (isMonth == 1) {//月
+            BarChart sensor = new BarChart();
+            executes = sensor.execute(mActivity, titles, listX, listsY, mActivity.getResources().getString(R.string.ismonth), maxX, maxY, minY, true, nowTime);
+        }else if (isMonth == 2) {//年
+            BarChart sensor = new BarChart();
+            executes = sensor.execute(mActivity, titles, listX, listsY, mActivity.getResources().getString(R.string.isyear), maxX, maxY, minY, true, nowTime);
+        }
+        rela_loading.removeView(executes);
+        if (executes != null) {
+            rela_loading.addView(executes);
+        }
+
+    }
+
     /**
      * 设置图例，月数据显示的是曲线图
      */
@@ -189,11 +212,28 @@ public class Mf_Tools {
         GraphicalView executes = null;
         if (type.equals("0")) {
             AverageTemperatureChart sensor = new AverageTemperatureChart();
+            executes = sensor.execute(mActivity, titles, listX, listsY, mActivity.getResources().getString(R.string.isday), maxX, maxY, minY, true, nowTime);
+        } else if (type.equals("1")){
+            AverageTemperatureChart sensor = new AverageTemperatureChart();
             executes = sensor.execute(mActivity, titles, listX, listsY, mActivity.getResources().getString(R.string.ismonth), maxX, maxY, minY, true, nowTime);
-        } else {
+        }else if (type.equals("2")){
+            AverageTemperatureChart sensor = new AverageTemperatureChart();
+            executes = sensor.execute(mActivity, titles, listX, listsY, mActivity.getResources().getString(R.string.isyear), maxX, maxY, minY, true, nowTime);
+        }
+        else {
             BarChart sensor = new BarChart();
             executes = sensor.execute(mActivity, titles, listX, listsY, mActivity.getResources().getString(R.string.ismonth), maxX, maxY, minY, true, nowTime);
         }
+        if (executes != null) {
+            rela_loading.addView(executes);
+        }
+
+
+    }
+    public static void setDataMonthBar(String[] titles, List<double[]> listsY, List<double[]> listX, int maxX, double maxY, double minY, Activity mActivity, RelativeLayout rela_loading, long nowTime) {
+        BarChart sensor = new BarChart();
+        GraphicalView executes = sensor.execute(mActivity, titles, listX, listsY, mActivity.getResources().getString(R.string.ismonth), maxX, maxY, minY, false, nowTime);
+
         if (executes != null) {
             rela_loading.addView(executes);
         }

@@ -874,6 +874,15 @@ public class HttpMethod {
      * 金融街头部列表
      */
     public static final String FINALCIALCHART = "FinalcialStreetChart";
+
+    /**
+     * 获取能源管理项目UBP首页信息
+     */
+    public static final String ENERGYMAIN = "EnergyMain";
+    /**
+     * 获取能源管理项目UBP图表信息
+     */
+    public static final String ENERGYCHART = "EnergyChart";
 }
 
 

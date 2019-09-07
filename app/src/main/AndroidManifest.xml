@@ -535,8 +535,11 @@
         <activity
             android:name=".hvac_new.FanicialStreetActivity"
             android:configChanges="orientation|screenSize" />
-        <activity android:name=".hvac_new.NoRealTimeActivity"
-            android:configChanges="orientation|screenSize"></activity>
+        <activity
+            android:name=".hvac_new.NoRealTimeActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".energymetering.activity.EnergyMainActivity"
+            android:configChanges="orientation|screenSize" ></activity>
     </application>
 
 </manifest>

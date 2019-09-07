@@ -2,7 +2,6 @@ package com.kongtiaoapp.xxhj.mvp.presenter;
 
 import android.app.Activity;
 
-import com.kongtiaoapp.xxhj.bean.EnvironmentCPaintBean;
 import com.kongtiaoapp.xxhj.bean.EnvironmentInnerBan;
 import com.kongtiaoapp.xxhj.bean.NoRealTimeBean;
 import com.kongtiaoapp.xxhj.mvp.base.BasePresenterLpl;
@@ -80,7 +79,7 @@ public class NoRealTimePresenter extends BasePresenterLpl<NoRealTimeView, NoReal
 
             @Override
             public void requestSuccess(Object o) {
-                EnvironmentCPaintBean bean = (EnvironmentCPaintBean) o;
+                NoRealTimeBean bean = (NoRealTimeBean) o;
                 if (bean.getCode() == SUCCEDD) {
                     getView().getChartMonth(bean);
                 } else if (bean.getCode() == EMPTY) {

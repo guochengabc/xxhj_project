@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.adapter.EnvironmentStatisticAdapter;
-import com.kongtiaoapp.xxhj.bean.EnvironmentCPaintBean;
 import com.kongtiaoapp.xxhj.bean.EnvironmentInnerBan;
 import com.kongtiaoapp.xxhj.bean.NoRealTimeBean;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
@@ -412,8 +411,8 @@ public class NoRealTimeActivity extends BaseActivity<NoRealTimePresenter, NoReal
     public void getChartMonth(Object data) {
         rela_loading.removeAllViews();
         rela_loading1.removeAllViews();
-        EnvironmentCPaintBean bean = (EnvironmentCPaintBean) data;
-        EnvironmentCPaintBean.ResobjBean resobj = bean.getResobj();
+        NoRealTimeBean bean = (NoRealTimeBean) data;
+        NoRealTimeBean.ResobjBean resobj = bean.getResobj();
         Mf_Tools.hintAllView(list);
         Mf_Tools.hintAllView(list1);
         txt_notata.setVisibility(View.VISIBLE);
@@ -424,49 +423,41 @@ public class NoRealTimeActivity extends BaseActivity<NoRealTimePresenter, NoReal
             return;
         }
         //第一张图表
-        List<EnvironmentCPaintBean.ResobjBean.DataBean> listChat = resobj.getData();
-        int chartSize = listChat.size();//图表个数
-
+        List<NoRealTimeBean.ResobjBean.DataBean> listChat = resobj.getData();
         line_onePaint.setVisibility(View.VISIBLE);
-        EnvironmentCPaintBean.ResobjBean.DataBean dataBean = listChat.get(0);
-        List<EnvironmentCPaintBean.ResobjBean.DataBean.CharDataBean> listData = dataBean.getCharData();
-        if (listData == null) {
+        if (listChat == null) {
             return;
         }
-        try {
-            List<double[]> listX = new ArrayList<>();
-            List<double[]> listY = new ArrayList<>();
-            String[] titles = new String[listData.size()];
-            for (int i = 0; i < listData.size(); i++) {
-                titles[i] = listData.get(i).getText();
-                listX.add(resobj.getTime());
-                listY.add(listData.get(i).getValue());
-            }
 
-            if (resobj.getFlag().equals("Z")) {
-                if (whichPaint == 0) {
-                    Mf_Tools.setData(titles, listY, listX, dataBean.getMaxX(), dataBean.getMaxY(), dataBean.getMinY(), this, rela_loading, false, resobj.getNowTime());
-                } else {
-                    Mf_Tools.setData(titles, listY, listX, dataBean.getMaxX(), dataBean.getMaxY(), dataBean.getMinY(), this, rela_loading, true, resobj.getNowTime());
-                }
-            } else if (resobj.getFlag().equals("S")) {
-                if (whichPaint == 0) {
-                    Mf_Tools.setData(titles, listY, listX, dataBean.getMaxX(), dataBean.getMaxY(), dataBean.getMinY(), this, rela_loading, false, "month", resobj.getNowTime());
-                } else {
-                    Mf_Tools.setData(titles, listY, listX, dataBean.getMaxX(), dataBean.getMaxY(), dataBean.getMinY(), this, rela_loading, true, "month", resobj.getNowTime());
-                }
-            } else {
-                if (whichPaint == 0) {
-                    Mf_Tools.setData(titles, listY, listX, dataBean.getMaxX(), dataBean.getMaxY(), dataBean.getMinY(), this, rela_loading, false, resobj.getNowTime());
-                } else {
-                    Mf_Tools.setData(titles, listY, listX, dataBean.getMaxX(), dataBean.getMaxY(), dataBean.getMinY(), this, rela_loading, true, resobj.getNowTime());
-                }
-            }
-            setGraph(titles);//设置图列的个数
-        } catch (Exception e) {
-            ToastUtils.showToast(this, "图表数据有异常,请您稍后再尝试!");
-            return;
+        List<double[]> listY = new ArrayList<>();
+        String[] titles = new String[listChat.size()];
+        int maxX = 24;
+
+        for (int i = 0; i < listChat.size(); i++) {
+            NoRealTimeBean.ResobjBean.DataBean dataBean = listChat.get(i);
+            titles[i] = dataBean.getDeviceName();
+            double[] coFDataInner = dataBean.getCoFDataInner();
+            listY.add(coFDataInner);
+            int xCount = Integer.parseInt(dataBean.getCounts() == null ? 0 + "" : dataBean.getCounts());
+            maxX = 4 * xCount + 5;
         }
+        //String[] titles, List<double[]> listsY, List<double[]> listX, int maxX, double maxY, double minY, Activity mActivity, RelativeLayout rela_loading, String type, long nowTime
+        List<double[]> listX = new ArrayList<>();
+
+        List<String> time = resobj.getTime();
+        double[] xTime = new double[time.size()];
+        for (int i = 0; i < time.size(); i++) {
+            xTime[i] = Double.parseDouble(time.get(i));
+        }
+        for (int i = 0; i < listY.size(); i++) {
+            listX.add(xTime);
+        }
+        Mf_Tools.setDataMonthBar(titles, listY,listX, 31, resobj.getMaxY(), resobj.getMinY(), this, rela_loading, new Date().getTime());
+        setGraph(titles);//设置图列的个数
+        txt_analysis.setVisibility(View.VISIBLE);
+        txt_analysisContent.setVisibility(View.VISIBLE);
+        txt_analysisContent.setText(resobj.getStatistical() == null ? "" : resobj.getStatistical());
+
     }
 
 

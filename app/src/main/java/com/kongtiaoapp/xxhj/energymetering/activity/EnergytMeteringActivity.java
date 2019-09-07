@@ -36,7 +36,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * 热源计量
+ * 能源计量
  */
 public class EnergytMeteringActivity extends BaseActivity<HeatMeteringPresenter, HeatMeteringView> implements HeatMeteringView {
     @BindView(R.id.lv_energyP)

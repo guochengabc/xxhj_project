@@ -179,8 +179,8 @@ public class BarChart extends AbstractOneChart {
             renderer.setXLabels(8);
         }
         if (yMax > 0) {
-            renderer.setDisplayChartValues(false);//是否显示值
-            renderer.setChartValuesTextSize(24);
+            renderer.setDisplayChartValues(true);//是否显示值
+            renderer.setChartValuesTextSize(22);
         }
         renderer.setYLabels(5);
         if (titles.length==1){

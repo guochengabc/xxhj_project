@@ -13,6 +13,7 @@ public class DateUtils {
      * 定义常量
      **/
     public static final String DATE_JFP_STR = "yyyy-MM";
+    public static final String YEAR = "yyyy";
     public static final String DATE_FULL_STR = "yyyy-MM-dd HH:mm:ss";
     public static final String DATE_SMALL_STR = "yyyy-MM-dd";
     public static final String DATE_KEY_STR = "yyMMddHHmmss";
@@ -119,6 +120,16 @@ public class DateUtils {
         return df.format(new Date());
     }
 
+    /**
+     * 获取系统当前时间  年月
+     *
+     * @return
+     */
+    public static String getYY() {
+
+        SimpleDateFormat df = new SimpleDateFormat(YEAR);
+        return df.format(new Date());
+    }
     /**
      * 获取系统当前时间  年月
      *
@@ -390,6 +401,45 @@ public class DateUtils {
         c.set(Calendar.DATE, day + 1);
         String dayAfter = new SimpleDateFormat("yyyy-MM-dd").format(c.getTime());
         return dayAfter;
+    }
+    /**
+     * 获得指定日期的前一年
+     * @param specifiedYear
+     * @return
+     */
+    public static  String getLastYear(String specifiedYear){
+        Date date = null;
+        SimpleDateFormat format=null;
+        try {
+           format= new SimpleDateFormat("yyyy");
+            date = format.parse(specifiedYear);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.YEAR, -1);
+        return format.format(c.getTime());
+    }
+
+    /**
+     * 获得指定日期的后一年
+     * @param nextYear
+     * @return
+     */
+    public static  String getNextYear(String nextYear){
+        Date date = null;
+        SimpleDateFormat format=null;
+        try {
+         format = new SimpleDateFormat("yyyy");
+            date = format.parse(nextYear);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        c.add(Calendar.YEAR, +1);
+        return format.format(c.getTime());
     }
 }
 

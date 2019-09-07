@@ -157,6 +157,7 @@
     <string name="pickerview_minutes">分</string>
     <string name="pickerview_seconds">秒</string>
     <!--绘图是当天还是当月-->
+    <string name="isyear">月(m)</string>
     <string name="ismonth">日(d)</string>
     <string name="isday">小时(h)</string>
     <!--节能圈顶部tabs-->

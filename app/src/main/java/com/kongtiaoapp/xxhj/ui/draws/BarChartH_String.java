@@ -137,7 +137,6 @@ public class BarChartH_String extends AbstractOneChart {
                         Color.LTGRAY, Color.LTGRAY);
             }
         }
-
         if (isMonth) {
             renderer.setXLabels(1);
         } else {

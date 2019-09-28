@@ -13,6 +13,7 @@ import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.activites.AllActivityManager;
 import com.kongtiaoapp.xxhj.bean.RBResponse;
 import com.kongtiaoapp.xxhj.login_register.activity.LoginActivity;
+import com.kongtiaoapp.xxhj.utils.DBUtil;
 import com.kongtiaoapp.xxhj.utils.NetworkUtils;
 import com.kongtiaoapp.xxhj.utils.emoji.ToastUtils;
 
@@ -32,7 +33,6 @@ public class Get_NOActivity_Task<T> extends AsyncTask<Void, Void, T> {
     public static final String TAG = "xiaoxihuiju";
     private Context activity;
     private int totalTime = 3, currentTime = 0;
-
     public Get_NOActivity_Task(Context activity, Class<T> clazz, String url, ResponseXXHJListener<T> lis) {
         this.act = new WeakReference<>(activity);
         this.classOfT = clazz;
@@ -90,6 +90,7 @@ public class Get_NOActivity_Task<T> extends AsyncTask<Void, Void, T> {
             return t;
         } catch (Exception e) {
             Log.e(TAG, "PostTask Exception:" + e.toString());
+            DBUtil.StartThread();
         }
         return null;
     }

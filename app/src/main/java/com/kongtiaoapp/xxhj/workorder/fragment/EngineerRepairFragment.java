@@ -53,6 +53,7 @@ import butterknife.OnClick;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 import static com.kongtiaoapp.xxhj.R.id.txt_prospect;
+import static com.kongtiaoapp.xxhj.utils.CommonUtil.getString;
 
 
 /**

@@ -538,8 +538,26 @@
         <activity
             android:name=".hvac_new.NoRealTimeActivity"
             android:configChanges="orientation|screenSize" />
-        <activity android:name=".energymetering.activity.EnergyMainActivity"
+        <activity
+            android:name=".energymetering.activity.EnergyMainActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".activites.TestPopActivity"
             android:configChanges="orientation|screenSize" ></activity>
+        <service
+            android:name=".sockets.SocketService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <receiver
+            android:name=".sockets.SocketBroadCastReicever"
+            android:enabled="true"
+            android:permission="com.kongtiaoapp.xxhj.gc">
+            <intent-filter>
+                <action android:name="com.kongtiaoapp.xxhj.sockets.SocketBroadCastReicever" />
+            </intent-filter>
+        </receiver>
+
+
     </application>
 
 </manifest>

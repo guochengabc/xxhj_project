@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.kongtiaoapp.xxhj.App;
 import com.kongtiaoapp.xxhj.R;
 
 /**
@@ -51,6 +52,17 @@ public class ToastUtils extends Toast {
         }
         txt_toast.setText(value);
         txt_toast.setTextColor(color);
+        toast.setView(inflate);
+        // toast.setGravity(Gravity.BOTTOM, 0, 0);
+        toast.show();
+    }
+    public static void showToast( String value) {
+        Toast toast = Toast.makeText(App.application, value, Toast.LENGTH_SHORT);
+        if (inflate == null) {
+            inflate = LayoutInflater.from(App.application).inflate(R.layout.toast_view, null);
+            txt_toast = ((TextView) inflate.findViewById(R.id.txt_toast));
+        }
+        txt_toast.setText(value);
         toast.setView(inflate);
         // toast.setGravity(Gravity.BOTTOM, 0, 0);
         toast.show();

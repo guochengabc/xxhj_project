@@ -554,5 +554,17 @@ public class SpUtils {
     public String getEnvironmentImageDocument() {
         return sp.getString("environment_document", "http://xiaoxitech.cn/");//true代表在activity界面  false代表不在activity界面
     }
+    /**
+     * 配置取相关数据库url的信息
+     *
+     * @param types
+     */
+    public void setUrlType(String types) {
+        editors.putString("urlType", types);//urlType 对2进行求余，0访问一台服务器、1访问另外一台服务器
+        editors.commit();
+    }
 
+    public String getUrlType() {
+        return sp.getString("urlType", "1");//urlType 对2进行求余，0访问一台服务器、1访问另外一台服务器
+    }
 }

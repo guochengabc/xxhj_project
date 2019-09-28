@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
@@ -31,6 +32,7 @@ import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
 import com.kongtiaoapp.xxhj.mvp.presenter.MainPresenter;
 import com.kongtiaoapp.xxhj.mvp.view.MainView;
 import com.kongtiaoapp.xxhj.service.MyUpdateService;
+import com.kongtiaoapp.xxhj.sockets.SocketService;
 import com.kongtiaoapp.xxhj.ui.dialog.MyVersionDialog;
 import com.kongtiaoapp.xxhj.utils.emoji.ToastUtils;
 import com.kongtiaoapp.xxhj.workorder.fragment.WorkOrderFragment;
@@ -104,6 +106,7 @@ public class MainActivity extends BaseActivity<MainPresenter, MainView> implemen
         }
     };
     private String intentName = "";
+    private Intent intentService;
 
     @Override
     protected int initContentView() {
@@ -273,6 +276,13 @@ public class MainActivity extends BaseActivity<MainPresenter, MainView> implemen
         Intent intent = getIntent();
         String mains = intent.getStringExtra("main");
         String whichName = intent.getStringExtra("intentName");
+        if (intentService==null){
+            Log.i("ffffffffffffff","=========onCreate===========");
+            intentService = new Intent(this,SocketService.class);
+            startService(intentService);
+            Intent intentReceiver = new Intent("com.kongtiaoapp.xxhj.sockets.SocketBroadCastReicever");
+            sendBroadcast(intentReceiver);
+        }
         if (whichName != null) {
             intentName = whichName;
         }

@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kongtiaoapp.xxhj.R;
-import com.kongtiaoapp.xxhj.activites.AllActivityManager;
+import com.kongtiaoapp.xxhj.activites.TestPopActivity;
 import com.kongtiaoapp.xxhj.adapter.ModuleClickAdapter;
 import com.kongtiaoapp.xxhj.adapter.MyPageFragmentAdapter;
 import com.kongtiaoapp.xxhj.bean.ModuleBean;
@@ -155,7 +155,7 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter, MainFragme
             if (!intentName.equals("")) {
                 iv_back.setVisibility(View.VISIBLE);
             } else {
-                iv_back.setVisibility(View.GONE);
+                iv_back.setVisibility(View.VISIBLE);
             }
         }
         imageInfolist.add(R.mipmap.wuyeone);
@@ -256,7 +256,8 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter, MainFragme
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
-                AllActivityManager.getInstance().finishAllActivity();
+               // AllActivityManager.getInstance().finishAllActivity();
+                goActivity(TestPopActivity.class);
                 break;
             case R.id.img_eCode://二维码扫描记录表单
                 startActivity(new Intent(mActivity, E_CodeActivity.class));

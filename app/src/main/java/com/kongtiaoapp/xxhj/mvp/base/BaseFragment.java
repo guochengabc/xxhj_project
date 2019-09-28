@@ -1,6 +1,7 @@
 package com.kongtiaoapp.xxhj.mvp.base;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -87,7 +88,13 @@ public abstract class BaseFragment<P extends BasePresenterLpl, V extends BaseVie
 //        maps.put("reqobj", gson.toJson(map).toString());
         return string;
     }
-
+    /**
+     *
+     * @param activity      跳转到指定activity界面
+     */
+    public void goActivity(Class activity) {
+        startActivity(new Intent(mActivity, activity));
+    }
     protected void hiddenInput() {
         //没错，下面这一坨就是隐藏软键盘的代码
         ((InputMethodManager) mActivity.getSystemService(INPUT_METHOD_SERVICE)).hideSoftInputFromWindow(mActivity.getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);

@@ -4,16 +4,21 @@ package com.kongtiaoapp.xxhj.afinal;
  * Created by Shinelon on 2016/6/6.
  */
 public class ConstantValue {
+    // V3控制环境环境  在ui/view/DialogPrompt里面控制
+    /*public static String HTTP_URL = App.sp.getEnvironment() ;//"http://api.xiaoxitech.cn/v3_test/Process";
+    public static String HTTP_URLS = App.sp.getEnvironment();
+    public static String URL = "http://xiaoxitech.cn/";//"http://xiaoxitech.cn/";
+    public static String URLS = "http://xiaoxitech.cn/";*/
     //v3带ip地址正式环境
 //    public static String HTTP_URL = "http://101.201.155.109:8081/v3/Process";
 //    public static String HTTP_URLS = "https://101.201.155.109:8081/v3/Process";
 //    public static String URL = "http://xiaoxitech.cn/";
 //    public static String URLS = "https://101.201.155.109:8081/";
     // V3正式环境
-    public static String HTTP_URL = "http://api.xiaoxitech.cn/v3/Process";
+   /* public static String HTTP_URL = "http://api.xiaoxitech.cn/v3/Process";
     public static String HTTP_URLS = "https://api.xiaoxitech.cn/v3/Process";
     public static String URL = "http://xiaoxitech.cn/";
-    public static String URLS = "https://xiaoxitech.cn/";
+    public static String URLS = "https://xiaoxitech.cn/";*/
     // 测试环境
   /*  public static String HTTP_URL = "http://api.xiaoxitech.cn/v3_test/Process";
     public static String HTTP_URLS = "https://api.xiaoxitech.cn/v3_test/Process";
@@ -45,11 +50,11 @@ public class ConstantValue {
   public static String URLS = "https://192.168.1.150/";*/
     //本地手机测试
     // 本地环境
-  /*  public static String HTTP_URL = "http://192.168.1.132:8080/ktjnAPP/Process";
+    public static String HTTP_URL = "http://192.168.1.132:8080/ktjnAPP/Process";
     public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process";
     //  public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process"; 我的本地IP地址
     public static String URL = "http://192.168.1.141/";
-    public static String URLS = "https://192.168.1.141/";*/
+    public static String URLS = "https://192.168.1.141/";
     //APP下载地址
     public static String APP_URL = "http://files.xiaoxitech.cn/";
 

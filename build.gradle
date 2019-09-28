@@ -3,8 +3,13 @@ apply from:"config.gradle"
 buildscript {
     repositories {
         jcenter()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
     }
     dependencies {
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         classpath 'com.novoda:bintray-release:0.3.4'
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
@@ -24,6 +29,10 @@ allprojects {
         }
         maven { url 'https://jitpack.io' }
         mavenCentral()
+        maven {
+            url 'https://maven.google.com/'
+            name 'Google'
+        }
     }
 }
 

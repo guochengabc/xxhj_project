@@ -179,7 +179,7 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
             dispatchIds = intent.getStringExtra("dispatchId");//工单号
             String isVisibles = intent.getStringExtra("isVisible");
             String contentName = intent.getStringExtra("contentName");
-            if (contentName!=null){
+            if (contentName != null) {
                 edt_task_describe.setText(contentName);
             }
             if (isVisibles != null) {
@@ -188,7 +188,7 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
             if (dispatchIds != null) {
                 dispatchId = dispatchIds;
                 line_workNumber.setVisibility(View.VISIBLE);
-                if (UserManegerList.WORKORDER_ENGI()){
+                if (UserManegerList.WORKORDER_ENGI()) {
                     txt_repairWork.setVisibility(View.VISIBLE);
                 }
             }
@@ -227,7 +227,7 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
     }
 
     @OnClick({R.id.iv_back, R.id.txt_sure, R.id.line_workorder, R.id.txt_reciever, R.id.txt_evaluate,
-            R.id.txt_finish_time,R.id.txt_repairWork
+            R.id.txt_finish_time, R.id.txt_repairWork
             , R.id.txt_finish_byself, R.id.line_worker_mode})
     public void onClick(View view) {
         switch (view.getId()) {
@@ -371,10 +371,10 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
         String phone = edt_contactPhone.getText().toString();//联系电话
         String work_mode = txt_worker_mode.getTag().toString();//工单模式
         String recieverPeople = null;//接单人
-        if (txt_reciever.getTag()==null){
-            recieverPeople="";
-        }else{
-            recieverPeople=txt_reciever.getTag().toString();
+        if (txt_reciever.getTag() == null) {
+            recieverPeople = "";
+        } else {
+            recieverPeople = txt_reciever.getTag().toString();
         }
         //   String evaluate = txt_evaluate.getTag().toString();//质检员
         String finishTime = txt_finish_time.getText().toString();//完成时间
@@ -397,7 +397,7 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
         for (int i = 0; i < selFinishList.size(); i++) {
             list_word.add(selFinishList.get(i).path);
         }
-        presenter.onCimmit(this, list_word,selFinishList.size());
+        presenter.onCimmit(this, list_word, selFinishList.size());
     }
 
 

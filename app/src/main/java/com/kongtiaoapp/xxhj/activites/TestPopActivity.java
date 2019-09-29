@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
 
+import com.gc.popbutton.PopButton;
+import com.gc.popbutton.bean.PopButtonBean;
+import com.gc.popbutton.inter.PopItemValue;
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
 import com.kongtiaoapp.xxhj.mvp.base.BaseModule;
@@ -16,17 +19,14 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import pw.h57.popupbuttonlibrary.PopupButton;
-import pw.h57.popupbuttonlibrary.bean.PopButtonBean;
-import pw.h57.popupbuttonlibrary.inter.PopItemValue;
 
 public class TestPopActivity extends BaseActivity<BasePresenterLpl,BaseView> implements BaseView, PopItemValue {
     @BindView(R.id.rl_test)
     RelativeLayout rl_test;
     @BindView(R.id.btn)
-    PopupButton btn;
+    PopButton btn;
     @BindView(R.id.btn2)
-    PopupButton btn2;
+    PopButton btn2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

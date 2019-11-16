@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.kongtiaoapp.xxhj.R;
-import com.kongtiaoapp.xxhj.activites.TestPopActivity;
+import com.kongtiaoapp.xxhj.activites.AssetActivity;
 import com.kongtiaoapp.xxhj.adapter.ModuleClickAdapter;
 import com.kongtiaoapp.xxhj.adapter.MyPageFragmentAdapter;
 import com.kongtiaoapp.xxhj.bean.ModuleBean;
@@ -257,7 +257,8 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter, MainFragme
         switch (view.getId()) {
             case R.id.iv_back:
                // AllActivityManager.getInstance().finishAllActivity();
-                goActivity(TestPopActivity.class);
+              //  goActivity(TestPopActivity.class);//工单测试界面
+                goActivity(AssetActivity.class);
                 break;
             case R.id.img_eCode://二维码扫描记录表单
                 startActivity(new Intent(mActivity, E_CodeActivity.class));

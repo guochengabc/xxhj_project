@@ -33,24 +33,24 @@ public class Group_Project_DetailModuleIpl implements Group_Project_DetailModule
     public void getDataForservices(Activity activity, Object data, ResponseXXHJListener listener) {
         List list = (List) data;
         Map<String, String> map = new HashMap<>();
-        Log.i("TAG","数组长度=="+list.size());
-        if (list.size()==2){
-            map.put("projectType",list.get(1).toString());
+        Log.i("TAG", "数组长度==" + list.size());
+        if (list.size() == 2) {
+            map.put("projectType", list.get(1).toString());
         }
         Map<String, String> params = new HashMap<>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETPROJECTHOMEINFO, map));
         new GetTask<HVAC_ProjectDetailBean>(activity, HVAC_ProjectDetailBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), (Boolean) list.get(0), listener).execute();
-
+    
     }
 
 
     @Override
-    public void new_hvav_main(Activity activity, Object data,  ResponseXXHJListener listener) {
+    public void new_hvav_main(Activity activity, Object data, ResponseXXHJListener listener) {
         List list = (List) data;
         Map<String, String> map = new HashMap<>();
-        Log.i("TAG","数组长度=="+list.size());
-        if (list.size()==2){
-            map.put("projectType",list.get(1).toString());
+        Log.i("TAG", "数组长度==" + list.size());
+        if (list.size() == 2) {
+            map.put("projectType", list.get(1).toString());
         }
         Map<String, String> params = new HashMap<>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETNEWHVACTESTHOMEINFO, map));

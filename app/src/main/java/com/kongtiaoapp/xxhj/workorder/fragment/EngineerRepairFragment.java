@@ -14,7 +14,6 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.activites.ImageScaleActivity;
 import com.kongtiaoapp.xxhj.adapter.ImageAdapter;
@@ -38,9 +37,9 @@ import com.kongtiaoapp.xxhj.ui.view.MyScrollView;
 import com.kongtiaoapp.xxhj.ui.view.NoScrollGridView;
 import com.kongtiaoapp.xxhj.utils.DateUtils;
 import com.kongtiaoapp.xxhj.utils.GrabDialog;
+import com.kongtiaoapp.xxhj.utils.StringUtils;
 import com.kongtiaoapp.xxhj.utils.emoji.ToastUtils;
 import com.kongtiaoapp.xxhj.workorder.activity.WorkOrderActivity;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -53,7 +52,6 @@ import butterknife.OnClick;
 
 import static android.content.Context.INPUT_METHOD_SERVICE;
 import static com.kongtiaoapp.xxhj.R.id.txt_prospect;
-import static com.kongtiaoapp.xxhj.utils.CommonUtil.getString;
 
 
 /**
@@ -291,7 +289,6 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
         txt_isFinish.setTag("");
         edt_evaluate.setTag("");
         txt_isPass.setTag("");
-
         if (dispatchId != null && !dispatchId.equals("")) {
             presenter.onResume(mActivity, dispatchId);//派工单
         }
@@ -665,7 +662,7 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
                 line_workorder.getFocus(true);
             }
             if (UserManegerList.WORKORDER_INSP()) {//质检员
-                if (finishStatus == 4|| finishStatus==5) {//异常
+                if (finishStatus == 4 || finishStatus == 5) {//异常
                     line_evaluate.setVisibility(View.VISIBLE);
                     line_evaluate_commit.setVisibility(View.VISIBLE);
                 } else if (finishStatus == 6 || finishStatus == 7) {
@@ -673,74 +670,74 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
                     line_evaluate.setVisibility(View.VISIBLE);
                 }
             }
-        }else{//不带工程师得
-        //不同角色界面显示风格不一样
-        if (UserManegerList.WORKORDER_INSP()) {//质检员
+        } else {//不带工程师得
+            //不同角色界面显示风格不一样
+            if (UserManegerList.WORKORDER_INSP()) {//质检员
 
-            setComment();
-            if (finishStatus == 2) {
-                line_pros.setVisibility(View.GONE);
-                line_finish.setVisibility(View.GONE);
-                line_evaluate.setVisibility(View.GONE);
-            }
-            if (finishStatus == 3) {//勘查
+                setComment();
+                if (finishStatus == 2) {
+                    line_pros.setVisibility(View.GONE);
+                    line_finish.setVisibility(View.GONE);
+                    line_evaluate.setVisibility(View.GONE);
+                }
+                if (finishStatus == 3) {//勘查
+                    line_workorder.getFocus(true);
+                    line_finish.setVisibility(View.GONE);
+                    line_evaluate.setVisibility(View.GONE);
+                } else if (finishStatus == 4) {//异常
+                    line_pros.getFocus(true);
+                    line_finish.getFocus(true);
+                    line_evaluate.setVisibility(View.VISIBLE);
+                    line_evaluate_commit.setVisibility(View.VISIBLE);
+                } else if (finishStatus == 5) {
+                    line_pros.getFocus(true);
+                    line_finish.getFocus(true);
+                    line_evaluate_commit.setVisibility(View.VISIBLE);
+                } else if (finishStatus == 6 || finishStatus == 7) {
+                    line_workorder.getFocus(true);
+                    line_finish.setVisibility(View.VISIBLE);
+                    line_evaluate.setVisibility(View.VISIBLE);
+                }
+            } else if (UserManegerList.WORKORDER_DISP() || UserManegerList.WORKORDER_MANAGER()) {//调度员/管理员
                 line_workorder.getFocus(true);
-                line_finish.setVisibility(View.GONE);
-                line_evaluate.setVisibility(View.GONE);
-            } else if (finishStatus == 4) {//异常
-                line_pros.getFocus(true);
-                line_finish.getFocus(true);
-                line_evaluate.setVisibility(View.VISIBLE);
-                line_evaluate_commit.setVisibility(View.VISIBLE);
-            } else if (finishStatus == 5) {
-                line_pros.getFocus(true);
-                line_finish.getFocus(true);
-                line_evaluate_commit.setVisibility(View.VISIBLE);
-            } else if (finishStatus == 6 || finishStatus == 7) {
-                line_workorder.getFocus(true);
-                line_finish.setVisibility(View.VISIBLE);
-                line_evaluate.setVisibility(View.VISIBLE);
-            }
-        } else if (UserManegerList.WORKORDER_DISP() || UserManegerList.WORKORDER_MANAGER()) {//调度员/管理员
-            line_workorder.getFocus(true);
-            setComment();//共同隐藏的
-            if (finishStatus == 2) {
-                line_pros.setVisibility(View.GONE);
-                line_finish.setVisibility(View.GONE);
-                line_evaluate.setVisibility(View.GONE);
-            } else if (finishStatus == 3) {
-                line_finish.setVisibility(View.GONE);
-                line_evaluate.setVisibility(View.GONE);
-            } else if (finishStatus == 4 || finishStatus == 5) {
-                line_finish.setVisibility(View.VISIBLE);
-                line_evaluate.setVisibility(View.GONE);
-            } else if (finishStatus == 6 || finishStatus == 7) {
-                line_finish.setVisibility(View.VISIBLE);
-                line_evaluate.setVisibility(View.VISIBLE);
-            }
+                setComment();//共同隐藏的
+                if (finishStatus == 2) {
+                    line_pros.setVisibility(View.GONE);
+                    line_finish.setVisibility(View.GONE);
+                    line_evaluate.setVisibility(View.GONE);
+                } else if (finishStatus == 3) {
+                    line_finish.setVisibility(View.GONE);
+                    line_evaluate.setVisibility(View.GONE);
+                } else if (finishStatus == 4 || finishStatus == 5) {
+                    line_finish.setVisibility(View.VISIBLE);
+                    line_evaluate.setVisibility(View.GONE);
+                } else if (finishStatus == 6 || finishStatus == 7) {
+                    line_finish.setVisibility(View.VISIBLE);
+                    line_evaluate.setVisibility(View.VISIBLE);
+                }
 
-        } else if (UserManegerList.WORKORDER_EDITOR()) {
-            txt_modifyForm.setVisibility(View.VISIBLE);
-            if (finishStatus == 2) {
-                line_evaluate_commit.setVisibility(View.GONE);
-                line_pros.setVisibility(View.GONE);
-                line_finish.setVisibility(View.GONE);
-                line_evaluate.setVisibility(View.GONE);
-            } else if (finishStatus == 3) {
-                line_finish.setVisibility(View.GONE);
-                line_evaluate.setVisibility(View.GONE);
-                line_commit.setVisibility(View.GONE);
-                line_evaluate_commit.setVisibility(View.GONE);
-            } else if (finishStatus == 4 || finishStatus == 5) {
-                line_finish.setVisibility(View.VISIBLE);
-                line_evaluate.setVisibility(View.GONE);
-                line_evaluate_commit.setVisibility(View.GONE);
-            } else if (finishStatus == 6 || finishStatus == 7) {
-                line_finish.setVisibility(View.VISIBLE);
-                line_evaluate.setVisibility(View.VISIBLE);
-            }
+            } else if (UserManegerList.WORKORDER_EDITOR()) {
+                txt_modifyForm.setVisibility(View.VISIBLE);
+                if (finishStatus == 2) {
+                    line_evaluate_commit.setVisibility(View.GONE);
+                    line_pros.setVisibility(View.GONE);
+                    line_finish.setVisibility(View.GONE);
+                    line_evaluate.setVisibility(View.GONE);
+                } else if (finishStatus == 3) {
+                    line_finish.setVisibility(View.GONE);
+                    line_evaluate.setVisibility(View.GONE);
+                    line_commit.setVisibility(View.GONE);
+                    line_evaluate_commit.setVisibility(View.GONE);
+                } else if (finishStatus == 4 || finishStatus == 5) {
+                    line_finish.setVisibility(View.VISIBLE);
+                    line_evaluate.setVisibility(View.GONE);
+                    line_evaluate_commit.setVisibility(View.GONE);
+                } else if (finishStatus == 6 || finishStatus == 7) {
+                    line_finish.setVisibility(View.VISIBLE);
+                    line_evaluate.setVisibility(View.VISIBLE);
+                }
 
-        }
+            }
         }
         if (UserManegerList.WORKORDER_ENGI() && (finishStatus == 0 || finishStatus == 1)) {//是工程师，并且是以提交状态
             GrabDialog.Builder builder = new GrabDialog.Builder(mActivity);
@@ -885,7 +882,9 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
                 }
             });
         }
-        edt_finish_situation.setText(bean.getFinishDesc());
+        if (StringUtils.isNotBlank(bean.getFinishDesc())) {
+            edt_finish_situation.setText(bean.getFinishDesc());
+        }
         if (bean.getIsQualified() != null) {
             if (bean.getIsQualified().equals("0")) {
                 txt_isPass.setText("审核未通过");

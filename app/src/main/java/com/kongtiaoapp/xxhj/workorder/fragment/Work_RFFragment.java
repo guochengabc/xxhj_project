@@ -1,6 +1,4 @@
 package com.kongtiaoapp.xxhj.workorder.fragment;
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
-
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.activites.GiveWaterSystemActivity;
 import com.kongtiaoapp.xxhj.adapter.BPDAdapter;

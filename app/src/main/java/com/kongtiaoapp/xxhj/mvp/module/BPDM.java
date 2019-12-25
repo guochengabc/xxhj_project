@@ -7,4 +7,5 @@ import com.kongtiaoapp.xxhj.mvp.base.BaseModule;
  */
 
 public interface BPDM extends BaseModule {
+
 }

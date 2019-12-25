@@ -27,7 +27,7 @@ public class BDataEntryDetaill implements BDataEntryDetailM {
     public void getDataForservices(Activity activity, Object data, ResponseXXHJListener listener) {
         Map<String, String> map = new HashMap<>();
         map.put("uid", App.sp.getUid());
-        map.put("deviceId", data.toString());
+        map.put("deviceId", data==null?"":data.toString());
         Map<String, String> params = new HashMap<>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETRUNDEVICEPARAMINFO, map));
         new GetTask_ChangeParam<RunningParam>(activity, RunningParam[].class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();
@@ -47,7 +47,7 @@ public class BDataEntryDetaill implements BDataEntryDetailM {
     @Override
     public void commitData(Activity activity, Object data, ResponseXXHJListener listener) {
         Map<String, String> params = new HashMap<String, String>();
-        params.put(HttpMethod.KEY, data.toString());
+        params.put(HttpMethod.KEY, data==null?"":data.toString());
         new GetTask<RBResponse>(activity, RBResponse.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();
     }
 

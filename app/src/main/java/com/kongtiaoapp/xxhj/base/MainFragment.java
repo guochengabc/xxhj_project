@@ -123,7 +123,7 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter, MainFragme
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     ModuleBean.ResobjBean.MainArrayBean.ModuleArrayBean moduleBean = (ModuleBean.ResobjBean.MainArrayBean.ModuleArrayBean) moduleAdapter.getItem(position);
-                    if (!moduleBean.getProjectType().equals("")){
+                    if (!moduleBean.getProjectType().equals("")) {
                         if (!moduleBean.getIntentName().equals("")) {
                             try {
                                 ComponentName com = new ComponentName(moduleBean.getPackageName(), moduleBean.getIntentName());
@@ -131,7 +131,7 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter, MainFragme
                                 if (moduleBean.getPackageName().equals("com.zchg.woa")) {
                                     intent.putExtra("intentName", "xxhj");
                                 }
-                                intent.putExtra("projectId",moduleBean.getProjectId());
+                                intent.putExtra("projectId", moduleBean.getProjectId());
                                 intent.putExtra("title", moduleBean.getModuleName());
                                 intent.setComponent(com);
                                 startActivity(intent);
@@ -158,6 +158,7 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter, MainFragme
                 iv_back.setVisibility(View.VISIBLE);
             }
         }
+        iv_back.setVisibility(View.GONE);
         imageInfolist.add(R.mipmap.wuyeone);
         imageInfolist.add(R.mipmap.wuyetwo);
         imageInfolist.add(R.mipmap.wuyethree);
@@ -256,8 +257,8 @@ public class MainFragment extends BaseFragment<MainFragmentPresenter, MainFragme
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
-               // AllActivityManager.getInstance().finishAllActivity();
-              //  goActivity(TestPopActivity.class);//工单测试界面
+                // AllActivityManager.getInstance().finishAllActivity();
+                //  goActivity(TestPopActivity.class);//工单测试界面
                 goActivity(AssetActivity.class);
                 break;
             case R.id.img_eCode://二维码扫描记录表单

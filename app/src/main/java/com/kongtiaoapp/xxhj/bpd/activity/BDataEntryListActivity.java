@@ -30,6 +30,7 @@ public class BDataEntryListActivity extends BaseActivity<BDataEntryListP, BDataE
     private List<BPD_DataEntryBean.ResobjBean.PowerBean> listAll = new ArrayList<BPD_DataEntryBean.ResobjBean.PowerBean>();
     private BPD_DataEntryListAdapter adapter;
     private boolean isClick = true;
+    private String projectId;
 
 
     @Override
@@ -55,9 +56,13 @@ public class BDataEntryListActivity extends BaseActivity<BDataEntryListP, BDataE
 
     @Override
     public void initData() {
+        Intent intent = getIntent();
+        if (intent != null) {
+            projectId = intent.getStringExtra("projectId");
+        }
         adapter = new BPD_DataEntryListAdapter(this, listAll);
         listView.setAdapter(adapter);
-        presenter.onResume(this);
+        presenter.onResume(this, projectId);
     }
 
     @OnClick({R.id.iv_back})

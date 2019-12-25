@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.adapter.EnvironmentStatisticAdapter;
+import com.kongtiaoapp.xxhj.adapter.RunRecordAdapter;
 import com.kongtiaoapp.xxhj.bean.EnvironmentInnerBan;
 import com.kongtiaoapp.xxhj.bean.NoRealTimeBean;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
@@ -23,6 +24,7 @@ import com.kongtiaoapp.xxhj.mvp.presenter.NoRealTimePresenter;
 import com.kongtiaoapp.xxhj.mvp.view.NoRealTimeView;
 import com.kongtiaoapp.xxhj.ui.address.ScreenUtils;
 import com.kongtiaoapp.xxhj.ui.view.Mf_Tools;
+import com.kongtiaoapp.xxhj.ui.view.MyListView;
 import com.kongtiaoapp.xxhj.ui.view.NoScrollGridView;
 import com.kongtiaoapp.xxhj.utils.DateUtils;
 import com.kongtiaoapp.xxhj.utils.MyTablayout;
@@ -34,8 +36,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-
-import static com.kongtiaoapp.xxhj.R.id.rela_paint;
 
 public class NoRealTimeActivity extends BaseActivity<NoRealTimePresenter, NoRealTimeView> implements NoRealTimeView, RadioGroup.OnCheckedChangeListener {
 
@@ -52,7 +52,7 @@ public class NoRealTimeActivity extends BaseActivity<NoRealTimePresenter, NoReal
     LinearLayout line_onePaint;//第一张图表显示和隐藏
     @BindView(R.id.frame_up)
     FrameLayout frame_up;
-    @BindView(rela_paint)
+    @BindView(R.id.rela_paint)
     RelativeLayout rela_loading;
     @BindView(R.id.graph1)
     TextView graph1;
@@ -116,6 +116,14 @@ public class NoRealTimeActivity extends BaseActivity<NoRealTimePresenter, NoReal
     TextView txt_analysis;//分析字
     @BindView(R.id.tv_analysisContent)
     TextView txt_analysisContent;
+    @BindView(R.id.lv_runRecord)
+    MyListView lv_runRecord;//能耗曲线
+    @BindView(R.id.line_statistic)
+    LinearLayout line_statistic;//能耗分析
+    @BindView(R.id.line_run)
+    LinearLayout line_run;//运行记录
+
+
     private boolean isMonth = false;
     private List<TextView> list = new ArrayList<>();
     private List<TextView> list1 = new ArrayList<>();
@@ -130,6 +138,7 @@ public class NoRealTimeActivity extends BaseActivity<NoRealTimePresenter, NoReal
     private EnvironmentStatisticAdapter adapterStatistic;
     private int dateType;
     private String projectId;
+    RunRecordAdapter adapterRunRecord = new RunRecordAdapter(this, new ArrayList<>());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -153,6 +162,7 @@ public class NoRealTimeActivity extends BaseActivity<NoRealTimePresenter, NoReal
         month = DateUtils.getYM();
         day = DateUtils.getYMD();
         setPaint();//设置图表
+        lv_runRecord.setAdapter(adapterRunRecord);
     }
 
     @Override
@@ -398,12 +408,28 @@ public class NoRealTimeActivity extends BaseActivity<NoRealTimePresenter, NoReal
             }
             Mf_Tools.setDataNoRealTime(titles, listY, resobj.getTime(), maxX, resobj.getMaxY(), resobj.getMinY(), this, rela_loading, new Date().getTime());
             setGraph(titles);//设置图列的个数
-            txt_analysis.setVisibility(View.VISIBLE);
+            line_statistic.setVisibility(View.VISIBLE);
             txt_analysisContent.setVisibility(View.VISIBLE);
             txt_analysisContent.setText(resobj.getStatistical() == null ? "" : resobj.getStatistical());
         } catch (Exception e) {
             ToastUtils.showToast(this, "图表数据有异常,请您稍后再尝试!");
             return;
+        }
+        List<NoRealTimeBean.ResobjBean.RunRecordBean> listRunRecord = resobj.getRunRecord();//运行记录
+        if (listRunRecord != null && !listRunRecord.isEmpty()) {
+            NoRealTimeBean.ResobjBean.RunRecordBean runRecordBean = listRunRecord.get(0);
+            List<String> bRunRecord = runRecordBean.getBRunRecord();
+            if (bRunRecord==null||bRunRecord.isEmpty()){
+                line_run.setVisibility(View.GONE);
+                adapterRunRecord.setList(new ArrayList<>());
+            }else{
+                line_run.setVisibility(View.VISIBLE);
+                bRunRecord.add(0, runRecordBean.getTimepl()==null?"": runRecordBean.getTimepl());
+                bRunRecord.add(1, runRecordBean.getTimexxf()==null?"": runRecordBean.getTimexxf());
+                adapterRunRecord.setList(bRunRecord);
+            }
+
+
         }
     }
 
@@ -452,9 +478,9 @@ public class NoRealTimeActivity extends BaseActivity<NoRealTimePresenter, NoReal
         for (int i = 0; i < listY.size(); i++) {
             listX.add(xTime);
         }
-        Mf_Tools.setDataMonthBar(titles, listY,listX, 31, resobj.getMaxY(), resobj.getMinY(), this, rela_loading, new Date().getTime());
+        Mf_Tools.setDataMonthLine(titles, listY, listX, 32, resobj.getMaxY(), resobj.getMinY(), this, rela_loading, new Date().getTime());
         setGraph(titles);//设置图列的个数
-        txt_analysis.setVisibility(View.VISIBLE);
+        line_statistic.setVisibility(View.VISIBLE);
         txt_analysisContent.setVisibility(View.VISIBLE);
         txt_analysisContent.setText(resobj.getStatistical() == null ? "" : resobj.getStatistical());
 

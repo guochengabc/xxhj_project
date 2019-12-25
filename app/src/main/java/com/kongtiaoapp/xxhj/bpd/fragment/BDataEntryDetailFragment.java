@@ -72,7 +72,7 @@ public class BDataEntryDetailFragment extends BaseFragment<BDataEntryDetailP, BD
     private DeviceRunningParamAdapter adapter;
     private String deviceId = "";
     private String deviceName = "";
-    private List<RunningParam> mList;
+    private List<RunningParam> mList=new ArrayList<>();
     private String key = "";
     private DbManager db;
     private ProjectTable project;
@@ -135,19 +135,25 @@ public class BDataEntryDetailFragment extends BaseFragment<BDataEntryDetailP, BD
             case R.id.txt_setting_font_small:
                 setBackground(txt_setting_font_small, txt_setting_font_mid, txt_setting_font_big);//设置背景色
                 App.sp.setFontSize("0");
-                adapter.setList(mList, isAuto);
+                if (adapter != null) {
+                    adapter.setList(mList, isAuto);
+                }
                 break;
             case R.id.txt_setting_font_mid:
 
                 App.sp.setFontSize("1");
                 setBackground(txt_setting_font_mid, txt_setting_font_small, txt_setting_font_big);//设置背景色
-                adapter.setList(mList, isAuto);
+                if (adapter != null) {
+                    adapter.setList(mList, isAuto);
+                }
                 break;
             case R.id.txt_setting_font_big:
 
                 App.sp.setFontSize("2");
                 setBackground(txt_setting_font_big, txt_setting_font_small, txt_setting_font_mid);//设置背景色
-                adapter.setList(mList, isAuto);
+                if (adapter != null) {
+                    adapter.setList(mList, isAuto);
+                }
                 break;
             case R.id.ctv_clear://一键清空
                 List<ProjectTable> projectTable = null;

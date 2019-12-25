@@ -127,6 +127,7 @@ public class SpUtils {
     public String getPhone() {
         return sp.getString("phone", "");
     }
+
     /**
      * 设置用户密码
      *
@@ -140,9 +141,9 @@ public class SpUtils {
     public String getPwd() {
         return sp.getString("pwd", "");
     }
+
     /**
      * 设置是否为领导
-     *
      *
      * @param isLeader
      */
@@ -554,6 +555,7 @@ public class SpUtils {
     public String getEnvironmentImageDocument() {
         return sp.getString("environment_document", "http://xiaoxitech.cn/");//true代表在activity界面  false代表不在activity界面
     }
+
     /**
      * 配置取相关数据库url的信息
      *
@@ -566,5 +568,19 @@ public class SpUtils {
 
     public String getUrlType() {
         return sp.getString("urlType", "1");//urlType 对2进行求余，0访问一台服务器、1访问另外一台服务器
+    }
+
+    /**
+     * 是否是公共账号
+     *
+     * @param cNum
+     */
+    public void setCommonNum(boolean cNum) {
+        editors.putBoolean("cNumber", cNum);//是否是公共账号
+        editors.commit();
+    }
+
+    public boolean getCommonNum() {
+        return sp.getBoolean("cNumber", false);//是否是公共账号
     }
 }

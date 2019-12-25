@@ -25,7 +25,7 @@ public class BPaintP extends BasePresenterLpl<BPaintView, BPaintl> {
     /**
      * 获取tab里面的内容
      */
-    public void onResume(Activity activity, String param) {
+    public void onResume(Activity activity, List param) {
         getModel().getTabView(activity, param, new ResponseXXHJListener() {
             @Override
             public void requuestError(int code) {
@@ -73,7 +73,7 @@ public class BPaintP extends BasePresenterLpl<BPaintView, BPaintl> {
     /**
      * 获取图表
      */
-    public void getFGDL(Activity activity, String param) {
+    public void getFGDL(Activity activity, List param) {
         getModel().getFGDL(activity, param, new ResponseXXHJListener() {
             @Override
             public void requuestError(int code) {

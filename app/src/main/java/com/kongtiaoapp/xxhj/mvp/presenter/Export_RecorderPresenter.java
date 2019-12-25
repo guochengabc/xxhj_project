@@ -27,8 +27,8 @@ public class Export_RecorderPresenter extends BasePresenterLpl<Export_RecorderVi
         return new Export_Recorderlpl();
     }
 
-    public void onResume(Activity activity) {
-        getModel().getDataForservices(activity, "", new ResponseXXHJListener() {
+    public void onResume(Activity activity,String projectId) {
+        getModel().getDataForservices(activity, projectId, new ResponseXXHJListener() {
             @Override
             public void requuestError(int code) {
 

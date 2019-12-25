@@ -91,6 +91,7 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
     private int tabPosition;
     private String intentPosition;
     private StatisticEtcAdapter adapter;
+    private String projectId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -193,6 +194,7 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
             type = intent.getStringExtra("type");
             String dateSign = intent.getStringExtra("dateSign");
             intentPosition = intent.getStringExtra("position");
+            projectId = intent.getStringExtra("projectId");
             if (type != null) {
                 tv_title.setText(name);
                 if (dateSign != null) {
@@ -240,7 +242,10 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
         day = DateUtils.getYMD();
         txt_notata.setText(day);
         // getDataForService(day);
-        presenter.onResume(this, type);
+        List listTab=new ArrayList();
+        listTab.add(type);
+        listTab.add(projectId);
+        presenter.onResume(this, listTab);
 
 
     }
@@ -254,8 +259,9 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
         List<String> list = new ArrayList<>();
         list.add(date);
         list.add(type);
+        list.add(projectId);
         presenter.getPaint(this, list);
-        presenter.getFGDL(this, date);
+        presenter.getFGDL(this, list);
     }
 
     @Override

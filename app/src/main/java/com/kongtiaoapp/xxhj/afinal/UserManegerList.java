@@ -82,7 +82,8 @@ public class UserManegerList {
         String roleArray = App.sp.getRoles();
         List roles = JSON.parseArray(roleArray, String.class);
         for (int i = 0; i < roles.size(); i++) {
-            String role = roles.get(i).toString();
+            Object roleObj = roles.get(i)==null?"":roles.get(i);
+            String role = roleObj.toString();
             if (role.contains("CBB")){
                 return true;
             }
@@ -97,7 +98,8 @@ public class UserManegerList {
         String roleArray = App.sp.getRoles();
         List roles = JSON.parseArray(roleArray, String.class);
         for (int i = 0; i < roles.size(); i++) {
-            String role = roles.get(i).toString();
+            Object roleObj = roles.get(i)==null?"":roles.get(i);
+            String role = roleObj.toString();
             if (role.contains("CCB")){
                 return true;
             }
@@ -112,7 +114,8 @@ public class UserManegerList {
         String roleArray = App.sp.getRoles();
         List roles = JSON.parseArray(roleArray, String.class);
         for (int i = 0; i < roles.size(); i++) {
-            String role = roles.get(i).toString();
+            Object roleObj = roles.get(i)==null?"":roles.get(i);
+            String role = roleObj.toString();
             if (role.contains("CCC")){
                 return true;
             }
@@ -127,7 +130,8 @@ public class UserManegerList {
         String roleArray = App.sp.getRoles();
         List roles = JSON.parseArray(roleArray, String.class);
         for (int i = 0; i < roles.size(); i++) {
-            String role = roles.get(i).toString();
+            Object roleObj = roles.get(i)==null?"":roles.get(i);
+            String role = roleObj.toString();
             if (role.contains("CCD")){
                 return true;
             }

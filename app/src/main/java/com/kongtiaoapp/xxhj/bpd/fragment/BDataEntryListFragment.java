@@ -42,6 +42,7 @@ public class BDataEntryListFragment extends BaseFragment<BDataEntryListP, BDataE
     private BPD_DataEntryListAdapter adapter;
     private boolean isClick = true;
     private boolean isFirst = true;
+    private String projectId;
 
     public BDataEntryListFragment() {
         // Required empty public constructor
@@ -77,6 +78,10 @@ public class BDataEntryListFragment extends BaseFragment<BDataEntryListP, BDataE
     @Override
     public void initData() {
         super.initData();
+        Bundle bundle = getArguments();
+        if (bundle != null) {
+            projectId = bundle.getString("projectId");
+        }
         adapter = new BPD_DataEntryListAdapter(mActivity, listAll);
         listView.setAdapter(adapter);
     }
@@ -84,7 +89,7 @@ public class BDataEntryListFragment extends BaseFragment<BDataEntryListP, BDataE
     @Override
     public void onResume() {
         super.onResume();
-        presenter.onResume(mActivity);
+        presenter.onResume(mActivity,projectId);
     }
 
     @OnClick({R.id.txt_more})
@@ -92,7 +97,7 @@ public class BDataEntryListFragment extends BaseFragment<BDataEntryListP, BDataE
         switch (view.getId()) {
             case R.id.txt_more:
                 if (isClick) {
-                    startActivity(new Intent(mActivity, BDataEntryListActivity.class));
+                    startActivity(new Intent(mActivity, BDataEntryListActivity.class).putExtra("projectId",projectId));
                 }
                 break;
         }

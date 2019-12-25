@@ -81,6 +81,7 @@ public class Export_RecorderFragment extends BaseFragment<Export_RecorderPresent
     private List<Project_Module_Name.ResobjBean> list_module = new ArrayList<>();
     private CustomViewPager vp;
     private boolean isFirst = true;
+    private String projectId;
 
     public Export_RecorderFragment() {
 
@@ -114,6 +115,8 @@ public class Export_RecorderFragment extends BaseFragment<Export_RecorderPresent
     @Override
     public void initData() {
         super.initData();
+        Bundle arguments = getArguments();
+        projectId = arguments.getString("projectId");
         progress.setMax(100);
         txt_starttime.setText(DateUtils.getNowTime("yyyy-MM-dd"));
         txt_endtime.setText(DateUtils.getNowTime("yyyy-MM-dd"));
@@ -129,15 +132,12 @@ public class Export_RecorderFragment extends BaseFragment<Export_RecorderPresent
                 isFirst = !isFirst;
                 getDataForServices();
             }
-
         }
     }
 
     private void getDataForServices() {
-        presenter.onResume(mActivity);
+        presenter.onResume(mActivity,projectId);
     }
-
-
     @OnClick({R.id.btn_report, R.id.txt_starttime, R.id.txt_endtime, R.id.txt_project_select, R.id.txt_project_module})
     public void btnClick(View view) {
         switch (view.getId()) {

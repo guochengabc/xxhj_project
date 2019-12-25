@@ -10,6 +10,7 @@ import com.kongtiaoapp.xxhj.net.okhttp.Encode_params;
 import com.kongtiaoapp.xxhj.net.okhttp.GetTask;
 import com.kongtiaoapp.xxhj.net.okhttp.ParamJson;
 import com.kongtiaoapp.xxhj.net.okhttp.ResponseXXHJListener;
+import com.kongtiaoapp.xxhj.utils.StringUtils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -26,6 +27,9 @@ public class BPD_Paintl implements BPD_PaintM {
         Map<String, String> map = new HashMap<String, String>();
         map.put("date", list.get(0));
         map.put("type", list.get(1));
+        if (StringUtils.isNotBlank(data.toString())) {
+            map.put("projectId", list.get(2));
+        }
         Map<String, String> params = new HashMap<String, String>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETPOWERMONITORDATA, map));
         new GetTask<ChartDataBean>(activity, ChartDataBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();

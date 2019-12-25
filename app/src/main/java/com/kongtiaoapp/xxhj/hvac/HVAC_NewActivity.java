@@ -188,6 +188,7 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
     private String month;
     private String day;
     private String type;
+    private String projectId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -216,6 +217,11 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
     protected void initData() {
         list_param.clear();
         list_param.add(isFirst_join);
+        Intent intent = getIntent();
+        if (intent != null) {
+            projectId = intent.getStringExtra("projectId");
+            App.sp.setProjectId(projectId);
+        }
         if (!App.sp.getProjectTypeFinish().equals("")) {
             list_param.add(App.sp.getProjectTypeFinish());
         }
@@ -244,6 +250,7 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
         duty_projectFragment = new Duty_ProjectFragment(vpg_fragment);
         Bundle bundle = new Bundle();
         bundle.putString("hvac", "true");
+        bundle.putString("projectId", projectId);
         running_projectFragment.setArguments(bundle);
         list_fragemnt.add(running_projectFragment);//运行信息
         list_fragemnt.add(alarmFragment);//报警管理
@@ -308,14 +315,16 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
         final String title[] = {"报警阈值", "记录导出"};
         final List<Fragment> list_fragemnt = new ArrayList<>();
         // RunningRecord_DutyFragment running_projectFragment = new RunningRecord_DutyFragment(vpg_project_xunjian);
-        Export_RecorderFragment alarmFragment = new Export_RecorderFragment(vpg_project_xunjian);
+        Export_RecorderFragment exportFragment = new Export_RecorderFragment(vpg_project_xunjian);
         ParamSettingFragment paramSettingFragment = new ParamSettingFragment(vpg_project_xunjian);
         duty_projectFragment = new Duty_ProjectFragment(vpg_project_xunjian);
         Bundle bundle = new Bundle();
         bundle.putString("hvac", "true");
+        bundle.putString("projectId", projectId);
         // running_projectFragment.setArguments(bundle);
+        exportFragment.setArguments(bundle);
         list_fragemnt.add(paramSettingFragment);//报警阈值
-        list_fragemnt.add(alarmFragment);//记录导出
+        list_fragemnt.add(exportFragment);//记录导出
         //list_fragemnt.add(running_projectFragment);//巡检记录
         // list_fragemnt.add(duty_projectFragment);//设备管理
         MyFragmentAdapter adapter = new MyFragmentAdapter(getSupportFragmentManager(), list_fragemnt);
@@ -475,7 +484,7 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
                     }*/
                     if (infoBean.getDisplayType().equals("M")) {
                         startActivity(new Intent(HVAC_NewActivity.this, EnviromentMonitoringActivity.class));
-                    }else{
+                    } else {
                         tv_title.setText(infoBean.getName() == null ? "暖通空调" : infoBean.getName());
                         type = infoBean.getType();
                         if (whichPaint == 0) {//时
@@ -507,7 +516,7 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
                     }*/
                     if (infoBean.getDisplayType().equals("M")) {
                         startActivity(new Intent(HVAC_NewActivity.this, EnviromentMonitoringActivity.class));
-                    }else{
+                    } else {
                         tv_title.setText(infoBean.getName() == null ? "暖通空调" : infoBean.getName());
                         type = infoBean.getType();
                         if (whichPaint == 0) {//时
@@ -764,8 +773,12 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
         if (list_diagOne != null && !list_diagOne.isEmpty()) {
             if (isFist) {
                 isFist = !isFist;
-                type=resobj.getSysParamInfo().get(2).getType();
-                getPaintData( day);
+                List<HVAC_NewProjectDetailBean.ResobjBean.SysParamInfoBean> sysParamInfo = resobj.getSysParamInfo();
+                if (!sysParamInfo.isEmpty() && sysParamInfo.size() > 2) {
+                    type = sysParamInfo.get(2).getType();
+                }
+
+                getPaintData(day);
             }
 
         }

@@ -14,8 +14,8 @@ import com.kongtiaoapp.xxhj.ui.draws.AverageTemperatureChart;
 import com.kongtiaoapp.xxhj.ui.draws.BarChart;
 import com.kongtiaoapp.xxhj.ui.draws.BarChartCompare;
 import com.kongtiaoapp.xxhj.ui.draws.BarChartH_String;
-import com.kongtiaoapp.xxhj.ui.draws.BarChartNoRealTime_String;
 import com.kongtiaoapp.xxhj.ui.draws.CubicChart;
+import com.kongtiaoapp.xxhj.ui.draws.LineChartNoRealTime;
 import com.kongtiaoapp.xxhj.ui.draws.piechart.PieChart;
 import com.kongtiaoapp.xxhj.utils.DensityUtils;
 import com.kongtiaoapp.xxhj.utils.emoji.ToastUtils;
@@ -230,7 +230,16 @@ public class Mf_Tools {
 
 
     }
-    public static void setDataMonthBar(String[] titles, List<double[]> listsY, List<double[]> listX, int maxX, double maxY, double minY, Activity mActivity, RelativeLayout rela_loading, long nowTime) {
+    public static void setDataMonthLine(String[] titles, List<double[]> listsY, List<double[]> listX, int maxX, double maxY, double minY, Activity mActivity, RelativeLayout rela_loading, long nowTime) {
+
+        AverageTemperatureChart sensor = new AverageTemperatureChart();
+        GraphicalView executes = sensor.execute(mActivity, titles, listX, listsY, mActivity.getResources().getString(R.string.isyear), maxX, maxY, minY, true, nowTime);
+        if (executes != null) {
+            rela_loading.addView(executes);
+        }
+
+
+    }    public static void setDataMonthBar(String[] titles, List<double[]> listsY, List<double[]> listX, int maxX, double maxY, double minY, Activity mActivity, RelativeLayout rela_loading, long nowTime) {
         BarChart sensor = new BarChart();
         GraphicalView executes = sensor.execute(mActivity, titles, listX, listsY, mActivity.getResources().getString(R.string.ismonth), maxX, maxY, minY, false, nowTime);
 
@@ -269,7 +278,8 @@ public class Mf_Tools {
  * */
 
     public static void setDataNoRealTime(String[] titles, List<double[]> listsY, List<String> listX, double maxX, double maxY, double minY, Activity mActivity, RelativeLayout rela_loading, long nowTime) {
-        BarChartNoRealTime_String sensor = new BarChartNoRealTime_String();
+        //BarChartNoRealTime_String sensor = new BarChartNoRealTime_String();
+        LineChartNoRealTime sensor = new LineChartNoRealTime();
         GraphicalView executes = sensor.execute(mActivity, titles, listX, listsY, "",maxX, maxY, minY, false, nowTime);
         if (executes != null) {
             rela_loading.addView(executes);

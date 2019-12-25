@@ -1,16 +1,19 @@
 package com.kongtiaoapp.xxhj.afinal;
 
-import com.kongtiaoapp.xxhj.App;
-
 /**
  * Created by Shinelon on 2016/6/6.
  */
 public class ConstantValue {
     // V3控制环境环境  在ui/view/DialogPrompt里面控制
-    public static String HTTP_URL = App.sp.getEnvironment() ;//"http://api.xiaoxitech.cn/v3_test/Process";
+  /*  public static String HTTP_URL = App.sp.getEnvironment();//"http://api.xiaoxitech.cn/v3_test/Process";
     public static String HTTP_URLS = App.sp.getEnvironment();
     public static String URL = "http://xiaoxitech.cn/";//"http://xiaoxitech.cn/";
-    public static String URLS = "http://xiaoxitech.cn/";
+    public static String URLS = "http://xiaoxitech.cn/";*/
+    //39服务器
+   /* public static String HTTP_URL = "http://api.aisave.net/v3/Process";
+    public static String HTTP_URLS = "https://api.aisave.net/v3/Process";
+    public static String URL = "http://xiaoxitech.cn/";//"http://xiaoxitech.cn/";
+    public static String URLS = "http://xiaoxitech.cn/";*/
     //v3带ip地址正式环境
 //    public static String HTTP_URL = "http://101.201.155.109:8081/v3/Process";
 //    public static String HTTP_URLS = "https://101.201.155.109:8081/v3/Process";
@@ -52,11 +55,11 @@ public class ConstantValue {
   public static String URLS = "https://192.168.1.150/";*/
     //本地手机测试
     // 本地环境
-   /* public static String HTTP_URL = "http://192.168.1.132:8080/ktjnAPP/Process";
+    public static String HTTP_URL = "http://192.168.1.132:8080/ktjnAPP/Process";
     public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process";
     //  public static String HTTP_URLS = "http://192.168.1.132:8080/ktjnAPP/Process"; 我的本地IP地址
     public static String URL = "http://192.168.1.141/";
-    public static String URLS = "https://192.168.1.141/";*/
+    public static String URLS = "https://192.168.1.141/";
     //APP下载地址
     public static String APP_URL = "http://files.xiaoxitech.cn/";
 
@@ -93,7 +96,7 @@ public class ConstantValue {
     public static final int POSTDUTYRECORD = 0x0018;//5.4.1提交值班记录
     public static final int QUERYDUTYRECORDLIST = 0x0019;//5.4.3查询值班记录列表
     public static final int GETDUTYRECORD = 0x001a;//获取值班记录详情
-    public static final int GETWEATHERINFO = 0x001b;//5.5.1获取天气信息
+    public static final int GETWEATHERINFO = 0x001b;//5.5.1获取天气信息F
     public static final int PUBLISHDISCUSSTHEME = 0x001c;//4.1.1发布讨论帖
     public static final int GETDISCUSSTHEMELIST = 0x001d;//4.1.2获取讨论帖列表
     public static final int DELETEDISCUSSTHEME = 0x001e;//4.1.2获取讨论帖列表

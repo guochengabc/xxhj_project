@@ -458,4 +458,5 @@
     <string name="afjk">安防监控</string>
     <!--热源计量模块-->
     <string name="heatmeter">能源管理</string>
+    <string name="number_no_modify">公共账号不可修改哦</string>
 </resources>

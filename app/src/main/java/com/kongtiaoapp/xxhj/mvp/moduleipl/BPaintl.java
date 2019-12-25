@@ -28,6 +28,7 @@ public class BPaintl implements BPaintM {
         Map<String, String> map = new HashMap<String, String>();
         map.put("date", list.get(0));
         map.put("type", list.get(1));
+        map.put("projectId", list.get(2));
         Map<String, String> params = new HashMap<String, String>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETPOWERMONITORDATA, map));
         new GetTask<ChartDataBean>(activity, ChartDataBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();
@@ -35,16 +36,21 @@ public class BPaintl implements BPaintM {
 
     @Override
     public void getTabView(Activity activity, Object data, ResponseXXHJListener listener) {
+        List<String> list = (List<String>) data;
         Map<String, String> map = new HashMap<String, String>();
-        map.put("type", data.toString());
+        map.put("type", list.get(0));
+        map.put("projectId", list.get(1));
         Map<String, String> params = new HashMap<String, String>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETPOWERCHARTDATASOURCES, map));
         new GetTask<BTabViewBean>(activity, BTabViewBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();
     }
+
     @Override
     public void getFGDL(Activity activity, Object data, ResponseXXHJListener listener) {
+        List<String> list = (List<String>) data;
         Map<String, String> map = new HashMap<String, String>();
-        map.put("date", data.toString());
+        map.put("date", list.get(0));
+        map.put("projectId", list.get(2));
         Map<String, String> params = new HashMap<String, String>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETPOWERTABLEDATA, map));
         new GetTask<EtcStatisticBean>(activity, EtcStatisticBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), false, listener).execute();

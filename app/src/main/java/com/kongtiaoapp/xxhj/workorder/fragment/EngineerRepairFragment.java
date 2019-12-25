@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.activites.ImageScaleActivity;
 import com.kongtiaoapp.xxhj.adapter.ImageAdapter;
@@ -40,6 +41,7 @@ import com.kongtiaoapp.xxhj.utils.GrabDialog;
 import com.kongtiaoapp.xxhj.utils.StringUtils;
 import com.kongtiaoapp.xxhj.utils.emoji.ToastUtils;
 import com.kongtiaoapp.xxhj.workorder.activity.WorkOrderActivity;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedHashMap;
@@ -665,6 +667,9 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
                 if (finishStatus == 4 || finishStatus == 5) {//异常
                     line_evaluate.setVisibility(View.VISIBLE);
                     line_evaluate_commit.setVisibility(View.VISIBLE);
+                    if (finishStatus == 5) {
+                        line_workorder.getFocus(false);
+                    }
                 } else if (finishStatus == 6 || finishStatus == 7) {
                     line_finish.setVisibility(View.VISIBLE);
                     line_evaluate.setVisibility(View.VISIBLE);

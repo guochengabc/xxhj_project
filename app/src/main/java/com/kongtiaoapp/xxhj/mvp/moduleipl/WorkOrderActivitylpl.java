@@ -111,7 +111,7 @@ public class WorkOrderActivitylpl implements WorkOrderActivityModule {
         } else {
             MultipartBody.Builder builder = new MultipartBody.Builder();
             builder.setType(MultipartBody.FORM);
-            for (int i = list.size()-size; i < list.size(); i++) {
+            for (int i = list.size() - size; i < list.size(); i++) {
                 File file = new File(list.get(i));
                 builder.addFormDataPart("image", file.getName(), RequestBody.create(MEDIA_TYPE_PNG, file));
             }

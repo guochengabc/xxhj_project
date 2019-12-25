@@ -1,5 +1,6 @@
 package com.kongtiaoapp.xxhj.bpd;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -60,6 +61,7 @@ public class BPDActivity extends BaseActivity<BPDP, BPDV> implements BPDV{
     private String tabPostion_position = "0";//诊断图tab滑动的位置
     private int tab_running_position = 0;
     private Duty_ProjectFragment duty_projectFragment;
+    private String projectId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +76,11 @@ public class BPDActivity extends BaseActivity<BPDP, BPDV> implements BPDV{
 
     @Override
     protected void initView() {
-        presenter.onResume(this);
+        Intent intent = getIntent();
+        if (intent != null) {
+            projectId = intent.getStringExtra("projectId");
+        }
+        presenter.onResume(this,projectId);
     }
 
     @Override
@@ -98,6 +104,7 @@ public class BPDActivity extends BaseActivity<BPDP, BPDV> implements BPDV{
         BDataEntryListFragment dataEntryListFragment = new BDataEntryListFragment(vpg_one);
         Bundle bundle = new Bundle();
         bundle.putString("hvac", "true");
+        bundle.putString("projectId",projectId);
         dataEntryListFragment.setArguments(bundle);
         list_fragemnt.add(running_projectFragment);//报警信息
         list_fragemnt.add(alarmFragment);//值班信息
@@ -246,6 +253,7 @@ public class BPDActivity extends BaseActivity<BPDP, BPDV> implements BPDV{
         BPD_PaintFragment fragment = BPD_PaintFragment.getInstance();
         Bundle bundle = new Bundle();
         bundle.putString("time",time);
+        bundle.putString("projectId",projectId);
         bundle.putSerializable("chart",chartBean);
         fragment.setArguments(bundle);
         transaction.add(R.id.frame__paint, fragment).commit();
@@ -275,7 +283,7 @@ public class BPDActivity extends BaseActivity<BPDP, BPDV> implements BPDV{
         //能耗顶部
         List<BPD_MainInfoBean.ResobjBean.GroupDataBean> groupData = resobj.getGroupData();
         if (groupData != null) {
-            BPD_TopAdapter adapter = new BPD_TopAdapter(groupData, this);
+            BPD_TopAdapter adapter = new BPD_TopAdapter(groupData, this,projectId);
             lv_energyP.setAdapter(adapter);
         }
         initFragment(resobj.getChartCateg().getChart().get(0),resobj.getTime());//初始化fragment

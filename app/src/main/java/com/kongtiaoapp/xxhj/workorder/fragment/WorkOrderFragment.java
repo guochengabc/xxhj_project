@@ -16,13 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.kongtiaoapp.xxhj.R;
-import com.kongtiaoapp.xxhj.activites.AllActivityManager;
-import com.kongtiaoapp.xxhj.workorder.activity.EngineerRepairActivity;
 import com.kongtiaoapp.xxhj.activites.MainActivity;
-import com.kongtiaoapp.xxhj.workorder.activity.ReportWorkActivity;
-import com.kongtiaoapp.xxhj.workorder.activity.WorkOrderActivity;
-import com.kongtiaoapp.xxhj.workorder.activity.WorkOrderSatisficActivity;
-import com.kongtiaoapp.xxhj.workorder.adapter.WorkOrderAdapter;
 import com.kongtiaoapp.xxhj.afinal.ConstantValue;
 import com.kongtiaoapp.xxhj.afinal.UserManegerList;
 import com.kongtiaoapp.xxhj.bean.WorkOrderListBean;
@@ -34,6 +28,10 @@ import com.kongtiaoapp.xxhj.ui.refreshui.RotationHeader;
 import com.kongtiaoapp.xxhj.ui.refreshui.SpringView;
 import com.kongtiaoapp.xxhj.ui.view.PopWindowView;
 import com.kongtiaoapp.xxhj.utils.emoji.ToastUtils;
+import com.kongtiaoapp.xxhj.workorder.activity.EngineerRepairActivity;
+import com.kongtiaoapp.xxhj.workorder.activity.ReportWorkActivity;
+import com.kongtiaoapp.xxhj.workorder.activity.WorkOrderActivity;
+import com.kongtiaoapp.xxhj.workorder.adapter.WorkOrderAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -708,7 +706,7 @@ public class WorkOrderFragment extends BaseFragment<WorkOrderPresenter, WorkOrde
                 return;
             }
         } else if (whichActivity.equals("1")) {//统计
-            startActivity(new Intent(mActivity, WorkOrderSatisficActivity.class));
+           // startActivity(new Intent(mActivity, WorkOrderSatisficActivity.class));
         }
         // ToastUtils.showToast(mActivity, "工单统计研发中。。。");
     }

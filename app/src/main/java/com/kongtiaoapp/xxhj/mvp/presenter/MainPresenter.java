@@ -1,7 +1,9 @@
 package com.kongtiaoapp.xxhj.mvp.presenter;
 
 import android.app.Activity;
+import android.util.Log;
 
+import com.kongtiaoapp.xxhj.App;
 import com.kongtiaoapp.xxhj.bean.ModuleBean;
 import com.kongtiaoapp.xxhj.mvp.base.BasePresenterLpl;
 import com.kongtiaoapp.xxhj.mvp.moduleipl.MainModuleIpl;
@@ -41,6 +43,11 @@ public class MainPresenter extends BasePresenterLpl<MainView, MainModuleIpl> {
             @Override
             public void requestSuccess(Object o) {
                 ModuleBean bean = (ModuleBean) o;
+                ModuleBean.ResobjBean resobj = bean.getResobj();
+                Log.i("首页========",resobj.isCommon()+"===");
+                if (resobj != null) {
+                    App.sp.setCommonNum(resobj.isCommon());
+                }
                 if (bean.getCode() == SUCCEDD) {
                     getView().getModule(o);
                 } else if (bean.getCode() == EMPTY) {

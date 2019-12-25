@@ -31,6 +31,7 @@ public class BReportl implements BReportM {
     @Override
     public void getDataForservices(Activity activity, Object data, ResponseXXHJListener listener) {
         Map map = new HashMap();
+        map.put("projectId",data.toString());
         Map<String, String> params = new HashMap<>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETRDATADEFAULTPARAM, map));
         new GetTask<GetRDateParam_RecorderBean>(activity, GetRDateParam_RecorderBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();

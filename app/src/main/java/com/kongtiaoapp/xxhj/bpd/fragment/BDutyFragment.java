@@ -125,8 +125,17 @@ public class BDutyFragment extends BaseFragment<BDutyP, BDutyV> implements BDuty
     @Override
     public void setList(Object data) {
         DutyInfoBean bean = (DutyInfoBean) data;
-        txt_project_duty_person_value.setText(bean.getResobj().getUserName());
-        txt_project_connect_tel_value.setText(bean.getResobj().getPhone());
+        if (bean != null) {
+            DutyInfoBean.ResobjBean resobj = bean.getResobj();
+            if (resobj != null) {
+                txt_project_duty_person_value.setText(resobj.getUserName());
+                txt_project_connect_tel_value.setText(resobj.getPhone());
+            }
+        }else{
+            txt_project_duty_person_value.setText("暂无人员值班");
+            txt_project_connect_tel_value.setText("无");
+        }
+
     }
 
     @Override

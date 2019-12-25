@@ -174,8 +174,8 @@ public class MainActivity extends BaseActivity<MainPresenter, MainView> implemen
     }
 
     /*
-   * 从服务器中下载APK
-   */
+     * 从服务器中下载APK
+     */
     protected void downLoadApk() {
         Intent intent = new Intent(MainActivity.this, MyUpdateService.class);
         intent.putExtra("Key_App_Name", "小溪  ");
@@ -276,9 +276,9 @@ public class MainActivity extends BaseActivity<MainPresenter, MainView> implemen
         Intent intent = getIntent();
         String mains = intent.getStringExtra("main");
         String whichName = intent.getStringExtra("intentName");
-        if (intentService==null){
-            Log.i("ffffffffffffff","=========onCreate===========");
-            intentService = new Intent(this,SocketService.class);
+        if (intentService == null) {
+            Log.i("ffffffffffffff", "=========onCreate===========");
+            intentService = new Intent(this, SocketService.class);
             startService(intentService);
             Intent intentReceiver = new Intent("com.kongtiaoapp.xxhj.sockets.SocketBroadCastReicever");
             sendBroadcast(intentReceiver);
@@ -409,7 +409,7 @@ public class MainActivity extends BaseActivity<MainPresenter, MainView> implemen
             if (intentName != null || !intentName.equals("")) {
                 Bundle bundle = new Bundle();
                 bundle.putString("intentName", intentName);
-                bundle.putSerializable("mainFragment",mainArray.get(0));
+                bundle.putSerializable("mainFragment", mainArray.get(0));
                 runningFragment.setArguments(bundle);
             }
             list_fragemnt[0] = runningFragment;
@@ -441,7 +441,7 @@ public class MainActivity extends BaseActivity<MainPresenter, MainView> implemen
                         break;
                 }
             }
-              /*  if (leader.equals("BA") || leader.equals("BB") || leader.equals("BC")) {//代表的是分公司管理员或者普通用户*/
+            /*  if (leader.equals("BA") || leader.equals("BB") || leader.equals("BC")) {//代表的是分公司管理员或者普通用户*/
 
 
             // messageFragment = new MessageFragment();
@@ -459,7 +459,6 @@ public class MainActivity extends BaseActivity<MainPresenter, MainView> implemen
             checkVersion();//检查版本更新
         }
     }
-
 
 
     @Override

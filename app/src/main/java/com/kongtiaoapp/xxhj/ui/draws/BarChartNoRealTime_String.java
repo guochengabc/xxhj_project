@@ -38,7 +38,9 @@ public class BarChartNoRealTime_String extends AbstractOneChart {
      * @param nowTime the now time
      * @return the graphical view
      */
-    /*title.length()   代表的是图例的个数*/
+    /**
+     * title.length()   代表的是图例的个数
+     */
     @TargetApi(Build.VERSION_CODES.M)
     public GraphicalView execute(Context context, String[] titles, List<String> x, List<double[]> yvalues, String xtitile, double xMax, double yMax, double minY, boolean isMonth, long nowTime) {
         int[] colors = null;
@@ -172,8 +174,8 @@ public class BarChartNoRealTime_String extends AbstractOneChart {
         renderer.setYLabels(5);
         renderer.setBarSpacing(0);
         renderer.setBarWidth(35);
-        GraphicalView barChartView = ChartFactory.getBarChartView(context, buildBarDataset(titles, yvalues), renderer,
+        GraphicalView timeChartView = ChartFactory.getBarChartView(context, buildBarDataset(titles, yvalues), renderer,
                 BarChart.Type.DEFAULT);
-        return barChartView;
+        return timeChartView;
     }
 }

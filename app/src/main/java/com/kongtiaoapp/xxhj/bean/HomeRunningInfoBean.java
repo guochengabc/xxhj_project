@@ -25,6 +25,15 @@ public class HomeRunningInfoBean extends RBResponse {
 
     public static class ResobjBean {
         private List<ModulesBean> modules;
+        private boolean isCommon;
+
+        public boolean isCommon() {
+            return isCommon;
+        }
+
+        public void setCommon(boolean common) {
+            isCommon = common;
+        }
 
         public List<ModulesBean> getModules() {
             return modules;

@@ -49,7 +49,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import static com.kongtiaoapp.xxhj.R.id.ctv_commit;
 import static com.kongtiaoapp.xxhj.R.id.gridview;
 
 /**
@@ -144,7 +143,7 @@ public class EnergyRecordActivity extends BaseGuestorActivity<EnergyRecordP, Ene
         return new EnergyRecordP();
     }
 
-    @OnClick({R.id.iv_back, ctv_commit, R.id.txt_status, R.id.ctv_additionalRecord,R.id.ctv_gasRecharge})
+    @OnClick({R.id.iv_back, R.id.ctv_commit, R.id.txt_status, R.id.ctv_additionalRecord, R.id.ctv_gasRecharge})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
@@ -158,7 +157,6 @@ public class EnergyRecordActivity extends BaseGuestorActivity<EnergyRecordP, Ene
             case R.id.ctv_additionalRecord://{"Code":"time","FieldType":"dateDay","InputType":"1","Name":"","Unit":"","Value":"补录时间"}
                 startActivity(new Intent(this, EnergyRecordActivity.class).putExtra("device", (Serializable) deviceNameE_codeBean).putExtra("recordType", "reInput"));
                 finish();
-
                 break;
           /*  case R.id.ctv_caculator://录值计算   目前先不要，以后可能会用到
                 if (adapter.getRecordValue().equals("")) {
@@ -175,10 +173,19 @@ public class EnergyRecordActivity extends BaseGuestorActivity<EnergyRecordP, Ene
                 presenter.caculatorData(this, list);
                 break;*/
             case R.id.txt_status:
-                startActivity(new Intent(this, EnergyRecordStatusActivity.class));
+                if (!App.sp.getCommonNum()) {
+                    System.out.println("当前值"+App.sp.getCommonNum());
+                    startActivity(new Intent(this, EnergyRecordStatusActivity.class));
+                } else {
+                    ToastUtils.showToast(this, getString(R.string.number_no_modify));
+                }
                 break;
-            case ctv_commit:
-                commitData();//提交数据
+            case R.id.ctv_commit:
+                if (!App.sp.getCommonNum()) {
+                   commitData();//提交数据
+                } else {
+                    ToastUtils.showToast(this, getString(R.string.number_no_modify));
+                }
                 break;
         }
     }
@@ -418,7 +425,7 @@ public class EnergyRecordActivity extends BaseGuestorActivity<EnergyRecordP, Ene
         EnergyRecordBean.ResobjBean resobj = bean.getResobj();
         setReadModel(resobj);//设置自动检测和手动录入
         try {
-            if (!resobj.getSensorType().equals("Gas")){
+            if (!resobj.getSensorType().equals("Gas")) {
                 ctv_gasRecharge.setVisibility(View.GONE);
             }
         } catch (Exception e) {

@@ -25,7 +25,16 @@ public class ModuleBean extends RBResponse {
     }
 
     public static class ResobjBean {
+        private boolean isCommon;
         private List<MainArrayBean> MainArray;
+
+        public boolean isCommon() {
+            return isCommon;
+        }
+
+        public void setCommon(boolean common) {
+            isCommon = common;
+        }
 
         public List<MainArrayBean> getMainArray() {
             return MainArray;

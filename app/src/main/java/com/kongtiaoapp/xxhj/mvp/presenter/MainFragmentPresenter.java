@@ -30,13 +30,14 @@ public class MainFragmentPresenter extends BasePresenterLpl<MainFragmentView, Ma
             @Override
             public void requestSuccess(Object response) {
                 HomeRunningInfoBean bean = (HomeRunningInfoBean) response;
+                HomeRunningInfoBean.ResobjBean resobj = bean.getResobj();
+
                 if (bean.getCode() == SUCCEDD) {
-                    HomeRunningInfoBean.ResobjBean resobj = bean.getResobj();
                     List<HomeRunningInfoBean.ResobjBean.ModulesBean> list = resobj.getModules();
                     App.sp.setProjectId(list.get(0).getProjectId());
                 } else if (bean.getCode() == EMPTY) {
                 } else {
-                  //  ToastUtils.showToast(activity, bean.getErrormsg());
+                    //  ToastUtils.showToast(activity, bean.getErrormsg());
                 }
             }
         });

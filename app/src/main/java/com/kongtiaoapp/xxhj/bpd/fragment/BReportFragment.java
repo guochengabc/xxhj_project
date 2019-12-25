@@ -1,6 +1,7 @@
 package com.kongtiaoapp.xxhj.bpd.fragment;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.app.Fragment;
@@ -85,11 +86,12 @@ public class BReportFragment extends BaseFragment<BReportP, BReportV> implements
     private List<Project_Module_Name.ResobjBean> list_module = new ArrayList<>();
     private CustomViewPager vp;
     private boolean isFirst = true;
-
+    private String projectId;
     public BReportFragment() {
         // Required empty public constructor
     }
 
+    @SuppressLint("ValidFragment")
     public BReportFragment(CustomViewPager vp) {
         this.vp = vp;
     }
@@ -139,7 +141,7 @@ public class BReportFragment extends BaseFragment<BReportP, BReportV> implements
     }
 
     private void getDataForServices() {
-        presenter.onResume(mActivity);
+        presenter.onResume(mActivity,projectId);
     }
 
 

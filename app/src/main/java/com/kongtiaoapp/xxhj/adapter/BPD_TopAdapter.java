@@ -27,10 +27,17 @@ public class BPD_TopAdapter extends BaseAdapter {
 
     private Context context;
     private List<BPD_MainInfoBean.ResobjBean.GroupDataBean> list;
+    private String projectId = "";
 
     public BPD_TopAdapter(List<BPD_MainInfoBean.ResobjBean.GroupDataBean> list, Context context) {
         this.list = list;
         this.context = context;
+    }
+
+    public BPD_TopAdapter(List<BPD_MainInfoBean.ResobjBean.GroupDataBean> list, Context context, String projectId) {
+        this.list = list;
+        this.context = context;
+        this.projectId = projectId;
     }
 
     @Override
@@ -60,11 +67,11 @@ public class BPD_TopAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         List<BPD_MainInfoBean.ResobjBean.GroupDataBean.EnerParamBean> enerParam = list.get(position).getEnerParam();
-        if(enerParam ==null||enerParam.isEmpty()){
+        if (enerParam == null || enerParam.isEmpty()) {
             return convertView;
         }
         BPD_TopInAdapter adapter = new BPD_TopInAdapter(enerParam, context);
-        if (enerParam.size()<=3){
+        if (enerParam.size() <= 3) {
             holder.lv_statisticTec.setNumColumns(enerParam.size());
             holder.hlv_energyTop.setVisibility(View.GONE);
             holder.lv_statisticTec.setVisibility(View.VISIBLE);
@@ -76,11 +83,12 @@ public class BPD_TopAdapter extends BaseAdapter {
                     context.startActivity(new Intent(context, BPaintActivity.class)
                             .putExtra("name", enerParamBean.getName())
                             .putExtra("type", enerParamBean.getType())
-                            .putExtra("dateSign",enerParamBean.getDateSign())
-                            .putExtra("position",position+""));
+                            .putExtra("dateSign", enerParamBean.getDateSign())
+                            .putExtra("position", position + "")
+                            .putExtra("projectId", projectId));
                 }
             });
-        }else{
+        } else {
             holder.hlv_energyTop.setVisibility(View.VISIBLE);
             holder.lv_statisticTec.setVisibility(View.GONE);
             holder.hlv_energyTop.setAdapter(adapter);
@@ -91,8 +99,9 @@ public class BPD_TopAdapter extends BaseAdapter {
                     context.startActivity(new Intent(context, BPaintActivity.class)
                             .putExtra("name", enerParamBean.getName())
                             .putExtra("type", enerParamBean.getType())
-                            .putExtra("dateSign",enerParamBean.getDateSign())
-                            .putExtra("position",position+""));
+                            .putExtra("dateSign", enerParamBean.getDateSign())
+                            .putExtra("position", position + "")
+                            .putExtra("projectId", projectId));
                 }
             });
         }
@@ -104,6 +113,7 @@ public class BPD_TopAdapter extends BaseAdapter {
         HorizontalListView hlv_energyTop;
         @BindView(R.id.lv_statisticTec)
         NoScrollGridView lv_statisticTec;
+
         ViewHolder(View view) {
             ButterKnife.bind(this, view);
         }

@@ -56,10 +56,11 @@ public class BPD_PaintFragment extends BaseFragment<BPD_PaintP, BPD_PaintV> impl
     TextView txt_notata;
     private String type;
     private double paintCount = 1;//图例个数
-    private boolean isMonth=false;
+    private boolean isMonth = false;
     private String date;
     private List<TextView> list;
     private static BPD_PaintFragment instance = null;
+    private String projectId;
 
     public BPD_PaintFragment() {
         // Required empty public constructor
@@ -71,6 +72,7 @@ public class BPD_PaintFragment extends BaseFragment<BPD_PaintP, BPD_PaintV> impl
         super.onCreate(savedInstanceState);
 
     }
+
     public synchronized static BPD_PaintFragment getInstance() {
         if (instance == null) {
             instance = new BPD_PaintFragment();
@@ -100,11 +102,12 @@ public class BPD_PaintFragment extends BaseFragment<BPD_PaintP, BPD_PaintV> impl
     @Override
     public void initData() {
         super.initData();
-        Bundle bundle= getArguments();
+        Bundle bundle = getArguments();
         String time = bundle.getString("time");
-        BPD_MainInfoBean.ResobjBean.ChartCategBean.ChartBean chartBean= (BPD_MainInfoBean.ResobjBean.ChartCategBean.ChartBean) bundle.getSerializable("chart");
+        projectId = bundle.getString("projectId") == null ? "" : bundle.getString("projectId");
+        BPD_MainInfoBean.ResobjBean.ChartCategBean.ChartBean chartBean = (BPD_MainInfoBean.ResobjBean.ChartCategBean.ChartBean) bundle.getSerializable("chart");
         txt_notata.setText(time);
-        getDataForServers(chartBean.getCode(),time);
+        getDataForServers(chartBean.getCode(), time);
         if (ScreenUtils.isScreenOriatationPortrait(mActivity)) {
             Mf_Tools.setLayoutHeight(mActivity, frame_up, rela_loading, 1);//根据横竖屏切换控制视图展示   竖屏
         } else {
@@ -124,12 +127,12 @@ public class BPD_PaintFragment extends BaseFragment<BPD_PaintP, BPD_PaintV> impl
     }
 
 
-
     private void getDataForServers(String code, String time) {
-        List<String> list=new ArrayList<>();
+        List<String> list = new ArrayList<>();
         list.add(time);
         list.add(code);
-       presenter.onResume(mActivity,list);
+        list.add(projectId);
+        presenter.onResume(mActivity, list);
     }
 
     @Override

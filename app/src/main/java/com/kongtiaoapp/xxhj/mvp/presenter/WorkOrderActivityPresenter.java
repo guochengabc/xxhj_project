@@ -2,8 +2,9 @@ package com.kongtiaoapp.xxhj.mvp.presenter;
 
 import android.app.Activity;
 
+import com.kongtiaoapp.xxhj.bean.LocationAllBean;
 import com.kongtiaoapp.xxhj.bean.RBResponse;
-import com.kongtiaoapp.xxhj.bean.RepairStatusBean;
+import com.kongtiaoapp.xxhj.bean.SystemBean;
 import com.kongtiaoapp.xxhj.bean.WorkOrderGet;
 import com.kongtiaoapp.xxhj.mvp.base.BasePresenterLpl;
 import com.kongtiaoapp.xxhj.mvp.moduleipl.WorkOrderActivitylpl;
@@ -45,8 +46,8 @@ public class WorkOrderActivityPresenter extends BasePresenterLpl<WorkOrderActivi
     }
 
     //调度员提交派工单
-    public void onCimmit(Activity activity, List<String> list,int size) {
-        getModel().getCommit(activity, list,size, new ResponseXXHJListener() {
+    public void onCimmit(Activity activity, List<String> list,List<String>listSys,  int size) {
+        getModel().getCommit(activity, list,listSys,size, new ResponseXXHJListener() {
             @Override
             public void requuestError(int code) {
 
@@ -65,8 +66,9 @@ public class WorkOrderActivityPresenter extends BasePresenterLpl<WorkOrderActivi
         });
     }
 
-    public void getRepairStatus(Activity activity,int size, String param) {
-        getModel().getCommit(activity, param,size, new ResponseXXHJListener() {
+
+    public void getSystem(Activity activity) {
+        getModel().getSystem(activity, new ResponseXXHJListener() {
             @Override
             public void requuestError(int code) {
 
@@ -74,12 +76,29 @@ public class WorkOrderActivityPresenter extends BasePresenterLpl<WorkOrderActivi
 
             @Override
             public void requestSuccess(Object o) {
-                RepairStatusBean bean = (RepairStatusBean) o;
-                if (bean.getCode() == SUCCEDD) {
-                    getView().getStatus(bean.getResobj().getDispState());
-                } else if (bean.getCode() == EMPTY) {
+                SystemBean bean= (SystemBean) o;
+                if (bean.getCode()==SUCCEDD){
+                    getView().getSystem(bean.getResobj());
+                }else{
+                    ToastUtils.showToast(activity, bean.getErrormsg());
+                }
+            }
+        });
+    }
 
-                } else {
+    public void getLocation(Activity activity, String whichType) {
+        getModel().getLocation(activity, whichType, new ResponseXXHJListener() {
+            @Override
+            public void requuestError(int code) {
+
+            }
+
+            @Override
+            public void requestSuccess(Object o) {
+                LocationAllBean bean= (LocationAllBean) o;
+                if (bean.getCode()==SUCCEDD){
+                    getView().getLocation(bean.getResobj());
+                }else{
                     ToastUtils.showToast(activity, bean.getErrormsg());
                 }
             }

@@ -619,7 +619,7 @@ public class HttpMethod {
      */
     public static final String ACCEPTREPAIRINFO = "AcceptRepairInfo";
     /**
-     * 流程追踪
+     * 流程信息
      */
     public static final String LISTREPAIRFOLW = "ListRepairFlow";
 
@@ -657,6 +657,14 @@ public class HttpMethod {
      * 获取报修单状态
      */
     public static final String GETDFORMSTATE = "GetDFormState";
+    /**
+     * 获取系统
+     */
+    public static final String SYSTEM = "getSystem";
+    /**
+     * 获取位置
+     */
+    public static final String LOCATION = "getLocation";
     /**
      * 工单统计
      */

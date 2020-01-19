@@ -29,7 +29,6 @@ import com.kongtiaoapp.xxhj.ui.view.ClickTextView;
 import com.kongtiaoapp.xxhj.ui.view.LinearLayoutView;
 import com.kongtiaoapp.xxhj.utils.MD5Utils;
 import com.kongtiaoapp.xxhj.utils.NetworkUtils;
-import com.kongtiaoapp.xxhj.utils.RegexUtils;
 import com.kongtiaoapp.xxhj.utils.emoji.ToastUtils;
 
 import java.util.ArrayList;
@@ -117,11 +116,11 @@ public class LoginActivity extends AppCompatActivity implements LoginView, Linea
                     //   showToast(TAG, "请输入手机号码");
                     ToastUtils.showToast(this, "请输入手机号码");
                     return;
-                } else if (!RegexUtils.isMobileNO(phone)) {
+                } /*else if (!RegexUtils.isMobileNO(phone)) {
                     //   showToast(TAG, "手机号码格式不正确,请确认后输入");
                     ToastUtils.showToast(this, "手机号码格式不正确,请确认后输入");
                     return;
-                } else if (TextUtils.isEmpty(pass)) {
+                } */else if (TextUtils.isEmpty(pass)) {
                     //  showToast(TAG, "请输入登录密码");
                     ToastUtils.showToast(this, "请输入登录密码");
                     return;

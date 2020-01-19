@@ -114,6 +114,78 @@
                 <TextView
                     android:layout_width="@dimen/work_width"
                     android:layout_height="wrap_content"
+                    android:text="@string/system"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/work_size" />
+
+                <TextView
+                    android:id="@+id/edt_floor_system"
+                    style="@style/work_repair_edt_content"
+                    android:hint="@string/pl_choose" />
+            </LinearLayout>
+
+
+            <include layout="@layout/include_view_line"></include>
+
+            <LinearLayout style="@style/workorder_detail_linearlayout">
+
+                <TextView
+                    android:layout_width="@dimen/work_width"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Building"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/work_size" />
+
+                <TextView
+                    android:id="@+id/edt_floor_building"
+                    style="@style/work_repair_edt_content"
+                    android:hint="@string/pl_choose" />
+            </LinearLayout>
+
+
+            <include layout="@layout/include_view_line"></include>
+
+            <LinearLayout style="@style/workorder_detail_linearlayout">
+
+                <TextView
+                    android:layout_width="@dimen/work_width"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Storey"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/work_size" />
+
+                <TextView
+                    android:id="@+id/edt_floor_storey"
+                    style="@style/work_repair_edt_content"
+                    android:hint="@string/pl_choose" />
+            </LinearLayout>
+
+
+            <include layout="@layout/include_view_line"></include>
+
+            <LinearLayout style="@style/workorder_detail_linearlayout">
+
+                <TextView
+                    android:layout_width="@dimen/work_width"
+                    android:layout_height="wrap_content"
+                    android:text="@string/InstallLocation"
+                    android:textColor="@color/a333333"
+                    android:textSize="@dimen/work_size" />
+
+                <TextView
+                    android:id="@+id/edt_floor_installLocation"
+                    style="@style/work_repair_edt_content"
+                    android:hint="@string/pl_choose" />
+            </LinearLayout>
+
+
+            <include layout="@layout/include_view_line"></include>
+
+            <LinearLayout style="@style/workorder_detail_linearlayout">
+
+                <TextView
+                    android:layout_width="@dimen/work_width"
+                    android:layout_height="wrap_content"
                     android:text="@string/repair_place"
                     android:textColor="@color/a333333"
                     android:textSize="@dimen/work_size" />
@@ -303,8 +375,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:gravity="center_horizontal"
+                android:orientation="horizontal"
                 android:padding="15dp">
 
                 <TextView
@@ -323,13 +395,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="30dp"
                     android:background="@drawable/selector_maincolor_style"
                     android:padding="10dp"
-                    android:layout_marginLeft="30dp"
                     android:text="报修工单"
                     android:textColor="@color/ffffff"
-                    android:visibility="gone"
-                    android:textSize="@dimen/work_shangbao_size" />
+                    android:textSize="@dimen/work_shangbao_size"
+                    android:visibility="gone" />
             </LinearLayout>
 
         </com.kongtiaoapp.xxhj.ui.view.MyLinearlayout>

@@ -195,6 +195,15 @@ public class BPD_MainInfoBean extends RBResponse {
                 private String Param;
                 private String Type;
                 private String Y_param;
+                private String DeviceId;
+
+                public String getDeviceId() {
+                    return DeviceId;
+                }
+
+                public void setDeviceId(String deviceId) {
+                    DeviceId = deviceId;
+                }
 
                 public String getChartSign() {
                     return ChartSign;

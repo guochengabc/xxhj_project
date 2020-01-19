@@ -92,6 +92,8 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
     private String intentPosition;
     private StatisticEtcAdapter adapter;
     private String projectId;
+    private String deviceId;
+    private String dateSign;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -184,24 +186,25 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
 
     @Override
     protected void initData() {
-        lv_etc.setFocusable(false);//让listview失去焦点
-        month = DateUtils.getYM();
-        day = DateUtils.getYMD();
-        setPaint();//设置图表
         Intent intent = getIntent();
         if (intent != null) {
             String name = intent.getStringExtra("name");
             type = intent.getStringExtra("type");
-            String dateSign = intent.getStringExtra("dateSign");
+            dateSign = intent.getStringExtra("dateSign");
             intentPosition = intent.getStringExtra("position");
             projectId = intent.getStringExtra("projectId");
+            deviceId = intent.getStringExtra("deviceId");
             if (type != null) {
                 tv_title.setText(name);
-                if (dateSign != null) {
-                    setPaintHourOrDay(type);
-                }
-
             }
+        }
+
+        lv_etc.setFocusable(false);//让listview失去焦点
+        month = DateUtils.getYM();
+        day = DateUtils.getYMD();
+        setPaint();//设置图表
+        if (dateSign != null) {
+            setPaintHourOrDay(type);
         }
 
 
@@ -242,7 +245,7 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
         day = DateUtils.getYMD();
         txt_notata.setText(day);
         // getDataForService(day);
-        List listTab=new ArrayList();
+        List listTab = new ArrayList();
         listTab.add(type);
         listTab.add(projectId);
         presenter.onResume(this, listTab);
@@ -252,14 +255,15 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
 
 
     private void getDataForService(String date) {
-        if (date==null){
-            date=DateUtils.getCurrentDate("yyyy-MM-dd");
+        if (date == null) {
+            date = DateUtils.getCurrentDate("yyyy-MM-dd");
         }
         txt_notata.setText(date);
         List<String> list = new ArrayList<>();
         list.add(date);
         list.add(type);
         list.add(projectId);
+        list.add(deviceId);
         presenter.getPaint(this, list);
         presenter.getFGDL(this, list);
     }
@@ -304,7 +308,7 @@ public class BPaintActivity extends BaseActivity<BPaintP, BPaintView> implements
         txt_notata.setVisibility(View.VISIBLE);
         ChartDataBean lr_bean = (ChartDataBean) data;
         ChartDataBean.ResobjBean resobj = lr_bean.getResobj();
-        if (resobj==null){
+        if (resobj == null) {
             return;
         }
         List<ChartDataBean.ResobjBean.DataBean> listData = resobj.getData();

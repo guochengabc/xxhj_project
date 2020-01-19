@@ -29,6 +29,7 @@ public class BPaintl implements BPaintM {
         map.put("date", list.get(0));
         map.put("type", list.get(1));
         map.put("projectId", list.get(2));
+        map.put("deviceId",list.get(3));
         Map<String, String> params = new HashMap<String, String>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETPOWERMONITORDATA, map));
         new GetTask<ChartDataBean>(activity, ChartDataBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();

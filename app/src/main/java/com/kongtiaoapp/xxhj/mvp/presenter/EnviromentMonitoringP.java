@@ -18,8 +18,8 @@ public class EnviromentMonitoringP extends BasePresenterLpl<EnviromentMonitoring
     protected EnviromentMonitoringl getModel() {
         return new EnviromentMonitoringl();
     }
-    public void onResume(Activity activity){
-        getModel().getDataForservices(activity, "", new ResponseXXHJListener() {
+    public void onResume(Activity activity,String projectId){
+        getModel().getDataForservices(activity, projectId, new ResponseXXHJListener() {
             @Override
             public void requuestError(int code) {
 

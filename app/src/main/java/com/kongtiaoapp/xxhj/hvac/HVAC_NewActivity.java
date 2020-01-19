@@ -483,7 +483,7 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
                                 putExtra("paintTwo", (Serializable) efficParaInfoList.get(position)));
                     }*/
                     if (infoBean.getDisplayType().equals("M")) {
-                        startActivity(new Intent(HVAC_NewActivity.this, EnviromentMonitoringActivity.class));
+                        startActivity(new Intent(HVAC_NewActivity.this, EnviromentMonitoringActivity.class).putExtra("projectId",projectId));
                     } else {
                         tv_title.setText(infoBean.getName() == null ? "暖通空调" : infoBean.getName());
                         type = infoBean.getType();
@@ -515,7 +515,7 @@ public class HVAC_NewActivity extends BaseActivity<Group_Project_DetailPresenter
                                 putExtra("paintThree", (Serializable) sysParamInfo.get(position)));
                     }*/
                     if (infoBean.getDisplayType().equals("M")) {
-                        startActivity(new Intent(HVAC_NewActivity.this, EnviromentMonitoringActivity.class));
+                        startActivity(new Intent(HVAC_NewActivity.this, EnviromentMonitoringActivity.class).putExtra("projectId",projectId));
                     } else {
                         tv_title.setText(infoBean.getName() == null ? "暖通空调" : infoBean.getName());
                         type = infoBean.getType();

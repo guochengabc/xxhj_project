@@ -1,5 +1,6 @@
 package com.kongtiaoapp.xxhj.hvac;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ExpandableListView;
@@ -81,7 +82,12 @@ public class EnviromentMonitoringActivity extends BaseActivity<EnviromentMonitor
 
     @Override
     protected void initData() {
-        presenter.onResume(this);
+        Intent intent = getIntent();
+        if (intent != null) {
+            String projectId = intent.getStringExtra("projectId");
+            presenter.onResume(this,projectId);
+        }
+
     }
 
     @Override

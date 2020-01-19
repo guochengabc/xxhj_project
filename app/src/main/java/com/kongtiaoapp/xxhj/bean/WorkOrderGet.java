@@ -79,6 +79,11 @@ public class WorkOrderGet extends RBResponse {
         private String IsQualified;
         private String LimitTime;
         private String ReportTime;
+        private String ProjectId;
+        private String ProjectName;
+        private String Building;
+        private String Storey;
+        private String InstallLocation;
         private String Location;
         private String OrderTime;
         private String Phone;
@@ -91,6 +96,46 @@ public class WorkOrderGet extends RBResponse {
         private List<String> FinishPhotoArr;
         private List<MaterialArrBean> MaterialArr;
         private List<String> PrspPhotoArr;
+
+        public String getProjectId() {
+            return ProjectId;
+        }
+
+        public void setProjectId(String projectId) {
+            ProjectId = projectId;
+        }
+
+        public String getProjectName() {
+            return ProjectName;
+        }
+
+        public void setProjectName(String projectName) {
+            ProjectName = projectName;
+        }
+
+        public String getBuilding() {
+            return Building;
+        }
+
+        public void setBuilding(String building) {
+            Building = building;
+        }
+
+        public String getStorey() {
+            return Storey;
+        }
+
+        public void setStorey(String storey) {
+            Storey = storey;
+        }
+
+        public String getInstallLocation() {
+            return InstallLocation;
+        }
+
+        public void setInstallLocation(String installLocation) {
+            InstallLocation = installLocation;
+        }
 
         public String getCanFinish() {
             return CanFinish;

@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -60,6 +62,12 @@ import static com.kongtiaoapp.xxhj.R.id.txt_prospect;
  * 工程师进行报修
  */
 public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, EngineerView> implements EngineerView, AdapterView.OnItemClickListener {
+    @BindView(R.id.frame_repairInfoVisible)
+    FrameLayout frame_repairInfoVisible;
+    @BindView(R.id.img_repairInfo)
+    ImageView img_repairInfo;//报修工单区显示和隐藏  ml_repairForm
+    @BindView(R.id.ml_repairForm)
+    MyLinearlayout ml_repairForm;
     @BindView(R.id.txt_workNumber)//工单编号
             TextView txt_workNumber;
     @BindView(R.id.txt_modifyForm)//是否显示修改报修单
@@ -68,6 +76,14 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
     TextView edt_firm;
     @BindView(R.id.task_describe)//保修内容
             TextView task_describe;
+    @BindView(R.id.floor_system)//系统
+            TextView floor_system;
+    @BindView(R.id.floor_building)//楼栋
+            TextView floor_building;
+    @BindView(R.id.floor_storey)//楼层
+            TextView floor_storey;
+    @BindView(R.id.floor_installLocation)//区域
+            TextView floor_installLocation;
     @BindView(R.id.floor_roomNumber)//报修地点
             TextView floor_roomNumber;
     @BindView(R.id.edt_contactPhone)//联系电话
@@ -222,14 +238,15 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
 
     @BindView(R.id.line_acceptWork)
     MyLinearlayout line_acceptWork;//接单显示和隐藏
-   /* //报修图片
-    @BindView(R.id.iv_repair)
-    NineGridView iv_repair;*/
-
+    /* //报修图片
+     @BindView(R.id.iv_repair)
+     NineGridView iv_repair;*/
+    private boolean isVisibleRepair = true;
     private String dispatchId = "";
     private String isFinish = "";
     private int finishStatus = 0;//完成状态
     private int visibleNumber = 1;
+    private boolean isFisrt = true;//第一次进入界面
     private MyPopupWindow popupWindow;
     List<DeviceParam.EnumValue> enumValue = new ArrayList<>();
     List<DeviceParam.EnumValue> enumFinish = new ArrayList<>();
@@ -287,52 +304,56 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
 
 
     private void getDataRepair() {
-        txt_professional.setTag("");
-        txt_isFinish.setTag("");
-        edt_evaluate.setTag("");
-        txt_isPass.setTag("");
+        if (isFisrt) {
+            txt_professional.setTag("");
+            txt_isFinish.setTag("");
+            edt_evaluate.setTag("");
+            txt_isPass.setTag("");
+
+
+            enumValue.clear();
+            DeviceParam data = new DeviceParam();
+            for (String key : buildingTypeMap.keySet()) {
+                DeviceParam.EnumValue item = data.new EnumValue();
+                item.setCode(key);
+                item.setValue(buildingTypeMap.get(key));
+                enumValue.add(item);
+            }
+            DeviceParam.EnumValue itemFinish = data.new EnumValue();
+            DeviceParam.EnumValue itemNoFinish = data.new EnumValue();
+            DeviceParam.EnumValue itemPass = data.new EnumValue();
+            DeviceParam.EnumValue itemNoPass = data.new EnumValue();
+            DeviceParam.EnumValue itemPassOther = data.new EnumValue();
+            DeviceParam.EnumValue itemByself = data.new EnumValue();
+            DeviceParam.EnumValue itemByOther = data.new EnumValue();
+            itemByself.setCode("byself");
+            itemByself.setValue("自己");
+            itemByOther.setCode("byother");
+            itemByOther.setValue("其他人");
+            itemFinish.setCode("1");
+            itemFinish.setValue("已完成");
+            itemNoFinish.setCode("0");
+            itemNoFinish.setValue("未完成");
+            itemPass.setCode("1");
+            itemPass.setValue("审核通过");
+            itemNoPass.setCode("0");
+            itemNoPass.setValue("审核未通过");
+            itemPassOther.setCode("2");
+            itemPassOther.setValue("其他部门维修");
+
+            enumFinish.add(itemFinish);
+            enumFinish.add(itemNoFinish);
+            enumPass.add(itemPass);
+            enumPass.add(itemNoPass);
+            enumPass.add(itemPassOther);
+            enumBySelf.add(itemByself);
+            enumBySelf.add(itemByOther);
+            initListers();
+            isFisrt = !isFisrt;
+        }
         if (dispatchId != null && !dispatchId.equals("")) {
             presenter.onResume(mActivity, dispatchId);//派工单
         }
-
-        enumValue.clear();
-        DeviceParam data = new DeviceParam();
-        for (String key : buildingTypeMap.keySet()) {
-            DeviceParam.EnumValue item = data.new EnumValue();
-            item.setCode(key);
-            item.setValue(buildingTypeMap.get(key));
-            enumValue.add(item);
-        }
-        DeviceParam.EnumValue itemFinish = data.new EnumValue();
-        DeviceParam.EnumValue itemNoFinish = data.new EnumValue();
-        DeviceParam.EnumValue itemPass = data.new EnumValue();
-        DeviceParam.EnumValue itemNoPass = data.new EnumValue();
-        DeviceParam.EnumValue itemPassOther = data.new EnumValue();
-        DeviceParam.EnumValue itemByself = data.new EnumValue();
-        DeviceParam.EnumValue itemByOther = data.new EnumValue();
-        itemByself.setCode("byself");
-        itemByself.setValue("自己");
-        itemByOther.setCode("byother");
-        itemByOther.setValue("其他人");
-        itemFinish.setCode("1");
-        itemFinish.setValue("已完成");
-        itemNoFinish.setCode("0");
-        itemNoFinish.setValue("未完成");
-        itemPass.setCode("1");
-        itemPass.setValue("审核通过");
-        itemNoPass.setCode("0");
-        itemNoPass.setValue("审核未通过");
-        itemPassOther.setCode("2");
-        itemPassOther.setValue("其他部门维修");
-
-        enumFinish.add(itemFinish);
-        enumFinish.add(itemNoFinish);
-        enumPass.add(itemPass);
-        enumPass.add(itemNoPass);
-        enumPass.add(itemPassOther);
-        enumBySelf.add(itemByself);
-        enumBySelf.add(itemByOther);
-        initListers();
     }
 
     @Override
@@ -348,7 +369,7 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
     @Override
     public void initData() {
         super.initData();
-
+        frame_repairInfoVisible.setVisibility(View.GONE);
     }
 
     @Override
@@ -376,13 +397,25 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
         line_evaluate_commit.setVisibility(View.GONE);
     }
 
-    @OnClick({R.id.txt_finish_byself, R.id.line_workorder
+    @OnClick({R.id.frame_repairInfoVisible,
+            R.id.txt_finish_byself, R.id.line_workorder
             , R.id.txt_add_enegry_metarial, txt_prospect
             , R.id.txt_professional, R.id.txt_finish_time
             , R.id.txt_profession_date, R.id.txt_isFinish, R.id.txt_isPass, R.id.txt_sure
             , R.id.txt_evaluate, R.id.txt_modifyForm, R.id.txt_acceptWork})
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.frame_repairInfoVisible:
+                if (isVisibleRepair) {
+                    isVisibleRepair = !isVisibleRepair;
+                    img_repairInfo.setImageResource(R.mipmap.move_up);
+                    ml_repairForm.setVisibility(View.GONE);
+                } else if (isVisibleRepair == false) {
+                    isVisibleRepair = !isVisibleRepair;
+                    img_repairInfo.setImageResource(R.mipmap.move_down);
+                    ml_repairForm.setVisibility(View.VISIBLE);
+                }
+                break;
             case R.id.line_workorder:
                 hiddenInputs();
                 break;
@@ -429,7 +462,7 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
                 }
                 break;
             case R.id.txt_sure:
-                commitSave();//报修完提交
+                commitSave();//报修完提交   提交报单
                 break;
             case txt_prospect://工程师勘查上报
                 isProspect = "1";
@@ -647,6 +680,7 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
 
     @Override
     public void setDetailInfo(WorkOrderGet beans) {
+        frame_repairInfoVisible.setVisibility(View.VISIBLE);
         WorkOrderGet.ResobjBean bean = beans.getResobj();
         finishStatus = Integer.parseInt(bean.getDispState());
         if (UserManegerList.WORKORDER_ENGI()) {//工程师
@@ -770,6 +804,18 @@ public class EngineerRepairFragment extends BaseFragment<EngineerPresenter, Engi
         }
         if (bean.getContent() != null) {
             task_describe.setText(bean.getContent());
+        }
+        if (bean.getProjectName() != null) {
+            floor_system.setText(bean.getProjectName());
+        }
+        if (bean.getBuilding() != null) {
+            floor_building.setText(bean.getBuilding());
+        }
+        if (bean.getStorey() != null) {
+            floor_storey.setText(bean.getStorey());
+        }
+        if (bean.getInstallLocation() != null) {
+            floor_installLocation.setText(bean.getInstallLocation());
         }
         if (bean.getLocation() != null) {
             floor_roomNumber.setText(bean.getLocation());

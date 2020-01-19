@@ -1,7 +1,7 @@
 package com.kongtiaoapp.xxhj.adapter;
 
 import android.content.Context;
-import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +10,8 @@ import android.widget.BaseAdapter;
 
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.bean.BPD_MainInfoBean;
-import com.kongtiaoapp.xxhj.bpd.activity.BPaintActivity;
+import com.kongtiaoapp.xxhj.bpd.fragment.BPD_PaintFragment;
+import com.kongtiaoapp.xxhj.interfaces.BPD_PaintUpdate;
 import com.kongtiaoapp.xxhj.ui.view.NoScrollGridView;
 import com.kongtiaoapp.xxhj.ui.view.horizontallistview.HorizontalListView;
 
@@ -28,16 +29,22 @@ public class BPD_TopAdapter extends BaseAdapter {
     private Context context;
     private List<BPD_MainInfoBean.ResobjBean.GroupDataBean> list;
     private String projectId = "";
+    BPD_MainInfoBean.ResobjBean resobj;
+    protected BPD_PaintUpdate paintUpdate;
+    private String time;
 
     public BPD_TopAdapter(List<BPD_MainInfoBean.ResobjBean.GroupDataBean> list, Context context) {
         this.list = list;
         this.context = context;
     }
 
-    public BPD_TopAdapter(List<BPD_MainInfoBean.ResobjBean.GroupDataBean> list, Context context, String projectId) {
+    public BPD_TopAdapter(List<BPD_MainInfoBean.ResobjBean.GroupDataBean> list, Context context, String projectId, BPD_MainInfoBean.ResobjBean resobj, String time) {
         this.list = list;
         this.context = context;
+        this.paintUpdate = (BPD_PaintUpdate) context;
         this.projectId = projectId;
+        this.resobj = resobj;
+        this.time = time;
     }
 
     @Override
@@ -78,14 +85,25 @@ public class BPD_TopAdapter extends BaseAdapter {
             holder.lv_statisticTec.setAdapter(adapter);
             holder.lv_statisticTec.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    BPD_MainInfoBean.ResobjBean.GroupDataBean.EnerParamBean enerParamBean = enerParam.get(position);
-                    context.startActivity(new Intent(context, BPaintActivity.class)
+                public void onItemClick(AdapterView<?> parent, View view, int positions, long id) {
+                    BPD_MainInfoBean.ResobjBean.GroupDataBean.EnerParamBean enerParamBean = enerParam.get(positions);
+                    BPD_PaintFragment fragment = BPD_PaintFragment.getInstance();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("time", time);
+                    bundle.putString("projectId", projectId);
+                    String deviceId = enerParamBean.getDeviceId();
+                    bundle.putString("deviceId", deviceId);
+                    String type = enerParamBean.getType();
+                    bundle.putString("type", type);
+                    fragment.setBundleData(bundle);
+                    paintUpdate.updatePaint(deviceId, type);
+                   /* context.startActivity(new Intent(context, BPaintActivity.class)
                             .putExtra("name", enerParamBean.getName())
                             .putExtra("type", enerParamBean.getType())
                             .putExtra("dateSign", enerParamBean.getDateSign())
                             .putExtra("position", position + "")
-                            .putExtra("projectId", projectId));
+                            .putExtra("deviceId",enerParamBean.getDeviceId())
+                            .putExtra("projectId", projectId));*/
                 }
             });
         } else {
@@ -96,16 +114,31 @@ public class BPD_TopAdapter extends BaseAdapter {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     BPD_MainInfoBean.ResobjBean.GroupDataBean.EnerParamBean enerParamBean = enerParam.get(position);
-                    context.startActivity(new Intent(context, BPaintActivity.class)
+                   /* context.startActivity(new Intent(context, BPaintActivity.class)
                             .putExtra("name", enerParamBean.getName())
                             .putExtra("type", enerParamBean.getType())
                             .putExtra("dateSign", enerParamBean.getDateSign())
                             .putExtra("position", position + "")
-                            .putExtra("projectId", projectId));
+                            .putExtra("deviceId",enerParamBean.getDeviceId())
+                            .putExtra("projectId", projectId));*/
+                    BPD_PaintFragment fragment = BPD_PaintFragment.getInstance();
+                    Bundle bundle = new Bundle();
+                    bundle.putString("time", time);
+                    bundle.putString("projectId", projectId);
+                    String deviceId = enerParamBean.getDeviceId();
+                    bundle.putString("deviceId", deviceId);
+                    String type = enerParamBean.getType();
+                    bundle.putString("type", type);
+                    fragment.setBundleData(bundle);
+                    paintUpdate.updatePaint(deviceId, type);
                 }
             });
         }
         return convertView;
+    }
+
+    public void setPaintTime(String times) {
+        this.time = times;
     }
 
     public class ViewHolder {

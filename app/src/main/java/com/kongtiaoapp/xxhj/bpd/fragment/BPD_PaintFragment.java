@@ -9,7 +9,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.kongtiaoapp.xxhj.R;
-import com.kongtiaoapp.xxhj.bean.BPD_MainInfoBean;
 import com.kongtiaoapp.xxhj.bean.ChartDataBean;
 import com.kongtiaoapp.xxhj.mvp.base.BaseFragment;
 import com.kongtiaoapp.xxhj.mvp.presenter.BPD_PaintP;
@@ -54,13 +53,15 @@ public class BPD_PaintFragment extends BaseFragment<BPD_PaintP, BPD_PaintV> impl
     TextView graph9;
     @BindView(R.id.txt_notata)
     TextView txt_notata;
-    private String type;
+    private String whichTime="0";//0日 1月
     private double paintCount = 1;//图例个数
     private boolean isMonth = false;
     private String date;
     private List<TextView> list;
     private static BPD_PaintFragment instance = null;
     private String projectId;
+    private String deviceId;
+    private String time;
 
     public BPD_PaintFragment() {
         // Required empty public constructor
@@ -97,17 +98,27 @@ public class BPD_PaintFragment extends BaseFragment<BPD_PaintP, BPD_PaintV> impl
     protected View initView() {
         return View.inflate(mActivity, R.layout.fragment_bpd__paint, null);
     }
+    public void setBundleData(Bundle bundle){
+        time = bundle.getString("time");
+        projectId = bundle.getString("projectId") == null ? "" : bundle.getString("projectId");
+        deviceId = bundle.getString("deviceId") == null ? "" : bundle.getString("deviceId");
+        String type = bundle.getString("type") == null ? "" : bundle.getString("type");
+        txt_notata.setText(time);
+        getDataForServers(type, time);
+        System.out.println("设备id:"+deviceId);
+    }
 
 
     @Override
     public void initData() {
         super.initData();
         Bundle bundle = getArguments();
-        String time = bundle.getString("time");
+        time = bundle.getString("time");
         projectId = bundle.getString("projectId") == null ? "" : bundle.getString("projectId");
-        BPD_MainInfoBean.ResobjBean.ChartCategBean.ChartBean chartBean = (BPD_MainInfoBean.ResobjBean.ChartCategBean.ChartBean) bundle.getSerializable("chart");
+        deviceId = bundle.getString("deviceId") == null ? "" : bundle.getString("deviceId");
+        String type = bundle.getString("type") == null ? "" : bundle.getString("type");
         txt_notata.setText(time);
-        getDataForServers(chartBean.getCode(), time);
+        getDataForServers(type, time);
         if (ScreenUtils.isScreenOriatationPortrait(mActivity)) {
             Mf_Tools.setLayoutHeight(mActivity, frame_up, rela_loading, 1);//根据横竖屏切换控制视图展示   竖屏
         } else {
@@ -132,12 +143,12 @@ public class BPD_PaintFragment extends BaseFragment<BPD_PaintP, BPD_PaintV> impl
         list.add(time);
         list.add(code);
         list.add(projectId);
+        list.add(deviceId);
         presenter.onResume(mActivity, list);
     }
 
     @Override
     public void setText(Object data) {
-
         txt_notata.setVisibility(View.VISIBLE);
         ChartDataBean lr_bean = (ChartDataBean) data;
         ChartDataBean.ResobjBean resobj = lr_bean.getResobj();
@@ -145,12 +156,16 @@ public class BPD_PaintFragment extends BaseFragment<BPD_PaintP, BPD_PaintV> impl
         if (listData == null) {
             return;
         }
-
         List<double[]> listX = new ArrayList<>();
         List<double[]> listY = new ArrayList<>();
         String[] titles = new String[listData.size()];
         for (int i = 0; i < listData.size(); i++) {
-            titles[i] = listData.get(i).getText();
+            if (time.length()>7){
+                titles[i] = listData.get(i).getText()+"功率";
+            }else{
+                titles[i] = listData.get(i).getText()+"能耗";
+            }
+
             listX.add(resobj.getTime());
             listY.add(listData.get(i).getValue());
         }

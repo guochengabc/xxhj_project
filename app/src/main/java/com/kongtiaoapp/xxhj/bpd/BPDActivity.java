@@ -9,6 +9,9 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.kongtiaoapp.xxhj.R;
@@ -23,11 +26,13 @@ import com.kongtiaoapp.xxhj.bpd.fragment.BReportFragment;
 import com.kongtiaoapp.xxhj.bpd.fragment.BThresholdsFragment;
 import com.kongtiaoapp.xxhj.bpd.fragment.BWeek_MonthReportFragment;
 import com.kongtiaoapp.xxhj.duty.fragment.Duty_ProjectFragment;
+import com.kongtiaoapp.xxhj.interfaces.BPD_PaintUpdate;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
 import com.kongtiaoapp.xxhj.mvp.presenter.BPDP;
 import com.kongtiaoapp.xxhj.mvp.view.BPDV;
 import com.kongtiaoapp.xxhj.ui.view.CustomViewPager;
 import com.kongtiaoapp.xxhj.ui.view.horizontallistview.ListOutView;
+import com.kongtiaoapp.xxhj.utils.DateUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,11 +44,22 @@ import butterknife.OnClick;
 /**
  * By GC 2018-9-7    变配电
  */
-public class BPDActivity extends BaseActivity<BPDP, BPDV> implements BPDV{
+public class BPDActivity extends BaseActivity<BPDP, BPDV> implements BPDV, RadioGroup.OnCheckedChangeListener,BPD_PaintUpdate {
     @BindView(R.id.lv_bpd_top)
     ListOutView lv_energyP;//变配电顶部
     @BindView(R.id.frame__paint)
     FrameLayout frame__paint;
+    //图表 日月
+    @BindView(R.id.img_left)
+    ImageView img_left;
+    @BindView(R.id.img_right)
+    ImageView img_right;
+    @BindView(R.id.group_time)
+    RadioGroup group_time;
+    @BindView(R.id.radio0)
+    RadioButton radio0;//日
+    @BindView(R.id.radio1)
+    RadioButton radio1;//月
 
     //第一个分类
     @BindView(R.id.tab_one)
@@ -62,6 +78,16 @@ public class BPDActivity extends BaseActivity<BPDP, BPDV> implements BPDV{
     private int tab_running_position = 0;
     private Duty_ProjectFragment duty_projectFragment;
     private String projectId;
+    private BPD_MainInfoBean.ResobjBean resobj;
+    //日月相关逻辑
+    private boolean isFirstPaint = true;
+    private int whichPaint = 0;//0  代表的时   1  代表的日
+    private boolean isMonth = false;
+    private String month;
+    private String day;
+    private String paramType;
+    private String deviceId;
+    private BPD_TopAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,18 +106,19 @@ public class BPDActivity extends BaseActivity<BPDP, BPDV> implements BPDV{
         if (intent != null) {
             projectId = intent.getStringExtra("projectId");
         }
-        presenter.onResume(this,projectId);
+        presenter.onResume(this, projectId);
     }
 
     @Override
     protected void initListener() {
-
+        group_time.setOnCheckedChangeListener(this);
     }
 
     @Override
     protected void initData() {
-
-
+        month = DateUtils.getYM();
+        day = DateUtils.getYMD();
+        radio0.setBackgroundResource(R.mipmap.green_background_circle);
     }
 
     private void initSetTabOne() {
@@ -104,7 +131,7 @@ public class BPDActivity extends BaseActivity<BPDP, BPDV> implements BPDV{
         BDataEntryListFragment dataEntryListFragment = new BDataEntryListFragment(vpg_one);
         Bundle bundle = new Bundle();
         bundle.putString("hvac", "true");
-        bundle.putString("projectId",projectId);
+        bundle.putString("projectId", projectId);
         dataEntryListFragment.setArguments(bundle);
         list_fragemnt.add(running_projectFragment);//报警信息
         list_fragemnt.add(alarmFragment);//值班信息
@@ -248,13 +275,14 @@ public class BPDActivity extends BaseActivity<BPDP, BPDV> implements BPDV{
         return view;
     }
 
-    private void initFragment(BPD_MainInfoBean.ResobjBean.ChartCategBean.ChartBean chartBean, String time) {
+    private void initFragment(String time) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         BPD_PaintFragment fragment = BPD_PaintFragment.getInstance();
         Bundle bundle = new Bundle();
-        bundle.putString("time",time);
-        bundle.putString("projectId",projectId);
-        bundle.putSerializable("chart",chartBean);
+        bundle.putString("time", time);
+        bundle.putString("projectId", projectId);
+        bundle.putString("deviceId", deviceId);
+        bundle.putString("type", paramType);
         fragment.setArguments(bundle);
         transaction.add(R.id.frame__paint, fragment).commit();
     }
@@ -264,7 +292,7 @@ public class BPDActivity extends BaseActivity<BPDP, BPDV> implements BPDV{
         return new BPDP();
     }
 
-    @OnClick({R.id.iv_back,R.id.txt_record})
+    @OnClick({R.id.iv_back, R.id.txt_record,R.id.img_left, R.id.img_right})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
@@ -273,22 +301,57 @@ public class BPDActivity extends BaseActivity<BPDP, BPDV> implements BPDV{
             case R.id.txt_record:
                 //startActivity(new Intent(this,RecordFormModule.class));
                 break;
+            case R.id.img_left:
+                if (whichPaint == 0) {//时
+                    day = DateUtils.getSpecifiedDayBefore(day);
+                    getPaintData(day);
+                } else if (whichPaint == 1) {//日
+                    month = DateUtils.getLastMonth(month);
+                    getPaintData(month);
+                }
+                break;
+            case R.id.img_right:
+                if (whichPaint == 0) {//时
+                    day = DateUtils.getSpecifiedDayAfter(day);
+
+                    getPaintData(day);
+                } else if (whichPaint == 1) {//日
+                    month = DateUtils.getNextMonth(month);
+                    getPaintData(month);
+                }
+                break;
+
         }
     }
 
     @Override
     public void setText(Object data) {
+        isFirstPaint = false;//防止图表请求多次   radioGroup先进行请求
         BPD_MainInfoBean bean = (BPD_MainInfoBean) data;
-        BPD_MainInfoBean.ResobjBean resobj = bean.getResobj();
+        resobj = bean.getResobj();
         //能耗顶部
         List<BPD_MainInfoBean.ResobjBean.GroupDataBean> groupData = resobj.getGroupData();
         if (groupData != null) {
-            BPD_TopAdapter adapter = new BPD_TopAdapter(groupData, this,projectId);
+            String timeDate = "";
+            if (whichPaint == 0) {
+                timeDate = day;
+            } else {
+                timeDate = month;
+            }
+            adapter = new BPD_TopAdapter(groupData, this, projectId, resobj, timeDate);
             lv_energyP.setAdapter(adapter);
         }
-        initFragment(resobj.getChartCateg().getChart().get(0),resobj.getTime());//初始化fragment
-        initSetTabOne();//设置第一个tab
-        initSetTabTwo(resobj);//设置第二个tab
+        if (groupData != null && !groupData.isEmpty()) {
+            List<BPD_MainInfoBean.ResobjBean.GroupDataBean.EnerParamBean> enerParam = groupData.get(0).getEnerParam();
+            if (enerParam != null && !enerParam.isEmpty()) {
+                BPD_MainInfoBean.ResobjBean.GroupDataBean.EnerParamBean enerParamBean = enerParam.get(0);
+                deviceId = enerParamBean.getDeviceId();
+                paramType = enerParamBean.getType();
+                initFragment(resobj.getTime());//初始化fragment
+            }
+        }
+      /*  initSetTabOne();//设置第一个tab
+        initSetTabTwo(resobj);//设置第二个tab*/
     }
 
     @Override
@@ -298,4 +361,53 @@ public class BPDActivity extends BaseActivity<BPDP, BPDV> implements BPDV{
     }
 
 
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        if (isFirstPaint) {
+            return;
+        }
+        switch (checkedId) {
+            case R.id.radio0:
+                whichPaint = 0;//代表我点击时
+                img_left.setImageResource(R.mipmap.leftarrow);
+                img_right.setImageResource(R.mipmap.rightarrow);
+                isMonth = false;
+                radio0.setBackgroundResource(R.mipmap.green_background_circle);
+                radio1.setBackgroundResource(R.mipmap.white_background_circle);
+                getPaintData(day);
+                break;
+            case R.id.radio1:
+                whichPaint = 1;//代表我点击日
+                img_left.setImageResource(R.mipmap.arrow_double_left);
+                img_right.setImageResource(R.mipmap.arrow_double_right);
+                isMonth = true;
+                radio0.setBackgroundResource(R.mipmap.white_background_circle);
+                radio1.setBackgroundResource(R.mipmap.green_background_circle);
+                getPaintData(month);
+                break;
+        }
+    }
+
+    /**
+     * @param time 日月
+     *             传值获取图表数据
+     */
+    private void getPaintData(String time) {
+        BPD_PaintFragment fragment = BPD_PaintFragment.getInstance();
+        Bundle bundle = new Bundle();
+        bundle.putString("time", time);
+        bundle.putString("projectId", projectId);
+        bundle.putString("deviceId", deviceId);
+        bundle.putString("type", paramType);
+        fragment.setBundleData(bundle);
+        if (adapter!=null){
+            adapter.setPaintTime(time);
+        }
+    }
+
+    @Override
+    public void updatePaint(String deviceIdNew, String paramTypeNew) {
+        deviceId=deviceIdNew;
+        paramType=paramTypeNew;
+    }
 }

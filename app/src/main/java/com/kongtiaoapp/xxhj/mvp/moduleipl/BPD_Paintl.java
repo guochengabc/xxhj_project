@@ -29,6 +29,7 @@ public class BPD_Paintl implements BPD_PaintM {
         map.put("type", list.get(1));
         if (StringUtils.isNotBlank(data.toString())) {
             map.put("projectId", list.get(2));
+            map.put("deviceId",list.get(3));
         }
         Map<String, String> params = new HashMap<String, String>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETPOWERMONITORDATA, map));

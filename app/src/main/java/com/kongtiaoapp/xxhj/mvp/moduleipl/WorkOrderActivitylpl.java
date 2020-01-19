@@ -3,10 +3,13 @@ package com.kongtiaoapp.xxhj.mvp.moduleipl;
 import android.app.Activity;
 import android.text.TextUtils;
 
+import com.kongtiaoapp.xxhj.App;
 import com.kongtiaoapp.xxhj.R;
 import com.kongtiaoapp.xxhj.afinal.ConstantValue;
 import com.kongtiaoapp.xxhj.afinal.HttpMethod;
 import com.kongtiaoapp.xxhj.bean.DeviceParam;
+import com.kongtiaoapp.xxhj.bean.LocationAllBean;
+import com.kongtiaoapp.xxhj.bean.SystemBean;
 import com.kongtiaoapp.xxhj.bean.WorkOrderGet;
 import com.kongtiaoapp.xxhj.mvp.module.WorkOrderActivityModule;
 import com.kongtiaoapp.xxhj.net.okhttp.Encode_params;
@@ -44,11 +47,15 @@ public class WorkOrderActivitylpl implements WorkOrderActivityModule {
     }
 
     @Override
-    public void getCommit(Activity activity, Object o, int size, ResponseXXHJListener listener) {
+    public void getCommit(Activity activity, Object o, Object listSys, int size, ResponseXXHJListener listener) {
         List<String> list = (List<String>) o;
-
+        List<String> listSsyLocation = (List<String>) listSys;
         String custom_company;
         Map<String, Object> map = new HashMap<String, Object>();
+        map.put("projectId", listSsyLocation.get(0));
+        map.put("building", listSsyLocation.get(1));
+        map.put("storey", listSsyLocation.get(2));
+        map.put("installLocation", listSsyLocation.get(3));
         //调度员
         if (TextUtils.isEmpty(list.get(0))) {//这样设计的原因是单位可填可不填
             custom_company = "";
@@ -132,6 +139,25 @@ public class WorkOrderActivitylpl implements WorkOrderActivityModule {
         Map<String, String> params = new HashMap<String, String>();
         params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.GETDFORMSTATE, map));
         new GetTask<WorkOrderGet>(activity, WorkOrderGet.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();
+    }
+
+    @Override
+    public void getSystem(Activity activity, ResponseXXHJListener listener) {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("userId", App.sp.getUid());
+        Map<String, String> params = new HashMap<String, String>();
+        params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.SYSTEM, map));
+        new GetTask<SystemBean>(activity, SystemBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();
+    }
+
+    @Override
+    public void getLocation(Activity activity, String whichType, ResponseXXHJListener listener) {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("userId", App.sp.getUid());
+        map.put("whichType", whichType);
+        Map<String, String> params = new HashMap<String, String>();
+        params.put(HttpMethod.KEY, ParamJson.map2Json(HttpMethod.LOCATION, map));
+        new GetTask<LocationAllBean>(activity, LocationAllBean.class, ConstantValue.HTTP_URLS + Encode_params.YesToken_Encodeparms(params), true, listener).execute();
     }
 
 }

@@ -20,6 +20,8 @@ import com.kongtiaoapp.xxhj.activites.UserListActivity;
 import com.kongtiaoapp.xxhj.adapter.ImageAdapter;
 import com.kongtiaoapp.xxhj.afinal.UserManegerList;
 import com.kongtiaoapp.xxhj.bean.DeviceParam;
+import com.kongtiaoapp.xxhj.bean.LocationAllBean;
+import com.kongtiaoapp.xxhj.bean.SystemBean;
 import com.kongtiaoapp.xxhj.bean.WorkOrderGet;
 import com.kongtiaoapp.xxhj.mvp.base.BaseActivity;
 import com.kongtiaoapp.xxhj.mvp.presenter.WorkOrderActivityPresenter;
@@ -102,12 +104,26 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
     NineGridView iv_picture_repair;
     @BindView(R.id.txt_repairWork)
     TextView txt_repairWork;
+    //以下是新版本新增参数
+    @BindView(R.id.edt_floor_system)
+    TextView edt_floor_system;
+    @BindView(R.id.edt_floor_building)
+    TextView edt_floor_building;
+    @BindView(R.id.edt_floor_storey)
+    TextView edt_floor_storey;
+    @BindView(R.id.edt_floor_installLocation)
+    TextView edt_floor_installLocation;
     private ImageAdapter adapterFinish;
     private ArrayList<ImageItem> selFinishList = new ArrayList<>(); // 当前选择的所有图片 完成
     private int maxImgCount_finish = 9; // 允许选择图片最大数
 
     List<DeviceParam.EnumValue> enumBySelf = new ArrayList<>();
     List<DeviceParam.EnumValue> enum_work_mode = new ArrayList<>();
+    List<DeviceParam.EnumValue> enum_sys_location = new ArrayList<>();
+    List<DeviceParam.EnumValue> enum_building = new ArrayList<>();
+    List<DeviceParam.EnumValue> enum_storey = new ArrayList<>();
+    List<DeviceParam.EnumValue> enum_installLocation = new ArrayList<>();
+
     private MyPopupWindow popupWindow;
     private MyPopupWindow popupWindows;
     private boolean ismodify = true;
@@ -119,6 +135,11 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
     public static final int REQUEST_CODE_SELECT_FINISH = 1000;
     public static final int REQUEST_CODE_PREVIEW_FINISH = 1001;
     private String dispatchIds;
+    private boolean isSysVisible = true;//系统是否访问接口
+    private boolean isBuildingVisible = true;//楼栋是否访问接口
+    private boolean isStoreyVisible = true;//楼层是否访问接口
+    private boolean isLocationVisible = true;//区域是否访问接口
+    private String whichType = "0";//访问哪个位置   楼栋/楼层/区域
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -138,31 +159,13 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
         txt_reciever.setTag("");
         txt_evaluate.setTag("");
         txt_worker_mode.setTag("0");
+        edt_floor_system.setTag("");
         edt_repairPerson.setText(App.sp.getName());
         edt_contactPhone.setText(App.sp.getPhone());
         txt_finish_time.setText(DateUtils.getMonth_Day_Hour_Min(new Date()));
         if (UserManegerList.WORKORDER_DISP()) {//调度员
             line_byself.setVisibility(View.GONE);
         }
-        /* else if (UserManegerList.WORKORDER_ENGI()) {//工程师
-            line_custom.setVisibility(View.GONE);
-            line_receiver.setVisibility(View.GONE);
-            line_finish_time.setVisibility(View.GONE);
-            line_evaluate.setVisibility(View.GONE);
-            line_byself.setVisibility(View.VISIBLE);
-            DeviceParam data = new DeviceParam();
-            DeviceParam.EnumValue itemByself = data.new EnumValue();
-            DeviceParam.EnumValue itemByOther = data.new EnumValue();
-            itemByself.setCode("1");
-            itemByself.setValue("自己");
-            itemByOther.setCode("0");
-            itemByOther.setValue("其他人");
-            enumBySelf.add(itemByself);
-            enumBySelf.add(itemByOther);
-
-        } else {//质检员和其他职位
-            line_byself.setVisibility(View.GONE);
-        }*/
         //工单模式
         DeviceParam data = new DeviceParam();
         DeviceParam.EnumValue item_mode_qiang = data.new EnumValue();
@@ -228,7 +231,8 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
 
     @OnClick({R.id.iv_back, R.id.txt_sure, R.id.line_workorder, R.id.txt_reciever, R.id.txt_evaluate,
             R.id.txt_finish_time, R.id.txt_repairWork
-            , R.id.txt_finish_byself, R.id.line_worker_mode})
+            , R.id.txt_finish_byself, R.id.line_worker_mode, R.id.edt_floor_system,
+            R.id.edt_floor_building, R.id.edt_floor_storey, R.id.edt_floor_installLocation})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
@@ -271,6 +275,38 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
                 startActivity(new Intent(this, EngineerRepairActivity.class).
                         putExtra("dispatchId", dispatchId));
                 AllActivityManager.getInstance().removeOneActivity(this);
+                break;
+            case R.id.edt_floor_system://选择系统
+                if (isSysVisible) {
+                    presenter.getSystem(this);
+                } else if (isSysVisible == false) {
+                    showSortPopup(edt_floor_system, enum_sys_location);
+                }
+                break;
+            case R.id.edt_floor_building://选择楼栋
+                whichType = "2";
+                if (isBuildingVisible) {
+                    presenter.getLocation(this, whichType);
+                } else if (isBuildingVisible == false) {
+                    showSortPopup(edt_floor_building, enum_building);
+                }
+                break;
+            case R.id.edt_floor_storey://选择楼层
+                whichType = "3";
+                if (isStoreyVisible) {
+                    presenter.getLocation(this, whichType);
+                } else if (isStoreyVisible == false) {
+                    showSortPopup(edt_floor_storey, enum_storey);
+                }
+                break;
+            case R.id.edt_floor_installLocation://选择区域
+                whichType = "1";
+                if (isLocationVisible) {
+                    presenter.getLocation(this, whichType);
+                } else if (isLocationVisible == false) {
+                    showSortPopup(edt_floor_installLocation, enum_installLocation);
+                }
+
                 break;
             default:
                 break;
@@ -379,6 +415,7 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
         //   String evaluate = txt_evaluate.getTag().toString();//质检员
         String finishTime = txt_finish_time.getText().toString();//完成时间
         List<String> list_word = new ArrayList<>();
+        List<String> listSysLocation = new ArrayList<>();//系统和位置
         list_word.add(custom_company);
         list_word.add(taskDescribes);
         list_word.add(floorRoom);
@@ -397,7 +434,11 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
         for (int i = 0; i < selFinishList.size(); i++) {
             list_word.add(selFinishList.get(i).path);
         }
-        presenter.onCimmit(this, list_word, selFinishList.size());
+        listSysLocation.add(edt_floor_system.getTag().toString());
+        listSysLocation.add(edt_floor_building.getText().toString());
+        listSysLocation.add(edt_floor_storey.getText().toString());
+        listSysLocation.add(edt_floor_installLocation.getText().toString());
+        presenter.onCimmit(this, list_word, listSysLocation, selFinishList.size());
     }
 
 
@@ -451,6 +492,11 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
         txt_reciever.setText(bean.getRepairUserName());
         txt_reciever.setTag(bean.getRepairUserId() + "");
         txt_finish_time.setText(bean.getReportTime());
+        edt_floor_system.setTag(bean.getProjectId());
+        edt_floor_system.setText(bean.getProjectName());
+        edt_floor_building.setText(bean.getBuilding());
+        edt_floor_storey.setText(bean.getStorey());
+        edt_floor_installLocation.setText(bean.getInstallLocation());
         if (bean.getDispPattern().equals("0")) {
             txt_worker_mode.setText("抢单");
             line_receiver.setVisibility(View.GONE);
@@ -463,6 +509,66 @@ public class WorkOrderActivity extends BaseActivity<WorkOrderActivityPresenter, 
 
     @Override
     public void getStatus(String status) {
+
+    }
+
+    @Override
+    public void getSystem(Object datas) {
+        SystemBean.ResobjBean bean = (SystemBean.ResobjBean) datas;
+        List<SystemBean.ResobjBean.SysTemBean> sysTem = bean.getSysTem();
+        for (int i = 0; i < sysTem.size(); i++) {
+            DeviceParam data = new DeviceParam();
+            DeviceParam.EnumValue itemBean = data.new EnumValue();
+            SystemBean.ResobjBean.SysTemBean iBean = sysTem.get(i);
+            itemBean.setCode(iBean.getProjectId());
+            itemBean.setValue(iBean.getName());
+            enum_sys_location.add(itemBean);
+        }
+        isSysVisible = false;
+        showSortPopup(edt_floor_system, enum_sys_location);
+    }
+
+    @Override
+    public void getLocation(Object datas) {
+        LocationAllBean.ResobjBean bean = (LocationAllBean.ResobjBean) datas;
+        LocationAllBean.ResobjBean.LocationBean location = bean.getLocation();
+        List<LocationAllBean.ResobjBean.LocationBean.LocationArrBean> locationArr = location.getLocationArr();
+
+        for (int i = 0; i < locationArr.size(); i++) {
+            DeviceParam data = new DeviceParam();
+            DeviceParam.EnumValue itemBean = data.new EnumValue();
+            LocationAllBean.ResobjBean.LocationBean.LocationArrBean iBean = locationArr.get(i);
+            itemBean.setCode(iBean.getSqlParam());
+            itemBean.setValue(iBean.getName());
+            switch (whichType) {
+                case "2":
+                    enum_building.add(itemBean);
+                    break;
+
+                case "3":
+                    enum_storey.add(itemBean);
+                    break;
+
+                case "1":
+                    enum_installLocation.add(itemBean);
+                    break;
+            }
+        }
+        switch (whichType) {
+            case "2":
+                isBuildingVisible = false;
+                showSortPopup(edt_floor_building, enum_building);
+                break;
+            case "3":
+                isStoreyVisible = false;
+                showSortPopup(edt_floor_storey, enum_storey);
+                break;
+            case "1":
+                isLocationVisible = false;
+                showSortPopup(edt_floor_installLocation, enum_installLocation);
+                break;
+        }
+
 
     }
 
